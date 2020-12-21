@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>勿忘，须舍</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://forgetst.github.io/"/>
+  <updated>2020-12-20T16:00:00.000Z</updated>
+  <id>https://forgetst.github.io/</id>
+  
+  <author>
+    <name>Mr Wang</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>docker 学习笔记</title>
+    <link href="https://forgetst.github.io/docker/ckiyopfuu0043lgvvrt62ezmf.html"/>
+    <id>https://forgetst.github.io/docker/ckiyopfuu0043lgvvrt62ezmf.html</id>
+    <published>2020-12-20T16:00:00.000Z</published>
+    <updated>2020-12-20T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Docker简介&quot;&gt;&lt;a href=&quot;#Docker简介&quot; class=&quot;headerlink&quot; title=&quot;Docker简介&quot;&gt;&lt;/a&gt;Docker简介&lt;/h2&gt;&lt;p&gt;Docker 是一个开源的应用容器引擎，基于 Go 语言 并遵从 Apache2.0 协议开源。&lt;/p&gt;
+&lt;p&gt;Docker 可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。&lt;/p&gt;
+&lt;p&gt;容器是完全使用沙箱机制，相互之间不会有任何接口（类似 iPhone 的 app）,更重要的是容器性能开销极低。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="docker" scheme="https://forgetst.github.io/categories/docker/"/>
+    
+    
+      <category term="docker" scheme="https://forgetst.github.io/tags/docker/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>k8s安装记录</title>
+    <link href="https://forgetst.github.io/k8s/ckiyopfvi005tlgvvyrv2kndz.html"/>
+    <id>https://forgetst.github.io/k8s/ckiyopfvi005tlgvvyrv2kndz.html</id>
+    <published>2020-12-16T16:00:00.000Z</published>
+    <updated>2020-12-16T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;k8s是一个docker集群的管理工具&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://segmentfault.com/a/1190000021672013&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;K8S介绍&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="k8s" scheme="https://forgetst.github.io/categories/k8s/"/>
+    
+    
+      <category term="k8s" scheme="https://forgetst.github.io/tags/k8s/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Django的缓存</title>
+    <link href="https://forgetst.github.io/python/ckiyopfvt006olgvv97faa4an.html"/>
+    <id>https://forgetst.github.io/python/ckiyopfvt006olgvv97faa4an.html</id>
+    <published>2020-11-23T16:00:00.000Z</published>
+    <updated>2020-11-23T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;Django给我们提供了三种缓存方式&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;站点级缓存————缓存整个网站&lt;/li&gt;
+&lt;li&gt;单个view缓存————对单个有效的视图的输出进行缓存&lt;/li&gt;
+&lt;li&gt;模板片段缓存————缓存模板里面的某一部分内容&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="python" scheme="https://forgetst.github.io/categories/python/"/>
+    
+    
+      <category term="python" scheme="https://forgetst.github.io/tags/python/"/>
+    
+      <category term="django" scheme="https://forgetst.github.io/tags/django/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python lxml module</title>
+    <link href="https://forgetst.github.io/python/module/ckiyopfzx00ctlgvv843i6yrn.html"/>
+    <id>https://forgetst.github.io/python/module/ckiyopfzx00ctlgvv843i6yrn.html</id>
+    <published>2020-11-23T16:00:00.000Z</published>
+    <updated>2020-11-23T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;p&gt;lxml是python的一个解析库，支持HTML和XML的解析，支持XPath解析方式，而且解析效率非常高。&lt;/p&gt;
+&lt;p&gt;XPath，全称XML Path Language，即XML路径语言，它是一门在XML文档中查找信息的语言，它最初是用来搜寻XML文档的，但是它同样适用于HTML文档的搜索。&lt;/p&gt;
+&lt;p&gt;XPath的选择功能十分强大，它提供了非常简明的路径选择表达式，另外，它还提供了超过100个内建函数，用于字符串、数值、时间的匹配以及节点、序列的处理等，几乎所有我们想要定位的节点，都可以用XPath来选择&lt;/p&gt;
+&lt;p&gt;XPath于1999年11月16日成为W3C标准，它被设计为供XSLT、XPointer以及其他XML解析软件使用，更多的文档可以访问其官方网站：&lt;a href=&quot;https://www.w3.org/TR/xpath/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://www.w3.org/TR/xpath/&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="python" scheme="https://forgetst.github.io/categories/python/"/>
+    
+      <category term="module" scheme="https://forgetst.github.io/categories/python/module/"/>
+    
+    
+      <category term="python" scheme="https://forgetst.github.io/tags/python/"/>
+    
+      <category term="module" scheme="https://forgetst.github.io/tags/module/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>supervisor 安装使用</title>
+    <link href="https://forgetst.github.io/supervisor/ckiyopfnk000flgvv6li33acd.html"/>
+    <id>https://forgetst.github.io/supervisor/ckiyopfnk000flgvv6li33acd.html</id>
+    <published>2020-11-08T16:00:00.000Z</published>
+    <updated>2020-11-08T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;http://supervisord.org/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Supervisor&lt;/a&gt;是用Python开发的一个client/server服务，是Linux/Unix系统下的一个进程管理工具，不支持Windows系统。它可以很方便的监听、启动、停止、重启一个或多个进程。用Supervisor管理的进程，当一个进程意外被杀死，supervisort监听到进程死后，会自动将它重新拉起，很方便的做到进程自动恢复的功能，不再需要自己写shell脚本来控制。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="supervisor" scheme="https://forgetst.github.io/categories/supervisor/"/>
+    
+    
+      <category term="supervisor" scheme="https://forgetst.github.io/tags/supervisor/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python 内建函数</title>
+    <link href="https://forgetst.github.io/python/ckiyopfw3007dlgvvmp8wjfdf.html"/>
+    <id>https://forgetst.github.io/python/ckiyopfw3007dlgvvmp8wjfdf.html</id>
+    <published>2020-09-29T16:00:00.000Z</published>
+    <updated>2020-09-29T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="python" scheme="https://forgetst.github.io/categories/python/"/>
+    
+    
+      <category term="python" scheme="https://forgetst.github.io/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>jupyter notebook 杂记</title>
+    <link href="https://forgetst.github.io/jupyter/ckiyopfvf005llgvv0x43poa3.html"/>
+    <id>https://forgetst.github.io/jupyter/ckiyopfvf005llgvv0x43poa3.html</id>
+    <published>2020-09-27T16:00:00.000Z</published>
+    <updated>2020-09-27T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="jupyter" scheme="https://forgetst.github.io/categories/jupyter/"/>
+    
+    
+      <category term="jupyter" scheme="https://forgetst.github.io/tags/jupyter/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python3.8.3安装</title>
+    <link href="https://forgetst.github.io/python/ckiyopfw7007qlgvv5n6sn4ty.html"/>
+    <id>https://forgetst.github.io/python/ckiyopfw7007qlgvv5n6sn4ty.html</id>
+    <published>2020-09-26T16:00:00.000Z</published>
+    <updated>2020-09-26T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="python" scheme="https://forgetst.github.io/categories/python/"/>
+    
+    
+      <category term="python" scheme="https://forgetst.github.io/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>mysql命令简述</title>
+    <link href="https://forgetst.github.io/mysql/ckiyopfvm0066lgvvkypo039d.html"/>
+    <id>https://forgetst.github.io/mysql/ckiyopfvm0066lgvvkypo039d.html</id>
+    <published>2020-07-27T16:00:00.000Z</published>
+    <updated>2020-07-27T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;记录mysql常用命令。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="mysql" scheme="https://forgetst.github.io/categories/mysql/"/>
+    
+    
+      <category term="mysql" scheme="https://forgetst.github.io/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python操作mysql</title>
+    <link href="https://forgetst.github.io/python/ckiyopfwb0081lgvv4sp0y9mi.html"/>
+    <id>https://forgetst.github.io/python/ckiyopfwb0081lgvv4sp0y9mi.html</id>
+    <published>2020-07-14T16:00:00.000Z</published>
+    <updated>2020-07-14T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;python 与 mysql 相关的记录。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="python" scheme="https://forgetst.github.io/categories/python/"/>
+    
+    
+      <category term="python" scheme="https://forgetst.github.io/tags/python/"/>
+    
+      <category term="mysql" scheme="https://forgetst.github.io/tags/mysql/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>nginx 操作</title>
+    <link href="https://forgetst.github.io/nginx/ckiyopfvw006vlgvvkwwlcv5u.html"/>
+    <id>https://forgetst.github.io/nginx/ckiyopfvw006vlgvvkwwlcv5u.html</id>
+    <published>2020-03-12T16:00:00.000Z</published>
+    <updated>2020-03-12T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;第-1-章-Nginx-简介&quot;&gt;&lt;a href=&quot;#第-1-章-Nginx-简介&quot; class=&quot;headerlink&quot; title=&quot;第 1 章 Nginx 简介&quot;&gt;&lt;/a&gt;第 1 章 Nginx 简介&lt;/h2&gt;&lt;h3 id=&quot;1-1-Nginx-概述&quot;&gt;&lt;a href=&quot;#1-1-Nginx-概述&quot; class=&quot;headerlink&quot; title=&quot;1.1 Nginx 概述&quot;&gt;&lt;/a&gt;1.1 Nginx 概述&lt;/h3&gt;&lt;p&gt;Nginx (“engine x”) 是一个高性能的 HTTP 和反向代理服务器，特点是占有内存少，并发能力强，事实上 nginx 的并发能力确实在同类型的网页服务器中表现较好，中国大陆使用 nginx网站用户有：百度、京东、新浪、网易、腾讯、淘宝等。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://lnmp.org/nginx.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://lnmp.org/nginx.html&lt;/a&gt; &lt;/p&gt;
+    
+    </summary>
+    
+      <category term="nginx" scheme="https://forgetst.github.io/categories/nginx/"/>
+    
+    
+      <category term="nginx" scheme="https://forgetst.github.io/tags/nginx/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python functools module</title>
+    <link href="https://forgetst.github.io/python/module/ckiyopfzr00cflgvvj53ngd7t.html"/>
+    <id>https://forgetst.github.io/python/module/ckiyopfzr00cflgvvj53ngd7t.html</id>
+    <published>2020-03-11T16:00:00.000Z</published>
+    <updated>2020-03-11T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;functools 模块应用于高阶函数，此模块的功能适用于所有可调用对象。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;源代码:&lt;/strong&gt; &lt;a href=&quot;https://github.com/python/cpython/tree/3.7/Lib/functools.py&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Lib/functools.py&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="python" scheme="https://forgetst.github.io/categories/python/"/>
+    
+      <category term="module" scheme="https://forgetst.github.io/categories/python/module/"/>
+    
+    
+      <category term="python" scheme="https://forgetst.github.io/tags/python/"/>
+    
+      <category term="module" scheme="https://forgetst.github.io/tags/module/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>pycharm 配置pylint</title>
+    <link href="https://forgetst.github.io/python/ckiyopfvv006slgvvs9nwk9ir.html"/>
+    <id>https://forgetst.github.io/python/ckiyopfvv006slgvvs9nwk9ir.html</id>
+    <published>2020-03-03T16:00:00.000Z</published>
+    <updated>2020-03-03T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;pylint是一个用于检查python代码中的错误，尝试强制执行编码标准的工具。它还可以查找某些类型错误，可以建议如何重构特定块的建议，并可以向您提供有关代码复杂性的详细信息。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="python" scheme="https://forgetst.github.io/categories/python/"/>
+    
+    
+      <category term="python" scheme="https://forgetst.github.io/tags/python/"/>
+    
+      <category term="pycharm" scheme="https://forgetst.github.io/tags/pycharm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>pyspark 学习笔记</title>
+    <link href="https://forgetst.github.io/python/ckiyopfvy006ylgvvousk0a36.html"/>
+    <id>https://forgetst.github.io/python/ckiyopfvy006ylgvvousk0a36.html</id>
+    <published>2020-03-03T16:00:00.000Z</published>
+    <updated>2020-03-03T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;pypark用法记录。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="python" scheme="https://forgetst.github.io/categories/python/"/>
+    
+    
+      <category term="python" scheme="https://forgetst.github.io/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python argparse module</title>
+    <link href="https://forgetst.github.io/python/module/ckiyopfzi00brlgvvkff63yst.html"/>
+    <id>https://forgetst.github.io/python/module/ckiyopfzi00brlgvvkff63yst.html</id>
+    <published>2020-02-22T16:00:00.000Z</published>
+    <updated>2020-02-22T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;python 命令行解析模块&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="python" scheme="https://forgetst.github.io/categories/python/"/>
+    
+      <category term="module" scheme="https://forgetst.github.io/categories/python/module/"/>
+    
+    
+      <category term="python" scheme="https://forgetst.github.io/tags/python/"/>
+    
+      <category term="module" scheme="https://forgetst.github.io/tags/module/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python collections module</title>
+    <link href="https://forgetst.github.io/python/module/ckiyopfzk00bvlgvvcoc2gzqz.html"/>
+    <id>https://forgetst.github.io/python/module/ckiyopfzk00bvlgvvcoc2gzqz.html</id>
+    <published>2020-02-21T16:00:00.000Z</published>
+    <updated>2020-02-21T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;Source code:&lt;/strong&gt; &lt;a href=&quot;https://github.com/python/cpython/tree/3.8/Lib/collections/__init__.py&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Lib/collections/&lt;strong&gt;init&lt;/strong&gt;.py&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;这个模块实现了特定目标的容器，以提供Python标准内建容器 &lt;strong&gt;dict&lt;/strong&gt; , list , &lt;strong&gt;set&lt;/strong&gt; , 和 &lt;strong&gt;tuple&lt;/strong&gt; 的替代选择。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="python" scheme="https://forgetst.github.io/categories/python/"/>
+    
+      <category term="module" scheme="https://forgetst.github.io/categories/python/module/"/>
+    
+    
+      <category term="python" scheme="https://forgetst.github.io/tags/python/"/>
+    
+      <category term="module" scheme="https://forgetst.github.io/tags/module/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python pickle module</title>
+    <link href="https://forgetst.github.io/python/module/ckiyopfzy00cxlgvvrg8lu9fj.html"/>
+    <id>https://forgetst.github.io/python/module/ckiyopfzy00cxlgvvrg8lu9fj.html</id>
+    <published>2020-02-19T16:00:00.000Z</published>
+    <updated>2020-02-19T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;strong&gt;源代码：&lt;/strong&gt; &lt;a href=&quot;https://github.com/python/cpython/tree/3.8/Lib/pickle.py&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Lib/pickle.py&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;pickle 模块实现了对一个 Python 对象结构的二进制序列化(pickling)和反序列化(unpickling)。&lt;/p&gt;
+&lt;p&gt; pickling 是将 Python 对象及其所拥有的层次结构转化为一个字节流的过程, unpickling 是相反的操作，会将字节流转化回一个对象层次结构。&lt;/p&gt;
+&lt;p&gt;注： pickle 模块&lt;strong&gt;并不安全&lt;/strong&gt;。你只应该对你信任的数据进行unpickle操作。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="python" scheme="https://forgetst.github.io/categories/python/"/>
+    
+      <category term="module" scheme="https://forgetst.github.io/categories/python/module/"/>
+    
+    
+      <category term="python" scheme="https://forgetst.github.io/tags/python/"/>
+    
+      <category term="module" scheme="https://forgetst.github.io/tags/module/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>window使用随记</title>
+    <link href="https://forgetst.github.io/window/ckiyopfno000mlgvv91i3db2b.html"/>
+    <id>https://forgetst.github.io/window/ckiyopfno000mlgvv91i3db2b.html</id>
+    <published>2020-02-05T16:00:00.000Z</published>
+    <updated>2020-02-05T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;主要记录window使用的一些命令和使用技巧。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="window" scheme="https://forgetst.github.io/categories/window/"/>
+    
+    
+      <category term="window" scheme="https://forgetst.github.io/tags/window/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>window搭建spark及hadoop开发环境.md</title>
+    <link href="https://forgetst.github.io/bigdata/ckiyopfur003wlgvv6tv14nyc.html"/>
+    <id>https://forgetst.github.io/bigdata/ckiyopfur003wlgvv6tv14nyc.html</id>
+    <published>2020-02-05T16:00:00.000Z</published>
+    <updated>2020-02-05T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;由于Spark是用Scala来写的，所以Spark对Scala肯定是原生态支持的，因此这里以Scala为主来介绍Spark环境的搭建，主要包括四个步骤，分别是：JDK的安装，Scala的安装，Spark的安装，Hadoop的下载和配置。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="bigdata" scheme="https://forgetst.github.io/categories/bigdata/"/>
+    
+    
+      <category term="bigdata" scheme="https://forgetst.github.io/tags/bigdata/"/>
+    
+      <category term="spark" scheme="https://forgetst.github.io/tags/spark/"/>
+    
+      <category term="hadoop" scheme="https://forgetst.github.io/tags/hadoop/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vscode 编辑java程序插件</title>
+    <link href="https://forgetst.github.io/java/ckiyopfve005ilgvv7qxd1sew.html"/>
+    <id>https://forgetst.github.io/java/ckiyopfve005ilgvv7qxd1sew.html</id>
+    <published>2020-02-04T16:00:00.000Z</published>
+    <updated>2020-02-04T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;VS Code is a fast editor and ships with great editing features. Add Java language support to VS Code by installing the popular Java extensions. To help set up Java on VS Code, there is a &lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Java Extension Pack&lt;/a&gt;, which contains the most popular extensions for most Java developers:&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="java" scheme="https://forgetst.github.io/categories/java/"/>
+    
+    
+      <category term="java" scheme="https://forgetst.github.io/tags/java/"/>
+    
+  </entry>
+  
+</feed>
