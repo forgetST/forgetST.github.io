@@ -387,7 +387,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/spark/ckiyopfzh00bolgvv2ftpse70.html">
+    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/spark/ckiypareu00bn28vvid4znhji.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mr Wang">
@@ -407,7 +407,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/spark/ckiyopfzh00bolgvv2ftpse70.html" class="post-title-link" itemprop="url">spark web 用法</a>
+                <a href="/spark/ckiypareu00bn28vvid4znhji.html" class="post-title-link" itemprop="url">spark web 用法</a>
               
             
           </h1>
@@ -499,7 +499,7 @@
 
 <h2 id="Spark-Web-UI详解"><a href="#Spark-Web-UI详解" class="headerlink" title="Spark Web UI详解"></a>Spark Web UI详解</h2><h3 id="默认登陆URL"><a href="#默认登陆URL" class="headerlink" title="默认登陆URL"></a>默认登陆URL</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://&#123;spark_ip&#125;:4040/jobs/</span><br></pre></td></tr></table></figure>
 
-<h3 id="jobs页面"><a href="#jobs页面" class="headerlink" title="jobs页面"></a>jobs页面</h3><img src="/spark/ckiyopfzh00bolgvv2ftpse70/job.PNG" title="This is an browser picture">
+<h3 id="jobs页面"><a href="#jobs页面" class="headerlink" title="jobs页面"></a>jobs页面</h3><img src="/spark/ckiypareu00bn28vvid4znhji/job.PNG" title="This is an browser picture">
 
 <blockquote>
 <p><strong>User</strong>:  spark任务提交的用户，用以进行权限控制与资源分配。</p>
@@ -510,7 +510,7 @@
 <p><strong>Completed Jobs</strong>:  已完成Job的基本信息，如想查看某一个Job的详细情况，可点击对应Job进行查看。</p>
 </blockquote>
 <p>注：Job默认都是串行提交运行的，如果Job间没有依赖，可以使用多线程并行提交Job，实现Job并发。</p>
-<h3 id="Jobs-Detail页面"><a href="#Jobs-Detail页面" class="headerlink" title="Jobs Detail页面"></a>Jobs Detail页面</h3><img src="/spark/ckiyopfzh00bolgvv2ftpse70/job_detail.PNG" title="This is an browser picture">
+<h3 id="Jobs-Detail页面"><a href="#Jobs-Detail页面" class="headerlink" title="Jobs Detail页面"></a>Jobs Detail页面</h3><img src="/spark/ckiypareu00bn28vvid4znhji/job_detail.PNG" title="This is an browser picture">
 
 <blockquote>
 <p>在Jobs页面点击进入某个Job之后，可以查看某一Job的详细信息：</p>
@@ -521,7 +521,7 @@
 <p><strong>Event Timeline</strong>: 展示当前Job运行期间stage的提交与结束、Executor的加入与退出等事件信息。</p>
 <p><strong>DAG Visualization</strong>:  当前Job所包含的所有stage信息（stage中包含的明细的tranformation操作），以及各stage间的DAG依赖图。DAG也是一种调度模型，在spark的作业调度中，有很多作业存在依赖关系，所以没有依赖关系的作业可以并行执行，有依赖的作业不能并行执行。</p>
 </blockquote>
-<h3 id="Stages页面"><a href="#Stages页面" class="headerlink" title="Stages页面"></a>Stages页面</h3><img src="/spark/ckiyopfzh00bolgvv2ftpse70/stage.PNG" title="This is an browser picture">
+<h3 id="Stages页面"><a href="#Stages页面" class="headerlink" title="Stages页面"></a>Stages页面</h3><img src="/spark/ckiypareu00bn28vvid4znhji/stage.PNG" title="This is an browser picture">
 
 <blockquote>
 <p>在Job Detail页点击进入某个stage后，可以查看某一stage的详细信息：</p>
@@ -535,12 +535,12 @@
 <p><strong>Aggregated Metrics by Executor</strong>:  将task运行的指标信息按excutor做聚合后的统计信息，并可查看某个Excutor上任务运行的日志信息。</p>
 <p><strong>Tasks</strong>:  当前stage中所有任务运行的明细信息，是与Event Timeline中的信息对应的文字展示（可以点击某个task查看具体的任务日志）。</p>
 </blockquote>
-<h3 id="Storage页面"><a href="#Storage页面" class="headerlink" title="Storage页面"></a>Storage页面</h3><img src="/spark/ckiyopfzh00bolgvv2ftpse70/storage1.PNG" title="This is an browser picture">
+<h3 id="Storage页面"><a href="#Storage页面" class="headerlink" title="Storage页面"></a>Storage页面</h3><img src="/spark/ckiypareu00bn28vvid4znhji/storage1.PNG" title="This is an browser picture">
 
 <blockquote>
 <p>storage页面能看出application当前使用的缓存情况，可以看到有哪些RDD被缓存了，以及占用的内存资源。如果job在执行时持久化（persist）/缓存（cache）了一个RDD，那么RDD的信息可以在这个选项卡中查看。</p>
 </blockquote>
-<h3 id="Storage-Detail页面"><a href="#Storage-Detail页面" class="headerlink" title="Storage Detail页面"></a>Storage Detail页面</h3><img src="/spark/ckiyopfzh00bolgvv2ftpse70/storage2.PNG" title="This is an browser picture">
+<h3 id="Storage-Detail页面"><a href="#Storage-Detail页面" class="headerlink" title="Storage Detail页面"></a>Storage Detail页面</h3><img src="/spark/ckiypareu00bn28vvid4znhji/storage2.PNG" title="This is an browser picture">
 
 <blockquote>
 <p>点击某个RDD即可查看该RDD缓存的详细信息，包括缓存在哪个Executor中，使用的block情况，RDD上分区（partitions）的信息以及存储RDD的主机的地址。</p>
@@ -614,7 +614,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/python/module/ckiyopfzu00cmlgvv9844imdj.html">
+    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/spark/ckiyparew00br28vvoqpfbkdv.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mr Wang">
@@ -634,7 +634,171 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/python/module/ckiyopfzu00cmlgvv9844imdj.html" class="post-title-link" itemprop="url">python io module</a>
+                <a href="/spark/ckiyparew00br28vvoqpfbkdv.html" class="post-title-link" itemprop="url">spark异常处理</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-10-18 00:00" itemprop="dateCreated datePublished" datetime="2019-10-18T00:00:00+08:00">2019-10-18</time>
+            </span>
+          
+
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/spark/" itemprop="url" rel="index"><span itemprop="name">spark</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/python/module/ckiyparf400cc28vv6923uzm0.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr Wang">
+      <meta itemprop="description" content="行动了才会有故事，说出来才会有结果。">
+      <meta itemprop="image" content="/images/profile.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="勿忘，须舍">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/python/module/ckiyparf400cc28vv6923uzm0.html" class="post-title-link" itemprop="url">python io module</a>
               
             
           </h1>
@@ -786,7 +950,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/docker/ckiyopful003rlgvvqc0drzxm.html">
+    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/docker/ckiypar9f004128vvvt0tj90e.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mr Wang">
@@ -806,7 +970,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/docker/ckiyopful003rlgvvqc0drzxm.html" class="post-title-link" itemprop="url">docker mysql官方镜像操作</a>
+                <a href="/docker/ckiypar9f004128vvvt0tj90e.html" class="post-title-link" itemprop="url">docker mysql官方镜像操作</a>
               
             
           </h1>
@@ -891,7 +1055,7 @@
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/docker/ckiyopful003rlgvvqc0drzxm.html#more" rel="contents">
+              <a class="btn" href="/docker/ckiypar9f004128vvvt0tj90e.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -957,7 +1121,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/docker/ckiyopfuw004algvvw9oupwm5.html">
+    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/docker/ckiypar9h004428vvk6pyk9yd.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mr Wang">
@@ -977,7 +1141,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/docker/ckiyopfuw004algvvw9oupwm5.html" class="post-title-link" itemprop="url">docker命令操作</a>
+                <a href="/docker/ckiypar9h004428vvk6pyk9yd.html" class="post-title-link" itemprop="url">docker命令操作</a>
               
             
           </h1>
@@ -1062,7 +1226,7 @@
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/docker/ckiyopfuw004algvvw9oupwm5.html#more" rel="contents">
+              <a class="btn" href="/docker/ckiypar9h004428vvk6pyk9yd.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1128,7 +1292,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/docker/ckiyopfv1004mlgvvipyhvoip.html">
+    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/docker/ckiypar9y005828vv8s1bvvml.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mr Wang">
@@ -1148,7 +1312,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/docker/ckiyopfv1004mlgvvipyhvoip.html" class="post-title-link" itemprop="url">docker构建流程</a>
+                <a href="/docker/ckiypar9y005828vv8s1bvvml.html" class="post-title-link" itemprop="url">docker构建流程</a>
               
             
           </h1>
@@ -1335,7 +1499,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/docker/ckiyopfuv0047lgvvbfwbuql5.html">
+    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/docker/ckiypar9i004928vv8mr9yetz.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mr Wang">
@@ -1355,7 +1519,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/docker/ckiyopfuv0047lgvvbfwbuql5.html" class="post-title-link" itemprop="url">docker安装</a>
+                <a href="/docker/ckiypar9i004928vv8mr9yetz.html" class="post-title-link" itemprop="url">docker安装</a>
               
             
           </h1>
@@ -1440,7 +1604,7 @@
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/docker/ckiyopfuv0047lgvvbfwbuql5.html#more" rel="contents">
+              <a class="btn" href="/docker/ckiypar9i004928vv8mr9yetz.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1506,7 +1670,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/python/ckiyopfw6007llgvvq0bgdc9w.html">
+    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/python/ckiyparax007u28vvwt4jq0ho.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mr Wang">
@@ -1526,7 +1690,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/python/ckiyopfw6007llgvvq0bgdc9w.html" class="post-title-link" itemprop="url">python3.7.3安装</a>
+                <a href="/python/ckiyparax007u28vvwt4jq0ho.html" class="post-title-link" itemprop="url">python3.7.3安装</a>
               
             
           </h1>
@@ -1698,7 +1862,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/python/ckiyopfwf008dlgvve3prz478.html">
+    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/python/ckiyparas007e28vvv6n82zn0.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mr Wang">
@@ -1718,7 +1882,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/python/ckiyopfwf008dlgvve3prz478.html" class="post-title-link" itemprop="url">Python 迭代器和生成器</a>
+                <a href="/python/ckiyparas007e28vvv6n82zn0.html" class="post-title-link" itemprop="url">Python 迭代器和生成器</a>
               
             
           </h1>
@@ -1806,7 +1970,7 @@
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/python/ckiyopfwf008dlgvve3prz478.html#more" rel="contents">
+              <a class="btn" href="/python/ckiyparas007e28vvv6n82zn0.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1872,7 +2036,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/uncategorized/ckiyopfnj000clgvvhefxh1fv.html">
+    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/uncategorized/ckiypar2c000g28vvx36turrw.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mr Wang">
@@ -1892,7 +2056,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/uncategorized/ckiyopfnj000clgvvhefxh1fv.html" class="post-title-link" itemprop="url">Restful API 简述</a>
+                <a href="/uncategorized/ckiypar2c000g28vvx36turrw.html" class="post-title-link" itemprop="url">Restful API 简述</a>
               
             
           </h1>
@@ -1985,179 +2149,6 @@
 <p><a href="https://www.jianshu.com/p/a35bad7dbc54" target="_blank" rel="noopener">了解restful api</a></p>
 <p><a href="https://www.jdon.com/soa/10-best-practices-for-better-restful-api.html" target="_blank" rel="noopener">10个有关RESTful API良好设计的最佳实践</a></p>
 
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/python/tips/ckiyopg0h00e9lgvv130ksyc6.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Mr Wang">
-      <meta itemprop="description" content="行动了才会有故事，说出来才会有结果。">
-      <meta itemprop="image" content="/images/profile.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="勿忘，须舍">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/python/tips/ckiyopg0h00e9lgvv130ksyc6.html" class="post-title-link" itemprop="url">python 遍历目录获得所有文件</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-10-08 00:00" itemprop="dateCreated datePublished" datetime="2019-10-08T00:00:00+08:00">2019-10-08</time>
-            </span>
-          
-
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/tips/" itemprop="url" rel="index"><span itemprop="name">tips</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>给定一个本地路径，获得当前路径及其子路径下的所有文件。</p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>通过 <code>os.walk</code> 方法实现。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">def traverse_directory(loc_path):</span><br><span class="line">    file_list = []</span><br><span class="line">    for dirpath, dirnames, filenames in os.walk(loc_path):</span><br><span class="line">        file_list += [os.path.join(dirpath, filename) for filename in filenames]</span><br><span class="line">    return file_list</span><br><span class="line"></span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    local_path = &apos;/home/path&apos;</span><br><span class="line">    traverse_directory(local_path)</span><br></pre></td></tr></table></figure>
           
         
       
