@@ -1,0 +1,1543 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.2.0',
+    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})
+  (window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/af1c402f.js","daovoice")
+  daovoice('init', {
+    app_id: "af1c402f"});
+  daovoice('update');
+  </script>
+
+  <meta name="description" content="源代码： Lib/pickle.py pickle 模块实现了对一个 Python 对象结构的二进制序列化(pickling)和反序列化(unpickling)。  pickling 是将 Python 对象及其所拥有的层次结构转化为一个字节流的过程, unpickling 是相反的操作，会将字节流转化回一个对象层次结构。 注： pickle 模块并不安全。你只应该对你信任的数据进行unpickl">
+<meta name="keywords" content="python,module">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python pickle module">
+<meta property="og:url" content="https://forgetst.github.io/python/module/ckj1jlquy00d2t8yvfvw2pp8m.html">
+<meta property="og:site_name" content="勿忘，须舍">
+<meta property="og:description" content="源代码： Lib/pickle.py pickle 模块实现了对一个 Python 对象结构的二进制序列化(pickling)和反序列化(unpickling)。  pickling 是将 Python 对象及其所拥有的层次结构转化为一个字节流的过程, unpickling 是相反的操作，会将字节流转化回一个对象层次结构。 注： pickle 模块并不安全。你只应该对你信任的数据进行unpickl">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-02-19T16:00:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python pickle module">
+<meta name="twitter:description" content="源代码： Lib/pickle.py pickle 模块实现了对一个 Python 对象结构的二进制序列化(pickling)和反序列化(unpickling)。  pickling 是将 Python 对象及其所拥有的层次结构转化为一个字节流的过程, unpickling 是相反的操作，会将字节流转化回一个对象层次结构。 注： pickle 模块并不安全。你只应该对你信任的数据进行unpickl">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="勿忘，须舍" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="https://forgetst.github.io/python/module/ckj1jlquy00d2t8yvfvw2pp8m">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  
+  <title>python pickle module | 勿忘，须舍</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <a href="https://github.com/forgetST" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+  
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">勿忘，须舍</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-python">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/python/" rel="section"><i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>python 随记</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/python/module/ckj1jlquy00d2t8yvfvw2pp8m.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr Wang">
+      <meta itemprop="description" content="行动了才会有故事，说出来才会有结果。">
+      <meta itemprop="image" content="/images/profile.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="勿忘，须舍">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">python pickle module
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-02-20 00:00" itemprop="dateCreated datePublished" datetime="2020-02-20T00:00:00+08:00">2020-02-20</time>
+            </span>
+          
+
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/module/" itemprop="url" rel="index"><span itemprop="name">module</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>源代码：</strong> <a href="https://github.com/python/cpython/tree/3.8/Lib/pickle.py" target="_blank" rel="noopener">Lib/pickle.py</a></p>
+<p>pickle 模块实现了对一个 Python 对象结构的二进制序列化(pickling)和反序列化(unpickling)。</p>
+<p> pickling 是将 Python 对象及其所拥有的层次结构转化为一个字节流的过程, unpickling 是相反的操作，会将字节流转化回一个对象层次结构。</p>
+<p>注： pickle 模块<strong>并不安全</strong>。你只应该对你信任的数据进行unpickle操作。</p>
+<a id="more"></a>
+
+<h2 id="与-json-模块的比较"><a href="#与-json-模块的比较" class="headerlink" title="与 json 模块的比较"></a>与 json 模块的比较</h2><p>Pickle 协议和 <a href="http://json.org/" target="_blank" rel="noopener">JSON (JavaScript Object Notation)</a> 间有着本质的不同：</p>
+<ul>
+<li>JSON 是一个文本序列化格式（它输出 unicode 文本，尽管在大多数时候它会接着以 <code>utf-8</code> 编码），而 pickle 是一个二进制序列化格式；</li>
+<li>JSON 是我们可以直观阅读的，而 pickle 不是；</li>
+<li>JSON是可互操作的，在Python系统之外广泛使用，而pickle则是Python专用的；</li>
+<li>默认情况下，JSON 只能表示 Python 内置类型的子集，不能表示自定义的类；但 pickle 可以表示大量的 Python 数据类型（可以合理使用 Python 的对象内省功能自动地表示大多数类型，复杂情况可以通过实现 <a href="https://docs.python.org/zh-cn/3/library/pickle.html#pickle-inst" target="_blank" rel="noopener">specific object APIs</a> 来解决）。</li>
+<li>不像pickle，对一个不信任的JSON进行反序列化的操作本身不会造成任意代码执行漏洞。</li>
+</ul>
+<h2 id="模块接口"><a href="#模块接口" class="headerlink" title="模块接口"></a>模块接口</h2><p>要序列化某个包含层次结构的对象，只需调用 <a href="https://docs.python.org/zh-cn/3/library/pickle.html#pickle.dumps" target="_blank" rel="noopener"><code>dumps()</code></a> 函数即可。同样，要反序列化数据流，可以调用 <a href="https://docs.python.org/zh-cn/3/library/pickle.html#pickle.loads" target="_blank" rel="noopener"><code>loads()</code></a> 函数。但是，如果要对序列化和反序列化加以更多的控制，可以分别创建 <a href="https://docs.python.org/zh-cn/3/library/pickle.html#pickle.Pickler" target="_blank" rel="noopener"><code>Pickler</code></a> 或 <a href="https://docs.python.org/zh-cn/3/library/pickle.html#pickle.Unpickler" target="_blank" rel="noopener"><code>Unpickler</code></a> 对象。</p>
+<p><strong>pickle模块包含了以下常量：</strong></p>
+<h3 id="pickle-HIGHEST-PROTOCOL"><a href="#pickle-HIGHEST-PROTOCOL" class="headerlink" title="pickle.HIGHEST_PROTOCOL"></a>pickle.HIGHEST_PROTOCOL</h3><p>整数，可用的最高 协议版本。此值可以作为 协议 值传递给 dump() 和 dumps() 函数，以及 Pickler 的构造函数。</p>
+<h3 id="pickle-DEFAULT-PROTOCOL"><a href="#pickle-DEFAULT-PROTOCOL" class="headerlink" title="pickle.DEFAULT_PROTOCOL"></a>pickle.DEFAULT_PROTOCOL</h3><p>整数，用于 pickle 数据的默认 协议版本。它可能小于 HIGHEST_PROTOCOL。它在 Python 3.4 中首次引入，与之前的版本不兼容。</p>
+<p>在 3.0 版更改: 默认协议版本是 3。</p>
+<p>在 3.8 版更改: 默认协议版本是 4。</p>
+<p><strong>pickle 模块提供了以下方法：</strong></p>
+<h3 id="pickle-dump-obj-file-protocol-None-fix-imports-True-buffer-callback-None"><a href="#pickle-dump-obj-file-protocol-None-fix-imports-True-buffer-callback-None" class="headerlink" title="pickle.dump(obj, file, protocol=None, *, fix_imports=True, buffer_callback=None)"></a>pickle.dump(obj, file, protocol=None, *, fix_imports=True, buffer_callback=None)</h3><p>将对象 obj 封存以后的对象写入已打开的 file object file。它等同于 Pickler(file, protocol).dump(obj)。</p>
+<p>参数 file、protocol、fix_imports 和 buffer_callback 的含义与它们在 Pickler 的构造函数中的含义相同。</p>
+<p>在 3.8 版更改: 加入了 buffer_callback 参数。</p>
+<h3 id="pickle-dumps-obj-protocol-None-fix-imports-True-buffer-callback-None"><a href="#pickle-dumps-obj-protocol-None-fix-imports-True-buffer-callback-None" class="headerlink" title="pickle.dumps(obj, protocol=None, *, fix_imports=True, buffer_callback=None)"></a>pickle.dumps(obj, protocol=None, *, fix_imports=True, buffer_callback=None)</h3><p>将 obj 封存以后的对象作为 bytes 类型直接返回，而不是将其写入到文件。</p>
+<p>参数 protocol、fix_imports 和 buffer_callback 的含义与它们在 Pickler 的构造函数中的含义相同。</p>
+<p>在 3.8 版更改: 加入了 buffer_callback 参数。</p>
+<h3 id="pickle-load-file-fix-imports-True-encoding-”ASCII”-errors-”strict”-buffers-None"><a href="#pickle-load-file-fix-imports-True-encoding-”ASCII”-errors-”strict”-buffers-None" class="headerlink" title="pickle.load(file, *, fix_imports=True, encoding=”ASCII”, errors=”strict”, buffers=None)"></a>pickle.load(file, *, fix_imports=True, encoding=”ASCII”, errors=”strict”, buffers=None)</h3><p>从已打开的 file object 文件 中读取封存后的对象，重建其中特定对象的层次结构并返回。它相当于 Unpickler(file).load()。</p>
+<p>Pickle 协议版本是自动检测出来的，所以不需要参数来指定协议。封存对象以外的其他字节将被忽略。</p>
+<p>参数 file、fix_imports、encoding、errors、strict 和 buffers 的含义与它们在 Unpickler 的构造函数中的含义相同。</p>
+<p>在 3.8 版更改: 加入了 buffers 参数。</p>
+<h3 id="pickle-loads-bytes-object-fix-imports-True-encoding-”ASCII”-errors-”strict”-buffers-None"><a href="#pickle-loads-bytes-object-fix-imports-True-encoding-”ASCII”-errors-”strict”-buffers-None" class="headerlink" title="pickle.loads(bytes_object, *, fix_imports=True, encoding=”ASCII”, errors=”strict”, buffers=None)"></a>pickle.loads(bytes_object, *, fix_imports=True, encoding=”ASCII”, errors=”strict”, buffers=None)</h3><p>对于封存生成的对象 bytes_object，还原出原对象的结构并返回。</p>
+<p>Pickle 协议版本是自动检测出来的，所以不需要参数来指定协议。封存对象以外的其他字节将被忽略。</p>
+<p>参数 file、fix_imports、encoding、errors、strict 和 buffers 的含义与它们在 Unpickler 的构造函数中的含义相同。</p>
+<p>在 3.8 版更改: 加入了 buffers 参数。</p>
+<p><strong>pickle 模块定义了以下 3 个异常：</strong></p>
+<h3 id="exception-pickle-PickleError"><a href="#exception-pickle-PickleError" class="headerlink" title="exception pickle.PickleError"></a>exception pickle.PickleError</h3><p>其他 pickle 异常的基类。它是 Exception 的一个子类。</p>
+<h3 id="exception-pickle-PicklingError"><a href="#exception-pickle-PicklingError" class="headerlink" title="exception pickle.PicklingError"></a>exception pickle.PicklingError</h3><p>当 <a href="https://docs.python.org/zh-cn/3/library/pickle.html#pickle.Pickler" target="_blank" rel="noopener"><code>Pickler</code></a> 遇到无法解封的对象时抛出此错误。它是 <a href="https://docs.python.org/zh-cn/3/library/pickle.html#pickle.PickleError" target="_blank" rel="noopener"><code>PickleError</code></a> 的子类。</p>
+<p>参考 <a href="https://docs.python.org/zh-cn/3/library/pickle.html#pickle-picklable" target="_blank" rel="noopener">可以被封存/解封的对象</a> 来了解哪些对象可以被封存。</p>
+<h3 id="exception-pickle-UnpicklingError"><a href="#exception-pickle-UnpicklingError" class="headerlink" title="exception pickle.UnpicklingError"></a>exception pickle.UnpicklingError</h3><p>当解封出错时抛出此异常，例如数据损坏或对象不安全。它是 PickleError 的子类。</p>
+<p>注意，解封时可能还会抛出其他异常，包括（但不限于） AttributeError、EOFError、ImportError 和 IndexError。</p>
+<p><strong>pickle 模块包含了 3 个类，Pickler、Unpickler 和 PickleBuffer：</strong></p>
+<h3 id="class-pickle-Pickler-file-protocol-None-fix-imports-True-buffer-callback-None"><a href="#class-pickle-Pickler-file-protocol-None-fix-imports-True-buffer-callback-None" class="headerlink" title="class pickle.Pickler(file, protocol=None, *, fix_imports=True, buffer_callback=None)"></a>class pickle.Pickler(file, protocol=None, *, fix_imports=True, buffer_callback=None)</h3><p>它接受一个二进制文件用于写入 pickle 数据流。</p>
+<p><strong>protocol</strong> ：可选参数，是一个整数，告知 pickler 使用指定的协议，可选择的协议范围从 0 到 HIGHEST_PROTOCOL。如果没有指定，这一参数默认值为 DEFAULT_PROTOCOL。指定一个负数就相当于指定 HIGHEST_PROTOCOL。</p>
+<p><strong>file：</strong>参数必须有一个 write() 方法，该 write() 方法要能接收字节作为其唯一参数。因此，它可以是一个打开的磁盘文件（用于写入二进制内容），也可以是一个 io.BytesIO 实例，也可以是满足这一接口的其他任何自定义对象。</p>
+<p> <strong>fix_imports</strong>：参数如果为 True 且 protocol 小于 3，pickle 将尝试将 Python 3 中的新名称映射到 Python 2 中的旧模块名称，因此 Python 2 也可以读取封存的数据流。</p>
+<p><strong>buffer_callback</strong> ：参数如果为 None（默认情况），缓冲区视图（buffer view）将会作为 pickle 流的一部分被序列化到 file 中。如果 buffer_callback 不为 None，那它可以用缓冲区视图调用任意次。如果某次调用返回了 False 值（例如 None），则给定的缓冲区是 带外的，否则缓冲区是带内的（例如保存在了 pickle 流里面）。如果 buffer_callback 不是 None 且 protocol 是 None 或小于 5，就会出错。</p>
+<p>在 3.8 版更改: 加入了 buffer_callback 参数。</p>
+<h4 id="dump-obj"><a href="#dump-obj" class="headerlink" title="dump(obj)"></a>dump(obj)</h4><p>将 obj 封存后的内容写入已打开的文件对象，该文件对象已经在构造函数中指定。</p>
+<h4 id="persistent-id-obj"><a href="#persistent-id-obj" class="headerlink" title="persistent_id(obj)"></a>persistent_id(obj)</h4><p>默认无动作，子类继承重载时使用。</p>
+<p>如果 persistent_id() 返回 None，obj 会被照常 pickle。如果返回其他值，Pickler 会将这个函数的返回值作为 obj 的持久化 ID（Pickler 本应得到序列化数据流并将其写入文件，若此函数有返回值，则得到此函数的返回值并写入文件）。这个持久化 ID 的解释应当定义在 Unpickler.persistent_load() 中（该方法定义还原对象的过程，并返回得到的对象）。</p>
+<p>注意，persistent_id() 的返回值本身不能拥有持久化 ID。</p>
+<h4 id="dispatch-table"><a href="#dispatch-table" class="headerlink" title="dispatch_table"></a>dispatch_table</h4><p>Pickler 对象的 dispatch 表是 copyreg.pickle() 中用到的 reduction 函数 的注册。dispatch 表本身是一个 class 到其 reduction 函数的映射键值对。一个 reduction 函数只接受一个参数，就是其关联的 class，函数行为应当遵守 <strong>reduce</strong>() 接口规范。</p>
+<p>Pickler 对象默认并没有 dispatch_table 属性，该对象默认使用 copyreg 模块中定义的全局 dispatch 表。如果要为特定 Pickler 对象自定义序列化过程，可以将 dispatch_table 属性设置为类字典对象（dict-like object）。另外，如果 Pickler 的子类设置了 dispatch_table 属性，则该子类的实例会使用这个表作为默认的 dispatch 表。</p>
+<h4 id="reducer-override-self-obj"><a href="#reducer-override-self-obj" class="headerlink" title="reducer_override(self, obj)"></a>reducer_override(self, obj)</h4><p>可以在 Pickler 的子类中定义的特殊 reducer。此方法的优先级高于 dispatch_table 中的任何 reducer。它应该与 <strong>reduce</strong>() 方法遵循相同的接口，它也可以返回 NotImplemented，这将使用 dispatch_table 里注册的 reducer 来封存 obj。</p>
+<h4 id="fast"><a href="#fast" class="headerlink" title="fast"></a>fast</h4><p>已弃用。设为 True 则启用快速模式。快速模式禁用了“备忘录” (memo) 的使用，即不生成多余的 PUT 操作码来加快封存过程。不应将其与自指 (self-referential) 对象一起使用，否则将导致 Pickler 无限递归。</p>
+<h3 id="class-pickle-Unpickler-file-fix-imports-True-encoding-”ASCII”-errors-”strict”-buffers-None"><a href="#class-pickle-Unpickler-file-fix-imports-True-encoding-”ASCII”-errors-”strict”-buffers-None" class="headerlink" title="class pickle.Unpickler(file, *, fix_imports=True, encoding=”ASCII”, errors=”strict”, buffers=None)"></a>class pickle.Unpickler(file, *, fix_imports=True, encoding=”ASCII”, errors=”strict”, buffers=None)</h3><p>它接受一个二进制文件用于读取 pickle 数据流。</p>
+<p>Pickle 协议版本是自动检测出来的，所以不需要参数来指定协议。</p>
+<p> <strong>file ：</strong>参数必须有三个方法，read() 方法接受一个整数参数，readinto() 方法接受一个缓冲区作为参数，readline() 方法不需要参数，这与 io.BufferedIOBase 里定义的接口是相同的。因此 file 可以是一个磁盘上用于二进制读取的文件，也可以是一个 io.BytesIO 实例，也可以是满足这一接口的其他任何自定义对象。</p>
+<p><strong>fix_imports, encoding 和 errors</strong>：可选的参数是 ，用于控制由Python 2 生成的 pickle 流的兼容性。如果 fix_imports 为 True，则 pickle 将尝试将旧的 Python 2 名称映射到 Python 3 中对应的新名称。encoding 和 errors 参数告诉 pickle 如何解码 Python 2 存储的 8 位字符串实例；这两个参数默认分别为 ‘ASCII’ 和 ‘strict’。encoding 参数可置为 ‘bytes’ 来将这些 8 位字符串实例读取为字节对象。读取 NumPy array 和 Python 2 存储的 datetime、date 和 time 实例时，请使用 encoding=’latin1’。</p>
+<p><strong>buffers ：</strong>如果为 None（默认值），则反序列化所需的所有数据都必须包含在 pickle 流中。这意味着在实例化 Pickler 时（或调用 dump() 或 dumps() 时），参数 buffer_callback 为 None。如果 buffers 不为 None，则每次 pickle 流引用 带外 缓冲区视图时，消耗的对象都应该是可迭代的启用缓冲区的对象。这样的缓冲区应该按顺序地提供给 Pickler 对象的 buffer_callback 方法。</p>
+<p>在 3.8 版更改: 加入了 buffers 参数。</p>
+<h4 id="load"><a href="#load" class="headerlink" title="load()"></a>load()</h4><p>从构造函数中指定的文件对象里读取封存好的对象，重建其中特定对象的层次结构并返回。封存对象以外的其他字节将被忽略。</p>
+<h4 id="persistent-load-pid"><a href="#persistent-load-pid" class="headerlink" title="persistent_load(pid)"></a>persistent_load(pid)</h4><p>默认抛出 UnpicklingError 异常。</p>
+<p>如果定义了此方法，persistent_load() 应当返回持久化 ID pid 所指定的对象。 如果遇到无效的持久化 ID，则应当引发 UnpicklingError。</p>
+<h4 id="find-class-module-name"><a href="#find-class-module-name" class="headerlink" title="find_class(module, name)"></a>find_class(module, name)</h4><p>如有必要，导入 module 模块并返回其中名叫 name 的对象，其中 module 和 name 参数都是 str 对象。注意，不要被这个函数的名字迷惑， find_class() 同样可以用来导入函数。</p>
+<p>子类可以重载此方法，来控制加载对象的类型和加载对象的方式，从而尽可能降低安全风险。</p>
+<h3 id="class-pickle-PickleBuffer-buffer"><a href="#class-pickle-PickleBuffer-buffer" class="headerlink" title="class pickle.PickleBuffer(buffer)"></a>class pickle.PickleBuffer(buffer)</h3><p>缓冲区的包装器 (wrapper)，缓冲区中包含着可封存的数据。</p>
+<p>buffer 必须是一个 buffer-providing 对象，比如 bytes-like object 或多维数组。</p>
+<p>PickleBuffer 本身就可以生成缓冲区对象，因此可以将其传递给需要缓冲区生成器的其他 API，比如 memoryview。</p>
+<p>PickleBuffer 对象只能用 pickle 版本 5 及以上协议进行序列化。它们符合 带外序列化 的条件。</p>
+<p>3.8 新版功能.</p>
+<h4 id="raw"><a href="#raw" class="headerlink" title="raw()"></a>raw()</h4><p>返回该缓冲区底层内存区域的 memoryview。 返回的对象是一维的、C 连续布局的 memoryview，格式为 B (无符号字节)。 如果缓冲区既不是 C 连续布局也不是 Fortran 连续布局的，则抛出 BufferError 异常。</p>
+<h4 id="release"><a href="#release" class="headerlink" title="release()"></a>release()</h4><p>释放由 PickleBuffer 占用的底层缓冲区。</p>
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>请使用 dump() 函数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pickle</span><br><span class="line"></span><br><span class="line"><span class="comment"># An arbitrary collection of objects supported by pickle.</span></span><br><span class="line">data = &#123;</span><br><span class="line">    <span class="string">'a'</span>: [<span class="number">1</span>, <span class="number">2.0</span>, <span class="number">3</span>, <span class="number">4</span>+<span class="number">6j</span>],</span><br><span class="line">    <span class="string">'b'</span>: (<span class="string">"character string"</span>, <span class="string">b"byte string"</span>),</span><br><span class="line">    <span class="string">'c'</span>: &#123;<span class="literal">None</span>, <span class="literal">True</span>, <span class="literal">False</span>&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'data.pickle'</span>, <span class="string">'wb'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="comment"># Pickle the 'data' dictionary using the highest protocol available.</span></span><br><span class="line">    pickle.dump(data, f, pickle.HIGHEST_PROTOCOL)</span><br></pre></td></tr></table></figure>
+
+<p>请使用 load() 函数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pickle</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'data.pickle'</span>, <span class="string">'rb'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="comment"># The protocol version used is detected automatically, so we do not</span></span><br><span class="line">    <span class="comment"># have to specify it.</span></span><br><span class="line">    data = pickle.load(f)</span><br></pre></td></tr></table></figure>
+
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://docs.python.org/zh-cn/3/library/pickle.html#module-pickle" target="_blank" rel="noopener">https://docs.python.org/zh-cn/3/library/pickle.html#module-pickle</a></p>
+
+      
+    </div>
+
+    
+
+    
+      
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+      <div>
+        
+
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Mr Wang</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="https://forgetst.github.io/python/module/ckj1jlquy00d2t8yvfvw2pp8m.html" title="python pickle module">https://forgetst.github.io/python/module/ckj1jlquy00d2t8yvfvw2pp8m.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
+          
+            <a href="/tags/module/" rel="tag"><i class="fa fa-tag"></i> module</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/window/ckj1jlqjt0015t8yvmc1k5fpx.html" rel="next" title="window使用随记">
+                <i class="fa fa-chevron-left"></i> window使用随记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/python/module/ckj1jlquf00cit8yvvaavfxcf.html" rel="prev" title="python collections module">
+                python collections module <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  
+    <img class="site-author-image" itemprop="image" src="/images/profile.jpg" alt="Mr Wang">
+  
+  <p class="site-author-name" itemprop="name">Mr Wang</p>
+  <div class="site-description motion-element" itemprop="description">行动了才会有故事，说出来才会有结果。</div>
+</div>
+
+
+  <nav class="site-state motion-element">
+    
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">123</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">45</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+
+
+
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+
+
+
+
+
+  <div class="links-of-author motion-element">
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/forgetST" title="GitHub &rarr; https://github.com/forgetST" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:yourname@gmail.com" title="E-Mail &rarr; mailto:yourname@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://weibo.com/yourname" title="Weibo &rarr; https://weibo.com/yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+    
+  </div>
+
+
+
+
+
+
+
+          
+          
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#与-json-模块的比较"><span class="nav-number">1.</span> <span class="nav-text">与 json 模块的比较</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模块接口"><span class="nav-number">2.</span> <span class="nav-text">模块接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#pickle-HIGHEST-PROTOCOL"><span class="nav-number">2.1.</span> <span class="nav-text">pickle.HIGHEST_PROTOCOL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pickle-DEFAULT-PROTOCOL"><span class="nav-number">2.2.</span> <span class="nav-text">pickle.DEFAULT_PROTOCOL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pickle-dump-obj-file-protocol-None-fix-imports-True-buffer-callback-None"><span class="nav-number">2.3.</span> <span class="nav-text">pickle.dump(obj, file, protocol=None, *, fix_imports=True, buffer_callback=None)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pickle-dumps-obj-protocol-None-fix-imports-True-buffer-callback-None"><span class="nav-number">2.4.</span> <span class="nav-text">pickle.dumps(obj, protocol=None, *, fix_imports=True, buffer_callback=None)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pickle-load-file-fix-imports-True-encoding-”ASCII”-errors-”strict”-buffers-None"><span class="nav-number">2.5.</span> <span class="nav-text">pickle.load(file, *, fix_imports=True, encoding=”ASCII”, errors=”strict”, buffers=None)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pickle-loads-bytes-object-fix-imports-True-encoding-”ASCII”-errors-”strict”-buffers-None"><span class="nav-number">2.6.</span> <span class="nav-text">pickle.loads(bytes_object, *, fix_imports=True, encoding=”ASCII”, errors=”strict”, buffers=None)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#exception-pickle-PickleError"><span class="nav-number">2.7.</span> <span class="nav-text">exception pickle.PickleError</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#exception-pickle-PicklingError"><span class="nav-number">2.8.</span> <span class="nav-text">exception pickle.PicklingError</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#exception-pickle-UnpicklingError"><span class="nav-number">2.9.</span> <span class="nav-text">exception pickle.UnpicklingError</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#class-pickle-Pickler-file-protocol-None-fix-imports-True-buffer-callback-None"><span class="nav-number">2.10.</span> <span class="nav-text">class pickle.Pickler(file, protocol=None, *, fix_imports=True, buffer_callback=None)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#dump-obj"><span class="nav-number">2.10.1.</span> <span class="nav-text">dump(obj)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#persistent-id-obj"><span class="nav-number">2.10.2.</span> <span class="nav-text">persistent_id(obj)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#dispatch-table"><span class="nav-number">2.10.3.</span> <span class="nav-text">dispatch_table</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#reducer-override-self-obj"><span class="nav-number">2.10.4.</span> <span class="nav-text">reducer_override(self, obj)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#fast"><span class="nav-number">2.10.5.</span> <span class="nav-text">fast</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#class-pickle-Unpickler-file-fix-imports-True-encoding-”ASCII”-errors-”strict”-buffers-None"><span class="nav-number">2.11.</span> <span class="nav-text">class pickle.Unpickler(file, *, fix_imports=True, encoding=”ASCII”, errors=”strict”, buffers=None)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#load"><span class="nav-number">2.11.1.</span> <span class="nav-text">load()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#persistent-load-pid"><span class="nav-number">2.11.2.</span> <span class="nav-text">persistent_load(pid)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#find-class-module-name"><span class="nav-number">2.11.3.</span> <span class="nav-text">find_class(module, name)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#class-pickle-PickleBuffer-buffer"><span class="nav-number">2.12.</span> <span class="nav-text">class pickle.PickleBuffer(buffer)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#raw"><span class="nav-number">2.12.1.</span> <span class="nav-text">raw()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#release"><span class="nav-number">2.12.2.</span> <span class="nav-text">release()</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#示例"><span class="nav-number">3.</span> <span class="nav-text">示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+      
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+</div>
+
+
+        
+      </main></div>
+    
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mr Wang</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+  <span class="post-meta-divider">|</span>
+  <span id="busuanzi_container_site_uv">总访客数<span id="busuanzi_value_site_uv"></span>人</span>
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+  
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+
+
+  <script src="/js/utils.js?v=7.2.0"></script>
+
+  <script src="/js/motion.js?v=7.2.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.2.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
+
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/01/assets/haru01.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7}});</script></body>
+
+
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+
+</html>
+
+

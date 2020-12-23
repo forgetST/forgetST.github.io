@@ -1,0 +1,1927 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.2.0',
+    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})
+  (window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/af1c402f.js","daovoice")
+  daovoice('init', {
+    app_id: "af1c402f"});
+  daovoice('update');
+  </script>
+
+  <meta name="description" content="python 与 mysql 相关的记录。">
+<meta name="keywords" content="python,mysql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python操作mysql">
+<meta property="og:url" content="https://forgetst.github.io/python/ckj1jlqqr0086t8yvujdk97cd.html">
+<meta property="og:site_name" content="勿忘，须舍">
+<meta property="og:description" content="python 与 mysql 相关的记录。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-07-14T16:00:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python操作mysql">
+<meta name="twitter:description" content="python 与 mysql 相关的记录。">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="勿忘，须舍" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="https://forgetst.github.io/python/ckj1jlqqr0086t8yvujdk97cd">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  
+  <title>python操作mysql | 勿忘，须舍</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <a href="https://github.com/forgetST" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+  
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">勿忘，须舍</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-python">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/python/" rel="section"><i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>python 随记</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/python/ckj1jlqqr0086t8yvujdk97cd.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr Wang">
+      <meta itemprop="description" content="行动了才会有故事，说出来才会有结果。">
+      <meta itemprop="image" content="/images/profile.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="勿忘，须舍">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">python操作mysql
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-07-15 00:00" itemprop="dateCreated datePublished" datetime="2020-07-15T00:00:00+08:00">2020-07-15</time>
+            </span>
+          
+
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>python 与 mysql 相关的记录。</p>
+<a id="more"></a>
+
+<h2 id="django-orm对数据库的操作原理"><a href="#django-orm对数据库的操作原理" class="headerlink" title="django orm对数据库的操作原理"></a>django orm对数据库的操作原理</h2><p><a href="https://blog.csdn.net/weixin_45619627/article/details/106130048" target="_blank" rel="noopener">django orm对数据库的操作原理</a></p>
+<h2 id="django-models"><a href="#django-models" class="headerlink" title="django models"></a>django models</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>一个模型（model）是单一的，与数据库相关的数据源。它包含了存储数据必需的字段和行为。一般情况下，每个模型映射一个单独的数据库表。</p>
+<ul>
+<li>每个模型是 django.db.models.Model 的一个Python子类。</li>
+<li>该模型的每个属性都代表一个数据库字段。</li>
+<li>综上，Django给你自动生成数据库的访问API。</li>
+<li>数据表名 <code>appname_modelnme</code> 是根据模型的元数据生成，但可以进行自定义。</li>
+</ul>
+<h3 id="字段类型"><a href="#字段类型" class="headerlink" title="字段类型"></a>字段类型</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">from django.db import models</span><br><span class="line"></span><br><span class="line">models.AutoField    </span><br><span class="line">    # 根据已有id自增长的整形唯一字段，一般每个model类不需设置该字段，因为django会为每个model自动设置。</span><br><span class="line">    # django默认会为每个model类添加如下语句：id = models.AutoField(primary_key=True)当其他字段添加了primary_key属性，则不会创建id字段了，每个model类仅能有一个主键</span><br><span class="line">models.BigAutoField</span><br><span class="line">    # 一个64位的自增整数字段，范围1到9223372036854775807。</span><br><span class="line">models.BigIntegerField</span><br><span class="line">    # 一个64位的整数字段，范围从-9223372036854775808到9223372036854775807。该字段的默认表单部件是TextInput。</span><br><span class="line">models.BinaryField</span><br><span class="line">    # 存储原始二进制数据的字段。它可以被分配字节、bytearray或memoryview。</span><br><span class="line">models.BooleanField</span><br><span class="line">    # 布尔型字段，默认的表单窗口部件是CheckBoxInput，若null=True则为NullBooleanSelect。</span><br><span class="line">models.CharField(max_length=200)</span><br><span class="line">    # 字符型字段，默认的表单窗口部件是TextInput。该字段类型有一个必需参数：max_length  在数据库水平限定了字符串最大长度</span><br><span class="line">models.CommaSeparatedIntegerField</span><br><span class="line">models.DateField</span><br><span class="line">    # 日期字段，字段的值是python中datetime.date的实例，默认的表单窗口是TextInput有几个可选的参数：</span><br><span class="line">    #   auto_now=True/False:当设置为True时，每当该对象使用save()时，该字段的值就会被更新。</span><br><span class="line">    #   auto_now_add=True/False: 当设置为True时，该字段的值为该对象被创建时的日期</span><br><span class="line">models.DateTimeField</span><br><span class="line">    # 日期和时间字段，值为datetime.datetime实例。可选参数：</span><br><span class="line">    #   auto_now=True/False:当设置为True时，每当该对象使用save()时，该字段的值就会被更新。</span><br><span class="line">    #   auto_now_add=True/False: 当设置为True时，该字段的值为该对象被创建时的日期</span><br><span class="line">models.DecimalField(max_digits=10, decimal_places=2)</span><br><span class="line">    # 混合精度的小数型数字字段。有两个必需的参数：</span><br><span class="line">    #   max_digits=ingt_number:限定数字的最大位数（包含小数位）</span><br><span class="line">    #   decimal_places=int_number:存储数字的小数位</span><br><span class="line">models.DurationField</span><br><span class="line">    # 用于存储时间周期的字段。</span><br><span class="line">models.EmailField</span><br><span class="line">    # 邮件字段，使用EmailValidator进行验证。</span><br><span class="line">models.FileField</span><br><span class="line">    # 一个文件上传字段。不能设置primary_key，有两个可选参数:</span><br><span class="line">    #   upload_to 如果使用默认的FileSystomStorage，文件将会存储到settings文件中配置的MEDIA_ROOT路径中。</span><br><span class="line">    #   storage  用来设定文件存储仓库。</span><br><span class="line">models.FilePathField</span><br><span class="line">    # 这个字段的值被限制在系统上某个目录中的所有文件名集合中。有三个参数 </span><br><span class="line">    #   path=&apos;&apos;:  该参数必需。上行所说的‘某个目录’的绝对路径。Example: &quot;/home/images&quot;.</span><br><span class="line">    #   match=&apos;pattern&apos;:  可选参数。格式是正则表达式。用来拣选符合匹配正则表达式的文件</span><br><span class="line">    #   recursive=True/False: 可选参数，默认为False。设定是否递归该目录下所有子目录的所有文件。</span><br><span class="line">models.FloatField</span><br><span class="line">    # 浮点字段，默认的表单窗口部件是NumberInput。</span><br><span class="line">    # FloatField在内部使用Python中的float对象，而DecimalField在内部使用Python中的decimal对象。</span><br><span class="line">models.GenericIPAddressField(protocol=&apos;both&apos;, unpack_ipv4=False, **options)</span><br><span class="line">    # ip地址字段</span><br><span class="line">    # protocol=&apos;both/ipv4/ipv6&apos;  默认为both</span><br><span class="line">models.IPAddressField</span><br><span class="line">models.IntegerField</span><br><span class="line">    # 整数字段，范围 -2147483648 to 2147483647。</span><br><span class="line">models.NullBooleanField</span><br><span class="line">    # 类似于BooleanField，不同的是其允许值为null。</span><br><span class="line">models.PositiveIntegerField</span><br><span class="line">    # 非负整数字段，范围 0 to 2147483647。</span><br><span class="line">models.PositiveSmallIntegerField</span><br><span class="line">    # 非负整数字段，范围 0 to 32767。</span><br><span class="line">models.SlugField</span><br><span class="line">    # 只包含字母、数字、下划线或连字符。它们通常在url中使用。</span><br><span class="line">models.SmallIntegerField</span><br><span class="line">models.TextField</span><br><span class="line">    # 与CharField类似，但一般用来存储体积较大的文本。</span><br><span class="line">models.TimeField</span><br><span class="line">    # 时间字段，其值为datetime.time实例</span><br><span class="line">models.URLField</span><br><span class="line">    # URL字段，</span><br><span class="line">models.UUIDField</span><br><span class="line">    # 通用唯一标识字段，当不想用django默认设置的AutoField字段时，可以用该字段代替。</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line"></span><br><span class="line">from django.db import models</span><br><span class="line"></span><br><span class="line">class Example(models.Model):</span><br><span class="line">    pass</span><br></pre></td></tr></table></figure>
+
+<h3 id="字段选项"><a href="#字段选项" class="headerlink" title="字段选项"></a>字段选项</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"># 以下参数对所以字段类型均有效，且是可选的。</span><br><span class="line">    null 如果设置为True， 当该字段为空时，Django 会将数据库中该字段设置为 NULL，默认为 False。</span><br><span class="line">    blank 如果设置为 True ，该字段允许为空。默认为 False 。</span><br><span class="line">    choices 可选的，限制了该选项的字段值必须是所指定的choice中的一个。</span><br><span class="line">    db_column 数据库column名称。默认为本字段的名称。</span><br><span class="line">    db_index  如果为True的话，该字段的数据库索引将会被创建</span><br><span class="line">    db_tablespace </span><br><span class="line">    default  该字段的默认值。可以是一个值或者是个可调用的对象，如果是个可调用对象，每次实例化模型时都会调用该对象。</span><br><span class="line">    editable  默认为True，若为False，则不会在admin/界面显示</span><br><span class="line">    error_messages error_messages参数允许覆盖字段将引发的默认消息。传入一个字典，其中的键与要覆盖的错误消息相匹配。</span><br><span class="line">    help_text 额外的“帮助”文本，随表单控件一同显示。即便你的字段未用于表单，它对于生成文档也是很有用的。</span><br><span class="line">    primary_key 如果设置为 True ，将该字段设置为该模型的主键。</span><br><span class="line">    unique 如果设置为 True，这个字段必须在整个表中保持值唯一。</span><br><span class="line">    unique_for_date 将其设置为DateField或DateTimeField的名称，以要求该字段对于日期字段的值是惟一的。</span><br><span class="line">    unique_for_month 与unique_for_date类似，但要求字段相对于月份是唯一的。</span><br><span class="line">    unique_for_year 与unique_for_date类似，但要求字段相对于年是唯一的。</span><br><span class="line">    verbose_name 字段可读的名称。如果没有给出详细名称，Django将使用字段的属性名称自动创建它，将下划线转换为空格。</span><br><span class="line">    validators 该字段运行的验证器列表。</span><br><span class="line"></span><br><span class="line"># 关联字段</span><br><span class="line">    ForeignKey， ManyToManyField 和 OneToOneField,第一个参数为模型的类名，后面可以添加一个 verbose_name 参数：</span><br><span class="line">    </span><br><span class="line">    1. ForeignKey 多对一的关系。</span><br><span class="line">        需要两个位置参数：被关联的类和 on_delete 选项。</span><br><span class="line">        如果要创建一个递归关系 -- 一个与其自身有多对一关系的对象 -- 则使用 models.ForeignKey(&apos;self&apos;, on_delete=models.CASCADE)。</span><br><span class="line">        poll = models.ForeignKey(</span><br><span class="line">            Poll,</span><br><span class="line">            on_delete=models.CASCADE,</span><br><span class="line">            verbose_name=&quot;the related poll&quot;,</span><br><span class="line">            )</span><br><span class="line">    sites = models.ManyToManyField(Site, verbose_name=&quot;list of sites&quot;)</span><br><span class="line">    place = models.OneToOneField(</span><br><span class="line">        Place,</span><br><span class="line">        on_delete=models.CASCADE,</span><br><span class="line">        verbose_name=&quot;related place&quot;,</span><br><span class="line">        )</span><br></pre></td></tr></table></figure>
+
+<h3 id="ForeignKey-示例"><a href="#ForeignKey-示例" class="headerlink" title="ForeignKey 示例"></a>ForeignKey 示例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">class ForeignKey(</span><br><span class="line">    to,</span><br><span class="line">    on_delete, </span><br><span class="line">    related_name=None, </span><br><span class="line">    related_query_name=None, </span><br><span class="line">    limit_choices_to=None, </span><br><span class="line">    parent_link=False, </span><br><span class="line">    to_field=None, </span><br><span class="line">    db_constraint=True, </span><br><span class="line">    swappable=True,</span><br><span class="line">    **kwargs</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line"># 参数注解</span><br><span class="line">    to: </span><br><span class="line">        所关联的模型;</span><br><span class="line">        当引用的模型为其他app中的模型时，要加上app名称标签:&apos;app_name.model_name&apos;;</span><br><span class="line">        数据库会自动在外键字段上创建索引，可以使用db_index=False关闭该功能。</span><br><span class="line">    on_delete:</span><br><span class="line">        当删除 &quot;一&quot; 模型对象时，django会根据该参数的值对与该对象相关联的其他对象(也就是 ‘多’)进行操作;</span><br><span class="line">        models.CASCADE: 默认为models.CASCADE   级联删除。当删除&apos;一&apos;时，‘多’会被删除。</span><br><span class="line">        modles.PROTECT: 当删除一个具有外键关系的对象时，会引发一个异常，阻止删除该对象。</span><br><span class="line">        models.SET_NULL: 设置删除对象所关联的外键字段为null。但字段的null属性必需为True。</span><br><span class="line">        models.SET_DEFAULT: 设置删除对象所关联的外键字段为默认的值。</span><br><span class="line">        models.SET(value): 设置删除对象所关联的对象的外键字段为value,value也可以是一个可调用函数。</span><br><span class="line">        models.DO_NOTHING: 不做任何操作</span><br><span class="line">    related_name:</span><br><span class="line">        设置从关联对象到自身的关系的名称，若值为&apos;+&apos;  则关联对象与自身无逆向关系。</span><br><span class="line">        user = models.ForeignKey(</span><br><span class="line">            User,</span><br><span class="line">            on_delete=models.CASCADE,</span><br><span class="line">            related_name=&apos;+&apos;,</span><br><span class="line">        )</span><br><span class="line">    related_query_name:</span><br><span class="line">        用于目标模型的反向筛选器名称。如果设置为related_name或default_related_name则使用它，否则默认为模型名。</span><br><span class="line">    limit_choices_to:</span><br><span class="line">        当使用ModelForm或admin呈现此字段时，设置此字段可用选项的限制(默认情况下，queryset中的所有对象都可以选择)。可以使用字典、Q对象或返回字典或Q对象的可调用对象。</span><br><span class="line">    to_field：</span><br><span class="line">        设置所关联对象的关联字段，如果引用不同的字段，该字段必须具有unique=True。默认为关联对象的主键字段。</span><br><span class="line">    db_constraint：</span><br><span class="line">        是否创建外键约束，默认为true。</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://docs.djangoproject.com/zh-hans/2.2/_modules/django/db/models/fields/related/#ForeignKey" target="_blank" rel="noopener">源代码</a></p>
+<p>多对一的关系。需要两个位置参数：被关联的类和 on_delete 选项。<br>如果要创建一个递归关系，一个与其自身有多对一关系的对象，则使用 <code>models.ForeignKey(&#39;self&#39;, on_delete=models.CASCADE)</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">from django.db import models</span><br><span class="line"></span><br><span class="line">class Manufacturer(models.Model):</span><br><span class="line">    # ...</span><br><span class="line">    pass</span><br><span class="line"></span><br><span class="line">class Car(models.Model):</span><br><span class="line">    manufacturer = models.Foreignkey(</span><br><span class="line">        &apos;Manufacturer&apos;, on_delete = models.CASCADE</span><br><span class="line">    )</span><br></pre></td></tr></table></figure>
+
+<h3 id="ManyToManyField-示例"><a href="#ManyToManyField-示例" class="headerlink" title="ManyToManyField 示例"></a>ManyToManyField 示例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">class ManyToManyField(</span><br><span class="line">    to, </span><br><span class="line">    related_name=None, </span><br><span class="line">    related_query_name=None,</span><br><span class="line">    limit_choices_to=None, </span><br><span class="line">    symmetrical=None, through=None,</span><br><span class="line">    through_fields=None, </span><br><span class="line">    db_constraint=True, </span><br><span class="line">    db_table=None,</span><br><span class="line">    swappable=True, </span><br><span class="line">    **kwargs</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"># 参数注解</span><br><span class="line">    db_table:  </span><br><span class="line">        多对多关系会在两个模型所对应的表中间创建一个‘中间表’ ，将多对多转换为两个多对一，该选项为这个中间表设置名称。一般来说django会默认为中间表创建名称，但人们读起来可能搞不清楚究竟中间表关联到了哪里。</span><br><span class="line">    through:</span><br><span class="line">        Django会自动生成一个表来管理多对多关系。</span><br><span class="line">        但是，如果希望手动指定中间表，可以使用through选项指定表示要使用的中间表的Django模型。</span><br><span class="line">    though_field:</span><br><span class="line">        当though参数被使用时，该参数才会有效。指定使用哪些中间模型字段来确立两个模型的多对多关系。</span><br><span class="line">    其它参数参考 ForeignKey</span><br></pre></td></tr></table></figure>
+
+<p>示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">from django.db import models</span><br><span class="line"></span><br><span class="line">class Person(models.Model):</span><br><span class="line">    name = models.CharField(max_length=50)</span><br><span class="line"></span><br><span class="line">class Group(models.Model):</span><br><span class="line">    name = models.CharField(max_length=128)</span><br><span class="line">    members = models.ManyToManyField(</span><br><span class="line">        Person,</span><br><span class="line">        through=&apos;Membership&apos;,</span><br><span class="line">        through_fields=(&apos;group&apos;, &apos;person&apos;),</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">class Membership(models.Model):</span><br><span class="line">    group = models.ForeignKey(Group, on_delete=models.CASCADE)</span><br><span class="line">    person = models.ForeignKey(Person, on_delete=models.CASCADE)</span><br><span class="line">    inviter = models.ForeignKey(</span><br><span class="line">        Person,</span><br><span class="line">        on_delete=models.CASCADE,</span><br><span class="line">        related_name=&quot;membership_invites&quot;,</span><br><span class="line">    )</span><br><span class="line">    invite_reason = models.CharField(max_length=64)</span><br><span class="line"></span><br><span class="line"># Membership 有两个外键 Person（person和inviter）</span><br><span class="line"># 通过 through_fields 显式的指定Django应该使用哪个外键</span><br><span class="line"># through_fields 接受一个2元组（fiels1，fields2）</span><br><span class="line">#   fields1：多对多关系字段被定义的那个模型的外键名称（本例中的group）</span><br><span class="line">#   fields2：是目标模型的外键名称（本例中的person）。</span><br></pre></td></tr></table></figure>
+
+<h3 id="OneToOneField-示例"><a href="#OneToOneField-示例" class="headerlink" title="OneToOneField 示例"></a>OneToOneField 示例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class OneToOneField(</span><br><span class="line">    to, </span><br><span class="line">    on_delete, </span><br><span class="line">    to_field=None, **kwargs</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h3 id="model操作方法"><a href="#model操作方法" class="headerlink" title="model操作方法"></a>model操作方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"># mysite/blog/models.py </span><br><span class="line"></span><br><span class="line">from django.db import models</span><br><span class="line"></span><br><span class="line">class Blog(models.Model):</span><br><span class="line">    name = models.CharField(max_length=100)</span><br><span class="line">    tagline = models.TextField()</span><br><span class="line"></span><br><span class="line">    def __str__(self):</span><br><span class="line">        return self.name</span><br><span class="line"></span><br><span class="line">class Author(models.Model):</span><br><span class="line">    name = models.CharField(max_length=200)</span><br><span class="line">    email = models.EmailField()</span><br><span class="line"></span><br><span class="line">    def __str__(self):</span><br><span class="line">        return self.name</span><br><span class="line"></span><br><span class="line">class Entry(models.Model):</span><br><span class="line">    blog = models.ForeignKey(Blog, on_delete=models.CASCADE)</span><br><span class="line">    headline = models.CharField(max_length=255)</span><br><span class="line">    body_text = models.TextField()</span><br><span class="line">    pub_date = models.DateField()</span><br><span class="line">    mod_date = models.DateField()</span><br><span class="line">    authors = models.ManyToManyField(Author)</span><br><span class="line">    number_of_comments = models.IntegerField()</span><br><span class="line">    number_of_pingbacks = models.IntegerField()</span><br><span class="line">    rating = models.IntegerField()</span><br><span class="line"></span><br><span class="line">    def __str__(self):</span><br><span class="line">        return self.headline</span><br></pre></td></tr></table></figure>
+
+<h4 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Model.save(force_insert=False, force_update=False, using=DEFAULT_DB_ALIAS, update_fields=None)</span><br><span class="line"></span><br><span class="line">force_insert: boolean，强制创建</span><br><span class="line">force_update：boolean，强制更新</span><br><span class="line">update_fields：更新的字段列表</span><br></pre></td></tr></table></figure>
+
+<p>要创建一个对象，用关键字参数初始化它，然后调用 save() 将其存入数据库。<br>这在幕后执行了 INSERT SQL 语句。Django 在你显式调用 save() 才操作数据库。<br>save() 方法没有返回值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; from blog.models import Blog</span><br><span class="line">&gt;&gt;&gt; b = Blog(name=&apos;Beatles Blog&apos;, tagline=&apos;All the latest Beatles news.&apos;)</span><br><span class="line">&gt;&gt;&gt; b.save()</span><br></pre></td></tr></table></figure>
+
+<p><strong>保存 ForeignKey 字段</strong><br>本例为 Entry 类的实例 entry 更新了 blog 属性，假设 Entry 和 Blog 的实例均已保存在数据库中（因此能在下面检索它们）:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; from blog.models import Blog, Entry</span><br><span class="line">&gt;&gt;&gt; entry = Entry.objects.get(pk=1)</span><br><span class="line">&gt;&gt;&gt; cheese_blog = Blog.objects.get(name=&quot;Cheddar Talk&quot;)</span><br><span class="line">&gt;&gt;&gt; entry.blog = cheese_blog</span><br><span class="line">&gt;&gt;&gt; entry.save()</span><br></pre></td></tr></table></figure>
+
+<p><strong>保存 ManyToManyField 字段</strong><br>在字段上使用 add() 方法为关联关系添加一条记录。本例将 Author 实例 joe 添加至 entry 对象:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; from blog.models import Author</span><br><span class="line">&gt;&gt;&gt; joe = Author.objects.create(name=&quot;Joe&quot;)</span><br><span class="line">&gt;&gt;&gt; entry.authors.add(joe)</span><br></pre></td></tr></table></figure>
+
+<p>要一次添加多行记录至 ManyToManyField 字段，在一次调用 add() 时传入多个参数，像这样:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; john = Author.objects.create(name=&quot;John&quot;)</span><br><span class="line">&gt;&gt;&gt; paul = Author.objects.create(name=&quot;Paul&quot;)</span><br><span class="line">&gt;&gt;&gt; george = Author.objects.create(name=&quot;George&quot;)</span><br><span class="line">&gt;&gt;&gt; ringo = Author.objects.create(name=&quot;Ringo&quot;)</span><br><span class="line">&gt;&gt;&gt; entry.authors.add(john, paul, george, ringo)</span><br></pre></td></tr></table></figure>
+
+<h4 id="更新对象"><a href="#更新对象" class="headerlink" title="更新对象"></a>更新对象</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; from blog.models import Blog</span><br><span class="line">&gt;&gt;&gt; b = Blog.objects.get(name=&apos;Beatles Blog&apos;)</span><br><span class="line">&gt;&gt;&gt; b.name = &apos;Lucy&apos;</span><br><span class="line">&gt;&gt;&gt; b.save()</span><br><span class="line">&gt;&gt;&gt; # b.save(update_fields=[&apos;name&apos;])</span><br></pre></td></tr></table></figure>
+
+<h4 id="字段查询"><a href="#字段查询" class="headerlink" title="字段查询"></a>字段查询</h4><p>字段查询即你如何制定 SQL <strong>WHERE</strong> 子句。它们以关键字参数的形式传递给 <strong>QuerySet</strong> 方法 <strong>filter()</strong>， <strong>exclude()</strong> 和 <strong>get()</strong>。</p>
+<p>基本的查询关键字参数遵照 <code>field__lookuptype=value</code>。（有个双下划线）。例如:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; Entry.objects.filter(pub_date__lte=&apos;2006-01-01&apos;)</span><br></pre></td></tr></table></figure>
+
+<p>转换为 SQL 语句大致如下：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> blog_entry <span class="keyword">WHERE</span> pub_date &lt;= <span class="string">'2006-01-01'</span>;</span><br></pre></td></tr></table></figure>
+
+<h5 id="exact"><a href="#exact" class="headerlink" title="exact"></a><strong>exact</strong></h5><p>精确匹配。如果提供的用于比较的值是None，它将被解释为SQL NULL。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Entry.objects.get(id__exact=<span class="number">14</span>)</span><br><span class="line">Entry.objects.get(id__exact=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ... <span class="keyword">WHERE</span> <span class="keyword">id</span> = <span class="number">14</span>;</span><br><span class="line"><span class="keyword">SELECT</span> ... <span class="keyword">WHERE</span> <span class="keyword">id</span> <span class="keyword">IS</span> <span class="literal">NULL</span>;</span><br></pre></td></tr></table></figure>
+
+<h5 id="iexact"><a href="#iexact" class="headerlink" title="iexact"></a>iexact</h5><p>不区分大小写的精确匹配。如果提供的用于比较的值是None，它将被解释为SQL NULL。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Blog.objects.get(name__iexact=&apos;beatles blog&apos;)</span><br><span class="line">Blog.objects.get(name__iexact=None)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ... <span class="keyword">WHERE</span> <span class="keyword">name</span> <span class="keyword">ILIKE</span> <span class="string">'beatles blog'</span>;</span><br><span class="line"><span class="keyword">SELECT</span> ... <span class="keyword">WHERE</span> <span class="keyword">name</span> <span class="keyword">IS</span> <span class="literal">NULL</span>;</span><br></pre></td></tr></table></figure>
+
+<h5 id="contains"><a href="#contains" class="headerlink" title="contains"></a>contains</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Entry.objects.get(headline__contains=<span class="string">'Lennon'</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ... <span class="keyword">WHERE</span> headline <span class="keyword">LIKE</span> <span class="built_in">binary</span> <span class="string">'%Lennon%'</span>;</span><br></pre></td></tr></table></figure>
+
+<h5 id="icontains"><a href="#icontains" class="headerlink" title="icontains"></a>icontains</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Entry.objects.get(headline__icontains=<span class="string">'Lennon'</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT ... WHERE headline ILIKE &apos;%Lennon%&apos;;</span><br></pre></td></tr></table></figure>
+
+<h5 id="in"><a href="#in" class="headerlink" title="in"></a>in</h5><p>在给定的迭代中;通常是列表、元组或查询集。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Entry.objects.filter(id__in=[<span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>])</span><br><span class="line">Entry.objects.filter(headline__in=<span class="string">'abc'</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT ... WHERE id IN (1, 3, 4);</span><br><span class="line">SELECT ... WHERE headline IN (&apos;a&apos;, &apos;b&apos;, &apos;c&apos;);</span><br></pre></td></tr></table></figure>
+
+<p>也可以使用queryset来动态地评估值列表，而不是提供一个文字值列表:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">inner_qs = Blog.objects.filter(name__contains=<span class="string">'Cheddar'</span>)</span><br><span class="line">entries = Entry.objects.filter(blog__in=inner_qs)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT ... WHERE blog.id IN (SELECT id FROM ... WHERE NAME LIKE &apos;%Cheddar%&apos;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="gt"><a href="#gt" class="headerlink" title="gt"></a>gt</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Entry.objects.filter(id__gt=4)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT ... WHERE id &gt; 4;</span><br></pre></td></tr></table></figure>
+
+<h5 id="gte"><a href="#gte" class="headerlink" title="gte"></a>gte</h5><h5 id="lt"><a href="#lt" class="headerlink" title="lt"></a>lt</h5><h5 id="lte"><a href="#lte" class="headerlink" title="lte"></a>lte</h5><h5 id="startswith"><a href="#startswith" class="headerlink" title="startswith"></a>startswith</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Entry.objects.filter(headline__startswith=&apos;Lennon&apos;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT ... WHERE headline LIKE binary &apos;Lennon%&apos;;</span><br></pre></td></tr></table></figure>
+
+<h5 id="istartswith"><a href="#istartswith" class="headerlink" title="istartswith"></a>istartswith</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Entry.objects.filter(headline__istartswith=&apos;Lennon&apos;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT ... WHERE headline ILIKE &apos;Lennon%&apos;;</span><br></pre></td></tr></table></figure>
+
+<h5 id="endswith"><a href="#endswith" class="headerlink" title="endswith"></a>endswith</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Entry.objects.filter(headline__endswith=&apos;Lennon&apos;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT ... WHERE headline LIKE &apos;%Lennon&apos;;</span><br></pre></td></tr></table></figure>
+
+<h5 id="iendswith"><a href="#iendswith" class="headerlink" title="iendswith"></a>iendswith</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Entry.objects.filter(headline__iendswith=&apos;Lennon&apos;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT ... WHERE headline LIKE &apos;%Lennon&apos;;</span><br></pre></td></tr></table></figure>
+
+<h5 id="range"><a href="#range" class="headerlink" title="range"></a>range</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import datetime</span><br><span class="line">start_date = datetime.date(2005, 1, 1)</span><br><span class="line">end_date = datetime.date(2005, 3, 31)</span><br><span class="line">Entry.objects.filter(pub_date__range=(start_date, end_date))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT ... WHERE pub_date BETWEEN &apos;2005-01-01&apos; and &apos;2005-03-31&apos;;</span><br></pre></td></tr></table></figure>
+
+<h5 id="date"><a href="#date" class="headerlink" title="date"></a>date</h5><p>对于datetime字段，将值强制转换为date。允许链接其他字段查找。获取日期值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Entry.objects.filter(pub_date__date=datetime.date(2005, 1, 1))</span><br><span class="line">Entry.objects.filter(pub_date__date__gt=datetime.date(2005, 1, 1))</span><br></pre></td></tr></table></figure>
+
+<p>注：当USE_TZ为真时，字段将在过滤前转换为当前时区。这需要在数据库中定义时区。</p>
+<h5 id="year"><a href="#year" class="headerlink" title="year"></a>year</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Entry.objects.filter(pub_date__year=2005)</span><br><span class="line">Entry.objects.filter(pub_date__year__gte=2005)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT ... WHERE pub_date BETWEEN &apos;2005-01-01&apos; AND &apos;2005-12-31&apos;;</span><br><span class="line">SELECT ... WHERE pub_date &gt;= &apos;2005-01-01&apos;;</span><br></pre></td></tr></table></figure>
+
+<p>注：当USE_TZ为真时，字段将在过滤前转换为当前时区。这需要在数据库中定义时区。</p>
+<h5 id="month"><a href="#month" class="headerlink" title="month"></a>month</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Entry.objects.filter(pub_date__month=12)</span><br><span class="line">Entry.objects.filter(pub_date__month__gte=6)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT ... WHERE EXTRACT(&apos;month&apos; FROM pub_date) = &apos;12&apos;;</span><br><span class="line">SELECT ... WHERE EXTRACT(&apos;month&apos; FROM pub_date) &gt;= &apos;6&apos;;</span><br></pre></td></tr></table></figure>
+
+<p>注：当USE_TZ为真时，字段将在过滤前转换为当前时区。这需要在数据库中定义时区</p>
+<h5 id="day"><a href="#day" class="headerlink" title="day"></a>day</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Entry.objects.filter(pub_date__day=3)</span><br><span class="line">Entry.objects.filter(pub_date__day__gte=3)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT ... WHERE EXTRACT(&apos;day&apos; FROM pub_date) = &apos;3&apos;;</span><br><span class="line">SELECT ... WHERE EXTRACT(&apos;day&apos; FROM pub_date) &gt;= &apos;3&apos;;</span><br></pre></td></tr></table></figure>
+
+<p>注：当USE_TZ为真时，字段将在过滤前转换为当前时区。这需要在数据库中定义时区</p>
+<h5 id="week"><a href="#week" class="headerlink" title="week"></a>week</h5><p>对于date和datetime字段，根据ISO-8601返回周数(1-52或53)，即。在美国，一周从周一开始，第一周包含全年的第一个周四。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Entry.objects.filter(pub_date__week=52)</span><br><span class="line">Entry.objects.filter(pub_date__week__gte=32, pub_date__week__lte=38)</span><br></pre></td></tr></table></figure>
+
+<p>注：当USE_TZ为真时，字段将在过滤前转换为当前时区。这需要在数据库中定义时区</p>
+<h5 id="week-day"><a href="#week-day" class="headerlink" title="week_day"></a>week_day</h5><p>对于日期和日期时间字段，“星期几”匹配。允许链接其他字段查找。<br>获取一个整数值，表示一周的日期从1(星期日)到7(星期六)。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Entry.objects.filter(pub_date__week_day=2)</span><br><span class="line">Entry.objects.filter(pub_date__week_day__gte=2)</span><br></pre></td></tr></table></figure>
+
+<h5 id="quarter"><a href="#quarter" class="headerlink" title="quarter"></a>quarter</h5><p>获取一个1到4之间的整数值，表示一年中的季度。<br>检索第二季度(4月1日至6月30日)条目的示例:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Entry.objects.filter(pub_date__quarter=2)</span><br></pre></td></tr></table></figure>
+
+<h5 id="time"><a href="#time" class="headerlink" title="time"></a>time</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Entry.objects.filter(pub_date__time=datetime.time(14, 30))</span><br><span class="line">Entry.objects.filter(pub_date__time__range=(datetime.time(8), datetime.time(17)))</span><br></pre></td></tr></table></figure>
+
+<h5 id="hour"><a href="#hour" class="headerlink" title="hour"></a>hour</h5><p>取0到23之间的整数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Event.objects.filter(timestamp__hour=23)</span><br><span class="line">Event.objects.filter(time__hour=5)</span><br><span class="line">Event.objects.filter(timestamp__hour__gte=12)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT ... WHERE EXTRACT(&apos;hour&apos; FROM timestamp) = &apos;23&apos;;</span><br><span class="line">SELECT ... WHERE EXTRACT(&apos;hour&apos; FROM time) = &apos;5&apos;;</span><br><span class="line">SELECT ... WHERE EXTRACT(&apos;hour&apos; FROM timestamp) &gt;= &apos;12&apos;;</span><br></pre></td></tr></table></figure>
+
+<h5 id="minute"><a href="#minute" class="headerlink" title="minute"></a>minute</h5><p>取0到之间59的整数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Event.objects.filter(timestamp__minute=29)</span><br><span class="line">Event.objects.filter(time__minute=46)</span><br><span class="line">Event.objects.filter(timestamp__minute__gte=29)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT ... WHERE EXTRACT(&apos;minute&apos; FROM timestamp) = &apos;29&apos;;</span><br><span class="line">SELECT ... WHERE EXTRACT(&apos;minute&apos; FROM time) = &apos;46&apos;;</span><br><span class="line">SELECT ... WHERE EXTRACT(&apos;minute&apos; FROM timestamp) &gt;= &apos;29&apos;;</span><br></pre></td></tr></table></figure>
+
+<h5 id="second"><a href="#second" class="headerlink" title="second"></a>second</h5><p>取0到之间59的整数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Event.objects.filter(timestamp__second=31)</span><br><span class="line">Event.objects.filter(time__second=2)</span><br><span class="line">Event.objects.filter(timestamp__second__gte=31)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SELECT ... WHERE EXTRACT(&apos;second&apos; FROM timestamp) = &apos;31&apos;;</span><br><span class="line">SELECT ... WHERE EXTRACT(&apos;second&apos; FROM time) = &apos;2&apos;;</span><br><span class="line">SELECT ... WHERE EXTRACT(&apos;second&apos; FROM timestamp) &gt;= &apos;31&apos;;</span><br></pre></td></tr></table></figure>
+
+<h5 id="isnull"><a href="#isnull" class="headerlink" title="isnull"></a>isnull</h5><p>取True或False，分别对应于IS NULL和IS NOT NULL的SQL查询。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Entry.objects.filter(pub_date__isnull=True)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT ... WHERE pub_date IS NULL;</span><br></pre></td></tr></table></figure>
+
+<h5 id="regex"><a href="#regex" class="headerlink" title="regex"></a>regex</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Entry.objects.get(title__regex=r&apos;^(An?|The) +&apos;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT ... WHERE title REGEXP BINARY &apos;^(An?|The) +&apos;; -- MySQL</span><br><span class="line">SELECT ... WHERE REGEXP_LIKE(title, &apos;^(An?|The) +&apos;, &apos;c&apos;); -- Oracle</span><br><span class="line">SELECT ... WHERE title ~ &apos;^(An?|The) +&apos;; -- PostgreSQL</span><br><span class="line">SELECT ... WHERE title REGEXP &apos;^(An?|The) +&apos;; -- SQLite</span><br></pre></td></tr></table></figure>
+
+<h5 id="iregex"><a href="#iregex" class="headerlink" title="iregex"></a>iregex</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Entry.objects.get(title__iregex=r&apos;^(an?|the) +&apos;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT ... WHERE title REGEXP &apos;^(an?|the) +&apos;; -- MySQL</span><br><span class="line">SELECT ... WHERE REGEXP_LIKE(title, &apos;^(an?|the) +&apos;, &apos;i&apos;); -- Oracle</span><br><span class="line">SELECT ... WHERE title ~* &apos;^(an?|the) +&apos;; -- PostgreSQL</span><br><span class="line">SELECT ... WHERE title REGEXP &apos;(?i)^(an?|the) +&apos;; -- SQLite</span><br></pre></td></tr></table></figure>
+
+<h4 id="检索对象"><a href="#检索对象" class="headerlink" title="检索对象"></a>检索对象</h4><p>要从数据库检索对象，要通过模型类的 Manager 构建一个 QuerySet。</p>
+<p>一个 QuerySet 代表来自数据库中对象的一个集合。它可以有 0 个，1 个或者多个 filters. Filters，可以根据给定参数缩小查询结果量。在 SQL 的层面上， QuerySet 对应 <strong>SELECT</strong> 语句，而<em>filters</em>对应类似 <strong>WHERE</strong> 或 <strong>LIMIT</strong> 的限制子句。</p>
+<p>你能通过模型的 <strong>Manager</strong> 获取 <strong>QuerySet</strong>。每个模型至少有一个 <strong>Manager</strong>，默认名称是 <strong>objects</strong>。像这样直接通过模型类使用它:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; Blog.objects</span><br><span class="line">&lt;django.db.models.manager.Manager object at ...&gt;</span><br><span class="line">&gt;&gt;&gt; b = Blog(name=&apos;Foo&apos;, tagline=&apos;Bar&apos;)</span><br><span class="line">&gt;&gt;&gt; b.objects</span><br><span class="line">Traceback:</span><br><span class="line">    ...</span><br><span class="line">AttributeError: &quot;Manager isn&apos;t accessible via Blog instances.&quot;</span><br><span class="line"># Managers 只能通过模型类访问，而不是通过模型实例，目的是强制分离 “表级” 操作和 “行级” 操作。</span><br></pre></td></tr></table></figure>
+
+<p><strong>检索全部对象</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; all_entries = Entry.objects.all()</span><br></pre></td></tr></table></figure>
+
+<p><strong>通过过滤器检索指定对象</strong></p>
+<p><strong>filter(\</strong>kwargs)** :返回一个新的 QuerySet，包含的对象满足给定查询参数<strong>exclude(\</strong>kwargs)**: 返回一个新的 QuerySet，包含的对象 不 满足给定查询参数。</p>
+<p>例如，要包含获取 2006 年的博客条目（entries blog）的 <strong>QuerySet</strong>，像这样使用 <strong>filter():</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Entry.objects.filter(pub_date__year=2006)</span><br></pre></td></tr></table></figure>
+
+<h4 id="用-get-检索单个对象"><a href="#用-get-检索单个对象" class="headerlink" title="用 get() 检索单个对象"></a>用 <code>get()</code> 检索单个对象</h4><p> Manager 上使用 get() 方法，它会直接返回这个对象:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; one_entry = Entry.objects.get(pk=1)</span><br></pre></td></tr></table></figure>
+
+<p>如果没有满足查询条件的结果， <strong>get()</strong> 会抛出一个 <strong>DoesNotExist</strong> 异常。</p>
+<p>有不止一个记录满足 <strong>get()</strong> 查询条件时发出警告。这时会抛出<strong>MultipleObjectsReturned</strong></p>
+<h4 id="QuerySet-API"><a href="#QuerySet-API" class="headerlink" title="QuerySet API"></a>QuerySet API</h4><p><em>class</em> QuerySet(<strong><em>model=None</em></strong>,** <em>query=None**</em>,** <em>using=None**</em>,** <em>hints=None**</em>)**<a href="https://docs.djangoproject.com/zh-hans/2.2/_modules/django/db/models/query/#QuerySet" target="_blank" rel="noopener">[源代码]</a></p>
+<h5 id="filter-kwargs"><a href="#filter-kwargs" class="headerlink" title="filter(**kwargs)"></a>filter(**kwargs)</h5><h5 id="exclude-kwargs"><a href="#exclude-kwargs" class="headerlink" title="exclude(**kwargs)"></a>exclude(**kwargs)</h5><h5 id="annotate-args-kwargs"><a href="#annotate-args-kwargs" class="headerlink" title="annotate(args, *kwargs)"></a>annotate(<em>args, *</em>kwargs)</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; from django.db.models import Count</span><br><span class="line">&gt;&gt;&gt; q = Blog.objects.annotate(Count(&apos;entry&apos;))</span><br><span class="line"># The name of the first blog</span><br><span class="line">&gt;&gt;&gt; q[0].name</span><br><span class="line">&apos;Blogasaurus&apos;</span><br><span class="line"># The number of entries on the first blog</span><br><span class="line">&gt;&gt;&gt; q[0].entry__count</span><br><span class="line">42</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; q = Blog.objects.annotate(number_of_entries=Count(&apos;entry&apos;))</span><br><span class="line"># The number of entries on the first blog, using the name provided</span><br><span class="line">&gt;&gt;&gt; q[0].number_of_entries</span><br><span class="line">42</span><br></pre></td></tr></table></figure>
+
+<h5 id="order-by-fields"><a href="#order-by-fields" class="headerlink" title="order_by(*fields)"></a>order_by(*fields)</h5><p>默认情况下，查询集返回的结果按照模型元数据中的排序选项给出的排序元组进行排序。您可以使用order_by方法在每个查询集的基础上覆盖它。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Entry.objects.filter(pub_date__year=2005).order_by(&apos;-pub_date&apos;, &apos;headline&apos;)</span><br><span class="line"></span><br><span class="line"># + 升序排序</span><br><span class="line"># - 降序排序</span><br><span class="line"># ? 随机排序</span><br></pre></td></tr></table></figure>
+
+<h5 id="reverse"><a href="#reverse" class="headerlink" title="reverse()"></a>reverse()</h5><h5 id="distinct-fields"><a href="#distinct-fields" class="headerlink" title="distinct(*fields)"></a>distinct(*fields)</h5><p>默认情况下，查询集不会消除重复行。实际上，这很少出现问题，因为像<strong>blog .object .all()</strong>这样的简单查询没有引入重复结果行的可能性。但是，如果查询跨越多个表，那么在计算一个查询集时可能会得到重复的结果。这时就要使用<strong>distinct()</strong>了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; Author.objects.distinct()</span><br><span class="line">[...]</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; Entry.objects.order_by(&apos;pub_date&apos;).distinct(&apos;pub_date&apos;)</span><br><span class="line">[...]</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; Entry.objects.order_by(&apos;blog&apos;).distinct(&apos;blog&apos;)</span><br><span class="line">[...]</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; Entry.objects.order_by(&apos;author&apos;, &apos;pub_date&apos;).distinct(&apos;author&apos;, &apos;pub_date&apos;)</span><br><span class="line">[...]</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; Entry.objects.order_by(&apos;blog__name&apos;, &apos;mod_date&apos;).distinct(&apos;blog__name&apos;, &apos;mod_date&apos;)</span><br><span class="line">[...]</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; Entry.objects.order_by(&apos;author&apos;, &apos;pub_date&apos;).distinct(&apos;author&apos;)</span><br><span class="line">[...]</span><br></pre></td></tr></table></figure>
+
+<h5 id="values-fields-expressions"><a href="#values-fields-expressions" class="headerlink" title="values(fields, *expressions)"></a>values(<em>fields, *</em>expressions)</h5><p>当用作可迭代时，返回一个查询集，该查询集返回字典，而不是模型实例。</p>
+<p>每个字典都表示一个对象，其键与模型对象的属性名相对应。例:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># This list contains a Blog object.</span><br><span class="line">&gt;&gt;&gt; Blog.objects.filter(name__startswith=&apos;Beatles&apos;)</span><br><span class="line">&lt;QuerySet [&lt;Blog: Beatles Blog&gt;]&gt;</span><br><span class="line"></span><br><span class="line"># This list contains a dictionary.</span><br><span class="line">&gt;&gt;&gt; Blog.objects.filter(name__startswith=&apos;Beatles&apos;).values()</span><br><span class="line">&lt;QuerySet [&#123;&apos;id&apos;: 1, &apos;name&apos;: &apos;Beatles Blog&apos;, &apos;tagline&apos;: &apos;All the latest Beatles news.&apos;&#125;]&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>values()</strong>方法接受可选的位置参数<code>*fields</code>，它指定<strong>SELECT</strong>应该被限制的字段名。如果指定字段，每个字典将只包含指定字段的字段键/值。如果不指定字段，每个字典将包含数据库表中每个字段的键和值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; Blog.objects.values()</span><br><span class="line">&lt;QuerySet [&#123;&apos;id&apos;: 1, &apos;name&apos;: &apos;Beatles Blog&apos;, &apos;tagline&apos;: &apos;All the latest Beatles news.&apos;&#125;]&gt;</span><br><span class="line">&gt;&gt;&gt; Blog.objects.values(&apos;id&apos;, &apos;name&apos;)</span><br><span class="line">&lt;QuerySet [&#123;&apos;id&apos;: 1, &apos;name&apos;: &apos;Beatles Blog&apos;&#125;]&gt;</span><br></pre></td></tr></table></figure>
+
+<p>values()方法也接受可选的关键字参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; from django.db.models.functions import Lower</span><br><span class="line">&gt;&gt;&gt; Blog.objects.values(lower_name=Lower(&apos;name&apos;))</span><br><span class="line">&lt;QuerySet [&#123;&apos;lower_name&apos;: &apos;beatles blog&apos;&#125;]&gt;</span><br></pre></td></tr></table></figure>
+
+<p>也可以使用内置和自定义查找。例如:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; from django.db.models import CharField</span><br><span class="line">&gt;&gt;&gt; from django.db.models.functions import Lower</span><br><span class="line">&gt;&gt;&gt; CharField.register_lookup(Lower)</span><br><span class="line">&gt;&gt;&gt; Blog.objects.values(&apos;name__lower&apos;)</span><br><span class="line">&lt;QuerySet [&#123;&apos;name__lower&apos;: &apos;beatles blog&apos;&#125;]&gt;</span><br></pre></td></tr></table></figure>
+
+<h5 id="values-list-fields-flat-False-named-False"><a href="#values-list-fields-flat-False-named-False" class="headerlink" title="values_list(*fields, flat=False, named=False)"></a>values_list(*fields, flat=False, named=False)</h5><p>这类似于values()，不同的是，它在遍历时返回元组，而不是返回字典。每个元组包含传入values_list()调用的各自字段或表达式的值—因此第一项是第一个字段，以此类推。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; Entry.objects.values_list(&apos;id&apos;, &apos;headline&apos;)</span><br><span class="line">&lt;QuerySet [(1, &apos;First entry&apos;), ...]&gt;</span><br><span class="line">&gt;&gt;&gt; from django.db.models.functions import Lower</span><br><span class="line">&gt;&gt;&gt; Entry.objects.values_list(&apos;id&apos;, Lower(&apos;headline&apos;))</span><br><span class="line">&lt;QuerySet [(1, &apos;first entry&apos;), ...]&gt;</span><br></pre></td></tr></table></figure>
+
+<p>如果只传入单个字段，还可以传入平面参数。如果为真，则意味着返回的结果是单个值，而不是一个元组。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; Entry.objects.values_list(&apos;id&apos;).order_by(&apos;id&apos;)</span><br><span class="line">&lt;QuerySet[(1,), (2,), (3,), ...]&gt;</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; Entry.objects.values_list(&apos;id&apos;, flat=True).order_by(&apos;id&apos;)</span><br><span class="line">&lt;QuerySet [1, 2, 3, ...]&gt;</span><br></pre></td></tr></table></figure>
+
+<p>您可以传递named=True来获得namedtuple()的结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; Entry.objects.values_list(&apos;id&apos;, &apos;headline&apos;, named=True)</span><br><span class="line">&lt;QuerySet [Row(id=1, headline=&apos;First entry&apos;), ...]&gt;</span><br></pre></td></tr></table></figure>
+
+<p>常见的需求是获取某个模型实例的特定字段值。为此，使用<strong>values_list()</strong>，然后调用<strong>get()</strong>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; Entry.objects.values_list(&apos;headline&apos;, flat=True).get(pk=1)</span><br><span class="line">&apos;First entry&apos;</span><br></pre></td></tr></table></figure>
+
+<h5 id="dates-field-kind-order-’ASC’"><a href="#dates-field-kind-order-’ASC’" class="headerlink" title="dates(field, kind, order=’ASC’)"></a>dates(field, kind, order=’ASC’)</h5><p><strong>field</strong>：模型的日期字段的名称。</p>
+<p><strong>kind</strong>： “year”、“month”、“week”或者“day”。</p>
+<p><strong>order</strong>: 默认为“ASC”，应该是“ASC”或“DESC”。指定了如何对结果排序。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; Entry.objects.dates(&apos;pub_date&apos;, &apos;year&apos;)</span><br><span class="line">[datetime.date(2005, 1, 1)]</span><br><span class="line">&gt;&gt;&gt; Entry.objects.dates(&apos;pub_date&apos;, &apos;month&apos;)</span><br><span class="line">[datetime.date(2005, 2, 1), datetime.date(2005, 3, 1)]</span><br><span class="line">&gt;&gt;&gt; Entry.objects.dates(&apos;pub_date&apos;, &apos;week&apos;)</span><br><span class="line">[datetime.date(2005, 2, 14), datetime.date(2005, 3, 14)]</span><br><span class="line">&gt;&gt;&gt; Entry.objects.dates(&apos;pub_date&apos;, &apos;day&apos;)</span><br><span class="line">[datetime.date(2005, 2, 20), datetime.date(2005, 3, 20)]</span><br><span class="line">&gt;&gt;&gt; Entry.objects.dates(&apos;pub_date&apos;, &apos;day&apos;, order=&apos;DESC&apos;)</span><br><span class="line">[datetime.date(2005, 3, 20), datetime.date(2005, 2, 20)]</span><br><span class="line">&gt;&gt;&gt; Entry.objects.filter(headline__contains=&apos;Lennon&apos;).dates(&apos;pub_date&apos;, &apos;day&apos;)</span><br><span class="line">[datetime.date(2005, 3, 20)]</span><br></pre></td></tr></table></figure>
+
+<h5 id="datetimes-field-name-kind-order-’ASC’-tzinfo-None"><a href="#datetimes-field-name-kind-order-’ASC’-tzinfo-None" class="headerlink" title="datetimes(field_name, kind, order=’ASC’, tzinfo=None)"></a>datetimes(field_name, kind, order=’ASC’, tzinfo=None)</h5><p><strong>field_name</strong>: 应该是模型的DateTimeField的名称。</p>
+<p><strong>kind</strong>:   “year”, “month”, “week”, “day”, “hour”, “minute”, 或 “second”。</p>
+<p><strong>order</strong>: 默认为“ASC”，应该是“ASC”或“DESC”。指定了如何对结果排序。</p>
+<p><strong>tzinfo</strong>： 将日期时间转换到的相应的时区时间。</p>
+<h5 id="none"><a href="#none" class="headerlink" title="none()"></a>none()</h5><p>调用<strong>none()</strong>将创建一个从不返回任何对象的查询集，并且在访问结果时不会执行任何查询。<strong>none()</strong>查询集是<strong>EmptyQuerySet</strong>的一个实例。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; Entry.objects.none()</span><br><span class="line">&lt;QuerySet []&gt;</span><br><span class="line">&gt;&gt;&gt; from django.db.models.query import EmptyQuerySet</span><br><span class="line">&gt;&gt;&gt; isinstance(Entry.objects.none(), EmptyQuerySet)</span><br><span class="line">True</span><br></pre></td></tr></table></figure>
+
+<h5 id="all"><a href="#all" class="headerlink" title="all()"></a>all()</h5><h5 id="intersection-other-qs"><a href="#intersection-other-qs" class="headerlink" title="intersection(*other_qs)"></a>intersection(*other_qs)</h5><h5 id="difference-other-qs"><a href="#difference-other-qs" class="headerlink" title="difference(*other_qs)"></a>difference(*other_qs)</h5><h5 id="union-other-qs-all-False"><a href="#union-other-qs-all-False" class="headerlink" title="union(*other_qs, all=False)"></a>union(*other_qs, all=False)</h5><p>默认情况下，<strong>UNION</strong>操作符只选择不同的值。若要允许重复值，请使用<code>all=True</code>参数。</p>
+<p>多个结果集合并时，其它操作只能使用第一个结果集中的字段进行相关操作。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; qs1 = Author.objects.values_list(&apos;name&apos;)</span><br><span class="line">&gt;&gt;&gt; qs2 = Entry.objects.values_list(&apos;headline&apos;)</span><br><span class="line">&gt;&gt;&gt; qs1.union(qs2).order_by(&apos;name&apos;)</span><br></pre></td></tr></table></figure>
+
+<p>此外，在生成的查询集中只允许<strong>LIMIT</strong>、<strong>OFFSET</strong>、<strong>COUNT(*)</strong>、<strong>ORDER BY</strong>和指定列(即切片、COUNT()、order_by()和values()/values_list())。此外，数据库对组合查询中允许的操作进行了限制。例如，大多数数据库在组合查询中不允许限制或偏移。</p>
+<h5 id="select-related-fields"><a href="#select-related-fields" class="headerlink" title="select_related(*fields)"></a>select_related(*fields)</h5><h5 id="extra-select-None-where-None-params-None-tables-None-order-by-None-select-params-None"><a href="#extra-select-None-where-None-params-None-tables-None-order-by-None-select-params-None" class="headerlink" title="extra(select=None, where=None, params=None, tables=None, order_by=None, select_params=None)"></a>extra(select=None, where=None, params=None, tables=None, order_by=None, select_params=None)</h5><p>有时候，Django查询语法本身不能轻松地表达复杂的WHERE子句。对于这些边缘情况，Django提供了extra() QuerySet修饰符—用于将特定子句注入到查询集生成的SQL中的钩子。</p>
+<h5 id="defer-fields"><a href="#defer-fields" class="headerlink" title="defer(*fields)"></a>defer(*fields)</h5><p>延迟加载给定字段</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Entry.objects.defer(&quot;headline&quot;, &quot;body&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>延迟字段的查询集仍将返回模型实例。如果您访问该字段，将从数据库检索每个延迟字段(一次一个，而不是一次访问所有延迟字段)。</p>
+<p>您可以多次调用defer()。每次调用都会向延迟集添加新的字段:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># Defers both the body and headline fields.</span><br><span class="line">Entry.objects.defer(&quot;body&quot;).filter(rating=5).defer(&quot;headline&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>在使用 <code>select_related()</code> 方法时，可使用标准的双下划线符号来分隔相关的字段来延迟相关模型中的字段的加载:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Blog.objects.select_related().defer(&quot;entry__headline&quot;, &quot;entry__body&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>如果您想要清除延迟字段集，可以将None作为参数传递给defer():</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># Load all fields immediately.</span><br><span class="line">my_queryset.defer(None)</span><br></pre></td></tr></table></figure>
+
+<h5 id="only-fields"><a href="#only-fields" class="headerlink" title="only(*fields)"></a>only(*fields)</h5><p>如果您的模型中几乎所有字段都需要延迟，那么使用only()指定字段的补充集可以得到更简单的代码。</p>
+<p>假设您有一个包含<strong>name</strong>、<strong>age</strong>和<strong>biography</strong>字段的模型。以下两个查询集在延迟字段方面是相同的:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Person.objects.defer(&quot;age&quot;, &quot;biography&quot;)</span><br><span class="line">Person.objects.only(&quot;name&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>由于defer()的行为是递增的(向延迟列表中添加字段)，所以您可以组合调用only()和defer()，这样事情的行为就会符合逻辑:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Final result is that everything except &quot;headline&quot; is deferred.</span><br><span class="line">Entry.objects.only(&quot;headline&quot;, &quot;body&quot;).defer(&quot;body&quot;)</span><br><span class="line"></span><br><span class="line"># Final result loads headline and body immediately (only() replaces any</span><br><span class="line"># existing set of fields).</span><br><span class="line">Entry.objects.defer(&quot;body&quot;).only(&quot;headline&quot;, &quot;body&quot;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="using-alias"><a href="#using-alias" class="headerlink" title="using(alias)"></a>using(alias)</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># queries the database with the &apos;default&apos; alias.</span><br><span class="line">&gt;&gt;&gt; Entry.objects.all()</span><br><span class="line"></span><br><span class="line"># queries the database with the &apos;backup&apos; alias</span><br><span class="line">&gt;&gt;&gt; Entry.objects.using(&apos;backup&apos;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="select-for-update-nowait-False-skip-locked-False-of"><a href="#select-for-update-nowait-False-skip-locked-False-of" class="headerlink" title="select_for_update(nowait=False,skip_locked=False,of=())"></a>select_for_update(nowait=False,skip_locked=False,of=())</h5><p>返回一个queryset，它将锁定行，直到事务结束，生成一个SELECT…用于更新受支持数据库上的SQL语句。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">from django.db import transaction</span><br><span class="line"></span><br><span class="line">entries = Entry.objects.select_for_update().filter(author=request.user)</span><br><span class="line">with transaction.atomic():</span><br><span class="line">    for entry in entries:</span><br><span class="line">        ...</span><br></pre></td></tr></table></figure>
+
+<h5 id="raw-raw-query-params-None-translations-None"><a href="#raw-raw-query-params-None-translations-None" class="headerlink" title="raw(raw_query, params=None, translations=None)"></a>raw(raw_query, params=None, translations=None)</h5><p><strong>将查询字段映射为模型字段</strong></p>
+<p><code>raw()</code> 字段将查询语句中的字段映射至模型中的字段。</p>
+<p>查询语句中的字段排序并不重要。换而言之，以下两种查询是一致的:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; Person.objects.raw(&apos;SELECT id, first_name, last_name, birth_date FROM myapp_person&apos;)</span><br><span class="line">...</span><br><span class="line">&gt;&gt;&gt; Person.objects.raw(&apos;SELECT last_name, birth_date, first_name, id FROM myapp_person&apos;)</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<p>匹配是根据名字来的。这意味着你可以使用 SQL 的 <code>AS</code> 子句将查询语句中的字段映射至模型中的字段。所以，若你还有一些数据表包含了 <code>Person</code> 数据，你可以很方便的将其映射至 <code>Person</code> 实例:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; Person.objects.raw(&apos;&apos;&apos;SELECT first AS first_name,</span><br><span class="line">...                              last AS last_name,</span><br><span class="line">...                              bd AS birth_date,</span><br><span class="line">...                              pk AS id,</span><br><span class="line">...                       FROM some_other_table&apos;&apos;&apos;)</span><br></pre></td></tr></table></figure>
+
+<p>用 <code>raw()</code> 的 <code>translations</code> 参数将查询语句中的字段映射至模型中的字段。这是一个字典，将查询语句中的字段名映射至模型中的字段名。例如，上面的查询也能这样写:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; name_map = &#123;&apos;first&apos;: &apos;first_name&apos;, &apos;last&apos;: &apos;last_name&apos;, &apos;bd&apos;: &apos;birth_date&apos;, &apos;pk&apos;: &apos;id&apos;&#125;</span><br><span class="line">&gt;&gt;&gt; Person.objects.raw(&apos;SELECT * FROM some_other_table&apos;, translations=name_map)</span><br></pre></td></tr></table></figure>
+
+<p><strong>索引查询</strong></p>
+<p><code>raw()</code> 支持索引，所以，若你只需要第一个结果就这样写:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; first_person = Person.objects.raw(&apos;SELECT * FROM myapp_person&apos;)[0]</span><br></pre></td></tr></table></figure>
+
+<p>不过，索引和切片不是在数据库层面上实现的。若数据库中有非常多的 <code>Person</code> 对象，更搞笑的方式是在 SQL 层面使用 limit 子句:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; first_person = Person.objects.raw(&apos;SELECT * FROM myapp_person LIMIT 1&apos;)[0]</span><br></pre></td></tr></table></figure>
+
+<p><strong>延迟模型字段</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; people = Person.objects.raw(&apos;SELECT id, first_name FROM myapp_person&apos;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; for p in Person.objects.raw(&apos;SELECT id, first_name FROM myapp_person&apos;):</span><br><span class="line">...     print(p.first_name, # This will be retrieved by the original query</span><br><span class="line">...           p.last_name) # This will be retrieved on demand</span><br><span class="line">...</span><br><span class="line">John Smith</span><br><span class="line">Jane Jones</span><br></pre></td></tr></table></figure>
+
+<p><strong>将参数传给 <code>raw()</code></strong></p>
+<p>如果你需要执行参数化的查询，可以使用 <code>raw()</code> 的 <code>params</code> 参数:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; lname = &apos;Doe&apos;</span><br><span class="line">&gt;&gt;&gt; Person.objects.raw(&apos;SELECT * FROM myapp_person WHERE last_name = %s&apos;, [lname])</span><br></pre></td></tr></table></figure>
+
+<p><code>params</code> 是一个参数字典。你将用一个列表替换查询字符串中 <code>%s</code> 占位符，或用字典替换 <code>%(key)s</code> 占位符（其中， <code>key</code> 理所应当由字典 key 替换），不论你使用哪个数据库引擎。这些占位符会被 <code>params</code> 参数的值替换。</p>
+<h5 id="AND-amp"><a href="#AND-amp" class="headerlink" title="AND (&amp;)"></a>AND (&amp;)</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Model.objects.filter(x=1) &amp; Model.objects.filter(y=2)</span><br><span class="line">Model.objects.filter(x=1, y=2)</span><br><span class="line">from django.db.models import Q</span><br><span class="line">Model.objects.filter(Q(x=1) &amp; Q(y=2))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT ... WHERE x=1 AND y=2</span><br></pre></td></tr></table></figure>
+
+<h5 id="or"><a href="#or" class="headerlink" title="or(|)"></a>or(|)</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Model.objects.filter(x=1) | Model.objects.filter(y=2)</span><br><span class="line">from django.db.models import Q</span><br><span class="line">Model.objects.filter(Q(x=1) | Q(y=2))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT ... WHERE x=1 OR y=2</span><br></pre></td></tr></table></figure>
+
+<h4 id="不返回QuerySets的方法"><a href="#不返回QuerySets的方法" class="headerlink" title="不返回QuerySets的方法"></a>不返回<strong>QuerySets</strong>的方法</h4><h5 id="get-kwargs"><a href="#get-kwargs" class="headerlink" title="get(**kwargs)"></a>get(<em>**kwargs</em>)</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">from django.core.exceptions import ObjectDoesNotExist</span><br><span class="line">try:</span><br><span class="line">    e = Entry.objects.get(id=3)</span><br><span class="line">    b = Blog.objects.get(id=1)</span><br><span class="line">except ObjectDoesNotExist:</span><br><span class="line">    print(&quot;Either the entry or blog doesn&apos;t exist.&quot;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="creteate-kwargs"><a href="#creteate-kwargs" class="headerlink" title="creteate(**kwargs)"></a>creteate(<em>**kwargs</em>)</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">p = Person.objects.create(first_name=&quot;Bruce&quot;, last_name=&quot;Springsteen&quot;)</span><br><span class="line">or</span><br><span class="line">p = Person(first_name=&quot;Bruce&quot;, last_name=&quot;Springsteen&quot;)</span><br><span class="line">p.save(force_insert=True)</span><br></pre></td></tr></table></figure>
+
+<h5 id="get-or-create-defaults-None-kwargs"><a href="#get-or-create-defaults-None-kwargs" class="headerlink" title="get_or_create(defaults=None,** kwargs)"></a>get_or_create(defaults=None,** <strong><em>kwargs</em></strong>)</h5><p>防止在并行请求时创建重复对象，并作为boilerplatish代码的快捷方式。例如:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">try:</span><br><span class="line">    obj = Person.objects.get(first_name=&apos;John&apos;, last_name=&apos;Lennon&apos;)</span><br><span class="line">except Person.DoesNotExist:</span><br><span class="line">    obj = Person(first_name=&apos;John&apos;, last_name=&apos;Lennon&apos;, birthday=date(1940, 10, 9))</span><br><span class="line">    obj.save()</span><br></pre></td></tr></table></figure>
+
+<p>对于并发请求，可能会多次尝试保存具有相同参数的人员。为了避免这种竞争条件，上面的例子可以使用<strong>get_or_create()</strong>重写，如下所示:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">obj, created = Person.objects.get_or_create(</span><br><span class="line">    first_name=&apos;John&apos;,</span><br><span class="line">    last_name=&apos;Lennon&apos;,</span><br><span class="line">    defaults=&#123;&apos;birthday&apos;: date(1940, 10, 9)&#125;,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"># 返回元组(object, created)，其中object是检索或创建的对象，created是指定是否创建新对象的布尔值。</span><br></pre></td></tr></table></figure>
+
+<h5 id="update-or-create-defaults-None-kwargs"><a href="#update-or-create-defaults-None-kwargs" class="headerlink" title="update_or_create(defaults=None, **kwargs)"></a>update_or_create(defaults=None, **kwargs)</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">defaults = &#123;&apos;first_name&apos;: &apos;Bob&apos;&#125;</span><br><span class="line">try:</span><br><span class="line">    obj = Person.objects.get(first_name=&apos;John&apos;, last_name=&apos;Lennon&apos;)</span><br><span class="line">    for key, value in defaults.items():</span><br><span class="line">        setattr(obj, key, value)</span><br><span class="line">    obj.save()</span><br><span class="line">except Person.DoesNotExist:</span><br><span class="line">    new_values = &#123;&apos;first_name&apos;: &apos;John&apos;, &apos;last_name&apos;: &apos;Lennon&apos;&#125;</span><br><span class="line">    new_values.update(defaults)</span><br><span class="line">    obj = Person(**new_values)</span><br><span class="line">    obj.save()</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">obj, created = Person.objects.update_or_create(</span><br><span class="line">    first_name=&apos;John&apos;, last_name=&apos;Lennon&apos;,</span><br><span class="line">    defaults=&#123;&apos;first_name&apos;: &apos;Bob&apos;&#125;,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h5 id="bulk-create-objs-batch-size-None-ignore-conflicts-False"><a href="#bulk-create-objs-batch-size-None-ignore-conflicts-False" class="headerlink" title="bulk_create(objs, batch_size=None, ignore_conflicts=False)"></a>bulk_create(objs, batch_size=None, ignore_conflicts=False)</h5><p>将提供的对象列表高效地插入到数据库中(通常只有一个查询，无论有多少对象):</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">from itertools import islice</span><br><span class="line"></span><br><span class="line">batch_size = 100</span><br><span class="line">objs = (Entry(headline=&apos;Test %s&apos; % i) for i in range(1000))</span><br><span class="line">while True:</span><br><span class="line">    batch = list(islice(objs, batch_size))</span><br><span class="line">    if not batch:</span><br><span class="line">        break</span><br><span class="line">    Entry.objects.bulk_create(batch, batch_size)</span><br></pre></td></tr></table></figure>
+
+<h5 id="bulk-update-objs-fields-batch-size-None"><a href="#bulk-update-objs-fields-batch-size-None" class="headerlink" title="bulk_update(objs, fields, batch_size=None)"></a>bulk_update(objs, fields, batch_size=None)</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; objs = [</span><br><span class="line">...    Entry.objects.create(headline=&apos;Entry 1&apos;),</span><br><span class="line">...    Entry.objects.create(headline=&apos;Entry 2&apos;),</span><br><span class="line">... ]</span><br><span class="line">&gt;&gt;&gt; objs[0].headline = &apos;This is entry 1&apos;</span><br><span class="line">&gt;&gt;&gt; objs[1].headline = &apos;This is entry 2&apos;</span><br><span class="line">&gt;&gt;&gt; Entry.objects.bulk_update(objs, [&apos;headline&apos;])</span><br></pre></td></tr></table></figure>
+
+<h5 id="count"><a href="#count" class="headerlink" title="count()"></a>count()</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Returns the total number of entries in the database.</span><br><span class="line">Entry.objects.count()</span><br><span class="line"></span><br><span class="line"># Returns the number of entries whose headline contains &apos;Lennon&apos;</span><br><span class="line">Entry.objects.filter(headline__contains=&apos;Lennon&apos;).count()</span><br></pre></td></tr></table></figure>
+
+<h5 id="in-bulk-id-list-None-field-name-’pk’"><a href="#in-bulk-id-list-None-field-name-’pk’" class="headerlink" title="in_bulk(id_list=None, field_name=’pk’)"></a>in_bulk(id_list=None, field_name=’pk’)</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; Blog.objects.in_bulk([1])</span><br><span class="line">&#123;1: &lt;Blog: Beatles Blog&gt;&#125;</span><br><span class="line">&gt;&gt;&gt; Blog.objects.in_bulk([1, 2])</span><br><span class="line">&#123;1: &lt;Blog: Beatles Blog&gt;, 2: &lt;Blog: Cheddar Talk&gt;&#125;</span><br><span class="line">&gt;&gt;&gt; Blog.objects.in_bulk([])</span><br><span class="line">&#123;&#125;</span><br><span class="line">&gt;&gt;&gt; Blog.objects.in_bulk()</span><br><span class="line">&#123;1: &lt;Blog: Beatles Blog&gt;, 2: &lt;Blog: Cheddar Talk&gt;, 3: &lt;Blog: Django Weblog&gt;&#125;</span><br><span class="line">&gt;&gt;&gt; Blog.objects.in_bulk([&apos;beatles_blog&apos;], field_name=&apos;slug&apos;)</span><br><span class="line">&#123;&apos;beatles_blog&apos;: &lt;Blog: Beatles Blog&gt;&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="iterator-chunk-size-2000"><a href="#iterator-chunk-size-2000" class="headerlink" title="iterator(chunk_size=2000)"></a>iterator(chunk_size=2000)</h5><h5 id="latest-fields"><a href="#latest-fields" class="headerlink" title="latest(*fields)"></a>latest(*fields)</h5><p>根据给定字段返回表中的最新对象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Entry.objects.latest(&apos;pub_date&apos;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Entry.objects.latest(&apos;pub_date&apos;, &apos;-expire_date&apos;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="earliest-fields"><a href="#earliest-fields" class="headerlink" title="earliest(*fields)"></a>earliest(*fields)</h5><h5 id="first"><a href="#first" class="headerlink" title="first()"></a>first()</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p = Article.objects.order_by(&apos;title&apos;, &apos;pub_date&apos;).first()</span><br></pre></td></tr></table></figure>
+
+<p>等价于</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">try:</span><br><span class="line">    p = Article.objects.order_by(&apos;title&apos;, &apos;pub_date&apos;)[0]</span><br><span class="line">except IndexError:</span><br><span class="line">    p = None</span><br></pre></td></tr></table></figure>
+
+<h5 id="last"><a href="#last" class="headerlink" title="last()"></a>last()</h5><h5 id="aggregate-args-kwargs"><a href="#aggregate-args-kwargs" class="headerlink" title="aggregate(args, *kwargs)"></a>aggregate(<em>args, *</em>kwargs)</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; from django.db.models import Count</span><br><span class="line">&gt;&gt;&gt; q = Blog.objects.aggregate(Count(&apos;entry&apos;))</span><br><span class="line">&#123;&apos;entry__count&apos;: 16&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; q = Blog.objects.aggregate(number_of_entries=Count(&apos;entry&apos;))</span><br><span class="line">&#123;&apos;number_of_entries&apos;: 16&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="exists"><a href="#exists" class="headerlink" title="exists()"></a>exists()</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">entry = Entry.objects.get(pk=123)</span><br><span class="line">if some_queryset.filter(pk=entry.pk).exists():</span><br><span class="line">    print(&quot;Entry contained in queryset&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>快于</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">if entry in some_queryset:</span><br><span class="line">   print(&quot;Entry contained in QuerySet&quot;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="update-kwargs"><a href="#update-kwargs" class="headerlink" title="update(**kwargs)"></a>update(**kwargs)</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Entry.objects.filter(id=10).update(comments_on=False)</span><br></pre></td></tr></table></figure>
+
+<p>快于</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">e = Entry.objects.get(id=10)</span><br><span class="line">e.comments_on = False</span><br><span class="line">e.save()</span><br></pre></td></tr></table></figure>
+
+<p>update()未调用save()方法，若重写了save()方法，慎用之。</p>
+<h5 id="delete"><a href="#delete" class="headerlink" title="delete()"></a>delete()</h5><h5 id="as-manager"><a href="#as-manager" class="headerlink" title="as_manager()"></a>as_manager()</h5><h5 id="explain-format-None-options"><a href="#explain-format-None-options" class="headerlink" title="explain(format=None, **options)"></a>explain(format=None, **options)</h5><p>返回查询集执行计划的字符串，其中详细说明数据库将如何执行查询，包括将使用的任何索引或连接。了解这些细节可以帮助您提高慢速查询的性能。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; print(Blog.objects.filter(title=&apos;My Blog&apos;).explain())</span><br><span class="line">Seq Scan on blog  (cost=0.00..35.50 rows=10 width=12)</span><br><span class="line">  Filter: (title = &apos;My Blog&apos;::bpchar)</span><br></pre></td></tr></table></figure>
+
+<h4 id="F表达式"><a href="#F表达式" class="headerlink" title="F表达式"></a>F表达式</h4><ul>
+<li>更新字段的值</li>
+</ul>
+<p><strong>示例1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">reporter = Reporters.objects.get(name=&apos;Tintin&apos;)</span><br><span class="line">reporter.stories_filed += 1</span><br><span class="line">reporter.save()</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例2：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">from django.db.models import F</span><br><span class="line"></span><br><span class="line">reporter = Reporters.objects.get(name=&apos;Tintin&apos;)</span><br><span class="line">reporter.stories_filed = F(&apos;stories_filed&apos;) + 1</span><br><span class="line">reporter.save()</span><br><span class="line"></span><br><span class="line"># 若要重新访问reporter.stories_filed的值，需重新加载数据</span><br><span class="line"># 方式一</span><br><span class="line">reporter = Reporters.objects.get(name=&apos;Tintin&apos;)</span><br><span class="line">print(reporter.stories_filed)</span><br><span class="line"></span><br><span class="line"># 方式二</span><br><span class="line">reporter.refresh_from_db()</span><br><span class="line">print(reporter.stories_filed)</span><br></pre></td></tr></table></figure>
+
+<p>注：<strong>示例2</strong>的操作快于<strong>示例1</strong>，一个F()对象代表一个模型字段的值或注释列。使用它可以直接引用模型字段的值并执行数据库操作而不用把它们导入到python的内存中。Django使用F()对象生成一个描述数据库级别所需操作的SQL表达式。</p>
+<ul>
+<li><code>F()</code>函数结合<code>update()</code>方法使用</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">from django.db.models import F</span><br><span class="line"></span><br><span class="line">reporter = Reporters.objects.filter(name=&apos;Tintin&apos;)</span><br><span class="line">reporter.update(stories_field=F(&apos;stories_field&apos;) + 1)</span><br><span class="line"></span><br><span class="line"># Reporters.objects.all().update(stories_field=F(&apos;stories_field&apos;) + 1)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在过滤器(filter)中使用<code>F()</code>函数</li>
+</ul>
+<p>要怎么做才能将模型字段值与同一模型中的另一字段做比较呢？</p>
+<p>Django 提供了 <code>F 表达式</code> 可实现将模型字段值与同一模型中的另一字段做比较。 <code>F()</code> 的实例充当查询中的模型字段的引用。这些引用可在查询过滤器中用于在同一模型实例中比较两个不同的字段。</p>
+<p>例，要查出所有评论数大于 pingbacks 的博客条目，我们构建了一个 F() 对象，指代 pingback 的数量，然后在查询中使用该 F() 对象:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; from django.db.models import F</span><br><span class="line">&gt;&gt;&gt; Entry.objects.filter(number_of_commets__gt=F(&quot;number_of_pingbacks&quot;))</span><br></pre></td></tr></table></figure>
+
+<p>Django支持F()对象使用加、减、乘、除、取模和幂运算等算术操作，两个操作数可以是常数或F()对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">models.Test.objects.filter(input_price__gt=F(&quot;output_price&quot;)*2)</span><br><span class="line">models.Test.objects.filter(input_price__gt=F(&quot;output_price&quot;)+F(&quot;output_price&quot;))</span><br></pre></td></tr></table></figure>
+
+<p>Django 支持对 F() 对象进行加、减、乘、除、求余和次方，另一操作数既可以是常量，也可以是其它 F() 对象。要找到那些评论数两倍于 pingbacks 的博客条目，我们这样修改查询条件:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; Entry.objects.filter(number_of_comments__gt=F(&apos;number_of_pingbacks&apos;) * 2)</span><br><span class="line">&gt;&gt;&gt; Entry.objects.filter(rating__lt=F(&apos;number_of_comments&apos;) + F(&apos;number_of_pingbacks&apos;))</span><br></pre></td></tr></table></figure>
+
+<p>也能用双下划线在 F() 对象中通过关联关系查询。带有双下划线的 F() 对象将引入访问关联对象所需的任何连接。例如，要检索出所有作者名与博客名相同的博客，这样修改查询条件:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; Entry.objects.filter(authors__name=F(&apos;blog__name&apos;))</span><br></pre></td></tr></table></figure>
+
+<p>对于 date 和 date/time 字段，你可以加上或减去一个 timedelta 对象。以下会返回所有发布 3 天后被修改的条目:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; from datetime import timedelta</span><br><span class="line">&gt;&gt;&gt; Entry.objects.filter(mod_date__gt=F(&apos;pub_date&apos;) + timedelta(days=3))</span><br></pre></td></tr></table></figure>
+
+<p>F() 对象通过 .bitand()， .bitor()， .bitrightshift() 和 .bitleftshift() 支持位操作。例子:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; F(&apos;somefield&apos;).bitand(16)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在<code>annotate</code>中使用 <code>F()</code></li>
+</ul>
+<p>F()可以使用算术运算组合不同字段在模型中创建动态字段。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">company = Company.objects.annotate(chairs_needed=F(&apos;num_employees&apos;) - F(&apos;num_chairs&apos;))</span><br></pre></td></tr></table></figure>
+
+<p>如果组合的是不同类型的字段，你需要告诉Django返回值是哪种字段类型。由于F()不直接支持output_field，所以需要使用ExpressionWrapper来封装表达式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">from django.db.models import DatetimeField, ExpressionWrapper, F</span><br><span class="line"></span><br><span class="line">Ticket.objects.annotate(</span><br><span class="line">    expires=ExpressionWrapper(</span><br><span class="line">        F(&apos;active_at&apos;) + F(&apos;duration&apos;), output_field=DateTimeField()</span><br><span class="line">    )</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>当引用关联字段(如ForeignKey)时，F()返回的主键值而不是一个模型实例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; car = Company.objects.annotate(built_by=F(&apos;manufacturrer&apos;))[0]</span><br><span class="line">&gt;&gt;&gt; car.manufacturer</span><br><span class="line">&lt;Manufacturer: Toyota&gt;</span><br><span class="line">&gt;&gt;&gt; car.built_by</span><br><span class="line">3</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>使用F()对null值排序</li>
+</ul>
+<p>使用F()和传递nulls_first或nulls_last参数给Expression.asc()或desc()来控制字段的null值的排序。默认情况下这个排序取决于你的数据库。<br>例如，要将未联系过(last_contacted为null)的公司排在已联系过的公司后面：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">from django.db.models import F</span><br><span class="line">Company.object.order_by(F(&apos;last_contacted&apos;).desc(nulls_last=True))</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><code>F()</code>函数可以通过以下方式提供性能优势：</p>
+<ul>
+<li>直接在数据库中操作而不是python</li>
+<li>减少一些操作所需的数据库查询次数</li>
+</ul>
+</li>
+</ul>
+<h4 id="Q表达式"><a href="#Q表达式" class="headerlink" title="Q表达式"></a>Q表达式</h4><h4 id="主键-pk-查询快捷方式"><a href="#主键-pk-查询快捷方式" class="headerlink" title="主键 (pk) 查询快捷方式"></a>主键 (pk) 查询快捷方式</h4><p>出于方便的目的，Django 提供了一种 pk 查询快捷方式， pk 表示主键 “primary key”。</p>
+<p>示例 Blog 模型中，主键是 id 字段，所以这 3 个语句是等效的:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; Blog.objects.get(id_exact=1)</span><br><span class="line">&gt;&gt;&gt; Blog.objects.get(id=1)</span><br><span class="line">&gt;&gt;&gt; Blog.objects.get(pk=1)</span><br></pre></td></tr></table></figure>
+
+<p><code>pk</code>的使用并不仅限于 <code>__exact</code> 查询——任何的查询项都能接在 <code>pk</code> 后面，执行对模型主键的查询:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Get blogs entries with id 1, 4 and 7</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>Blog.objects.filter(pk__in=[<span class="number">1</span>,<span class="number">4</span>,<span class="number">7</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># Get all blog entries with id &gt; 14</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>Blog.objects.filter(pk__gt=<span class="number">14</span>)</span><br></pre></td></tr></table></figure>
+
+<p>pk 查找也支持跨连接。例如，以下 3 个语句是等效的:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; Entry.objects.filter(blog__id__exact=3) # __exact is implied</span><br><span class="line">&gt;&gt;&gt; Entry.objects.filter(blog__id=3)        # Explicit form</span><br><span class="line">&gt;&gt;&gt; Entry.objects.filter(blog__pk=3)        # __pk implies __id__exact</span><br></pre></td></tr></table></figure>
+
+<h4 id="在-LIKE-语句中转义百分号和下划线"><a href="#在-LIKE-语句中转义百分号和下划线" class="headerlink" title="在 LIKE 语句中转义百分号和下划线"></a>在 LIKE 语句中转义百分号和下划线</h4><p>等效于 LIKE SQL 语句的字段查询子句 (iexact， contains， icontains， startswith， istartswith， endswith 和 iendswith) 会将 LIKE 语句中有特殊用途的两个符号，即百分号和下划线自动转义。（在 LIKE 语句中，百分号匹配多个任意字符，而下划线匹配一个任意字符。）</p>
+<p>这意味着事情都是表里如一的，不会出现抽象事故。例如，要检索所有包含百分号的条目，就像对待其它字符一样使用百分号:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; Entry.objects.filter(headline__contains=&apos;%&apos;) # SELECT ... WHERE headline LIKE &apos;%\%%&apos;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="缓存和-QuerySet"><a href="#缓存和-QuerySet" class="headerlink" title="缓存和 QuerySet"></a>缓存和 QuerySet</h4><p>每个 QuerySet 都带有缓存，尽量减少数据库访问。理解它是如何工作的能让你编写更高效的代码。<br>新创建的 QuerySet 缓存是空的。一旦要计算 QuerySet 的值，就会执行数据查询，随后，Django 就会将查询结果保存在 QuerySet 的缓存中，并返回这些显式请求的缓存（例如，下一个元素，若 QuerySet 正在被迭代）。后续针对 QuerySet 的计算会复用缓存结果。<br>牢记这种缓存行为，在你错误使用 QuerySet 时可能会被它咬一下。例如，以下会创建两个 QuerySet，计算它们，丢掉它们:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; print([e.headline for e in Entry.objects.all()])</span><br><span class="line">&gt;&gt;&gt; print([e.pub_date for e in Entry.objects.all()])</span><br></pre></td></tr></table></figure>
+
+<p>查询结果集并不总是缓存结果。当仅计算查询结果集的 部分 时，会校验缓存，若没有填充缓存，则后续查询返回的项目不会被缓存。特别地说，这意味着使用数组切片或索引的 限制查询结果集 不会填充缓存。<br>例如，重复的从某个查询结果集对象中取指定索引的对象会每次都查询数据库:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; queryset = Entry.objects.all()</span><br><span class="line">&gt;&gt;&gt; print(queryset[5]) # Queries the database</span><br><span class="line">&gt;&gt;&gt; print(queryset[5]) # Queries the database again</span><br></pre></td></tr></table></figure>
+
+<p>不过，若全部查询结果集已被检出，就会去检查缓存:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; queryset = Entry.objects.all()</span><br><span class="line">&gt;&gt;&gt; [entry for entry in queryset] # Queries the database</span><br><span class="line">&gt;&gt;&gt; print(queryset[5]) # Uses cache</span><br><span class="line">&gt;&gt;&gt; print(queryset[5]) # Uses cache</span><br></pre></td></tr></table></figure>
+
+<p>这些动作会触发计算全部的查询结果集，并填充缓存的过程:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; [entry for entry in queryset]</span><br><span class="line">&gt;&gt;&gt; bool(queryset)</span><br><span class="line">&gt;&gt;&gt; entry in queryset</span><br><span class="line">&gt;&gt;&gt; list(queryset)</span><br></pre></td></tr></table></figure>
+
+<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><p><a href="https://www.jb51.net/article/190435.htm" target="_blank" rel="noopener">jango中Q查询及Q()对象 F查询及F()对象用法</a><br><a href="https://docs.djangoproject.com/zh-hans/2.2/topics/db/queries/#using-f-expressions-in-filters" target="_blank" rel="noopener">F() filter使用</a></p>
+<h3 id="model字段别名"><a href="#model字段别名" class="headerlink" title="model字段别名"></a>model字段别名</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.db.models <span class="keyword">import</span> Q, F</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> costasks.models <span class="keyword">import</span> DataAddress, CosTasks</span><br><span class="line"></span><br><span class="line">queryset = DataAddress.objects.filter(source_type=source)</span><br><span class="line"></span><br><span class="line"><span class="comment"># data: &lt;QuerySet [&#123;'id': UUID('f5a86b3a-5170-448d-b19f-20e9a64dfc0d'), 'address_name': 'sdfeageaa'&#125;]&gt;</span></span><br><span class="line">data = queryset.annotate(address_name=F(<span class="string">"dataaddress_name"</span>)).values(<span class="string">"id"</span>, <span class="string">"address_name"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 方式二</span></span><br><span class="line"><span class="comment"># data = queryset.values("id", address_name=F("dataaddress_name"))</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 上述查询语句等效于：</span></span><br><span class="line"><span class="comment"># SELECT `costasks_dataaddress`.`id`, `costasks_dataaddress`.`dataaddress_name` AS `address_name` FROM `costasks_dataaddress` ORDER BY `costasks_dataaddress`.`create_time` DESC'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看SQL语句</span></span><br><span class="line">data.query.__str__()</span><br></pre></td></tr></table></figure>
+
+<h2 id="django命令"><a href="#django命令" class="headerlink" title="django命令"></a>django命令</h2><h3 id="makemigrations"><a href="#makemigrations" class="headerlink" title="makemigrations"></a>makemigrations</h3><ul>
+<li><p>第一次执行该操作，会在app下面创建migrations目录，并创建0001_inital.py文件，文件中记录了当前的建表、依赖等信息。</p>
+</li>
+<li><p>下一次执行该操作，如果 model.py 有改动，会在migrations下生成以修改内容为名，类似0002_alter_permission_name_max_length.py的文件，文件中记录了你修改字段等信息，如果没有改动则提示：<code>No changes detected</code>。</p>
+</li>
+</ul>
+<blockquote>
+<p>注：这些改动在此时都没有迁移到数据库。</p>
+</blockquote>
+<h3 id="migrate"><a href="#migrate" class="headerlink" title="migrate"></a>migrate</h3><ul>
+<li>migrate命令执行时Django会做4件事：</li>
+</ul>
+<ol>
+<li>迁移判定，将你的项目中所有未迁移的变动文件进行迁移（django会去查询django_migrations表判断你是否有新的迁移变动），在完成接下来的迁移后，便会在该表中生成一条迁移记录。</li>
+<li>迁移映射关系 django_contenttype表新增映射关系（app与模型关系）</li>
+<li>迁移权限 auth_permission表新增权限</li>
+<li>执行迁移，生成数据表，或变动</li>
+</ol>
+<blockquote>
+<p>migrate –fake 只执行第一步，并生成迁移记录。<br>migrate –fake-initial 执行前三步，不实际变动数据库<br>migrate 全部依次执行所有步骤。<br>注：当django 环境变了时，原其他环境下的项目不能正常运行，需要进行修改。</p>
+</blockquote>
+<h3 id="sqlmigrate"><a href="#sqlmigrate" class="headerlink" title="sqlmigrate"></a>sqlmigrate</h3><ul>
+<li>可以查看下migrations 0001会对应于什么样子的SQL命令</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py sqlmigrate appname 0020_packappname</span><br></pre></td></tr></table></figure>
+
+<h3 id="showmigrations"><a href="#showmigrations" class="headerlink" title="showmigrations"></a>showmigrations</h3><ul>
+<li>查看当前项目所有的app及对应的已经生效的migration文件，[x]表示migrte通过，[]表示未通过</li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+      
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+      <div>
+        
+
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Mr Wang</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="https://forgetst.github.io/python/ckj1jlqqr0086t8yvujdk97cd.html" title="python操作mysql">https://forgetst.github.io/python/ckj1jlqqr0086t8yvujdk97cd.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
+          
+            <a href="/tags/mysql/" rel="tag"><i class="fa fa-tag"></i> mysql</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/nginx/ckj1jlqq4006wt8yvq9lda0ne.html" rel="next" title="nginx 操作">
+                <i class="fa fa-chevron-left"></i> nginx 操作
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/mysql/ckj1jlqq2006ut8yvmv93m2w6.html" rel="prev" title="mysql命令简述">
+                mysql命令简述 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  
+    <img class="site-author-image" itemprop="image" src="/images/profile.jpg" alt="Mr Wang">
+  
+  <p class="site-author-name" itemprop="name">Mr Wang</p>
+  <div class="site-description motion-element" itemprop="description">行动了才会有故事，说出来才会有结果。</div>
+</div>
+
+
+  <nav class="site-state motion-element">
+    
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">123</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">45</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+
+
+
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+
+
+
+
+
+  <div class="links-of-author motion-element">
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/forgetST" title="GitHub &rarr; https://github.com/forgetST" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:yourname@gmail.com" title="E-Mail &rarr; mailto:yourname@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://weibo.com/yourname" title="Weibo &rarr; https://weibo.com/yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+    
+  </div>
+
+
+
+
+
+
+
+          
+          
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#django-orm对数据库的操作原理"><span class="nav-number">1.</span> <span class="nav-text">django orm对数据库的操作原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#django-models"><span class="nav-number">2.</span> <span class="nav-text">django models</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number">2.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字段类型"><span class="nav-number">2.2.</span> <span class="nav-text">字段类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字段选项"><span class="nav-number">2.3.</span> <span class="nav-text">字段选项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ForeignKey-示例"><span class="nav-number">2.4.</span> <span class="nav-text">ForeignKey 示例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ManyToManyField-示例"><span class="nav-number">2.5.</span> <span class="nav-text">ManyToManyField 示例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OneToOneField-示例"><span class="nav-number">2.6.</span> <span class="nav-text">OneToOneField 示例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#model操作方法"><span class="nav-number">2.7.</span> <span class="nav-text">model操作方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建对象"><span class="nav-number">2.7.1.</span> <span class="nav-text">创建对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更新对象"><span class="nav-number">2.7.2.</span> <span class="nav-text">更新对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字段查询"><span class="nav-number">2.7.3.</span> <span class="nav-text">字段查询</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#exact"><span class="nav-number">2.7.3.1.</span> <span class="nav-text">exact</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#iexact"><span class="nav-number">2.7.3.2.</span> <span class="nav-text">iexact</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#contains"><span class="nav-number">2.7.3.3.</span> <span class="nav-text">contains</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#icontains"><span class="nav-number">2.7.3.4.</span> <span class="nav-text">icontains</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#in"><span class="nav-number">2.7.3.5.</span> <span class="nav-text">in</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#gt"><span class="nav-number">2.7.3.6.</span> <span class="nav-text">gt</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#gte"><span class="nav-number">2.7.3.7.</span> <span class="nav-text">gte</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#lt"><span class="nav-number">2.7.3.8.</span> <span class="nav-text">lt</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#lte"><span class="nav-number">2.7.3.9.</span> <span class="nav-text">lte</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#startswith"><span class="nav-number">2.7.3.10.</span> <span class="nav-text">startswith</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#istartswith"><span class="nav-number">2.7.3.11.</span> <span class="nav-text">istartswith</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#endswith"><span class="nav-number">2.7.3.12.</span> <span class="nav-text">endswith</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#iendswith"><span class="nav-number">2.7.3.13.</span> <span class="nav-text">iendswith</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#range"><span class="nav-number">2.7.3.14.</span> <span class="nav-text">range</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#date"><span class="nav-number">2.7.3.15.</span> <span class="nav-text">date</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#year"><span class="nav-number">2.7.3.16.</span> <span class="nav-text">year</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#month"><span class="nav-number">2.7.3.17.</span> <span class="nav-text">month</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#day"><span class="nav-number">2.7.3.18.</span> <span class="nav-text">day</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#week"><span class="nav-number">2.7.3.19.</span> <span class="nav-text">week</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#week-day"><span class="nav-number">2.7.3.20.</span> <span class="nav-text">week_day</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#quarter"><span class="nav-number">2.7.3.21.</span> <span class="nav-text">quarter</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#time"><span class="nav-number">2.7.3.22.</span> <span class="nav-text">time</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#hour"><span class="nav-number">2.7.3.23.</span> <span class="nav-text">hour</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#minute"><span class="nav-number">2.7.3.24.</span> <span class="nav-text">minute</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#second"><span class="nav-number">2.7.3.25.</span> <span class="nav-text">second</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#isnull"><span class="nav-number">2.7.3.26.</span> <span class="nav-text">isnull</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#regex"><span class="nav-number">2.7.3.27.</span> <span class="nav-text">regex</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#iregex"><span class="nav-number">2.7.3.28.</span> <span class="nav-text">iregex</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#检索对象"><span class="nav-number">2.7.4.</span> <span class="nav-text">检索对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#用-get-检索单个对象"><span class="nav-number">2.7.5.</span> <span class="nav-text">用 get() 检索单个对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#QuerySet-API"><span class="nav-number">2.7.6.</span> <span class="nav-text">QuerySet API</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#filter-kwargs"><span class="nav-number">2.7.6.1.</span> <span class="nav-text">filter(**kwargs)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#exclude-kwargs"><span class="nav-number">2.7.6.2.</span> <span class="nav-text">exclude(**kwargs)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#annotate-args-kwargs"><span class="nav-number">2.7.6.3.</span> <span class="nav-text">annotate(args, *kwargs)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#order-by-fields"><span class="nav-number">2.7.6.4.</span> <span class="nav-text">order_by(*fields)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#reverse"><span class="nav-number">2.7.6.5.</span> <span class="nav-text">reverse()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#distinct-fields"><span class="nav-number">2.7.6.6.</span> <span class="nav-text">distinct(*fields)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#values-fields-expressions"><span class="nav-number">2.7.6.7.</span> <span class="nav-text">values(fields, *expressions)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#values-list-fields-flat-False-named-False"><span class="nav-number">2.7.6.8.</span> <span class="nav-text">values_list(*fields, flat=False, named=False)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#dates-field-kind-order-’ASC’"><span class="nav-number">2.7.6.9.</span> <span class="nav-text">dates(field, kind, order=’ASC’)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#datetimes-field-name-kind-order-’ASC’-tzinfo-None"><span class="nav-number">2.7.6.10.</span> <span class="nav-text">datetimes(field_name, kind, order=’ASC’, tzinfo=None)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#none"><span class="nav-number">2.7.6.11.</span> <span class="nav-text">none()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#all"><span class="nav-number">2.7.6.12.</span> <span class="nav-text">all()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#intersection-other-qs"><span class="nav-number">2.7.6.13.</span> <span class="nav-text">intersection(*other_qs)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#difference-other-qs"><span class="nav-number">2.7.6.14.</span> <span class="nav-text">difference(*other_qs)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#union-other-qs-all-False"><span class="nav-number">2.7.6.15.</span> <span class="nav-text">union(*other_qs, all=False)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#select-related-fields"><span class="nav-number">2.7.6.16.</span> <span class="nav-text">select_related(*fields)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#extra-select-None-where-None-params-None-tables-None-order-by-None-select-params-None"><span class="nav-number">2.7.6.17.</span> <span class="nav-text">extra(select=None, where=None, params=None, tables=None, order_by=None, select_params=None)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#defer-fields"><span class="nav-number">2.7.6.18.</span> <span class="nav-text">defer(*fields)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#only-fields"><span class="nav-number">2.7.6.19.</span> <span class="nav-text">only(*fields)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#using-alias"><span class="nav-number">2.7.6.20.</span> <span class="nav-text">using(alias)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#select-for-update-nowait-False-skip-locked-False-of"><span class="nav-number">2.7.6.21.</span> <span class="nav-text">select_for_update(nowait=False,skip_locked=False,of=())</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#raw-raw-query-params-None-translations-None"><span class="nav-number">2.7.6.22.</span> <span class="nav-text">raw(raw_query, params=None, translations=None)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#AND-amp"><span class="nav-number">2.7.6.23.</span> <span class="nav-text">AND (&amp;)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#or"><span class="nav-number">2.7.6.24.</span> <span class="nav-text">or(|)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#不返回QuerySets的方法"><span class="nav-number">2.7.7.</span> <span class="nav-text">不返回QuerySets的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#get-kwargs"><span class="nav-number">2.7.7.1.</span> <span class="nav-text">get(**kwargs)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#creteate-kwargs"><span class="nav-number">2.7.7.2.</span> <span class="nav-text">creteate(**kwargs)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#get-or-create-defaults-None-kwargs"><span class="nav-number">2.7.7.3.</span> <span class="nav-text">get_or_create(defaults=None,** kwargs)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#update-or-create-defaults-None-kwargs"><span class="nav-number">2.7.7.4.</span> <span class="nav-text">update_or_create(defaults=None, **kwargs)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#bulk-create-objs-batch-size-None-ignore-conflicts-False"><span class="nav-number">2.7.7.5.</span> <span class="nav-text">bulk_create(objs, batch_size=None, ignore_conflicts=False)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#bulk-update-objs-fields-batch-size-None"><span class="nav-number">2.7.7.6.</span> <span class="nav-text">bulk_update(objs, fields, batch_size=None)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#count"><span class="nav-number">2.7.7.7.</span> <span class="nav-text">count()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#in-bulk-id-list-None-field-name-’pk’"><span class="nav-number">2.7.7.8.</span> <span class="nav-text">in_bulk(id_list=None, field_name=’pk’)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#iterator-chunk-size-2000"><span class="nav-number">2.7.7.9.</span> <span class="nav-text">iterator(chunk_size=2000)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#latest-fields"><span class="nav-number">2.7.7.10.</span> <span class="nav-text">latest(*fields)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#earliest-fields"><span class="nav-number">2.7.7.11.</span> <span class="nav-text">earliest(*fields)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#first"><span class="nav-number">2.7.7.12.</span> <span class="nav-text">first()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#last"><span class="nav-number">2.7.7.13.</span> <span class="nav-text">last()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#aggregate-args-kwargs"><span class="nav-number">2.7.7.14.</span> <span class="nav-text">aggregate(args, *kwargs)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#exists"><span class="nav-number">2.7.7.15.</span> <span class="nav-text">exists()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#update-kwargs"><span class="nav-number">2.7.7.16.</span> <span class="nav-text">update(**kwargs)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#delete"><span class="nav-number">2.7.7.17.</span> <span class="nav-text">delete()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#as-manager"><span class="nav-number">2.7.7.18.</span> <span class="nav-text">as_manager()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#explain-format-None-options"><span class="nav-number">2.7.7.19.</span> <span class="nav-text">explain(format=None, **options)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#F表达式"><span class="nav-number">2.7.8.</span> <span class="nav-text">F表达式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Q表达式"><span class="nav-number">2.7.9.</span> <span class="nav-text">Q表达式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#主键-pk-查询快捷方式"><span class="nav-number">2.7.10.</span> <span class="nav-text">主键 (pk) 查询快捷方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在-LIKE-语句中转义百分号和下划线"><span class="nav-number">2.7.11.</span> <span class="nav-text">在 LIKE 语句中转义百分号和下划线</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#缓存和-QuerySet"><span class="nav-number">2.7.12.</span> <span class="nav-text">缓存和 QuerySet</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考"><span class="nav-number">2.7.13.</span> <span class="nav-text">参考</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#model字段别名"><span class="nav-number">2.8.</span> <span class="nav-text">model字段别名</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#django命令"><span class="nav-number">3.</span> <span class="nav-text">django命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#makemigrations"><span class="nav-number">3.1.</span> <span class="nav-text">makemigrations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#migrate"><span class="nav-number">3.2.</span> <span class="nav-text">migrate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sqlmigrate"><span class="nav-number">3.3.</span> <span class="nav-text">sqlmigrate</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#showmigrations"><span class="nav-number">3.4.</span> <span class="nav-text">showmigrations</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+      
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+</div>
+
+
+        
+      </main></div>
+    
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mr Wang</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+  <span class="post-meta-divider">|</span>
+  <span id="busuanzi_container_site_uv">总访客数<span id="busuanzi_value_site_uv"></span>人</span>
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+  
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+
+
+  <script src="/js/utils.js?v=7.2.0"></script>
+
+  <script src="/js/motion.js?v=7.2.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.2.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
+
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/01/assets/haru01.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7}});</script></body>
+
+
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+
+</html>
+
+
