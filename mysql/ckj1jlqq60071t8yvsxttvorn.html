@@ -580,22 +580,24 @@
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show tables;</span><br><span class="line">+<span class="comment">----------------+</span></span><br><span class="line">| Tables_in_test |</span><br><span class="line">+<span class="comment">----------------+</span></span><br><span class="line">| classes        |</span><br><span class="line">| students       |</span><br><span class="line">| use2           |</span><br><span class="line">| user           |</span><br><span class="line">+<span class="comment">----------------+</span></span><br><span class="line">4 rows in <span class="keyword">set</span> (<span class="number">0.00</span> sec)</span><br></pre></td></tr></table></figure>
 
 <h3 id="数据类型简介"><a href="#数据类型简介" class="headerlink" title="数据类型简介"></a>数据类型简介</h3><p>MySQL 的数据类型有大概可以分为 5 种，分别是<strong>整数类型</strong>、<strong>浮点数类型和定点数类型</strong>、<strong>日期和时间类型</strong>、<strong>字符串类型</strong>、<strong>二进制类型</strong>等。</p>
-<ul>
-<li><p>数值类型</p>
-<p>整数类型：TININT、SMALLINT、MEDIUMINT、INT、BIGINT</p>
-<p>浮点数类型：FLOAT、DOUBLE</p>
-<p>定点数类型：DECIMAL</p>
-</li>
-<li><p>日期时间类型</p>
-<p>YEAR、TIME、DATA、DATATIM和TIMESTAMP</p>
-</li>
-<li><p>字符串类型</p>
-<p>CHAR、VARCHAR、BINARY、VARBINARY、BLOB、TEXT、ENUM 和 SET 等。</p>
-</li>
-<li><p>二进制类型</p>
-<p>BIT、BINARY、VARBINARY、TINYBLOB、BLOB、MEDIUMBLOB 和 LONGBLOB。</p>
-</li>
-</ul>
+<blockquote>
+<p>数值类型</p>
+</blockquote>
+<p>  整数类型：TININT、SMALLINT、MEDIUMINT、INT、BIGINT</p>
+<p>  浮点数类型：FLOAT、DOUBLE</p>
+<p>  定点数类型：DECIMAL</p>
+<blockquote>
+<p>日期时间类型</p>
+</blockquote>
+<p>  YEAR、TIME、DATA、DATATIM和TIMESTAMP</p>
+<blockquote>
+<p>字符串类型</p>
+</blockquote>
+<p>  CHAR、VARCHAR、BINARY、VARBINARY、BLOB、TEXT、ENUM 和 SET 等。</p>
+<blockquote>
+<p>二进制类型</p>
+</blockquote>
+<p>  BIT、BINARY、VARBINARY、TINYBLOB、BLOB、MEDIUMBLOB 和 LONGBLOB。</p>
 <h3 id="创建数据表"><a href="#创建数据表" class="headerlink" title="创建数据表"></a>创建数据表</h3><p>所谓创建数据表，指的是在已经创建的数据库中建立新表。</p>
 <p>创建数据表的过程是规定数据列的属性的过程，同时也是实施数据完整性（包括实体完整性、引用完整性和域完整性）约束的过程。  </p>
 <h4 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h4><p>在 MySQL 中，可以使用 <strong>CREATE TABLE</strong> 语句创建表。其语法格式为：</p>
@@ -1380,7 +1382,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
