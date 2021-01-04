@@ -110,10 +110,12 @@
 <meta property="og:site_name" content="勿忘，须舍">
 <meta property="og:description" content="MySQL锁概述相对其他数据库而言，MySQL的锁机制比较简单，其最显著的特点是不同的存储引擎支持不同的锁机制。比如，MyISAM和MEMORY存储引擎采用的是表级锁（table-level locking）；BDB存储引擎采用的是页面锁（page-level locking），但也支持表级锁；InnoDB存储引擎既支持行级锁（row-level locking），也支持表级锁，但默认情况下是采用">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic002.cnblogs.com%2Fimages%2F2012%2F358563%2F2012082816185296.jpg&refer=http%3A%2F%2Fpic002.cnblogs.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1612362578&t=ec944212583967efdff51f7f74193d4b">
 <meta property="og:updated_time" content="2020-12-28T16:00:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql 锁机制">
 <meta name="twitter:description" content="MySQL锁概述相对其他数据库而言，MySQL的锁机制比较简单，其最显著的特点是不同的存储引擎支持不同的锁机制。比如，MyISAM和MEMORY存储引擎采用的是表级锁（table-level locking）；BDB存储引擎采用的是页面锁（page-level locking），但也支持表级锁；InnoDB存储引擎既支持行级锁（row-level locking），也支持表级锁，但默认情况下是采用">
+<meta name="twitter:image" content="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic002.cnblogs.com%2Fimages%2F2012%2F358563%2F2012082816185296.jpg&refer=http%3A%2F%2Fpic002.cnblogs.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1612362578&t=ec944212583967efdff51f7f74193d4b">
 
 
 
@@ -490,12 +492,57 @@
 <a id="more"></a>
 
 <p>MySQL这3种锁的特性可大致归纳如下:</p>
+<blockquote>
 <p><strong>开销、加锁速度、死锁、粒度、并发性能</strong></p>
+</blockquote>
 <ul>
 <li>表级锁：开销小，加锁快；不会出现死锁；锁定粒度大，发生锁冲突的概率最高,并发度最低。</li>
 <li>行级锁：开销大，加锁慢；会出现死锁；锁定粒度最小，发生锁冲突的概率最低,并发度也最高。</li>
 <li>页面锁：开销和加锁时间界于表锁和行锁之间；会出现死锁；锁定粒度界于表锁和行锁之间，并发度一般。</li>
 </ul>
+<p>注：InnoDB与MyISAM的最大不同有两点：一是支持事务（TRANSACTION）；二是采用了行级锁。行级锁与表级锁本来就有许多不同之处，另外，事务的引入也带来了一些新问题。</p>
+<blockquote>
+<p><strong>事务（Transaction）及其ACID属性</strong></p>
+</blockquote>
+<p>事务是由一组SQL语句组成的逻辑处理单元，事务具有以下4个属性，通常简称为事务的ACID属性。</p>
+<p>事务（Transaction）及其ACID属性</p>
+<p>事务是由一组SQL语句组成的逻辑处理单元，事务具有以下4个属性，通常简称为事务的ACID属性。</p>
+<ul>
+<li>原子性（Atomicity）：事务是一个原子操作单元，其对数据的修改，要么全都执行，要么全都不执行。</li>
+<li>一致性（Consistent）：在事务开始和完成时，数据都必须保持一致状态。这意味着所有相关的数据规则都必须应用于事务的修改，以保持数据的完整性；事务结束时，所有的内部数据结构（如B树索引或双向链表）也都必须是正确的。</li>
+<li>隔离性（Isolation）：数据库系统提供一定的隔离机制，保证事务在不受外部并发操作影响的“独立”环境执行。这意味着事务处理过程中的中间状态对外部是不可见的，反之亦然。</li>
+<li>持久性（Durable）：事务完成之后，它对于数据的修改是永久性的，即使出现系统故障也能够保持。</li>
+</ul>
+<blockquote>
+<p><strong>并发事务处理带来的问题</strong></p>
+</blockquote>
+<p>相对于串行处理来说，并发事务处理能大大增加数据库资源的利用率，提高数据库系统的事务吞吐量，从而可以支持更多的用户。但并发事务处理也会带来一些问题，主要包括以下几种情况。</p>
+<ul>
+<li><p>更新丢失（Lost Update）：两个事务同时更新一行数据，最后一个事务的更新会覆盖掉第一个事务的更新，从而导致第一个事务更新的数据丢失，这是由于没有加锁造成的；</p>
+</li>
+<li><p>脏读（Dirty Reads）：当一个事务正在访问数据，并且对数据进行了修改，而这种修改还没有提交到数据库中，这时，另外一个事务也访问这个数据，然后使用了这个数据。</p>
+</li>
+<li><p>不可重复读（Non-Repeatable Reads）：是指在一个事务内，多次读同一数据。在这个事务还没有结束时，另外一个事务也访问该同一数据。那么，在第一个事务中的两次读数据之间，由于第二个事务的修改，那么第一个事务两次读到的的数据可能是不一样的。这样在<strong>一个事务内两次读到的数据是不一样的，因此称为是不可重复读</strong>。</p>
+</li>
+<li><p>幻读（Phantom Reads）：一个事务按相同的查询条件重新读取以前检索过的数据，却发现其他事务插入了满足其查询条件的新数据，这种现象就称为“幻读”。</p>
+</li>
+</ul>
+<p>注：幻读和不可重复读都是读取了另一条已经提交的事务（这点就脏读不同），所不同的是不可重复读查询的都是同一个数据项，而幻读针对的是一批数据整体（比如数据的个数）</p>
+<blockquote>
+<p><strong>数据库事务的隔离级别</strong></p>
+</blockquote>
+<p>数据库事务的隔离级别有4个，由低到高依次为Read uncommitted 、Read committed 、Repeatable read 、Serializable ，这四个级别可以逐个解决脏读 、不可重复读 、幻读这几类问题。</p>
+<ul>
+<li><p>Read UnCommitted(读未提交)<br>  最低的隔离级别。一个事务可以读取另一个事务并未提交的更新结果。</p>
+</li>
+<li><p>Read Committed(读提交)<br>  大部分数据库采用的默认隔离级别。一个事务的更新操作结果只有在该事务提交之后，另一个事务才可以的读取到同一笔数据更新后的结果(<strong>解决脏读问题</strong>)。</p>
+</li>
+<li><p>Repeatable Read(重复读)<br>  mysql的默认级别。整个事务过程中，对同一笔数据的读取结果是相同的，不管其他事务是否在对共享数据进行更新，也不管更新提交与否(<strong>解决脏读、不可重复读问题</strong>)。</p>
+</li>
+<li><p>Serializable(序列化)<br>  最高隔离级别。所有事务操作依次顺序执行。注意这会导致并发度下降，性能最差。通常会用其他并发级别加上相应的并发锁机制来取代它(<strong>解决脏读、不可重复读、幻读问题</strong>)。</p>
+</li>
+</ul>
+<p>见下图：<br><img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic002.cnblogs.com%2Fimages%2F2012%2F358563%2F2012082816185296.jpg&refer=http%3A%2F%2Fpic002.cnblogs.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1612362578&t=ec944212583967efdff51f7f74193d4b" alt="数据库事务的隔离级别"></p>
 <h2 id="mysql锁使用查询"><a href="#mysql锁使用查询" class="headerlink" title="mysql锁使用查询"></a>mysql锁使用查询</h2><h3 id="查询表级锁争用情况"><a href="#查询表级锁争用情况" class="headerlink" title="查询表级锁争用情况"></a>查询表级锁争用情况</h3><p>可以通过检查table_locks_waited和table_locks_immediate状态变量来分析系统上的表锁定争夺：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">MySQL [ts_model]&gt; show status like "table%";</span><br><span class="line">+<span class="comment">----------------------------+-------+</span></span><br><span class="line">| Variable_name              | Value |</span><br><span class="line">+<span class="comment">----------------------------+-------+</span></span><br><span class="line">| Table_locks_immediate      | 710   |</span><br><span class="line">| Table_locks_waited         | 0     |</span><br><span class="line">+<span class="comment">----------------------------+-------+</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Table_locks_immediate 指的是能够立即获得表级锁的次数</span></span><br><span class="line"><span class="comment"># Table_locks_waited 指的是不能立即获取表级锁而需要等待的次数</span></span><br></pre></td></tr></table></figure>
 
@@ -505,7 +552,7 @@
 
 <p>如果发现锁争用比较严重，如InnoDB_row_lock_waits和InnoDB_row_lock_time_avg的值比较高，还可以通过解锁:</p>
 <ul>
-<li>第一种(<code>show processlist;</code>)，找到锁进程，kill id;</li>
+<li>第一种(<code>show processlist;</code>)，找到锁进程，<code>kill id</code>;</li>
 </ul>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">MySQL [ts_model]&gt; show processlist;</span><br><span class="line">+<span class="comment">--------+------+---------------------+-------------------+---------+-------+----------+------------------+</span></span><br><span class="line">| Id     | User | Host                | db                | Command | Time  | State    | Info             |</span><br><span class="line">+<span class="comment">--------+------+---------------------+-------------------+---------+-------+----------+------------------+</span></span><br><span class="line">| 412414 | root | 43.254.54.249:37446 | ts_model          | Query   |     0 | starting | <span class="keyword">show</span> <span class="keyword">processlist</span> |</span><br><span class="line">| <span class="number">412415</span> | root | <span class="number">43.254</span><span class="number">.54</span><span class="number">.249</span>:<span class="number">37448</span> | ts_model          | <span class="keyword">Sleep</span>   | <span class="number">14360</span> |          | <span class="literal">NULL</span>             |</span><br><span class="line">| <span class="number">412425</span> | root | <span class="number">43.254</span><span class="number">.54</span><span class="number">.249</span>:<span class="number">37494</span> | smartant_saas_dev | <span class="keyword">Sleep</span>   |  <span class="number">7130</span> |          | <span class="literal">NULL</span>             |</span><br><span class="line">+<span class="comment">--------+------+---------------------+-------------------+---------+-------+----------+------------------+</span></span><br></pre></td></tr></table></figure>
 
