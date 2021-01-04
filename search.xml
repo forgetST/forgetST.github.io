@@ -168,17 +168,17 @@
 <h3 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h3><h4 id="内容目录"><a href="#内容目录" class="headerlink" title="内容目录"></a>内容目录</h4><ul>
 <li>语法</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[toc]</span><br></pre></td></tr></table></figure>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">[toc]</span><br></pre></td></tr></table></figure>
 
 <h4 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h4><ul>
 <li>语法</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#       一级标题    </span><br><span class="line">##      二级标题    </span><br><span class="line">###     三级标题    </span><br><span class="line">####    四级标题    </span><br><span class="line">#####   五级标题    </span><br><span class="line">######  六级标题</span><br></pre></td></tr></table></figure>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">#       一级标题    </span><br><span class="line">##      二级标题    </span><br><span class="line">###     三级标题    </span><br><span class="line">####    四级标题    </span><br><span class="line">#####   五级标题    </span><br><span class="line">######  六级标题</span><br></pre></td></tr></table></figure>
 
 <h4 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h4><ul>
 <li>语法</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&gt; 引用内容1</span><br><span class="line">&gt; 引用内容2</span><br><span class="line">&gt;&gt; 引用内容3</span><br></pre></td></tr></table></figure>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">&gt; 引用内容<span class="number">1</span></span><br><span class="line">&gt; 引用内容<span class="number">2</span></span><br><span class="line">&gt;&gt; 引用内容<span class="number">3</span></span><br></pre></td></tr></table></figure>
 
 <ul>
 <li><p>效果</p>
@@ -194,7 +194,7 @@
 <h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><h4 id="单行代码"><a href="#单行代码" class="headerlink" title="单行代码"></a>单行代码</h4><ul>
 <li>语法</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">`String str1 = &quot;hello&quot;;`</span><br></pre></td></tr></table></figure>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">`String str1 = "hello";`</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>效果</li>
@@ -203,17 +203,17 @@
 <h4 id="多行代码"><a href="#多行代码" class="headerlink" title="多行代码"></a>多行代码</h4><ul>
 <li>语法</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">~~~ Language</span><br></pre></td></tr></table></figure>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">~~~ Language</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>效果</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">int a = 10;</span><br><span class="line">int b = 20;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">int a = <span class="number">10</span>;</span><br><span class="line">int b = <span class="number">20</span>;</span><br></pre></td></tr></table></figure>
 
 <h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><h4 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h4><ul>
 <li>语法</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">* 无序列表1</span><br><span class="line">+ 无序列表2</span><br><span class="line">- 无序列表3</span><br></pre></td></tr></table></figure>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">* 无序列表<span class="number">1</span></span><br><span class="line">+ 无序列表<span class="number">2</span></span><br><span class="line">- 无序列表<span class="number">3</span></span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>效果<ul>
@@ -225,13 +225,12 @@
 </ul>
 <h4 id="多行无需列表"><a href="#多行无需列表" class="headerlink" title="多行无需列表"></a>多行无需列表</h4><ul>
 <li><p>语法</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">* 多行无序列表1</span><br><span class="line">TAB * 多行无序列表2</span><br><span class="line">TAB TAB * 多行无序列表3</span><br></pre></td></tr></table></figure>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">* 多行无序列表<span class="number">1</span></span><br><span class="line">TAB * 多行无序列表<span class="number">2</span></span><br><span class="line">TAB TAB * 多行无序列表<span class="number">3</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>效果</p>
 </li>
-</ul>
+<li><p>多行无序列表1</p>
 <ul>
-<li>多行无序列表1<ul>
 <li>多行无序列表2<ul>
 <li>多行无序列表3</li>
 </ul>
@@ -242,7 +241,7 @@
 <h4 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h4><ul>
 <li>语法</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1. 有序列表1</span><br><span class="line">2. 有序列表2</span><br><span class="line">3. 有序列表3</span><br></pre></td></tr></table></figure>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span>. 有序列表<span class="number">1</span></span><br><span class="line"><span class="number">2</span>. 有序列表<span class="number">2</span></span><br><span class="line"><span class="number">3</span>. 有序列表<span class="number">3</span></span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>效果</li>
@@ -255,7 +254,7 @@
 <h4 id="多行有序列表"><a href="#多行有序列表" class="headerlink" title="多行有序列表"></a>多行有序列表</h4><ul>
 <li>语法</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1. 多行有序列表1</span><br><span class="line">2. 多行有序列表2</span><br><span class="line">    1. 多行有序列表2-1</span><br><span class="line">    2. 多行有序列表2-2</span><br><span class="line">3. 多行有序列表3</span><br><span class="line">    1. 多行有序列表3-1</span><br><span class="line">    2. 多行有序列表3-2</span><br></pre></td></tr></table></figure>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span>. 多行有序列表<span class="number">1</span></span><br><span class="line"><span class="number">2</span>. 多行有序列表<span class="number">2</span></span><br><span class="line">  <span class="number">1</span>. 多行有序列表<span class="number">2</span>-<span class="number">1</span></span><br><span class="line">  <span class="number">2</span>. 多行有序列表<span class="number">2</span>-<span class="number">2</span></span><br><span class="line"><span class="number">3</span>. 多行有序列表<span class="number">3</span></span><br><span class="line">  <span class="number">1</span>. 多行有序列表<span class="number">3</span>-<span class="number">1</span></span><br><span class="line">  <span class="number">2</span>. 多行有序列表<span class="number">3</span>-<span class="number">2</span></span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>效果</li>
@@ -276,17 +275,23 @@
 <h4 id="任务列表"><a href="#任务列表" class="headerlink" title="任务列表"></a>任务列表</h4><ul>
 <li>语法</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">-[ ] 抽烟</span><br><span class="line">-[x] 喝酒</span><br><span class="line">-[ ] 烫头</span><br></pre></td></tr></table></figure>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">- [ ] 抽烟</span><br><span class="line">- [x] 喝酒</span><br><span class="line">- [ ] 烫头</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>效果</li>
+<li><p>效果</p>
+</li>
+<li><input disabled type="checkbox"> <p>抽烟</p>
+</li>
+<li><input checked disabled type="checkbox"> <p>喝酒</p>
+</li>
+<li><input disabled type="checkbox"> <p>烫头</p>
+</li>
 </ul>
-<p>-[ ] 抽烟<br>-[x] 喝酒<br>-[ ] 烫头</p>
 <h4 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h4><hr>
 <ul>
 <li>语法</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">|姓名|性别|年龄|手机号|</span><br><span class="line">|:---|:--:|:--:|---:|</span><br><span class="line">|张三|男|21|18975346876|</span><br><span class="line">|李四|女|23|17789548964|</span><br><span class="line">|王五|男|25|15876513546|</span><br></pre></td></tr></table></figure>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">|姓名|性别|年龄|手机号|</span><br><span class="line">|:---|:--:|:--:|---:|</span><br><span class="line">|张三|男|<span class="number">21</span>|<span class="number">18975346876</span>|</span><br><span class="line">|李四|女|<span class="number">23</span>|<span class="number">17789548964</span>|</span><br><span class="line">|王五|男|<span class="number">25</span>|<span class="number">15876513546</span>|</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>效果</li>
@@ -322,34 +327,35 @@
 <h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><h4 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h4><ul>
 <li>语法1（<em>本地图片</em>）</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[图片上传失败...(image-61fd19-1520850984854)]</span><br></pre></td></tr></table></figure>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">![图片上传失败...](image-<span class="number">61</span>fd19-<span class="number">1520850984854</span>)</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>语法2（<em>网络图片</em>）</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">![typora.jpg(https://uploadimages.jianshu.io/upload_images/1538862d91e815790b81e4a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</span><br></pre></td></tr></table></figure>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">![typora.jpg](https://uploadimages.jianshu.io/upload_images/<span class="number">1538862</span>d91e815790b81e4a.jpg?imageMogr2/auto-orient/strip%<span class="number">7</span>CimageView2/<span class="number">2</span>/w/<span class="number">1240</span>)</span><br></pre></td></tr></table></figure>
 
 <h4 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h4><ul>
 <li>语法1（<em>行内式链接</em>）</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[百度][https://www.baidu.com/]</span><br><span class="line">[百度](https://www.baidu.com/)</span><br></pre></td></tr></table></figure>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">[百度][https://www.baidu.com/]</span><br><span class="line">[百度](https://www.baidu.com/)</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>效果</li>
 </ul>
-<p>[百度][<a href="https://www.baidu.com/" target="_blank" rel="noopener">https://www.baidu.com/</a> ]<br><a href="https://www.baidu.com/" target="_blank" rel="noopener">百度</a></p>
+<p>[百度][<a href="https://www.baidu.com/]" target="_blank" rel="noopener">https://www.baidu.com/]</a><br><a href="https://www.baidu.com/" target="_blank" rel="noopener">百度</a></p>
 <ul>
 <li>语法2（<em>参考式链接</em>）</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[CSDN][CSDN网址]</span><br><span class="line">[CSDN网址]:https://www.csdn.net/</span><br></pre></td></tr></table></figure>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">[CSDN][CSDN网址]</span><br><span class="line">[CSDN网址]:https://www.csdn.<span class="built_in">net</span>/</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>效果<br><a href="https://www.csdn.net/" target="_blank" rel="noopener">CSDN</a></li>
+<li>效果</li>
 </ul>
+<p>[CSDN][CSDN网址]<br>[CSDN网址]:<a href="https://www.csdn.net/" target="_blank" rel="noopener">https://www.csdn.net/</a></p>
 <ul>
 <li>语法3（<em>自动链接</em>）</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;https://github.com/&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">&lt;https://github.com/&gt;</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>效果3</li>
@@ -358,58 +364,49 @@
 <h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><h4 id="斜体"><a href="#斜体" class="headerlink" title="斜体"></a>斜体</h4><ul>
 <li>语法</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">*斜体*</span><br><span class="line">_斜体_</span><br></pre></td></tr></table></figure>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">*斜体*</span><br><span class="line">_斜体_</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>效果</li>
+<li><p>效果</p>
+<p><em>斜体</em></p>
+<p><em>斜体</em></p>
+</li>
 </ul>
-<p><em>斜体</em></p>
-<p><em>斜体</em></p>
 <h4 id="加粗"><a href="#加粗" class="headerlink" title="加粗"></a>加粗</h4><ul>
 <li>语法</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">**加粗**</span><br><span class="line">__加粗__</span><br></pre></td></tr></table></figure>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">**加粗**</span><br><span class="line">__加粗__</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>效果</li>
+<li><p>效果</p>
+<p><strong>加粗</strong></p>
+<p><strong>加粗</strong></p>
+</li>
 </ul>
-<p><strong>加粗</strong></p>
-<p><strong>加粗</strong></p>
 <h4 id="下划线"><a href="#下划线" class="headerlink" title="下划线"></a>下划线</h4><ul>
 <li>语法</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;u&gt;下划线&lt;/u&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">&lt;u&gt;下划线&lt;/u&gt;</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>效果</li>
-</ul>
-<p><u>下划线</u></p>
 <h4 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h4><ul>
 <li>语法</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">删除线</span><br></pre></td></tr></table></figure>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">~~删除线~~</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>效果</li>
 </ul>
 <p><del>删除线</del></p>
-<h4 id="分隔线"><a href="#分隔线" class="headerlink" title="分隔线"></a>分隔线</h4><hr>
-<ul>
+<h4 id="分隔线"><a href="#分隔线" class="headerlink" title="分隔线"></a>分隔线</h4><ul>
 <li>语法</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">***</span><br><span class="line">---</span><br><span class="line">___</span><br></pre></td></tr></table></figure>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">***</span><br><span class="line">---</span><br><span class="line">___</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>效果</li>
-</ul>
-<hr>
-<hr>
-<hr>
 <h4 id="注脚"><a href="#注脚" class="headerlink" title="注脚"></a>注脚</h4><hr>
 <ul>
 <li>语法</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Typora[^1]</span><br><span class="line">[^1]A markdown editor</span><br></pre></td></tr></table></figure>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">Typora[^<span class="number">1</span>]</span><br><span class="line">[^<span class="number">1</span>]A markdown editor</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>效果</li>
@@ -419,7 +416,7 @@
 <ul>
 <li>语法</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$3^2=9$</span><br><span class="line">$3^&#123;(3-1)&#125;=9$</span><br><span class="line">$H_2SO_4$</span><br><span class="line">$H_&#123;2SO_4&#125;$</span><br></pre></td></tr></table></figure>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">$<span class="number">3</span>^<span class="number">2</span>=<span class="number">9</span>$</span><br><span class="line">$<span class="number">3</span>^&#123;(<span class="number">3</span>-<span class="number">1</span>)&#125;=<span class="number">9</span>$</span><br><span class="line">$H_2SO_4$</span><br><span class="line">$H_&#123;<span class="number">2</span>SO_4&#125;$</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>效果</li>
@@ -432,7 +429,7 @@
 <ul>
 <li>语法</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">\\   反斜线</span><br><span class="line">\`   反引号</span><br><span class="line">\*   星号</span><br><span class="line">\_   底线</span><br><span class="line">\&#123; \&#125;  花括号</span><br><span class="line">\[ \]  方括号</span><br><span class="line">\( \)  括弧</span><br><span class="line">\#   井字号</span><br><span class="line">\+   加号</span><br><span class="line">\-   减号</span><br><span class="line">\.   英文句点</span><br><span class="line">\!   惊叹号</span><br></pre></td></tr></table></figure>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">\\   反斜线</span><br><span class="line">\`   反引号</span><br><span class="line">\*   星号</span><br><span class="line">\_   底线</span><br><span class="line">\&#123; \&#125;  花括号</span><br><span class="line">\[ \]  方括号</span><br><span class="line">\( \)  括弧</span><br><span class="line">\#   井字号</span><br><span class="line">\+   加号</span><br><span class="line">\-   减号</span><br><span class="line">\.   英文句点</span><br><span class="line">\!   惊叹号</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>效果</li>
@@ -442,14 +439,14 @@
 <ul>
 <li>语法</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&amp;copy;      版权      </span><br><span class="line">&amp;reg;       注册商标</span><br><span class="line">&amp;trade;     商标</span><br><span class="line">&amp;nbsp;      空格</span><br><span class="line">&amp;amp;       和号</span><br><span class="line">&amp;quot;      引号</span><br><span class="line">&amp;apos;      撇号</span><br><span class="line">&amp;lt;        小于号</span><br><span class="line">&amp;gt;        大于号</span><br><span class="line">&amp;ne;        不等号</span><br><span class="line">&amp;le;        小于等于</span><br><span class="line">&amp;ge;        大于等于</span><br><span class="line">&amp;cent;      分</span><br><span class="line">&amp;pound;     磅</span><br><span class="line">&amp;euro;      欧元</span><br><span class="line">&amp;yen;       元</span><br><span class="line">&amp;sect;      节</span><br><span class="line">&amp;times;     乘号</span><br><span class="line">&amp;divide;    除号</span><br><span class="line">&amp;plusmn;    正负号</span><br></pre></td></tr></table></figure>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">&amp;<span class="built_in">copy</span>;      版权      </span><br><span class="line">&amp;reg;       注册商标</span><br><span class="line">&amp;trade;     商标</span><br><span class="line">&amp;nbsp;      空格</span><br><span class="line">&amp;amp;       和号</span><br><span class="line">&amp;quot;      引号</span><br><span class="line">&amp;apos;      撇号</span><br><span class="line">&amp;lt;        小于号</span><br><span class="line">&amp;gt;        大于号</span><br><span class="line">&amp;ne;        不等号</span><br><span class="line">&amp;le;        小于等于</span><br><span class="line">&amp;ge;        大于等于</span><br><span class="line">&amp;cent;      分</span><br><span class="line">&amp;pound;     磅</span><br><span class="line">&amp;euro;      欧元</span><br><span class="line">&amp;yen;       元</span><br><span class="line">&amp;sect;      节</span><br><span class="line">&amp;times;     乘号</span><br><span class="line">&amp;divide;    除号</span><br><span class="line">&amp;plusmn;    正负号</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>效果</li>
 </ul>
 <p>&copy;  &reg;  &trade;  &nbsp;  &amp;   &quot;  &apos;   &lt;  &gt;  &ne;   &le;    &ge;</p>
 <p>&cent;  &pound;  &euro;  &yen;  &sect;  &times;  &divide;  &plusmn;</p>
-<h3 id="附-HTML特殊字符编码对照表"><a href="#附-HTML特殊字符编码对照表" class="headerlink" title="附: HTML特殊字符编码对照表"></a>附: HTML特殊字符编码对照表</h3><p>[传送门]<a href="https://www.jb51.net/onlineread/htmlchar.htm" target="_blank" rel="noopener">https://www.jb51.net/onlineread/htmlchar.htm</a></p>
+<h3 id="附-HTML特殊字符编码对照表"><a href="#附-HTML特殊字符编码对照表" class="headerlink" title="附: HTML特殊字符编码对照表"></a>附: HTML特殊字符编码对照表</h3><p><a href="https://www.jb51.net/onlineread/htmlchar.htm" target="_blank" rel="noopener">传送门</a></p>
 ]]></content>
       <categories>
         <category>Typora</category>
@@ -514,7 +511,9 @@
 <p><strong>方法三：</strong></p>
 <p>任务管理器 &gt;  性能</p>
 <h2 id="windows-命令行切换目录"><a href="#windows-命令行切换目录" class="headerlink" title="windows 命令行切换目录"></a>windows 命令行切换目录</h2><p>切换到盘根目录，输入相应盘符加冒号回车，例：<code>d:</code></p>
-<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="function">C:\<span class="title">Users</span>\<span class="title">Mr</span> <span class="title">wang</span>&gt;<span class="title">d</span>:</span></span><br><span class="line"><span class="function"><span class="title">D</span>:\&gt;</span></span><br><span class="line"><span class="function"><span class="title">D</span>:\&gt;<span class="title">cd</span> <span class="title">Practice</span></span></span><br><span class="line"><span class="function"><span class="title">D</span>:\<span class="title">Practice</span>&gt;<span class="title">c</span>:</span></span><br><span class="line"><span class="function"><span class="title">C</span>:\<span class="title">Users</span>\<span class="title">Mr</span> <span class="title">wang</span>&gt;</span></span><br></pre></td></tr></table></figure>]]></content>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="function">C:\<span class="title">Users</span>\<span class="title">Mr</span> <span class="title">wang</span>&gt;<span class="title">d</span>:</span></span><br><span class="line"><span class="function"><span class="title">D</span>:\&gt;</span></span><br><span class="line"><span class="function"><span class="title">D</span>:\&gt;<span class="title">cd</span> <span class="title">Practice</span></span></span><br><span class="line"><span class="function"><span class="title">D</span>:\<span class="title">Practice</span>&gt;<span class="title">c</span>:</span></span><br><span class="line"><span class="function"><span class="title">C</span>:\<span class="title">Users</span>\<span class="title">Mr</span> <span class="title">wang</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
       <categories>
         <category>window</category>
       </categories>
@@ -528,7 +527,7 @@
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><a href="http://supervisord.org/" target="_blank" rel="noopener">Supervisor</a>是用Python开发的一个client/server服务，是Linux/Unix系统下的一个进程管理工具，不支持Windows系统。它可以很方便的监听、启动、停止、重启一个或多个进程。用Supervisor管理的进程，当一个进程意外被杀死，supervisort监听到进程死后，会自动将它重新拉起，很方便的做到进程自动恢复的功能，不再需要自己写shell脚本来控制。</p>
 <a id="more"></a>
 
-<h2 id="安装supervisor"><a href="#安装supervisor" class="headerlink" title="安装supervisor"></a>安装supervisor</h2><p><strong>通过yum安装</strong>：</p>
+<h2 id="安装supervisor"><a href="#安装supervisor" class="headerlink" title="安装supervisor"></a>安装supervisor</h2><p><strong>通过yum安装</strong>:</p>
 <figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">[root@i-x676awuk ~]# yum install supervisor  </span><br><span class="line">[root@i-x676awuk ~]# systemctl enable supervisord.service    # 设置开机自启</span><br></pre></td></tr></table></figure>
 
 <p><strong>通过pip安装</strong>：</p>
@@ -541,7 +540,7 @@
 <figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">[root@i-x676awuk ~]# <span class="built_in">mkdir</span> /etc/supervisor</span><br><span class="line">[root@i-x676awuk ~]# echo_supervisord_conf &gt; /etc/supervisor/supervisord.conf</span><br></pre></td></tr></table></figure>
 
 <p>注：运行supervisord服务的时候，需要指定supervisor配置文件，如果没有显示指定，默认在以下目录查找：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$CWD/supervisord.conf</span><br><span class="line">$CWD/etc/supervisord.conf</span><br><span class="line">/etc/supervisord.conf</span><br><span class="line">/etc/supervisor/supervisord.conf (since Supervisor 3.3.0)</span><br><span class="line">../etc/supervisord.conf (Relative to the executable)</span><br><span class="line">../supervisord.conf (Relative to the executable)</span><br><span class="line"></span><br><span class="line">$CWD表示运行supervisord程序的目录。</span><br></pre></td></tr></table></figure>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">$CWD/supervisord.conf</span><br><span class="line">$CWD/etc/supervisord.conf</span><br><span class="line">/etc/supervisord.conf</span><br><span class="line">/etc/supervisor/supervisord.conf (since Supervisor <span class="number">3</span>.<span class="number">3</span>.<span class="number">0</span>)</span><br><span class="line">../etc/supervisord.conf (Relative to the executable)</span><br><span class="line">../supervisord.conf (Relative to the executable)</span><br><span class="line"></span><br><span class="line">$CWD表示运行supervisord程序的目录。</span><br></pre></td></tr></table></figure>
 
 <h2 id="配置文件参数说明"><a href="#配置文件参数说明" class="headerlink" title="配置文件参数说明"></a>配置文件参数说明</h2><p><a href="https://blog.csdn.net/xyang81/article/details/51555473" target="_blank" rel="noopener">https://blog.csdn.net/xyang81/article/details/51555473</a><br><a href="https://www.cnblogs.com/xuezhigu/p/7660203.html(详细)" target="_blank" rel="noopener">https://www.cnblogs.com/xuezhigu/p/7660203.html(详细)</a></p>
 <h2 id="配置管理进程"><a href="#配置管理进程" class="headerlink" title="配置管理进程"></a>配置管理进程</h2><p>进程管理配置参数，不建议全都写在supervisord.conf文件中，应该每个进程写一个配置文件放在include指定的目录下包含进supervisord.conf文件中。</p>
@@ -11721,6 +11720,43 @@ redhat和fedora系统中，还支持一个参数：
 
 <p>参考</p>
 <p><a href="https://www.cnblogs.com/wanglijun/p/8916790.html" target="_blank" rel="noopener">Mysql 多表连接查询 inner join 和 outer join 的使用</a></p>
+]]></content>
+      <categories>
+        <category>mysql</category>
+      </categories>
+      <tags>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>mysql 锁机制</title>
+    <url>/mysql/ckjijq3o60000gcyv7un17jc5.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="MySQL锁概述"><a href="#MySQL锁概述" class="headerlink" title="MySQL锁概述"></a>MySQL锁概述</h2><p>相对其他数据库而言，MySQL的锁机制比较简单，其最显著的特点是不同的存储引擎支持不同的锁机制。比如，MyISAM和MEMORY存储引擎采用的是表级锁（table-level locking）；BDB存储引擎采用的是页面锁（page-level locking），但也支持表级锁；InnoDB存储引擎既支持行级锁（row-level locking），也支持表级锁，但默认情况下是采用行级锁。</p>
+<a id="more"></a>
+
+<p>MySQL这3种锁的特性可大致归纳如下:</p>
+<p><strong>开销、加锁速度、死锁、粒度、并发性能</strong></p>
+<ul>
+<li>表级锁：开销小，加锁快；不会出现死锁；锁定粒度大，发生锁冲突的概率最高,并发度最低。</li>
+<li>行级锁：开销大，加锁慢；会出现死锁；锁定粒度最小，发生锁冲突的概率最低,并发度也最高。</li>
+<li>页面锁：开销和加锁时间界于表锁和行锁之间；会出现死锁；锁定粒度界于表锁和行锁之间，并发度一般。</li>
+</ul>
+<h2 id="mysql锁使用查询"><a href="#mysql锁使用查询" class="headerlink" title="mysql锁使用查询"></a>mysql锁使用查询</h2><h3 id="查询表级锁争用情况"><a href="#查询表级锁争用情况" class="headerlink" title="查询表级锁争用情况"></a>查询表级锁争用情况</h3><p>可以通过检查table_locks_waited和table_locks_immediate状态变量来分析系统上的表锁定争夺：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">MySQL [ts_model]&gt; show status like "table%";</span><br><span class="line">+<span class="comment">----------------------------+-------+</span></span><br><span class="line">| Variable_name              | Value |</span><br><span class="line">+<span class="comment">----------------------------+-------+</span></span><br><span class="line">| Table_locks_immediate      | 710   |</span><br><span class="line">| Table_locks_waited         | 0     |</span><br><span class="line">+<span class="comment">----------------------------+-------+</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Table_locks_immediate 指的是能够立即获得表级锁的次数</span></span><br><span class="line"><span class="comment"># Table_locks_waited 指的是不能立即获取表级锁而需要等待的次数</span></span><br></pre></td></tr></table></figure>
+
+<p>注：如果Table_locks_waited的值比较高，则说明存在着较严重的表级锁争用情况。如果<code>Table_locks_immediate / Table_locks_waited &gt; 5000</code>，最好采用InnoDB引擎，因为InnoDB是行锁而MyISAM是表锁，对于高并发写入的应用InnoDB效果会好些。</p>
+<h3 id="查询InnoDB行锁争用情况"><a href="#查询InnoDB行锁争用情况" class="headerlink" title="查询InnoDB行锁争用情况"></a>查询InnoDB行锁争用情况</h3><p>可以通过检查InnoDB_row_lock状态变量来分析系统上的行锁的争夺情况：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">MySQL [ts_model]&gt; show status like "innodb_row_lock%";</span><br><span class="line">+<span class="comment">-------------------------------+-------+</span></span><br><span class="line">| Variable_name                 | Value |</span><br><span class="line">+<span class="comment">-------------------------------+-------+</span></span><br><span class="line">| Innodb_row_lock_current_waits | 0     |</span><br><span class="line">| Innodb_row_lock_time          | 0     |</span><br><span class="line">| Innodb_row_lock_time_avg      | 0     |</span><br><span class="line">| Innodb_row_lock_time_max      | 0     |</span><br><span class="line">| Innodb_row_lock_waits         | 0     |</span><br><span class="line">+<span class="comment">-------------------------------+-------+</span></span><br></pre></td></tr></table></figure>
+
+<p>如果发现锁争用比较严重，如InnoDB_row_lock_waits和InnoDB_row_lock_time_avg的值比较高，还可以通过解锁:</p>
+<ul>
+<li>第一种(<code>show processlist;</code>)，找到锁进程，kill id;</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">MySQL [ts_model]&gt; show processlist;</span><br><span class="line">+<span class="comment">--------+------+---------------------+-------------------+---------+-------+----------+------------------+</span></span><br><span class="line">| Id     | User | Host                | db                | Command | Time  | State    | Info             |</span><br><span class="line">+<span class="comment">--------+------+---------------------+-------------------+---------+-------+----------+------------------+</span></span><br><span class="line">| 412414 | root | 43.254.54.249:37446 | ts_model          | Query   |     0 | starting | <span class="keyword">show</span> <span class="keyword">processlist</span> |</span><br><span class="line">| <span class="number">412415</span> | root | <span class="number">43.254</span><span class="number">.54</span><span class="number">.249</span>:<span class="number">37448</span> | ts_model          | <span class="keyword">Sleep</span>   | <span class="number">14360</span> |          | <span class="literal">NULL</span>             |</span><br><span class="line">| <span class="number">412425</span> | root | <span class="number">43.254</span><span class="number">.54</span><span class="number">.249</span>:<span class="number">37494</span> | smartant_saas_dev | <span class="keyword">Sleep</span>   |  <span class="number">7130</span> |          | <span class="literal">NULL</span>             |</span><br><span class="line">+<span class="comment">--------+------+---------------------+-------------------+---------+-------+----------+------------------+</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>第二种(<code>mysql&gt;UNLOCK TABLES;</code>)</li>
+</ul>
 ]]></content>
       <categories>
         <category>mysql</category>

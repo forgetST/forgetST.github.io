@@ -102,18 +102,18 @@
   daovoice('update');
   </script>
 
-  <meta name="description" content="问题怎样找出一个序列中出现次数最多的元素呢？">
-<meta name="keywords" content="python">
+  <meta name="description" content="MySQL锁概述相对其他数据库而言，MySQL的锁机制比较简单，其最显著的特点是不同的存储引擎支持不同的锁机制。比如，MyISAM和MEMORY存储引擎采用的是表级锁（table-level locking）；BDB存储引擎采用的是页面锁（page-level locking），但也支持表级锁；InnoDB存储引擎既支持行级锁（row-level locking），也支持表级锁，但默认情况下是采用">
+<meta name="keywords" content="mysql">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python 序列中出现次数最多的元素">
-<meta property="og:url" content="https://forgetst.github.io/python/tips/ckj1jlqxu00h5t8yvuz3hm1ow.html">
+<meta property="og:title" content="mysql 锁机制">
+<meta property="og:url" content="https://forgetst.github.io/mysql/ckjijq3o60000gcyv7un17jc5.html">
 <meta property="og:site_name" content="勿忘，须舍">
-<meta property="og:description" content="问题怎样找出一个序列中出现次数最多的元素呢？">
+<meta property="og:description" content="MySQL锁概述相对其他数据库而言，MySQL的锁机制比较简单，其最显著的特点是不同的存储引擎支持不同的锁机制。比如，MyISAM和MEMORY存储引擎采用的是表级锁（table-level locking）；BDB存储引擎采用的是页面锁（page-level locking），但也支持表级锁；InnoDB存储引擎既支持行级锁（row-level locking），也支持表级锁，但默认情况下是采用">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-05T16:00:00.000Z">
+<meta property="og:updated_time" content="2020-12-28T16:00:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python 序列中出现次数最多的元素">
-<meta name="twitter:description" content="问题怎样找出一个序列中出现次数最多的元素呢？">
+<meta name="twitter:title" content="mysql 锁机制">
+<meta name="twitter:description" content="MySQL锁概述相对其他数据库而言，MySQL的锁机制比较简单，其最显著的特点是不同的存储引擎支持不同的锁机制。比如，MyISAM和MEMORY存储引擎采用的是表级锁（table-level locking）；BDB存储引擎采用的是页面锁（page-level locking），但也支持表级锁；InnoDB存储引擎既支持行级锁（row-level locking），也支持表级锁，但默认情况下是采用">
 
 
 
@@ -123,7 +123,7 @@
 
   
   
-  <link rel="canonical" href="https://forgetst.github.io/python/tips/ckj1jlqxu00h5t8yvuz3hm1ow">
+  <link rel="canonical" href="https://forgetst.github.io/mysql/ckjijq3o60000gcyv7un17jc5">
 
 
 
@@ -134,7 +134,7 @@
 </script>
 
   
-  <title>python 序列中出现次数最多的元素 | 勿忘，须舍</title>
+  <title>mysql 锁机制 | 勿忘，须舍</title>
   
 
 
@@ -388,7 +388,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/python/tips/ckj1jlqxu00h5t8yvuz3hm1ow.html">
+    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/mysql/ckjijq3o60000gcyv7un17jc5.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mr Wang">
@@ -405,7 +405,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">python 序列中出现次数最多的元素
+          <h1 class="post-title" itemprop="name headline">mysql 锁机制
 
               
             
@@ -431,7 +431,7 @@
                 
               
 
-              <time title="创建时间：2019-09-06 00:00" itemprop="dateCreated datePublished" datetime="2019-09-06T00:00:00+08:00">2019-09-06</time>
+              <time title="创建时间：2020-12-29 00:00" itemprop="dateCreated datePublished" datetime="2020-12-29T00:00:00+08:00">2020-12-29</time>
             </span>
           
 
@@ -446,14 +446,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/tips/" itemprop="url" rel="index"><span itemprop="name">tips</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/mysql/" itemprop="url" rel="index"><span itemprop="name">mysql</span></a></span>
 
                 
                 
@@ -493,14 +486,32 @@
       
 
       
-        <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>怎样找出一个序列中出现次数最多的元素呢？</p>
+        <h2 id="MySQL锁概述"><a href="#MySQL锁概述" class="headerlink" title="MySQL锁概述"></a>MySQL锁概述</h2><p>相对其他数据库而言，MySQL的锁机制比较简单，其最显著的特点是不同的存储引擎支持不同的锁机制。比如，MyISAM和MEMORY存储引擎采用的是表级锁（table-level locking）；BDB存储引擎采用的是页面锁（page-level locking），但也支持表级锁；InnoDB存储引擎既支持行级锁（row-level locking），也支持表级锁，但默认情况下是采用行级锁。</p>
 <a id="more"></a>
 
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>通过 collections.Counter 类来实现上述需求， 示例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; from collections import Counter</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; words = [</span><br><span class="line">    &apos;look&apos;, &apos;into&apos;, &apos;my&apos;, &apos;eyes&apos;, &apos;look&apos;, &apos;into&apos;, &apos;my&apos;, &apos;eyes&apos;,</span><br><span class="line">    &apos;the&apos;, &apos;eyes&apos;, &apos;the&apos;, &apos;eyes&apos;, &apos;the&apos;, &apos;eyes&apos;, &apos;not&apos;, &apos;around&apos;, &apos;the&apos;,</span><br><span class="line">    &apos;eyes&apos;, &quot;don&apos;t&quot;, &apos;look&apos;, &apos;around&apos;, &apos;the&apos;, &apos;eyes&apos;, &apos;look&apos;, &apos;into&apos;,</span><br><span class="line">    &apos;my&apos;, &apos;eyes&apos;, &quot;you&apos;re&quot;, &apos;under&apos;</span><br><span class="line">]</span><br><span class="line">&gt;&gt;&gt; word_counts = Counter(words)</span><br><span class="line">&gt;&gt;&gt; word_counts</span><br><span class="line">Counter(&#123;&apos;eyes&apos;: 8, &apos;the&apos;: 5, &apos;look&apos;: 4, &apos;into&apos;: 3, &apos;my&apos;: 3, &apos;around&apos;: 2, &apos;not&apos;: 1, &quot;don&apos;t&quot;: 1, &quot;you&apos;re&quot;: 1, &apos;under&apos;: 1&#125;)</span><br><span class="line"></span><br><span class="line"># 出现频率最高的3个单词</span><br><span class="line">&gt;&gt;&gt; word_counts.most_common(3)</span><br><span class="line">[(&apos;eyes&apos;, 8), (&apos;the&apos;, 5), (&apos;look&apos;, 4)]</span><br></pre></td></tr></table></figure>
+<p>MySQL这3种锁的特性可大致归纳如下:</p>
+<p><strong>开销、加锁速度、死锁、粒度、并发性能</strong></p>
+<ul>
+<li>表级锁：开销小，加锁快；不会出现死锁；锁定粒度大，发生锁冲突的概率最高,并发度最低。</li>
+<li>行级锁：开销大，加锁慢；会出现死锁；锁定粒度最小，发生锁冲突的概率最低,并发度也最高。</li>
+<li>页面锁：开销和加锁时间界于表锁和行锁之间；会出现死锁；锁定粒度界于表锁和行锁之间，并发度一般。</li>
+</ul>
+<h2 id="mysql锁使用查询"><a href="#mysql锁使用查询" class="headerlink" title="mysql锁使用查询"></a>mysql锁使用查询</h2><h3 id="查询表级锁争用情况"><a href="#查询表级锁争用情况" class="headerlink" title="查询表级锁争用情况"></a>查询表级锁争用情况</h3><p>可以通过检查table_locks_waited和table_locks_immediate状态变量来分析系统上的表锁定争夺：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">MySQL [ts_model]&gt; show status like "table%";</span><br><span class="line">+<span class="comment">----------------------------+-------+</span></span><br><span class="line">| Variable_name              | Value |</span><br><span class="line">+<span class="comment">----------------------------+-------+</span></span><br><span class="line">| Table_locks_immediate      | 710   |</span><br><span class="line">| Table_locks_waited         | 0     |</span><br><span class="line">+<span class="comment">----------------------------+-------+</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Table_locks_immediate 指的是能够立即获得表级锁的次数</span></span><br><span class="line"><span class="comment"># Table_locks_waited 指的是不能立即获取表级锁而需要等待的次数</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; from collections import Counter</span><br><span class="line"></span><br><span class="line"># 统计words中单词出现频率</span><br><span class="line">&gt;&gt;&gt; word_counts = Counter(&apos;hello world&apos;)</span><br><span class="line">&gt;&gt;&gt; word_counts</span><br><span class="line">Counter(&#123;&apos;l&apos;: 3, &apos;o&apos;: 2, &apos;h&apos;: 1, &apos;e&apos;: 1, &apos; &apos;: 1, &apos;w&apos;: 1, &apos;r&apos;: 1, &apos;d&apos;: 1&#125;)</span><br><span class="line"></span><br><span class="line"># word_counts 示例中的方法</span><br><span class="line">&gt;&gt;&gt; dir(word_counts)</span><br><span class="line">[&apos;_keep_positive&apos;, &apos;clear&apos;, &apos;copy&apos;, &apos;elements&apos;, &apos;fromkeys&apos;, &apos;get&apos;, &apos;items&apos;, &apos;keys&apos;, &apos;most_common&apos;, &apos;pop&apos;, &apos;popitem&apos;, &apos;setdefault&apos;, &apos;subtract&apos;, &apos;update&apos;, &apos;values&apos;]</span><br><span class="line"></span><br><span class="line"># word_counts.copy()</span><br><span class="line">    Return a shallow copy.</span><br><span class="line">&gt;&gt;&gt; word_counts.copy()</span><br><span class="line">Counter(&#123;&apos;l&apos;: 3, &apos;o&apos;: 2, &apos;h&apos;: 1, &apos;e&apos;: 1, &apos; &apos;: 1, &apos;w&apos;: 1, &apos;r&apos;: 1, &apos;d&apos;: 1&#125;)</span><br><span class="line"></span><br><span class="line"># word_counts.elements()</span><br><span class="line">    Iterator over elements repeating each as many times as its count.</span><br><span class="line">&gt;&gt;&gt; word_counts.elements()</span><br><span class="line">&lt;itertools.chain object at 0x000002516523E5F8&gt;</span><br><span class="line">&gt;&gt;&gt; list(word_counts.elements())</span><br><span class="line">[&apos;h&apos;, &apos;e&apos;, &apos;l&apos;, &apos;l&apos;, &apos;l&apos;, &apos;o&apos;, &apos;o&apos;, &apos; &apos;, &apos;w&apos;, &apos;r&apos;, &apos;d&apos;]</span><br><span class="line"></span><br><span class="line"># word_counts.most_common(n=None)</span><br><span class="line">    List the n most common elements and their counts from the most common to the least.</span><br><span class="line">    If n is None, then list all element counts</span><br><span class="line">&gt;&gt;&gt; word_counts.most_common(n=2)</span><br><span class="line">[(&apos;l&apos;, 3), (&apos;o&apos;, 2)]</span><br><span class="line"></span><br><span class="line"># word_counts.subtract(*args, **kwds)</span><br><span class="line">    Like dict.update() but subtracts counts instead of replacing them.</span><br><span class="line">    Counts can be reduced below zero.  Both the inputs and outputs are</span><br><span class="line">    allowed to contain zero and negative counts.</span><br><span class="line">&gt;&gt;&gt; word_counts = Counter(&apos;hello world&apos;)</span><br><span class="line">&gt;&gt;&gt; word_counts.subtract(&apos;ll  ooo&apos;)</span><br><span class="line">&gt;&gt;&gt; word_counts</span><br><span class="line">Counter(&#123;&apos;h&apos;: 1, &apos;e&apos;: 1, &apos;l&apos;: 1, &apos;w&apos;: 1, &apos;r&apos;: 1, &apos;d&apos;: 1, &apos;o&apos;: -1, &apos; &apos;: -1&#125;)</span><br><span class="line"></span><br><span class="line"># word_counts.update(*args, **kwds)</span><br><span class="line">    Like dict.update() but add counts instead of replacing them.</span><br><span class="line">&gt;&gt;&gt; word_counts.update(&apos;ll ooo&apos;)</span><br><span class="line">&gt;&gt;&gt; word_counts</span><br><span class="line">Counter(&#123;&apos;l&apos;: 3, &apos;o&apos;: 2, &apos;h&apos;: 1, &apos;e&apos;: 1, &apos;w&apos;: 1, &apos;r&apos;: 1, &apos;d&apos;: 1, &apos; &apos;: 0&#125;)</span><br><span class="line"></span><br><span class="line"># word_counts.clear()</span><br><span class="line">    Remove all items from D.</span><br><span class="line"></span><br><span class="line"># word_counts.get(key, default=None)</span><br><span class="line">    Return the value for key if key is in the dictionary, else default.</span><br><span class="line"></span><br><span class="line"># word_counts.items()</span><br><span class="line">    a set-like object providing a view on word_counts&apos;s items</span><br><span class="line"></span><br><span class="line"># word_counts.keys()</span><br><span class="line">    a set-like object providing a view on word_counts&apos;s keys</span><br><span class="line"></span><br><span class="line"># word_counts.pop(k[,d])</span><br><span class="line">    v, remove specified key and return the corresponding value. </span><br><span class="line">    If key is not found, d is returned if given, otherwise KeyError is raised</span><br><span class="line"></span><br><span class="line"># word_counts.popitem()</span><br><span class="line">    (k, v), remove and return some (key, value) pair as a 2-tuple; but raise KeyError if word_counts is empty.</span><br><span class="line"></span><br><span class="line"># word_counts.etdefault(key, default=None)</span><br><span class="line">    Insert key with a value of default if key is not in the dictionary.</span><br><span class="line">    Return the value for key if key is in the dictionary, else default.</span><br><span class="line"></span><br><span class="line"># word_counts.values()</span><br><span class="line">    an object providing a view on D&apos;s values</span><br></pre></td></tr></table></figure>
+<p>注：如果Table_locks_waited的值比较高，则说明存在着较严重的表级锁争用情况。如果<code>Table_locks_immediate / Table_locks_waited &gt; 5000</code>，最好采用InnoDB引擎，因为InnoDB是行锁而MyISAM是表锁，对于高并发写入的应用InnoDB效果会好些。</p>
+<h3 id="查询InnoDB行锁争用情况"><a href="#查询InnoDB行锁争用情况" class="headerlink" title="查询InnoDB行锁争用情况"></a>查询InnoDB行锁争用情况</h3><p>可以通过检查InnoDB_row_lock状态变量来分析系统上的行锁的争夺情况：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">MySQL [ts_model]&gt; show status like "innodb_row_lock%";</span><br><span class="line">+<span class="comment">-------------------------------+-------+</span></span><br><span class="line">| Variable_name                 | Value |</span><br><span class="line">+<span class="comment">-------------------------------+-------+</span></span><br><span class="line">| Innodb_row_lock_current_waits | 0     |</span><br><span class="line">| Innodb_row_lock_time          | 0     |</span><br><span class="line">| Innodb_row_lock_time_avg      | 0     |</span><br><span class="line">| Innodb_row_lock_time_max      | 0     |</span><br><span class="line">| Innodb_row_lock_waits         | 0     |</span><br><span class="line">+<span class="comment">-------------------------------+-------+</span></span><br></pre></td></tr></table></figure>
 
+<p>如果发现锁争用比较严重，如InnoDB_row_lock_waits和InnoDB_row_lock_time_avg的值比较高，还可以通过解锁:</p>
+<ul>
+<li>第一种(<code>show processlist;</code>)，找到锁进程，kill id;</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">MySQL [ts_model]&gt; show processlist;</span><br><span class="line">+<span class="comment">--------+------+---------------------+-------------------+---------+-------+----------+------------------+</span></span><br><span class="line">| Id     | User | Host                | db                | Command | Time  | State    | Info             |</span><br><span class="line">+<span class="comment">--------+------+---------------------+-------------------+---------+-------+----------+------------------+</span></span><br><span class="line">| 412414 | root | 43.254.54.249:37446 | ts_model          | Query   |     0 | starting | <span class="keyword">show</span> <span class="keyword">processlist</span> |</span><br><span class="line">| <span class="number">412415</span> | root | <span class="number">43.254</span><span class="number">.54</span><span class="number">.249</span>:<span class="number">37448</span> | ts_model          | <span class="keyword">Sleep</span>   | <span class="number">14360</span> |          | <span class="literal">NULL</span>             |</span><br><span class="line">| <span class="number">412425</span> | root | <span class="number">43.254</span><span class="number">.54</span><span class="number">.249</span>:<span class="number">37494</span> | smartant_saas_dev | <span class="keyword">Sleep</span>   |  <span class="number">7130</span> |          | <span class="literal">NULL</span>             |</span><br><span class="line">+<span class="comment">--------+------+---------------------+-------------------+---------+-------+----------+------------------+</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>第二种(<code>mysql&gt;UNLOCK TABLES;</code>)</li>
+</ul>
 
       
     </div>
@@ -539,7 +550,7 @@
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
     
-    <a href="https://forgetst.github.io/python/tips/ckj1jlqxu00h5t8yvuz3hm1ow.html" title="python 序列中出现次数最多的元素">https://forgetst.github.io/python/tips/ckj1jlqxu00h5t8yvuz3hm1ow.html</a>
+    <a href="https://forgetst.github.io/mysql/ckjijq3o60000gcyv7un17jc5.html" title="mysql 锁机制">https://forgetst.github.io/mysql/ckjijq3o60000gcyv7un17jc5.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
@@ -566,7 +577,7 @@
         
         <div class="post-tags">
           
-            <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
+            <a href="/tags/mysql/" rel="tag"><i class="fa fa-tag"></i> mysql</a>
           
         </div>
       
@@ -579,8 +590,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/python/tips/ckj1jlqxv00h8t8yv43u6d3vo.html" rel="next" title="python 通过某个字段将记录分组">
-                <i class="fa fa-chevron-left"></i> python 通过某个字段将记录分组
+              <a href="/mysql/ckj5tndnw00002wyvw5rz63y6.html" rel="next" title="mysql 多表连接查询">
+                <i class="fa fa-chevron-left"></i> mysql 多表连接查询
               </a>
             
           </div>
@@ -588,10 +599,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/python/tips/ckj1jlqxs00h2t8yvb5pf37ms.html" rel="prev" title="python 合并多个字典或映射">
-                python 合并多个字典或映射 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -947,7 +954,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-number">1.</span> <span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现"><span class="nav-number">2.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#说明"><span class="nav-number">3.</span> <span class="nav-text">说明</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL锁概述"><span class="nav-number">1.</span> <span class="nav-text">MySQL锁概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mysql锁使用查询"><span class="nav-number">2.</span> <span class="nav-text">mysql锁使用查询</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查询表级锁争用情况"><span class="nav-number">2.1.</span> <span class="nav-text">查询表级锁争用情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查询InnoDB行锁争用情况"><span class="nav-number">2.2.</span> <span class="nav-text">查询InnoDB行锁争用情况</span></a></li></ol></li></ol></div>
             
 
           </div>

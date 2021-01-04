@@ -489,7 +489,7 @@
         <p><a href="http://supervisord.org/" target="_blank" rel="noopener">Supervisor</a>是用Python开发的一个client/server服务，是Linux/Unix系统下的一个进程管理工具，不支持Windows系统。它可以很方便的监听、启动、停止、重启一个或多个进程。用Supervisor管理的进程，当一个进程意外被杀死，supervisort监听到进程死后，会自动将它重新拉起，很方便的做到进程自动恢复的功能，不再需要自己写shell脚本来控制。</p>
 <a id="more"></a>
 
-<h2 id="安装supervisor"><a href="#安装supervisor" class="headerlink" title="安装supervisor"></a>安装supervisor</h2><p><strong>通过yum安装</strong>：</p>
+<h2 id="安装supervisor"><a href="#安装supervisor" class="headerlink" title="安装supervisor"></a>安装supervisor</h2><p><strong>通过yum安装</strong>:</p>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@i-x676awuk ~]# yum install supervisor  </span><br><span class="line">[root@i-x676awuk ~]# systemctl enable supervisord.service    # 设置开机自启</span><br></pre></td></tr></table></figure>
 
 <p><strong>通过pip安装</strong>：</p>
@@ -502,7 +502,7 @@
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@i-x676awuk ~]# <span class="built_in">mkdir</span> /etc/supervisor</span><br><span class="line">[root@i-x676awuk ~]# echo_supervisord_conf &gt; /etc/supervisor/supervisord.conf</span><br></pre></td></tr></table></figure>
 
 <p>注：运行supervisord服务的时候，需要指定supervisor配置文件，如果没有显示指定，默认在以下目录查找：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$CWD/supervisord.conf</span><br><span class="line">$CWD/etc/supervisord.conf</span><br><span class="line">/etc/supervisord.conf</span><br><span class="line">/etc/supervisor/supervisord.conf (since Supervisor 3.3.0)</span><br><span class="line">../etc/supervisord.conf (Relative to the executable)</span><br><span class="line">../supervisord.conf (Relative to the executable)</span><br><span class="line"></span><br><span class="line">$CWD表示运行supervisord程序的目录。</span><br></pre></td></tr></table></figure>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$CWD/supervisord.conf</span><br><span class="line">$CWD/etc/supervisord.conf</span><br><span class="line">/etc/supervisord.conf</span><br><span class="line">/etc/supervisor/supervisord.conf (since Supervisor <span class="number">3</span>.<span class="number">3</span>.<span class="number">0</span>)</span><br><span class="line">../etc/supervisord.conf (Relative to the executable)</span><br><span class="line">../supervisord.conf (Relative to the executable)</span><br><span class="line"></span><br><span class="line">$CWD表示运行supervisord程序的目录。</span><br></pre></td></tr></table></figure>
 
 <h2 id="配置文件参数说明"><a href="#配置文件参数说明" class="headerlink" title="配置文件参数说明"></a>配置文件参数说明</h2><p><a href="https://blog.csdn.net/xyang81/article/details/51555473" target="_blank" rel="noopener">https://blog.csdn.net/xyang81/article/details/51555473</a><br><a href="https://www.cnblogs.com/xuezhigu/p/7660203.html(详细)" target="_blank" rel="noopener">https://www.cnblogs.com/xuezhigu/p/7660203.html(详细)</a></p>
 <h2 id="配置管理进程"><a href="#配置管理进程" class="headerlink" title="配置管理进程"></a>配置管理进程</h2><p>进程管理配置参数，不建议全都写在supervisord.conf文件中，应该每个进程写一个配置文件放在include指定的目录下包含进supervisord.conf文件中。</p>
@@ -675,7 +675,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">124</span>
+          <span class="site-state-item-count">125</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

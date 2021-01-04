@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://forgetst.github.io/"/>
-  <updated>2020-12-25T16:00:00.000Z</updated>
+  <updated>2020-12-28T16:00:00.000Z</updated>
   <id>https://forgetst.github.io/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>mysql 锁机制</title>
+    <link href="https://forgetst.github.io/mysql/ckjijq3o60000gcyv7un17jc5.html"/>
+    <id>https://forgetst.github.io/mysql/ckjijq3o60000gcyv7un17jc5.html</id>
+    <published>2020-12-28T16:00:00.000Z</published>
+    <updated>2020-12-28T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;MySQL锁概述&quot;&gt;&lt;a href=&quot;#MySQL锁概述&quot; class=&quot;headerlink&quot; title=&quot;MySQL锁概述&quot;&gt;&lt;/a&gt;MySQL锁概述&lt;/h2&gt;&lt;p&gt;相对其他数据库而言，MySQL的锁机制比较简单，其最显著的特点是不同的存储引擎支持不同的锁机制。比如，MyISAM和MEMORY存储引擎采用的是表级锁（table-level locking）；BDB存储引擎采用的是页面锁（page-level locking），但也支持表级锁；InnoDB存储引擎既支持行级锁（row-level locking），也支持表级锁，但默认情况下是采用行级锁。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="mysql" scheme="https://forgetst.github.io/categories/mysql/"/>
+    
+    
+      <category term="mysql" scheme="https://forgetst.github.io/tags/mysql/"/>
+    
+  </entry>
   
   <entry>
     <title>mysql 多表连接查询</title>
@@ -465,26 +485,6 @@
       <category term="python" scheme="https://forgetst.github.io/tags/python/"/>
     
       <category term="module" scheme="https://forgetst.github.io/tags/module/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>window使用随记</title>
-    <link href="https://forgetst.github.io/window/ckj1jlqjt0015t8yvmc1k5fpx.html"/>
-    <id>https://forgetst.github.io/window/ckj1jlqjt0015t8yvmc1k5fpx.html</id>
-    <published>2020-02-05T16:00:00.000Z</published>
-    <updated>2020-02-05T16:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;主要记录window使用的一些命令和使用技巧。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="window" scheme="https://forgetst.github.io/categories/window/"/>
-    
-    
-      <category term="window" scheme="https://forgetst.github.io/tags/window/"/>
     
   </entry>
   
