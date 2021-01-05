@@ -495,29 +495,28 @@
 <li>考虑在猴子到达最后一个台阶时，其所处位置在 <strong>n-1 台阶</strong>处或<strong>n-3 台阶</strong>处，故有 <strong>f(n) = f(n-1) + f(n-3)</strong></li>
 <li>因 <strong>n&gt;0</strong> , 故：<ul>
 <li><strong>n=1 或 n=2</strong> , <strong>f(1) = f(2) = 1</strong></li>
-<li><strong>n = 3</strong> , <strong>f(3) = 2</strong> </li>
+<li><strong>n = 3</strong> , <strong>f(3) = 2</strong></li>
 </ul>
 </li>
 </ol>
-<h2 id="程序设计"><a href="#程序设计" class="headerlink" title="程序设计"></a>程序设计</h2><h3 id="python-实现"><a href="#python-实现" class="headerlink" title="python 实现"></a>python 实现</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/env python3</span><br><span class="line"></span><br><span class="line">import functools</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@functools.lru_cache()</span><br><span class="line">def recursion_count(n: &quot;int, and n &gt; 0&quot;):</span><br><span class="line">    if n == 1 or n == 2:</span><br><span class="line">        return 1</span><br><span class="line">    elif n == 3:</span><br><span class="line">        return 2</span><br><span class="line">    elif n &gt; 3:</span><br><span class="line">        return recursion_count(n-1) + recursion_count(n-3)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    a = recursion_count(50)</span><br><span class="line">    print(a)  # 122106097</span><br></pre></td></tr></table></figure>
+<h2 id="程序设计"><a href="#程序设计" class="headerlink" title="程序设计"></a>程序设计</h2><h3 id="python-实现"><a href="#python-实现" class="headerlink" title="python 实现"></a>python 实现</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> functools</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@functools.lru_cache()</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">recursion_count</span><span class="params">(n: <span class="string">"int, and n &gt; 0"</span>)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">1</span> <span class="keyword">or</span> n == <span class="number">2</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">elif</span> n == <span class="number">3</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">2</span></span><br><span class="line">    <span class="keyword">elif</span> n &gt; <span class="number">3</span>:</span><br><span class="line">        <span class="keyword">return</span> recursion_count(n<span class="number">-1</span>) + recursion_count(n<span class="number">-3</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    a = recursion_count(<span class="number">50</span>)</span><br><span class="line">    print(a)  <span class="comment"># 122106097</span></span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <ul>
-<li><p>functools.lru_cache 为python中一个缓存装饰器，其作用可以直接将函数或类方法的结果缓存住，后续调用则直接返回缓存的结果。</p>
-</li>
-<li><p>原型如下：</p>
+<li>functools.lru_cache 为python中一个缓存装饰器，其作用可以直接将函数或类方法的结果缓存住，后续调用则直接返回缓存的结果。</li>
+<li>原型如下：</li>
+</ul>
 <blockquote>
-<p> @functools.lru_cache(maxsize=None, typed=False)</p>
+<p>@functools.lru_cache(maxsize=None, typed=False)</p>
 <blockquote>
 <ul>
 <li>maxsize –&gt; 最多缓存的次数，如果为 None，则无限制，设置为 2 的幂时，性能最佳</li>
-<li>typed=True  –&gt; 不同参数类型的调用将分别缓存，例如 f(3) 和 f(3.0)。(注意，在 functools32 中没有此参数)   </li>
+<li>typed=True  –&gt; 不同参数类型的调用将分别缓存，例如 f(3) 和 f(3.0)。(注意，在 functools32 中没有此参数)</li>
 </ul>
 </blockquote>
 </blockquote>
-</li>
-<li><p>LRU (Least Recently Used，最近最少使用) 算法是一种缓存淘汰策略。其根据数据的历史访问记录来进行淘汰，核心思想是，“如果数据最近被访问过，那么将来被访问的几率也更高”。该算法最初为操作系统中一种内存管理的页面置换算法，主要用于找出内存中较久时间没有使用的内存块，将其移出内存从而为新数据提供空间。</p>
-</li>
+<ul>
+<li>LRU (Least Recently Used，最近最少使用) 算法是一种缓存淘汰策略。其根据数据的历史访问记录来进行淘汰，核心思想是，“如果数据最近被访问过，那么将来被访问的几率也更高”。该算法最初为操作系统中一种内存管理的页面置换算法，主要用于找出内存中较久时间没有使用的内存块，将其移出内存从而为新数据提供空间。</li>
 </ul>
 </blockquote>
 
