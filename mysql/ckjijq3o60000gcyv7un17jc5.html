@@ -581,7 +581,7 @@
 </blockquote>
 <p>总的来说，InnoDB共有七种类型的锁：</p>
 <p>共享/排它锁(Shared and Exclusive Locks)<br>意向锁(Intention Locks)<br>记录锁(Record Locks)<br>间隙锁(Gap Locks)<br>临键锁(Next-key Locks)<br>插入意向锁(Insert Intention Locks)<br>自增锁(Auto-inc Locks)</p>
-<p>参考：<a href="https://www.cnblogs.com/volcano-liu/p/9890832.html" target="_blank" rel="noopener">https://www.cnblogs.com/volcano-liu/p/9890832.html</a></p>
+<p>参考：<a href="https://www.cnblogs.com/volcano-liu/p/9890832.html" target="_blank" rel="noopener">https://www.cnblogs.com/volcano-liu/p/9890832.html</a><br><a href="https://www.cnblogs.com/xhybk/p/9278650.html" target="_blank" rel="noopener">MySQL中锁详解（行锁、表锁、页锁、悲观锁、乐观锁等）MySQL中锁详解（行锁、表锁、页锁、悲观锁、乐观锁等）</a></p>
 <h2 id="mysql锁使用查询"><a href="#mysql锁使用查询" class="headerlink" title="mysql锁使用查询"></a>mysql锁使用查询</h2><h3 id="查询表级锁争用情况"><a href="#查询表级锁争用情况" class="headerlink" title="查询表级锁争用情况"></a>查询表级锁争用情况</h3><p>可以通过检查table_locks_waited和table_locks_immediate状态变量来分析系统上的表锁定争夺：</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">MySQL [ts_model]&gt; show status like "table%";</span><br><span class="line">+<span class="comment">----------------------------+-------+</span></span><br><span class="line">| Variable_name              | Value |</span><br><span class="line">+<span class="comment">----------------------------+-------+</span></span><br><span class="line">| Table_locks_immediate      | 710   |</span><br><span class="line">| Table_locks_waited         | 0     |</span><br><span class="line">+<span class="comment">----------------------------+-------+</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Table_locks_immediate 指的是能够立即获得表级锁的次数</span></span><br><span class="line"><span class="comment"># Table_locks_waited 指的是不能立即获取表级锁而需要等待的次数</span></span><br></pre></td></tr></table></figure>
 
@@ -623,6 +623,8 @@
 
 <h4 id="设置系统当前隔离级别"><a href="#设置系统当前隔离级别" class="headerlink" title="设置系统当前隔离级别"></a>设置系统当前隔离级别</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; set global transaction isolation level repeatable read;</span><br><span class="line">Query OK, 0 rows affected (0.01 sec)</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* 可选参数</span></span><br><span class="line"><span class="comment">* read uncommitted</span></span><br><span class="line"><span class="comment">* read committed</span></span><br><span class="line"><span class="comment">* repeatable read</span></span><br><span class="line"><span class="comment">* serializable</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
 
+<h3 id="MySQL关于table-lock-wait和table-lock-immediate-MySQL"><a href="#MySQL关于table-lock-wait和table-lock-immediate-MySQL" class="headerlink" title="MySQL关于table_lock_wait和table_lock_immediate_MySQL"></a>MySQL关于table_lock_wait和table_lock_immediate_MySQL</h3><p>参考：<a href="https://www.php.cn/mysql-tutorials-69154.html" target="_blank" rel="noopener">https://www.php.cn/mysql-tutorials-69154.html</a></p>
+<h3 id="for-update的作用和用法"><a href="#for-update的作用和用法" class="headerlink" title="for update的作用和用法"></a>for update的作用和用法</h3><p>参考：<a href="https://www.cnblogs.com/banma/p/11797560.html" target="_blank" rel="noopener">https://www.cnblogs.com/banma/p/11797560.html</a></p>
 
       
     </div>
@@ -711,6 +713,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/pymysql/ckk12n18u0003okyvegdjeht3.html" rel="prev" title="pymysql 使用">
+                pymysql 使用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -781,7 +787,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">125</span>
+          <span class="site-state-item-count">128</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -896,7 +902,9 @@
         
           
         
-        <span class="site-state-item-count">45</span>
+          
+        
+        <span class="site-state-item-count">46</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -987,7 +995,9 @@
         
           
         
-        <span class="site-state-item-count">35</span>
+          
+        
+        <span class="site-state-item-count">36</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
@@ -1065,7 +1075,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL锁概述"><span class="nav-number">1.</span> <span class="nav-text">MySQL锁概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mysql锁使用查询"><span class="nav-number">2.</span> <span class="nav-text">mysql锁使用查询</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查询表级锁争用情况"><span class="nav-number">2.1.</span> <span class="nav-text">查询表级锁争用情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查询InnoDB行锁争用情况"><span class="nav-number">2.2.</span> <span class="nav-text">查询InnoDB行锁争用情况</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扩展"><span class="nav-number">3.</span> <span class="nav-text">扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL存储引擎"><span class="nav-number">3.1.</span> <span class="nav-text">MySQL存储引擎</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#查看MySQL的存储引擎"><span class="nav-number">3.1.1.</span> <span class="nav-text">查看MySQL的存储引擎</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看MySQL当前默认的存储引擎"><span class="nav-number">3.1.2.</span> <span class="nav-text">查看MySQL当前默认的存储引擎</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看MySQL数据表的存储引擎"><span class="nav-number">3.1.3.</span> <span class="nav-text">查看MySQL数据表的存储引擎</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL开启事务"><span class="nav-number">3.2.</span> <span class="nav-text">MySQL开启事务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mysql中set-autocommit-0与start-transaction区别"><span class="nav-number">3.3.</span> <span class="nav-text">mysql中set autocommit=0与start transaction区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查询mysql事务隔离级别"><span class="nav-number">3.4.</span> <span class="nav-text">查询mysql事务隔离级别</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#查看当前会话隔离级别"><span class="nav-number">3.4.1.</span> <span class="nav-text">查看当前会话隔离级别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看系统当前隔离级别"><span class="nav-number">3.4.2.</span> <span class="nav-text">查看系统当前隔离级别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置当前会话隔离级别"><span class="nav-number">3.4.3.</span> <span class="nav-text">设置当前会话隔离级别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置系统当前隔离级别"><span class="nav-number">3.4.4.</span> <span class="nav-text">设置系统当前隔离级别</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL锁概述"><span class="nav-number">1.</span> <span class="nav-text">MySQL锁概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mysql锁使用查询"><span class="nav-number">2.</span> <span class="nav-text">mysql锁使用查询</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查询表级锁争用情况"><span class="nav-number">2.1.</span> <span class="nav-text">查询表级锁争用情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查询InnoDB行锁争用情况"><span class="nav-number">2.2.</span> <span class="nav-text">查询InnoDB行锁争用情况</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扩展"><span class="nav-number">3.</span> <span class="nav-text">扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL存储引擎"><span class="nav-number">3.1.</span> <span class="nav-text">MySQL存储引擎</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#查看MySQL的存储引擎"><span class="nav-number">3.1.1.</span> <span class="nav-text">查看MySQL的存储引擎</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看MySQL当前默认的存储引擎"><span class="nav-number">3.1.2.</span> <span class="nav-text">查看MySQL当前默认的存储引擎</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看MySQL数据表的存储引擎"><span class="nav-number">3.1.3.</span> <span class="nav-text">查看MySQL数据表的存储引擎</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL开启事务"><span class="nav-number">3.2.</span> <span class="nav-text">MySQL开启事务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mysql中set-autocommit-0与start-transaction区别"><span class="nav-number">3.3.</span> <span class="nav-text">mysql中set autocommit=0与start transaction区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查询mysql事务隔离级别"><span class="nav-number">3.4.</span> <span class="nav-text">查询mysql事务隔离级别</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#查看当前会话隔离级别"><span class="nav-number">3.4.1.</span> <span class="nav-text">查看当前会话隔离级别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看系统当前隔离级别"><span class="nav-number">3.4.2.</span> <span class="nav-text">查看系统当前隔离级别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置当前会话隔离级别"><span class="nav-number">3.4.3.</span> <span class="nav-text">设置当前会话隔离级别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置系统当前隔离级别"><span class="nav-number">3.4.4.</span> <span class="nav-text">设置系统当前隔离级别</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MySQL关于table-lock-wait和table-lock-immediate-MySQL"><span class="nav-number">3.5.</span> <span class="nav-text">MySQL关于table_lock_wait和table_lock_immediate_MySQL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#for-update的作用和用法"><span class="nav-number">3.6.</span> <span class="nav-text">for update的作用和用法</span></a></li></ol></li></ol></div>
             
 
           </div>

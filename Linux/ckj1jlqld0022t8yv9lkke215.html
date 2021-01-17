@@ -553,7 +553,7 @@
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop01 ~]# yum -y remove java-<span class="number">1</span>.<span class="number">7</span>.<span class="number">0</span>-openjdk-<span class="number">1</span>.<span class="number">7</span>.<span class="number">0</span>.<span class="number">191</span>-<span class="number">2</span>.<span class="number">6</span>.<span class="number">15</span>.<span class="number">5</span>.el7.x86_64</span><br><span class="line">Loaded plugins: fastestmirror, langpacks</span><br><span class="line">Resolving Dependencies</span><br><span class="line">--&gt; Running transaction check</span><br><span class="line">---&gt; Package java-<span class="number">1</span>.<span class="number">7</span>.<span class="number">0</span>-openjdk.x86_64 <span class="number">1</span>:<span class="number">1</span>.<span class="number">7</span>.<span class="number">0</span>.<span class="number">191</span>-<span class="number">2</span>.<span class="number">6</span>.<span class="number">15</span>.<span class="number">5</span>.el7 will be erased</span><br><span class="line">--&gt; Finished Dependency Resolution</span><br><span class="line">......</span><br><span class="line"><span class="function">Removed:</span></span><br><span class="line"><span class="function">  <span class="title">java</span>-1.7.0-<span class="title">openjdk.x86_64</span> 1:1.7.0.191-2.6.15.5.<span class="title">el7</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">Complete</span>!</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>方式二</p>
-<p><code>rpm -e --nodeps java-1.7.0-openjdk-headless-1.7.0.191-2.6.15.5.el7.x86_64</code> </p>
+<p><code>rpm -e --nodeps java-1.7.0-openjdk-headless-1.7.0.191-2.6.15.5.el7.x86_64</code></p>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop01 ~]# rpm -e --nodeps java-<span class="number">1</span>.<span class="number">7</span>.<span class="number">0</span>-openjdk-headless-<span class="number">1</span>.<span class="number">7</span>.<span class="number">0</span>.<span class="number">191</span>-<span class="number">2</span>.<span class="number">6</span>.<span class="number">15</span>.<span class="number">5</span>.el7.x86_64</span><br><span class="line">[root@hadoop01 ~]# rpm -qa | grep jdk</span><br><span class="line"><span class="built_in">copy</span>-jdk-configs-<span class="number">3</span>.<span class="number">3</span>-<span class="number">10</span>.el7_5.noarch</span><br><span class="line">java-<span class="number">1</span>.<span class="number">8</span>.<span class="number">0</span>-openjdk-headless-<span class="number">1</span>.<span class="number">8</span>.<span class="number">0</span>.<span class="number">181</span>-<span class="number">7</span>.b13.el7.x86_64</span><br><span class="line">java-<span class="number">1</span>.<span class="number">8</span>.<span class="number">0</span>-openjdk-<span class="number">1</span>.<span class="number">8</span>.<span class="number">0</span>.<span class="number">181</span>-<span class="number">7</span>.b13.el7.x86_64</span><br><span class="line">[root@hadoop01 ~]#</span><br></pre></td></tr></table></figure>
 
 </li>
@@ -569,16 +569,12 @@
 <ul>
 <li><p>为什么使用yum remove卸载不了，而需要使用rpm卸载呢？</p>
 <ul>
-<li><p>这里需要首先判断软件是通过什么方式安装的，执行：<code>rpm -q php</code> </p>
+<li><p>这里需要首先判断软件是通过什么方式安装的，执行：<code>rpm -q php</code></p>
 <p>如果此命令返回php版本，则是rpm安装；</p>
 <p>如不返回php版本则是二进制安装。</p>
 </li>
 </ul>
 </li>
-</ul>
-</li>
-</ul>
-<ul>
 <li><p>卸载有没有顺序？</p>
 <ul>
 <li><p>有的。使用<code>rpm –qa | grep php</code></p>
@@ -590,6 +586,8 @@
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rpm -e php-<span class="number">4</span>.<span class="number">3</span>.<span class="number">4</span>-<span class="number">11</span> --nodeps</span><br><span class="line">或</span><br><span class="line">rpm -e --nodeps php-<span class="number">4</span>.<span class="number">3</span>.<span class="number">4</span>-<span class="number">11</span></span><br></pre></td></tr></table></figure>
 
 
+</li>
+</ul>
 </li>
 </ul>
 </li>
@@ -606,7 +604,7 @@
 </blockquote>
 <h3 id="查询端口号8080-是否开启"><a href="#查询端口号8080-是否开启" class="headerlink" title="查询端口号8080 是否开启"></a>查询端口号8080 是否开启</h3><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop01 nginx]# firewall-<span class="built_in">cmd</span> --query-port=<span class="number">8080</span>/tcp</span><br><span class="line">yes</span><br></pre></td></tr></table></figure>
 
-<h3 id="开放端口的方法"><a href="#开放端口的方法" class="headerlink" title="开放端口的方法"></a>开放端口的方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop01 ~]# firewall-cmd --zone=public --add-port=8080/tcp --permanent</span><br><span class="line">success</span><br></pre></td></tr></table></figure>
+<h3 id="开放端口的方法"><a href="#开放端口的方法" class="headerlink" title="开放端口的方法"></a>开放端口的方法</h3><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop01 ~]# firewall-<span class="built_in">cmd</span> --zone=public --add-port=<span class="number">8080</span>/tcp --permanent</span><br><span class="line">success</span><br></pre></td></tr></table></figure>
 
 <h3 id="关闭端口方法"><a href="#关闭端口方法" class="headerlink" title="关闭端口方法"></a>关闭端口方法</h3><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@hadoop01 ~]# firewall-<span class="built_in">cmd</span> --remove-port=<span class="number">8080</span>/tcp --permanent</span><br><span class="line">success</span><br></pre></td></tr></table></figure>
 
@@ -794,7 +792,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">125</span>
+          <span class="site-state-item-count">128</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -909,7 +907,9 @@
         
           
         
-        <span class="site-state-item-count">45</span>
+          
+        
+        <span class="site-state-item-count">46</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -1000,7 +1000,9 @@
         
           
         
-        <span class="site-state-item-count">35</span>
+          
+        
+        <span class="site-state-item-count">36</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
