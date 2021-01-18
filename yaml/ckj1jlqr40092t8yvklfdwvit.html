@@ -500,46 +500,39 @@
 </ul>
 <a id="more"></a>
 
-<ol>
-<li>基本语法规则：</li>
-</ol>
+<p>1.基本语法规则：</p>
 <ul>
 <li>大小写敏感</li>
 <li>使用缩进表示层级关系</li>
 <li>缩进时不允许使用Tab键，只允许使用空格。</li>
 <li>缩进的空格数目不重要，只要相同层级的元素左侧对齐即可</li>
 </ul>
-<ol start="2">
-<li>支持的数据结构</li>
-</ol>
+<p>2.支持的数据结构</p>
 <ul>
 <li>对象：键值对的集合，又称为映射（mapping）/ 哈希（hashes） / 字典（dictionary）</li>
 <li>数组：一组按次序排列的值，又称为序列（sequence） / 列表（list）</li>
 <li>字面量（数字、字符串、布尔值）：单个的、不可再分的值</li>
 </ul>
-<ol start="3">
-<li>具体写法</li>
-</ol>
+<p>3.具体写法</p>
 <ul>
 <li><p>字面量（数字、字符串、布尔值）<br>k: v :字面量直接写，字符串默认不用加上单引号或者双引号<br>双引号：会转义特殊字符<br>单引号：不会转义字符串里边的特殊字符；特殊字符会作为本身想表示的意思</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">name: zhangsan</span><br><span class="line">age: 20</span><br><span class="line">isBoss: false</span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">zhangsan</span></span><br><span class="line"><span class="attr">age:</span> <span class="number">20</span></span><br><span class="line"><span class="attr">isBoss:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>数组<br>  多行写法使用<code>- 值</code>来表示数组中的一个元素，需要注意缩进；单行使用<code>[值，值]</code> 来表示一个数组</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#多行结构</span><br><span class="line">friends:</span><br><span class="line">  - zhangsan</span><br><span class="line">  - lisi</span><br><span class="line">  - wangwu</span><br><span class="line"></span><br><span class="line">#单行结构</span><br><span class="line">friend: [zhangsan,lisi,wangwu]</span><br></pre></td></tr></table></figure>
+  <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#多行结构</span></span><br><span class="line"><span class="attr">friends:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">zhangsan</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">lisi</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">wangwu</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#单行结构</span></span><br><span class="line"><span class="attr">friend:</span> <span class="string">[zhangsan,lisi,wangwu]</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>对象<br>多行写法：key：value的形式，使用多行写法需要注意缩进<br>单行写法：使用{key:value}的形式书写</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#多行结构</span><br><span class="line">friend:</span><br><span class="line">  name:zhangsan</span><br><span class="line">  age:20</span><br><span class="line"></span><br><span class="line">#单行结构</span><br><span class="line">friend: &#123;name:zhangsan,age:20&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#多行结构</span></span><br><span class="line"><span class="attr">friend:</span></span><br><span class="line">  <span class="string">name:zhangsan</span></span><br><span class="line">  <span class="string">age:20</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#单行结构</span></span><br><span class="line"><span class="attr">friend:</span> <span class="string">&#123;name:zhangsan,age:20&#125;</span></span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
-<ol start="4">
-<li><code>.properties</code>文件和<code>.yml</code>文件之间的不同</li>
-</ol>
+<p>4.<code>.properties</code>文件和<code>.yml</code>文件之间的不同</p>
 <ul>
 <li><p>.properties文件中的写法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">person.last-name=\u674E\u56DB</span><br><span class="line">person.age=12</span><br><span class="line">person.birth=2017/12/15</span><br><span class="line">person.boss=false</span><br><span class="line">person.maps.k1=v1</span><br><span class="line">person.maps.k2=14</span><br><span class="line">person.lists=a,b,c</span><br><span class="line">person.dog.name=dog</span><br><span class="line">person.dog.age=1</span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">person.last-name=\u674E\u56DB</span></span><br><span class="line"><span class="string">person.age=12</span></span><br><span class="line"><span class="string">person.birth=2017/12/15</span></span><br><span class="line"><span class="string">person.boss=false</span></span><br><span class="line"><span class="string">person.maps.k1=v1</span></span><br><span class="line"><span class="string">person.maps.k2=14</span></span><br><span class="line"><span class="string">person.lists=a,b,c</span></span><br><span class="line"><span class="string">person.dog.name=dog</span></span><br><span class="line"><span class="string">person.dog.age=1</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>.yml文件中的写法</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">person：</span><br><span class="line">  last-name: zhangsan</span><br><span class="line">  age: 20</span><br><span class="line">  birth: 2017/12/15</span><br><span class="line">  boss: false</span><br><span class="line">  maps:&#123;key1:value1,key2:value2&#125; </span><br><span class="line">  lists:[a,b,c]</span><br><span class="line">  dog:</span><br><span class="line">    name: dog</span><br><span class="line">    age: 1</span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">person：</span></span><br><span class="line">  <span class="attr">last-name:</span> <span class="string">zhangsan</span></span><br><span class="line">  <span class="attr">age:</span> <span class="number">20</span></span><br><span class="line">  <span class="attr">birth:</span> <span class="number">2017</span><span class="string">/12/15</span></span><br><span class="line">  <span class="attr">boss:</span> <span class="literal">false</span></span><br><span class="line">  <span class="string">maps:&#123;key1:value1,key2:value2&#125;</span> </span><br><span class="line">  <span class="string">lists:[a,b,c]</span></span><br><span class="line">  <span class="attr">dog:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">dog</span></span><br><span class="line">    <span class="attr">age:</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
