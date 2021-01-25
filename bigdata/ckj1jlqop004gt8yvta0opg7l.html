@@ -501,11 +501,11 @@
 
 <h3 id="配置主机间免密登陆"><a href="#配置主机间免密登陆" class="headerlink" title="配置主机间免密登陆"></a>配置主机间免密登陆</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa   # 一路Enter</span><br><span class="line">ssh-copy-id root@hostname</span><br></pre></td></tr></table></figure>
 
-<h2 id="启动spark集群"><a href="#启动spark集群" class="headerlink" title="启动spark集群"></a>启动spark集群</h2><p><strong>一般来说,Standalone模式的Spark集群的启动有以下的几种方式：</strong> </p>
+<h2 id="启动spark集群"><a href="#启动spark集群" class="headerlink" title="启动spark集群"></a>启动spark集群</h2><p><strong>一般来说,Standalone模式的Spark集群的启动有以下的几种方式：</strong>:</p>
 <p><strong>1. master,slave一起启动：</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd $SPARK_HOME</span><br><span class="line">./sbin/start-all.sh</span><br></pre></td></tr></table></figure>
 
-<p><strong>2. master,slave节点分开启动</strong></p>
+<p><strong>2. master,slave节点分开启动</strong>:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd $SPARK_HOME</span><br><span class="line"></span><br><span class="line"># 先启动 master,在启动slave</span><br><span class="line">./sbin/start-master.sh -h 192.168.100.10</span><br><span class="line">./sbin/start-slave.sh 192.168.100.10:7077</span><br></pre></td></tr></table></figure>
 
 <h2 id="停止spark集群"><a href="#停止spark集群" class="headerlink" title="停止spark集群"></a>停止spark集群</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd $SPARK_HOME</span><br><span class="line">./sbin/stop-all.sh</span><br></pre></td></tr></table></figure>
@@ -682,7 +682,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">128</span>
+          <span class="site-state-item-count">130</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -892,7 +892,9 @@
         
           
         
-        <span class="site-state-item-count">36</span>
+          
+        
+        <span class="site-state-item-count">37</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>

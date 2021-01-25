@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://forgetst.github.io/"/>
-  <updated>2021-01-14T16:00:00.000Z</updated>
+  <updated>2021-01-19T16:00:00.000Z</updated>
   <id>https://forgetst.github.io/</id>
   
   <author>
@@ -15,6 +15,55 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>python描述器使用指南</title>
+    <link href="https://forgetst.github.io/python/ckkcj7vpd00058kyvc27drnlb.html"/>
+    <id>https://forgetst.github.io/python/ckkcj7vpd00058kyvc27drnlb.html</id>
+    <published>2021-01-19T16:00:00.000Z</published>
+    <updated>2021-01-19T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;定义和简介&quot;&gt;&lt;a href=&quot;#定义和简介&quot; class=&quot;headerlink&quot; title=&quot;定义和简介&quot;&gt;&lt;/a&gt;定义和简介&lt;/h2&gt;&lt;p&gt;一般地，一个描述器是一个包含 “绑定行为” 的对象，对其属性的访问被描述器协议中定义的方法覆盖。这些方法有：&lt;code&gt;__get__()&lt;/code&gt;，&lt;code&gt;__set__()&lt;/code&gt; 和 &lt;code&gt;__delete__()&lt;/code&gt;。如果某个对象中定义了这些方法中的任意一个，那么这个对象就可以被称为一个描述器。&lt;/p&gt;
+&lt;p&gt;属性访问的默认行为是从一个对象的字典中获取、设置或删除属性。例如，&lt;strong&gt;&lt;code&gt;a.x&lt;/code&gt; 的查找顺序会从 &lt;code&gt;a.__dict__[&amp;#39;x&amp;#39;]&lt;/code&gt; 开始，然后是 &lt;code&gt;type(a).__dict__[&amp;#39;x&amp;#39;]&lt;/code&gt;，接下来依次查找 &lt;code&gt;type(a)&lt;/code&gt; 的基类，不包括元类&lt;/strong&gt;。 如果找到的值是定义了某个描述器方法的对象，则 Python 可能会重载默认行为并转而发起调用描述器方法。这具体发生在优先级链的哪个环节则要根据所定义的描述器方法及其被调用的方式来决定。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="python" scheme="https://forgetst.github.io/categories/python/"/>
+    
+    
+      <category term="python" scheme="https://forgetst.github.io/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Django 序列化问题</title>
+    <link href="https://forgetst.github.io/python/ckkcj7vn500008kyvx3a4cfgd.html"/>
+    <id>https://forgetst.github.io/python/ckkcj7vn500008kyvx3a4cfgd.html</id>
+    <published>2021-01-18T16:00:00.000Z</published>
+    <updated>2021-01-18T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="python" scheme="https://forgetst.github.io/categories/python/"/>
+    
+    
+      <category term="django" scheme="https://forgetst.github.io/tags/django/"/>
+    
+      <category term="pythoon" scheme="https://forgetst.github.io/tags/pythoon/"/>
+    
+  </entry>
   
   <entry>
     <title>python 连接远程服务器</title>
@@ -435,48 +484,6 @@
       <category term="python" scheme="https://forgetst.github.io/tags/python/"/>
     
       <category term="module" scheme="https://forgetst.github.io/tags/module/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>pycharm 配置pylint</title>
-    <link href="https://forgetst.github.io/python/ckj1jlqqa007at8yv1bf1j79i.html"/>
-    <id>https://forgetst.github.io/python/ckj1jlqqa007at8yv1bf1j79i.html</id>
-    <published>2020-03-03T16:00:00.000Z</published>
-    <updated>2020-03-03T16:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;pylint是一个用于检查python代码中的错误，尝试强制执行编码标准的工具。它还可以查找某些类型错误，可以建议如何重构特定块的建议，并可以向您提供有关代码复杂性的详细信息。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="python" scheme="https://forgetst.github.io/categories/python/"/>
-    
-    
-      <category term="python" scheme="https://forgetst.github.io/tags/python/"/>
-    
-      <category term="pycharm" scheme="https://forgetst.github.io/tags/pycharm/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>pyspark 学习笔记</title>
-    <link href="https://forgetst.github.io/python/ckj1jlqqc007ft8yvardccfa5.html"/>
-    <id>https://forgetst.github.io/python/ckj1jlqqc007ft8yvardccfa5.html</id>
-    <published>2020-03-03T16:00:00.000Z</published>
-    <updated>2020-03-03T16:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;pypark用法记录。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="python" scheme="https://forgetst.github.io/categories/python/"/>
-    
-    
-      <category term="python" scheme="https://forgetst.github.io/tags/python/"/>
     
   </entry>
   
