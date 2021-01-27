@@ -1,0 +1,1577 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.2.0',
+    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})
+  (window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/af1c402f.js","daovoice")
+  daovoice('init', {
+    app_id: "af1c402f"});
+  daovoice('update');
+  </script>
+
+  <meta name="description" content="简介zipfile是python里用来做zip格式编码的压缩和解压缩的 zipfile里有两个非常重要的class, 分别是ZipFile和ZipInfo, 在绝大多数的情况下，我们只需要使用这两个class就ok了  ZipFile是主要的类，用来创建和读取zip文件 ZipInfo是存储的zip文件的每个文件的信息的">
+<meta name="keywords" content="python,module">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python zipfile module">
+<meta property="og:url" content="https://forgetst.github.io/python/module/python-zipfile-module.html">
+<meta property="og:site_name" content="勿忘，须舍">
+<meta property="og:description" content="简介zipfile是python里用来做zip格式编码的压缩和解压缩的 zipfile里有两个非常重要的class, 分别是ZipFile和ZipInfo, 在绝大多数的情况下，我们只需要使用这两个class就ok了  ZipFile是主要的类，用来创建和读取zip文件 ZipInfo是存储的zip文件的每个文件的信息的">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-12-31T16:00:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python zipfile module">
+<meta name="twitter:description" content="简介zipfile是python里用来做zip格式编码的压缩和解压缩的 zipfile里有两个非常重要的class, 分别是ZipFile和ZipInfo, 在绝大多数的情况下，我们只需要使用这两个class就ok了  ZipFile是主要的类，用来创建和读取zip文件 ZipInfo是存储的zip文件的每个文件的信息的">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="勿忘，须舍" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="https://forgetst.github.io/python/module/python-zipfile-module">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  
+  <title>python zipfile module | 勿忘，须舍</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <a href="https://github.com/forgetST" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+  
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">勿忘，须舍</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-python">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/python/" rel="section"><i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>python 随记</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/python/module/python-zipfile-module.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr Wang">
+      <meta itemprop="description" content="行动了才会有故事，说出来才会有结果。">
+      <meta itemprop="image" content="/images/profile.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="勿忘，须舍">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">python zipfile module
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-01-01 00:00" itemprop="dateCreated datePublished" datetime="2020-01-01T00:00:00+08:00">2020-01-01</time>
+            </span>
+          
+
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/module/" itemprop="url" rel="index"><span itemprop="name">module</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p><strong>zipfile</strong>是python里用来做zip格式编码的压缩和解压缩的</p>
+<p><strong>zipfile</strong>里有两个非常重要的class, 分别是<strong>ZipFile</strong>和<strong>ZipInfo</strong>, 在绝大多数的情况下，我们只需要使用这两个class就ok了</p>
+<ul>
+<li><strong>ZipFile</strong>是主要的类，用来创建和读取zip文件</li>
+<li><strong>ZipInfo</strong>是存储的zip文件的每个文件的信息的</li>
+</ul>
+<a id="more"></a>
+
+<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><p>模块定义了以下内容：</p>
+<h4 id="exception-zipfile-BadZipFile"><a href="#exception-zipfile-BadZipFile" class="headerlink" title="exception zipfile.BadZipFile"></a><em>exception</em> <code>zipfile.BadZipFile</code></h4><p>为损坏的 ZIP 文件抛出的错误。</p>
+<h4 id="exception-zipfile-BadZipfile"><a href="#exception-zipfile-BadZipfile" class="headerlink" title="exception zipfile.BadZipfile"></a><em>exception</em> <code>zipfile.BadZipfile</code></h4><p><code>BadZipFile</code>的别名，与旧版本 Python 保持兼容性，<em>3.2 版后已移除.</em>。</p>
+<h4 id="exception-zipfile-LargeZipFile"><a href="#exception-zipfile-LargeZipFile" class="headerlink" title="exception zipfile.LargeZipFile"></a><em>exception</em> <code>zipfile.LargeZipFile</code></h4><p>当 ZIP 文件需要 ZIP64 功能但是未启用时会抛出此错误。</p>
+<h4 id="class-zipfile-ZipFile"><a href="#class-zipfile-ZipFile" class="headerlink" title="class zipfile.ZipFile"></a><em>class</em> <code>zipfile.ZipFile</code></h4><p>用于读写 ZIP 文件的类。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">class zipfile.ZipFile(file, mode=&apos;r&apos;, compression=ZIP_STORED, allowZip64=True, compresslevel=None)</span><br><span class="line"></span><br><span class="line">  作用：打开一个 ZIP 文件</span><br><span class="line">  形参：</span><br><span class="line">      file： 一个指向文件的路径（字符串），一个类文件对象或者一个 path-like object</span><br><span class="line">      mode：</span><br><span class="line">      	&apos;r&apos; 读取一个存在的文件；</span><br><span class="line">      	&apos;w&apos; 来截断并写入新的文件；</span><br><span class="line">      	&apos;a&apos; 来添加到一个存在的文件，如果 mode 为 &apos;a&apos; 且 file 为已存在的文件，则格外的文件将被加入，如果 mode 为 &apos;a&apos; 并且文件不存在， 则会新建。；</span><br><span class="line">      	&apos;x&apos; 来仅新建并写入新的文件。如果 mode 为 &apos;x&apos; 并且 file 指向已经存在的文件，则抛出FileExistsError；</span><br><span class="line">      	如果 mode 为 &apos;r&apos; 或 &apos;a&apos;， 则文件应当可定位。</span><br><span class="line">     compression：默认ZIP_STORED，可选 ZIP_STORED, ZIP_DEFLATED, ZIP_BZIP2 or ZIP_LZMA;</span><br><span class="line">     allowZip64： 默认True，如果allowZip64为真，则zipfile将在zipfile大于4 GiB时创建使用ZIP64扩展名的ZIP文件。如果是false，则当ZIP文件需要ZIP64扩展名时将引发异常；</span><br><span class="line">     compresslevel： 控制写入归档文件时使用的压缩级别。若使用ZIP_STORED或ZIP_LZMA没有效果。当使用ZIP_DEFLATED时可选0到9。使用ZIP_BZIP2时可选1到9。</span><br></pre></td></tr></table></figure>
+
+<h5 id="ZipFile-namelist"><a href="#ZipFile-namelist" class="headerlink" title="ZipFile.namelist()"></a>ZipFile.namelist()</h5><p>Return a list of archive members by name.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import zipfile</span><br><span class="line"></span><br><span class="line">with zipfile.ZipFile(&apos;D:\\Github\\test_comprese.zip&apos;) as my_zip:</span><br><span class="line">	name_list = my_zip.namelist()</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; name_list</span><br><span class="line">[&apos;test_comprese/&apos;, &apos;test_comprese/csv/&apos;, &apos;test_comprese/csv/iris.csv&apos;, &apos;test_comprese/tips.csv&apos;]</span><br></pre></td></tr></table></figure>
+
+<h5 id="ZipFile-infolist"><a href="#ZipFile-infolist" class="headerlink" title="ZipFile.infolist()"></a>ZipFile.infolist()</h5><p>返回包含每个存档成员的ZipInfo对象的列表。对象的顺序与它们在磁盘上实际ZIP文件相同。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">import zipfile</span><br><span class="line"></span><br><span class="line">with zipfile.ZipFile(&apos;D:\\Github\\test_comprese.zip&apos;) as my_zip:</span><br><span class="line">	file_info_list = my_zip.infolist()</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; file_info_list</span><br><span class="line">[&lt;ZipInfo filename=&apos;test_comprese/&apos; external_attr=0x10&gt;, </span><br><span class="line">&lt;ZipInfo filename=&apos;test_comprese/csv/&apos; external_attr=0x10&gt;, </span><br><span class="line">&lt;ZipInfo filename=&apos;test_comprese/csv/iris.csv&apos; compress_type=deflate external_attr=0x20 file_size=4600 compress_size=862&gt;, </span><br><span class="line">&lt;ZipInfo filename=&apos;test_comprese/tips.csv&apos; compress_type=deflate external_attr=0x20 file_size=7943 compress_size=1695&gt;]</span><br></pre></td></tr></table></figure>
+
+<h5 id="ZipFile-getinfo-name"><a href="#ZipFile-getinfo-name" class="headerlink" title="ZipFile.getinfo(name)"></a>ZipFile.getinfo(name)</h5><p>返回关于name信息的ZipInfo对象。若name不在该zip文件中，引发 KeyError。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">import zipfile</span><br><span class="line"></span><br><span class="line">with zipfile.ZipFile(&apos;D:\\Github\\test_comprese.zip&apos;) as my_zip:</span><br><span class="line">	file_info = my_zip.getinfo(&apos;test_comprese/&apos;)</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; file_info</span><br><span class="line">&lt;ZipInfo filename=&apos;test_comprese/&apos; external_attr=0x10&gt;</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; file_info.is_dir()</span><br><span class="line">True</span><br><span class="line">&gt;&gt;&gt; file_info.filename</span><br><span class="line">&apos;test_comprese/&apos;</span><br><span class="line">&gt;&gt;&gt; file_info.date_time</span><br><span class="line">(2019, 12, 29, 14, 15, 16)</span><br><span class="line"></span><br><span class="line">注：</span><br><span class="line">	file_info 可用方法参考目录 class zipfile.ZipInfo</span><br></pre></td></tr></table></figure>
+
+<h5 id="ZipFile-open-name-mode-’r’-pwd-None-force-zip64-False"><a href="#ZipFile-open-name-mode-’r’-pwd-None-force-zip64-False" class="headerlink" title="ZipFile.open(name, mode=’r’, pwd=None, *, force_zip64=False)"></a>ZipFile.open(name, mode=’r’, pwd=None, *, force_zip64=False)</h5><p>Access a member of the archive as a binary file-like object. </p>
+<p>name can be either the name of a file within the archive or a ZipInfo object. </p>
+<p>mode  must be ‘r’ (the default) or ‘w’. </p>
+<ul>
+<li>With mode ‘r’ the file-like object (ZipExtFile) is read-only and provides the following methods: <strong>read()</strong>, <strong>readline()</strong>, <strong>readlines()</strong>, <strong>seek()</strong>, <strong>tell()</strong>, <strong>iter</strong>(), <strong>next</strong>(). These objects can operate independently of the ZipFile.</li>
+<li>With mode=’w’, a writable file handle is returned, which supports the write() method. While a writable file handle is open, attempting to read or write other files in the ZIP file will raise a ValueError.</li>
+</ul>
+<p>pwd is the password used to decrypt encrypted ZIP files.</p>
+<p>force_zip64, when writing a file, if the file size is not known in advance but may exceed 2 GiB, pass force_zip64=True to ensure that the header format is capable of supporting large files. If the file size is known in advance, construct a ZipInfo object with file_size set, and use that as the name parameter.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">with ZipFile(&apos;D:\\Github\\test_comprese.zip&apos;) as myzip:</span><br><span class="line">    with myzip.open(&apos;test_comprese/csv/iris.csv&apos;) as myfile:</span><br><span class="line">        print(myfile.read())</span><br></pre></td></tr></table></figure>
+
+<h5 id="ZipFile-extract-member-path-None-pwd-None"><a href="#ZipFile-extract-member-path-None-pwd-None" class="headerlink" title="ZipFile.extract(member, path=None, pwd=None)"></a>ZipFile.extract(member, path=None, pwd=None)</h5><p>Extract a member from the archive to the current working directory; </p>
+<p>member must be its full name or a ZipInfo object. Its file information is extracted as accurately as possible. </p>
+<p>path specifies a different directory to extract to. </p>
+<p>pwd is the password used for encrypted files.</p>
+<p>Returns the normalized path created (a directory or new file).</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">with zipfile.ZipFile(&apos;D:\\Github\\test_comprese.zip&apos;) as my_zip:</span><br><span class="line">    my_zip.extract(&apos;test_comprese/csv/iris.csv&apos;, &quot;D:\\my_dir&quot;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="ZipFile-extractall-path-None-members-None-pwd-None"><a href="#ZipFile-extractall-path-None-members-None-pwd-None" class="headerlink" title="ZipFile.extractall(path=None, members=None, pwd=None)"></a>ZipFile.extractall(path=None, members=None, pwd=None)</h5><p>Extract all members from the archive to the current working directory. </p>
+<p>path specifies a different directory to extract to. </p>
+<p>members is optional and must be a subset of the list returned by namelist(). </p>
+<p>pwd is the password used for encrypted files.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">with zipfile.ZipFile(&apos;D:\\Github\\test_comprese.zip&apos;) as my_zip:</span><br><span class="line">    my_zip.extractall(&quot;D:\\my_dir&quot;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="ZipFile-printdir"><a href="#ZipFile-printdir" class="headerlink" title="ZipFile.printdir()"></a>ZipFile.printdir()</h5><p>Print a table of contents for the archive to sys.stdout.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">with zipfile.ZipFile(&apos;D:\\Github\\test_comprese.zip&apos;) as my_zip:</span><br><span class="line">	my_zip.printdir()</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">File Name                                             Modified             Size</span><br><span class="line">test_comprese/                                 2019-12-29 14:15:16            0</span><br><span class="line">test_comprese/csv/                             2019-12-29 14:15:16            0</span><br><span class="line">test_comprese/csv/iris.csv                     2018-07-01 23:41:02         4600</span><br><span class="line">test_comprese/tips.csv                         2018-07-01 23:41:02         7943</span><br></pre></td></tr></table></figure>
+
+<h5 id="ZipFile-setpassword-pwd"><a href="#ZipFile-setpassword-pwd" class="headerlink" title="ZipFile.setpassword(pwd)"></a>ZipFile.setpassword(pwd)</h5><p>Set pwd as default password to extract encrypted files.</p>
+<h5 id="ZipFile-read-name-pwd-None"><a href="#ZipFile-read-name-pwd-None" class="headerlink" title="ZipFile.read(name, pwd=None)"></a>ZipFile.read(name, pwd=None)</h5><p>Return the bytes of the file name in the archive. </p>
+<p>name is the name of the file in the archive, or a ZipInfo object. The archive must be open for read or append. </p>
+<p>pwd is the password used for encrypted files and, if specified, it will override the default password set with setpassword(). Calling read() on a ZipFile that uses a compression method other than ZIP_STORED, ZIP_DEFLATED, ZIP_BZIP2 or ZIP_LZMA will raise a NotImplementedError. An error will also be raised if the corresponding compression module is not available.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">with zipfile.ZipFile(&apos;D:\\Github\\test_comprese.zip&apos;) as my_zip:</span><br><span class="line">	content = my_zip.read(&apos;test_comprese/csv/iris.csv&apos;)</span><br></pre></td></tr></table></figure>
+
+<h5 id="ZipFile-write-filename-arcname-None-compress-type-None-compresslevel-None"><a href="#ZipFile-write-filename-arcname-None-compress-type-None-compresslevel-None" class="headerlink" title="ZipFile.write(filename, arcname=None, compress_type=None, compresslevel=None)"></a>ZipFile.write(filename, arcname=None, compress_type=None, compresslevel=None)</h5><p>Write the file named filename to the archive, giving it the archive name arcname (by default, this will be the same as filename, but without a drive letter and with leading path separators removed). If given, compress_type overrides the value given for the compression parameter to the constructor for the new entry. Similarly, compresslevel will override the constructor if given. The archive must be open with mode ‘w’, ‘x’ or ‘a’.</p>
+<h5 id="ZipFile-writestr-zinfo-or-arcname-data-compress-type-None-compresslevel-None"><a href="#ZipFile-writestr-zinfo-or-arcname-data-compress-type-None-compresslevel-None" class="headerlink" title="ZipFile.writestr(zinfo_or_arcname, data, compress_type=None, compresslevel=None)"></a>ZipFile.writestr(zinfo_or_arcname, data, compress_type=None, compresslevel=None)</h5><p>Write a file into the archive. The contents is data, which may be either a str or a bytes instance; if it is a str, it is encoded as UTF-8 first. zinfo_or_arcname is either the file name it will be given in the archive, or a ZipInfo instance. If it’s an instance, at least the filename, date, and time must be given. If it’s a name, the date and time is set to the current date and time. The archive must be opened with mode ‘w’, ‘x’ or ‘a’.</p>
+<p>If given, compress_type overrides the value given for the compression parameter to the constructor for the new entry, or in the zinfo_or_arcname (if that is a ZipInfo instance). Similarly, compresslevel will override the constructor if given.</p>
+<h5 id="ZipFile-testzip"><a href="#ZipFile-testzip" class="headerlink" title="ZipFile.testzip()"></a>ZipFile.testzip()</h5><p>Read all the files in the archive and check their CRC’s and file headers. Return the name of the first bad file, or else return None.</p>
+<h5 id="ZipFile-filename"><a href="#ZipFile-filename" class="headerlink" title="ZipFile.filename"></a>ZipFile.filename</h5><p>Name of the ZIP file.</p>
+<h5 id="ZipFile-debug"><a href="#ZipFile-debug" class="headerlink" title="ZipFile.debug"></a>ZipFile.debug</h5><p>The level of debug output to use. This may be set from 0 (the default, no output) to 3 (the most output). Debugging information is written to sys.stdout.</p>
+<h5 id="ZipFile-comment"><a href="#ZipFile-comment" class="headerlink" title="ZipFile.comment"></a>ZipFile.comment</h5><p>The comment associated with the ZIP file as a bytes object. If assigning a comment to a ZipFile instance created with mode ‘w’, ‘x’ or ‘a’, it should be no longer than 65535 bytes. Comments longer than this will be truncated.</p>
+<h5 id="ZipFile-close"><a href="#ZipFile-close" class="headerlink" title="ZipFile.close()"></a>ZipFile.close()</h5><h4 id="class-zipfile-PyZipFile"><a href="#class-zipfile-PyZipFile" class="headerlink" title="class zipfile.PyZipFile"></a><em>class</em> <code>zipfile.PyZipFile</code></h4><p>用于创建包含 Python 库的 ZIP 归档的类。</p>
+<h4 id="class-zipfile-ZipInfo"><a href="#class-zipfile-ZipInfo" class="headerlink" title="class zipfile.ZipInfo"></a>class <code>zipfile.ZipInfo</code></h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">zipfile</span>.<span class="title">ZipInfo</span><span class="params">(filename=<span class="string">'NoName'</span>, date_time=<span class="params">(<span class="number">1980</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>)</span>)</span></span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class"><span class="title">ZipInfo</span>.<span class="title">is_dir</span><span class="params">()</span></span></span><br><span class="line"><span class="class">	<span class="title">Return</span> <span class="title">True</span> <span class="title">if</span> <span class="title">this</span> <span class="title">archive</span> <span class="title">member</span> <span class="title">is</span> <span class="title">a</span> <span class="title">directory</span>.</span></span><br><span class="line"><span class="class">	<span class="title">This</span> <span class="title">uses</span> <span class="title">the</span> <span class="title">entry</span>'<span class="title">s</span> <span class="title">name</span>:</span> directories should always end <span class="keyword">with</span> /.</span><br><span class="line"></span><br><span class="line">ZipInfo.filename</span><br><span class="line">	Name of the file <span class="keyword">in</span> the archive.</span><br><span class="line"></span><br><span class="line">ZipInfo.date_time</span><br><span class="line">	The time <span class="keyword">and</span> date of the last modification to the archive member.</span><br><span class="line"></span><br><span class="line">ZipInfo.compress_type</span><br><span class="line">	Type of compression <span class="keyword">for</span> the archive member.</span><br><span class="line">  </span><br><span class="line">ZipInfo.comment</span><br><span class="line">	Comment <span class="keyword">for</span> the individual archive member <span class="keyword">as</span> a bytes object.</span><br><span class="line">  </span><br><span class="line">ZipInfo.extra</span><br><span class="line">	Expansion field data. The PKZIP Application Note contains some comments on the internal structure of the data contained <span class="keyword">in</span> this bytes object.</span><br><span class="line">   </span><br><span class="line">ZipInfo.create_system</span><br><span class="line">	System which created ZIP archive.</span><br><span class="line">   </span><br><span class="line">ZipInfo.create_version</span><br><span class="line">	PKZIP version which created ZIP archive.</span><br><span class="line">   </span><br><span class="line">ZipInfo.extract_version</span><br><span class="line">	PKZIP version needed to extract archive.</span><br><span class="line">   </span><br><span class="line">ZipInfo.flag_bits</span><br><span class="line">	ZIP flag bits.</span><br><span class="line"></span><br><span class="line">ZipInfo.volume</span><br><span class="line">	Volume number of file header.</span><br><span class="line"></span><br><span class="line">ZipInfo.internal_attr</span><br><span class="line">	Internal attributes.</span><br><span class="line"></span><br><span class="line">ZipInfo.external_attr</span><br><span class="line">	External file attributes.</span><br><span class="line"></span><br><span class="line">ZipInfo.header_offset</span><br><span class="line">	Byte offset to the file header.</span><br><span class="line"></span><br><span class="line">ZipInfo.CRC</span><br><span class="line">	CRC<span class="number">-32</span> of the uncompressed file.</span><br><span class="line"></span><br><span class="line">ZipInfo.compress_size</span><br><span class="line">	Size of the compressed data.</span><br><span class="line"></span><br><span class="line">ZipInfo.file_size</span><br><span class="line">	Size of the uncompressed file.</span><br></pre></td></tr></table></figure>
+
+<p>用于表示档案内一个成员信息的类。 此类的实例会由 ZipFile 对象的 getinfo() 和 infolist() 方法返回。 大多数 zipfile 模块的用户都不必创建它们，只需使用此模块所创建的实例。 filename 应当是档案成员的全名，date_time 应当是包含六个字段的描述最近修改时间的元组；这些字段的描述请参阅 ZipInfo Objects。</p>
+<h4 id="zipfile-is-zipfile-filename"><a href="#zipfile-is-zipfile-filename" class="headerlink" title="zipfile.is_zipfile(filename)"></a>zipfile.is_zipfile(filename)</h4><p>根据文件的 Magic Number，如果 filename 是一个有效的 ZIP 文件则返回 True，否则返回 False。 filename 也可能是一个文件或类文件对象。</p>
+<h4 id="zipfile-ZIP-STORED"><a href="#zipfile-ZIP-STORED" class="headerlink" title="zipfile.ZIP_STORED"></a>zipfile.ZIP_STORED</h4><p>未被压缩的归档成员的数字常数。</p>
+<h4 id="zipfile-ZIP-DEFLATED"><a href="#zipfile-ZIP-DEFLATED" class="headerlink" title="zipfile.ZIP_DEFLATED"></a>zipfile.ZIP_DEFLATED</h4><p>常用的 ZIP 压缩方法的数字常数。需要 <a href="https://docs.python.org/zh-cn/3.7/library/zlib.html#module-zlib" target="_blank" rel="noopener"><code>zlib</code></a> 模块。</p>
+<h4 id="zipfile-ZIP-BZIP2"><a href="#zipfile-ZIP-BZIP2" class="headerlink" title="zipfile.ZIP_BZIP2"></a>zipfile.ZIP_BZIP2</h4><p>BZIP2 压缩方法的数字常数。需要 <a href="https://docs.python.org/zh-cn/3.7/library/bz2.html#module-bz2" target="_blank" rel="noopener"><code>bz2</code></a> 模块。</p>
+<h4 id="zipfile-ZIP-LZMA"><a href="#zipfile-ZIP-LZMA" class="headerlink" title="zipfile.ZIP_LZMA"></a>zipfile.ZIP_LZMA</h4><p>LZMA 压缩方法的数字常数。需要 <a href="https://docs.python.org/zh-cn/3.7/library/lzma.html#module-lzma" target="_blank" rel="noopener"><code>lzma</code></a> 模块。</p>
+<h3 id="命令行界面"><a href="#命令行界面" class="headerlink" title="命令行界面"></a>命令行界面</h3><p>The <code>zipfile</code>module provides a simple command-line interface to interact with ZIP archives.</p>
+<p>If you want to create a new ZIP archive, specify its name after the <code>-c</code> option and then list the filename(s) that should be included:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ python -m zipfile -c monty.zip spam.txt eggs.txt</span><br></pre></td></tr></table></figure>
+
+<p>Passing a directory is also acceptable:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ python -m zipfile -c monty.zip life-of-brian_1979/</span><br></pre></td></tr></table></figure>
+
+<p>If you want to extract a ZIP archive into the specified directory, use the <a href="https://docs.python.org/zh-cn/3.7/library/zipfile.html#cmdoption-zipfile-e" target="_blank" rel="noopener"><code>-e</code></a> option:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ python -m zipfile -e monty.zip target-dir/</span><br></pre></td></tr></table></figure>
+
+<p>For a list of the files in a ZIP archive, use the <a href="https://docs.python.org/zh-cn/3.7/library/zipfile.html#cmdoption-zipfile-l" target="_blank" rel="noopener"><code>-l</code></a> option:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ python -m zipfile -l monty.zip</span><br></pre></td></tr></table></figure>
+
+<h3 id="命令行选项"><a href="#命令行选项" class="headerlink" title="命令行选项"></a>命令行选项</h3><ul>
+<li><p><code>-l`` &lt;zipfile&gt;</code></p>
+</li>
+<li><p><code>--list`` &lt;zipfile&gt;</code></p>
+<p>List files in a zipfile.</p>
+</li>
+<li><p><code>-c`` &lt;zipfile&gt; &lt;source1&gt; ... &lt;sourceN&gt;</code></p>
+</li>
+<li><p><code>--create`` &lt;zipfile&gt; &lt;source1&gt; ... &lt;sourceN&gt;</code></p>
+<p>Create zipfile from source files.</p>
+</li>
+<li><p><code>-e`` &lt;zipfile&gt; &lt;output_dir&gt;</code></p>
+</li>
+<li><p><code>--extract`` &lt;zipfile&gt; &lt;output_dir&gt;</code></p>
+<p>Extract zipfile into target directory.</p>
+</li>
+<li><p><code>-t`` &lt;zipfile&gt;</code></p>
+</li>
+<li><p><code>--test`` &lt;zipfile&gt;</code></p>
+<p>Test whether the zipfile is valid or not.</p>
+</li>
+</ul>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://docs.python.org/3.7/library/zipfile.html#zipinfo-objects" target="_blank" rel="noopener">https://docs.python.org/3.7/library/zipfile.html#zipinfo-objects</a></p>
+
+      
+    </div>
+
+    
+
+    
+      
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+      <div>
+        
+
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Mr Wang</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="https://forgetst.github.io/python/module/python-zipfile-module.html" title="python zipfile module">https://forgetst.github.io/python/module/python-zipfile-module.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
+          
+            <a href="/tags/module/" rel="tag"><i class="fa fa-tag"></i> module</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/python/python起一个固定端口.html" rel="next" title="python起一个固定端口">
+                <i class="fa fa-chevron-left"></i> python起一个固定端口
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/shell/shell-脚本.html" rel="prev" title="shell 脚本">
+                shell 脚本 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  
+    <img class="site-author-image" itemprop="image" src="/images/profile.jpg" alt="Mr Wang">
+  
+  <p class="site-author-name" itemprop="name">Mr Wang</p>
+  <div class="site-description motion-element" itemprop="description">行动了才会有故事，说出来才会有结果。</div>
+</div>
+
+
+  <nav class="site-state motion-element">
+    
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">132</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">46</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+
+
+
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+
+
+
+
+
+  <div class="links-of-author motion-element">
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/forgetST" title="GitHub &rarr; https://github.com/forgetST" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:yourname@gmail.com" title="E-Mail &rarr; mailto:yourname@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://weibo.com/yourname" title="Weibo &rarr; https://weibo.com/yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+    
+  </div>
+
+
+
+
+
+
+
+          
+          
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用法"><span class="nav-number">2.</span> <span class="nav-text">用法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#exception-zipfile-BadZipFile"><span class="nav-number">2.1.</span> <span class="nav-text">exception zipfile.BadZipFile</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#exception-zipfile-BadZipfile"><span class="nav-number">2.2.</span> <span class="nav-text">exception zipfile.BadZipfile</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#exception-zipfile-LargeZipFile"><span class="nav-number">2.3.</span> <span class="nav-text">exception zipfile.LargeZipFile</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#class-zipfile-ZipFile"><span class="nav-number">2.4.</span> <span class="nav-text">class zipfile.ZipFile</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#ZipFile-namelist"><span class="nav-number">2.4.1.</span> <span class="nav-text">ZipFile.namelist()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ZipFile-infolist"><span class="nav-number">2.4.2.</span> <span class="nav-text">ZipFile.infolist()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ZipFile-getinfo-name"><span class="nav-number">2.4.3.</span> <span class="nav-text">ZipFile.getinfo(name)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ZipFile-open-name-mode-’r’-pwd-None-force-zip64-False"><span class="nav-number">2.4.4.</span> <span class="nav-text">ZipFile.open(name, mode=’r’, pwd=None, *, force_zip64=False)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ZipFile-extract-member-path-None-pwd-None"><span class="nav-number">2.4.5.</span> <span class="nav-text">ZipFile.extract(member, path=None, pwd=None)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ZipFile-extractall-path-None-members-None-pwd-None"><span class="nav-number">2.4.6.</span> <span class="nav-text">ZipFile.extractall(path=None, members=None, pwd=None)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ZipFile-printdir"><span class="nav-number">2.4.7.</span> <span class="nav-text">ZipFile.printdir()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ZipFile-setpassword-pwd"><span class="nav-number">2.4.8.</span> <span class="nav-text">ZipFile.setpassword(pwd)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ZipFile-read-name-pwd-None"><span class="nav-number">2.4.9.</span> <span class="nav-text">ZipFile.read(name, pwd=None)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ZipFile-write-filename-arcname-None-compress-type-None-compresslevel-None"><span class="nav-number">2.4.10.</span> <span class="nav-text">ZipFile.write(filename, arcname=None, compress_type=None, compresslevel=None)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ZipFile-writestr-zinfo-or-arcname-data-compress-type-None-compresslevel-None"><span class="nav-number">2.4.11.</span> <span class="nav-text">ZipFile.writestr(zinfo_or_arcname, data, compress_type=None, compresslevel=None)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ZipFile-testzip"><span class="nav-number">2.4.12.</span> <span class="nav-text">ZipFile.testzip()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ZipFile-filename"><span class="nav-number">2.4.13.</span> <span class="nav-text">ZipFile.filename</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ZipFile-debug"><span class="nav-number">2.4.14.</span> <span class="nav-text">ZipFile.debug</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ZipFile-comment"><span class="nav-number">2.4.15.</span> <span class="nav-text">ZipFile.comment</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ZipFile-close"><span class="nav-number">2.4.16.</span> <span class="nav-text">ZipFile.close()</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#class-zipfile-PyZipFile"><span class="nav-number">2.5.</span> <span class="nav-text">class zipfile.PyZipFile</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#class-zipfile-ZipInfo"><span class="nav-number">2.6.</span> <span class="nav-text">class zipfile.ZipInfo</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#zipfile-is-zipfile-filename"><span class="nav-number">2.7.</span> <span class="nav-text">zipfile.is_zipfile(filename)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#zipfile-ZIP-STORED"><span class="nav-number">2.8.</span> <span class="nav-text">zipfile.ZIP_STORED</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#zipfile-ZIP-DEFLATED"><span class="nav-number">2.9.</span> <span class="nav-text">zipfile.ZIP_DEFLATED</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#zipfile-ZIP-BZIP2"><span class="nav-number">2.10.</span> <span class="nav-text">zipfile.ZIP_BZIP2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#zipfile-ZIP-LZMA"><span class="nav-number">2.11.</span> <span class="nav-text">zipfile.ZIP_LZMA</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#命令行界面"><span class="nav-number">3.</span> <span class="nav-text">命令行界面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#命令行选项"><span class="nav-number">4.</span> <span class="nav-text">命令行选项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+      
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+</div>
+
+
+        
+      </main></div>
+    
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mr Wang</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+  <span class="post-meta-divider">|</span>
+  <span id="busuanzi_container_site_uv">总访客数<span id="busuanzi_value_site_uv"></span>人</span>
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+  
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+
+
+  <script src="/js/utils.js?v=7.2.0"></script>
+
+  <script src="/js/motion.js?v=7.2.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.2.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
+
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/01/assets/haru01.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7}});</script></body>
+
+
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+
+</html>
+
+

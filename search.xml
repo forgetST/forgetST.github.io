@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>Markdown 教程</title>
-    <url>/markdown/ckj1jlqfl0009t8yvwlua6vzw.html</url>
+    <url>/markdown/markdown-%E6%95%99%E7%A8%8B.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h2><p>Markdown 是一种标记语言（轻量级的、可用纯文本编写）;<br>Markdown 诞生于2004年，由约翰·格鲁伯（John Gruber）创建；<br>Markdown 编写的文档可以导出 HTML 、Word、图像、PDF、Epub 等多种格式。<br>Markdown 编写的文档后缀为 .md, .markdown。</p>
 <a id="more"></a>
 
@@ -133,7 +133,7 @@
   </entry>
   <entry>
     <title>Restful API 简述</title>
-    <url>/uncategorized/ckj1jlqjh000xt8yvrp79nn8p.html</url>
+    <url>/uncategorized/restful-api-%E7%AE%80%E8%BF%B0.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="REST简述"><a href="#REST简述" class="headerlink" title="REST简述"></a>REST简述</h2><h3 id="REST的由来"><a href="#REST的由来" class="headerlink" title="REST的由来"></a>REST的由来</h3><p>REST最早是由Roy Fielding博士发表的论文中提到的，他也曾参与设计了HTTP协议。论文地址：<a href="http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm" target="_blank" rel="noopener">http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm</a></p>
 <h3 id="REST的定义"><a href="#REST的定义" class="headerlink" title="REST的定义"></a>REST的定义</h3><p>REST 全称是Resource Representational State Transfer，即：资源在网络中以某种形式进行状态转移。</p>
 <ul>
@@ -163,7 +163,7 @@
   </entry>
   <entry>
     <title>Typora简单教程</title>
-    <url>/Typora/ckj1jlqjk000zt8yvs8580bqh.html</url>
+    <url>/Typora/typora%E7%AE%80%E5%8D%95%E6%95%99%E7%A8%8B.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h3><p>Typora是一款轻便简洁的Markdown编辑器，支持即时渲染技术，这也是与其他Markdown编辑器最显著的区别。即时渲染使得你写Markdown就想是写Word文档一样流畅自如，不像其他编辑器的有编辑栏和显示栏。</p>
 <a id="more"></a>
 
@@ -460,7 +460,7 @@
   </entry>
   <entry>
     <title>pycharm2018.1激活教程</title>
-    <url>/python/ckj1jlqjm0011t8yvn70358ij.html</url>
+    <url>/python/pycharm2018-1%E6%BF%80%E6%B4%BB%E6%95%99%E7%A8%8B.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="补丁下载"><a href="#补丁下载" class="headerlink" title="补丁下载"></a>补丁下载</h3><p>下载补丁：<a href="https://pan.baidu.com/s/1fAq_F_i3BSHGTT-QSg-zgQ#list/path=%2F" target="_blank" rel="noopener">JetbrainsCrack-release-enc.jar</a></p>
 <h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><ol>
 <li><p>下载的补丁保存到PyCharm安装目录下的\bin目录下</p>
@@ -488,7 +488,7 @@
   </entry>
   <entry>
     <title>window使用随记</title>
-    <url>/window/ckj1jlqjt0015t8yvmc1k5fpx.html</url>
+    <url>/window/window%E4%BD%BF%E7%94%A8%E9%9A%8F%E8%AE%B0.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>主要记录window使用的一些命令和使用技巧。</p>
 <a id="more"></a>
 
@@ -522,7 +522,7 @@
   </entry>
   <entry>
     <title>supervisor 安装使用</title>
-    <url>/supervisor/ckj1jlqjw0016t8yvdsxv3qxc.html</url>
+    <url>/supervisor/supervisor-%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><a href="http://supervisord.org/" target="_blank" rel="noopener">Supervisor</a>是用Python开发的一个client/server服务，是Linux/Unix系统下的一个进程管理工具，不支持Windows系统。它可以很方便的监听、启动、停止、重启一个或多个进程。用Supervisor管理的进程，当一个进程意外被杀死，supervisort监听到进程死后，会自动将它重新拉起，很方便的做到进程自动恢复的功能，不再需要自己写shell脚本来控制。</p>
 <a id="more"></a>
 
@@ -560,7 +560,7 @@
   </entry>
   <entry>
     <title>正则表达式简述</title>
-    <url>/regex/ckj1jlqjy0017t8yv76ujo7nk.html</url>
+    <url>/regex/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%AE%80%E8%BF%B0.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="何谓正则表达式"><a href="#何谓正则表达式" class="headerlink" title="何谓正则表达式"></a>何谓正则表达式</h2><p><strong>正则表达式</strong> 英文为 Regular Expression，是使用字符和特殊符号组成的能够描述某一类字符串的表达式。可以用来检查一个字符串是否含有某种子串、将匹配的子串替换或者从某个字符串中取出符合某个条件的子串等。</p>
 <p>正则表达式看似繁琐（有规律可寻），然功能强大。熟知，简化工作，提升效率。</p>
 <a id="more"></a>
@@ -829,7 +829,7 @@
   </entry>
   <entry>
     <title>杂记</title>
-    <url>/uncategorized/ckj1jlqk2001ct8yvfkqamdx2.html</url>
+    <url>/uncategorized/%E6%9D%82%E8%AE%B0.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h2><h3 id="Centos7-安装"><a href="#Centos7-安装" class="headerlink" title="Centos7 安装"></a>Centos7 安装</h3><p>&lt;<a href="https://www.jianshu.com/p/2cdc3ea850b7" target="_blank" rel="noopener">https://www.jianshu.com/p/2cdc3ea850b7</a><br><a href="https://blog.csdn.net/u013168176/article/details/81144193" target="_blank" rel="noopener">https://blog.csdn.net/u013168176/article/details/81144193</a>&gt;</p>
 <h3 id="centos7-网卡启动异常处理"><a href="#centos7-网卡启动异常处理" class="headerlink" title="centos7 网卡启动异常处理"></a>centos7 网卡启动异常处理</h3><p><a href="https://blog.csdn.net/dongfei2033/article/details/81124465" target="_blank" rel="noopener">https://blog.csdn.net/dongfei2033/article/details/81124465</a></p>
 <h3 id="Vmware虚拟机网络配置-固定IP"><a href="#Vmware虚拟机网络配置-固定IP" class="headerlink" title="Vmware虚拟机网络配置(固定IP)"></a>Vmware虚拟机网络配置(固定IP)</h3><p><a href="https://www.jianshu.com/p/6fdbba039d79" target="_blank" rel="noopener">https://www.jianshu.com/p/6fdbba039d79</a><br><a href="https://blog.csdn.net/weixin_39609623/article/details/82146778" target="_blank" rel="noopener">https://blog.csdn.net/weixin_39609623/article/details/82146778</a></p>
@@ -887,7 +887,7 @@
   </entry>
   <entry>
     <title>Linux 查看系统版本</title>
-    <url>/Linux/command/ifconfig/ckj1jlql9001yt8yvlkkx3jvc.html</url>
+    <url>/Linux/command/ifconfig/linux-%E6%9F%A5%E7%9C%8B%E7%B3%BB%E7%BB%9F%E7%89%88%E6%9C%AC.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>linux系统版本信息（Oracle Linux、Centos Linux、Redhat Linux、Debian、Ubuntu）；  </p>
 <a id="more"></a>
 
@@ -945,7 +945,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>Linux 杂记</title>
-    <url>/Linux/ckj1jlqld0022t8yv9lkke215.html</url>
+    <url>/Linux/linux-%E6%9D%82%E8%AE%B0.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>记录Linux相关的知识或使用技巧。</p>
 <a id="more"></a>
 
@@ -1100,7 +1100,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>Linux 统计文件及目录个数</title>
-    <url>/Linux/command/ckj1jlqli0029t8yvkk1lsljw.html</url>
+    <url>/Linux/command/linux-%E7%BB%9F%E8%AE%A1%E6%96%87%E4%BB%B6%E5%8F%8A%E7%9B%AE%E5%BD%95%E4%B8%AA%E6%95%B0.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>可通过命令 <code>wc</code> 、<code>cat</code>等实现。</p>
 <a id="more"></a>
 
@@ -1144,7 +1144,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>Linux 设置静态IP</title>
-    <url>/Linux/ckj1jlqlj002bt8yv6e3qq76j.html</url>
+    <url>/Linux/linux-%E8%AE%BE%E7%BD%AE%E9%9D%99%E6%80%81ip.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="第一步：激活网卡"><a href="#第一步：激活网卡" class="headerlink" title="第一步：激活网卡"></a>第一步：激活网卡</h2><p>通过ip add或者ifconfig 查看网卡名称。</p>
 <a id="more"></a>
 
@@ -1222,7 +1222,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>软连接与硬连接</title>
-    <url>/Linux/ckj1jlqlm002gt8yv80v9rq4e.html</url>
+    <url>/Linux/%E8%BD%AF%E8%BF%9E%E6%8E%A5%E4%B8%8E%E7%A1%AC%E8%BF%9E%E6%8E%A5.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>链接是一种文件共享的方式，是 <strong>POSIX</strong> 中的概念，主流文件系统都支持链接文件。</p>
 <p>链接无非是把文件名和计算机文件系统使用的节点号链接起来。因此我们可以用多个文件名与同一个文件进行链接，这些文件名可以在同一目录或不同目录。</p>
 <p>对链接进行编辑，实际上是对原始文件进行编辑。</p>
@@ -1269,7 +1269,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>linux 安装ssh以及ssh用法与免密登录</title>
-    <url>/Linux/ssh/ckj1jlqlu002it8yvebiwmwp2.html</url>
+    <url>/Linux/ssh/linux-%E5%AE%89%E8%A3%85ssh%E4%BB%A5%E5%8F%8Assh%E7%94%A8%E6%B3%95%E4%B8%8E%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="ssh-简述"><a href="#ssh-简述" class="headerlink" title="ssh 简述"></a>ssh 简述</h3><p>SSH ( Secure Shell) 由 IETF 的网络工作小组（Network Working Group）所制定；</p>
 <p>SSH 是目前较可靠，专为远程登录会话和其他网络服务提供安全性的协议。其是建立在应用层和传输层基础上的安全协议。利用 SSH 协议可以有效防止远程管理过程中的信息泄露问题。</p>
 <p>SSH最初是UNIX系统上的一个程序，后来又迅速扩展到其他操作平台。SSH在正确使用时可弥补网络中的漏洞。</p>
@@ -1318,7 +1318,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>cassandra相关操作</title>
-    <url>/database/ckj1jlqly002mt8yvnccfz83d.html</url>
+    <url>/database/cassandra%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="用法示例"><a href="#用法示例" class="headerlink" title="用法示例"></a>用法示例</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line"></span><br><span class="line">from cassandra.auth import PlainTextProvider</span><br><span class="line">from cassandra.cluster import Cluster</span><br><span class="line">from cassandra.cqlengine import columns, connection</span><br><span class="line">from  cassandra.cqlengine.models import Model</span><br><span class="line">from  cassandra.query import dict_factory</span><br><span class="line"></span><br><span class="line">hosts = [&quot;192.168.10.10&quot;, &quot;192.168.10.11&quot;]</span><br><span class="line">username = &quot;username&quot;</span><br><span class="line">password = &quot;password&quot;</span><br><span class="line">port = 9042</span><br><span class="line">keyspace = &quot;mykeyspace&quot;</span><br><span class="line"></span><br><span class="line">auth_provider = PlainTextProvider(username=username, password=password)</span><br><span class="line">cluser_conf_dict = dict(port=port, auth_provider=auth_provider)</span><br><span class="line">connection.setup(hosts, keyspace, **cluser_conf_dict)</span><br><span class="line">cluster = connection.get_cluster()</span><br><span class="line">session = connection.get_session()</span><br><span class="line"></span><br><span class="line">session.set_keyspace(keyspace)</span><br><span class="line">session.default_fetch_size = 10000</span><br><span class="line">session.default_timeout = 120</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class ExapleModel(Models):</span><br><span class="line">    partition_1 = columns.Text(partition_key=True, primary_key=True)</span><br><span class="line">    partition_2 = columns.Text(partition_key=True, primary_key=True)</span><br><span class="line">    primary_1 = columns.Text(primary_key=True)</span><br><span class="line">    primary_2 = columns.Text(primary_key=True)</span><br><span class="line">    str_type = columns.Text()</span><br><span class="line">    boolean_type = columns.Boolean()</span><br><span class="line">    int_type = columns.Integer()</span><br><span class="line">    bigint_type = columns.BigInt()</span><br><span class="line">    float_type = columns.Float()</span><br><span class="line">    datatime_type = columns.DataTime()</span><br><span class="line">    list_str_type = columns.List(columns.Text)</span><br><span class="line">    set_str_type = columns.Set(columns.Text)</span><br><span class="line">    set_int_type = columns.Set(columns.Integer)</span><br><span class="line">    set_bigint_type = columns.Set(columns.Bigint)</span><br><span class="line">    map_type = columns.Map(columns.Text, columns.Float)</span><br><span class="line"></span><br><span class="line"># create db statement</span><br><span class="line">CREATE TABLE mykeyspace.examplemodel (</span><br><span class="line">    partition_1 text,</span><br><span class="line">    partition_2 text,</span><br><span class="line">    primary_1 text,</span><br><span class="line">    primary_2 text,</span><br><span class="line">    str_type text,</span><br><span class="line">    boolean_type boolea,</span><br><span class="line">    int_type int,</span><br><span class="line">    bigint_type bigint,</span><br><span class="line">    float_type float,</span><br><span class="line">    datatime_type timestamp,</span><br><span class="line">    list_str_type list&lt;text&gt;,</span><br><span class="line">    set_str_type set&lt;text&gt;,</span><br><span class="line">    set_int_type set&lt;int&gt;,</span><br><span class="line">    set_bigint_type set&lt;bigint&gt;,</span><br><span class="line">    map_type map&lt;text, float&gt;,</span><br><span class="line">    PRIMARY KEY((partition_1, partition_2), primary_1, primary_2)</span><br><span class="line">) WITH CLUSTERING ORDER BY (primary_1 ASC, primary_2 ASC)</span><br><span class="line">    AND gc_grace_seconds = 0;</span><br><span class="line"></span><br><span class="line">def connect_db(hosts, username, password, port, keyspace, timeout=120, default_size=10000):</span><br><span class="line">    auth_provider = PlainTextProvider(username=username, password=password)</span><br><span class="line">    cluster = Cluster(contact_points=hosts, port=port, auth_provider=auth_provider)</span><br><span class="line">    session = cluster.connect(keyspace)</span><br><span class="line"></span><br><span class="line">    # set session</span><br><span class="line">    session.default_fetch_size = default_size</span><br><span class="line">    session.default_timeout = timeout</span><br><span class="line">    session.row_factory = dict_factory</span><br><span class="line">    return cluster, session</span><br><span class="line"></span><br><span class="line">def close_db(cluster, session):</span><br><span class="line">    session.shutdown()</span><br><span class="line">    cluster.shutdown()</span><br><span class="line"></span><br><span class="line">def exec_sql(sql, **kwargs):</span><br><span class="line">    try:</span><br><span class="line">        cluster, session =connect_db(hosts, username, password, port, keyspace)</span><br><span class="line">        future = session.execute(sql, kwargs)</span><br><span class="line">        close_db(cluster, session)</span><br><span class="line">    except Execption as e:</span><br><span class="line">        close_db(cluster, session)</span><br><span class="line">        future = []</span><br><span class="line">    return future</span><br></pre></td></tr></table></figure>
 
 ]]></content>
@@ -1332,7 +1332,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>minio mc使用</title>
-    <url>/minio/ckj1jlqm2002qt8yvrrqh27cg.html</url>
+    <url>/minio/minio-mc%E4%BD%BF%E7%94%A8.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h3><p>MinIO Client (mc)为ls，cat，cp，mirror，diff，find等UNIX命令提供了一种替代方案。它支持文件系统和兼容Amazon S3的云存储服务（AWS Signature v2和v4）。</p>
 <a id="more"></a>
 
@@ -1415,7 +1415,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>spark常见错误处理</title>
-    <url>/bigdata/ckj1jlqm6002tt8yv9ozt8mlb.html</url>
+    <url>/bigdata/spark%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考：<a href="https://blog.csdn.net/cjlion/article/details/81234336" target="_blank" rel="noopener">spark常见错误汇总</a></p>
 <a id="more"></a>
 ]]></content>
@@ -1429,7 +1429,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>python操作minio</title>
-    <url>/python/module/ckj1jlqmd0031t8yvl0ueuop1.html</url>
+    <url>/python/module/python%E6%93%8D%E4%BD%9Cminio.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>python版本：3.7</p>
 <p>minio版本：5.0.5</p>
 <figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"># 使用pip安装</span><br><span class="line">pip install minio</span><br><span class="line"></span><br><span class="line"># 使用源码安装</span><br><span class="line">git clone https://github.com/minio/minio-py</span><br><span class="line"><span class="built_in">cd</span> minio-py</span><br><span class="line">python setup.py install</span><br></pre></td></tr></table></figure>
@@ -1525,7 +1525,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>执行chmod -R 777 命令误操作根目录补救的方法</title>
-    <url>/Linux/ckj1jlqme0035t8yvl4mysny1.html</url>
+    <url>/Linux/%E6%89%A7%E8%A1%8Cchmod-r-777-%E5%91%BD%E4%BB%A4%E8%AF%AF%E6%93%8D%E4%BD%9C%E6%A0%B9%E7%9B%AE%E5%BD%95%E8%A1%A5%E6%95%91%E7%9A%84%E6%96%B9%E6%B3%95.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>使用 <code>chmod -R 777 ./*</code> 命令在更改某个目录下文件的权限时，由于操作失误，误用为 <code>chmod -R 777 /*</code>，在零点几秒的反应过后，果断 <code>ctrl + c</code>，奈何电脑反应更快，一切为时已晚（切记不要关闭该终端）。若何？</p>
 <a id="more"></a>
 
@@ -1573,7 +1573,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>spark web信息获取</title>
-    <url>/bigdata/ckj1jlqmh0039t8yv4nzmbesq.html</url>
+    <url>/bigdata/spark-web%E4%BF%A1%E6%81%AF%E8%8E%B7%E5%8F%96.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line"></span><br><span class="line">import re</span><br><span class="line">import requests</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def _get_requests(url):</span><br><span class="line">    response = requests.get(url)</span><br><span class="line">    content = &quot;&quot;</span><br><span class="line">    if response.status_code == 200:</span><br><span class="line">        content = response.content.decode()</span><br><span class="line">    return content</span><br><span class="line"></span><br><span class="line">def _get_spark_common(st):</span><br><span class="line">    s = re.findall(r&apos;&lt;ul class=&quot;unstyled&quot;.*&lt;/ul&gt;&apos;, body, re.S)[0]</span><br><span class="line">    s = re.sub(r&apos;\s&#123;2,&#125;|&lt;a.*?&gt;|&lt;/a&gt;&apos;, &apos; &apos;, s)</span><br><span class="line">    print_format = &quot;&#123;:15&#125;&#123;&#125;&quot;.format</span><br><span class="line">    print(&quot;********************************&quot;)</span><br><span class="line">    info = re.findall(r&apos;&lt;strong&gt;(.*?)&lt;/strong&gt;\s*(.*?)\s*&lt;/li&gt;&apos;, s)</span><br><span class="line">    for k, v in info:</span><br><span class="line">        print(print_format(k, v))</span><br><span class="line">    else:</span><br><span class="line">        print(&quot;\n&quot;)</span><br><span class="line">    </span><br><span class="line">def _get_spark_works(st):</span><br><span class="line">    s = re.findall(r&apos;&lt;div class=&quot;aggregated-workers collapsible-table&quot;.*?&lt;/div&gt;&apos;, body, re.S)[0]</span><br><span class="line">    s = re.sub(r&apos;&lt;a.*&gt;|&lt;/a&gt;&apos;, &quot;&quot;, s)</span><br><span class="line">    s = re.sub(r&apos;\s+&apos;, &quot; &quot;, s)</span><br><span class="line">    head = re.findall(r&apos;&lt;th .*?&gt;(.*?)&lt;/th&gt;&apos;, s)</span><br><span class="line">    work_info = [re.findall(r&apos;&lt;td.*?&gt;\s*(.*?)\s*&lt;/td&gt;&apos;, x) for x in re.findall(r&apos;&lt;tr&gt;.*?&lt;/tr&gt;&apos;, s)]</span><br><span class="line">    work_info.insert(0, head)</span><br><span class="line">    print_format = &quot;&#123;:&lt;46&#125;&#123;:25&#125;&#123;:10&#125;&#123;:15&#125;&#123;&#125;&quot;.format</span><br><span class="line">    print(&quot;****************Workers (%s)****************&quot; % (len(work_info) - 1))</span><br><span class="line">    for row in work_info:</span><br><span class="line">        print(print_format(*row))</span><br><span class="line">    else:</span><br><span class="line">        print(&quot;\n&quot;)</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">def _get_spark_running_applications(st):</span><br><span class="line">    s = re.findall(r&apos;&lt;div class=&quot;aggregated-activeApps.*?&lt;/div&gt;&apos;, body, re.S)[0]</span><br><span class="line">    s = re.sub(r&apos;\s+&apos;, &quot; &quot;, s)</span><br><span class="line">    s = re.sub(r&apos;&lt;a.*?&gt;|&lt;/a&gt;|&lt;form.*?&gt;.*&lt;/form&gt;&apos;, &quot;&quot;, s, re.S)</span><br><span class="line">    head = re.findall(r&apos;&lt;th .*?&gt;(.*?)&lt;/th&gt;&apos;, s)</span><br><span class="line">    run_work_info = [re.findall(r&apos;&lt;td.*?&gt;\s*(.*?)\s*&lt;/td&gt;&apos;, x) for x in re.findall(r&apos;&lt;tr&gt;.*?&lt;/tr&gt;&apos;, s)]</span><br><span class="line">    run_work_info.insert(0, head)</span><br><span class="line">    print_format = &quot;&#123;:&lt;28&#125;&#123;:20&#125;&#123;:10&#125;&#123;:25&#125;&#123;:25&#125;&#123;:10&#125;&#123;:13&#125;&#123;&#125;&quot;.format</span><br><span class="line">    print(&quot;****************Running Applications (%s)***************&quot; % (len(run_work_info) - 1))</span><br><span class="line">    for row in run_work_info:</span><br><span class="line">        print(print_format(*row))</span><br><span class="line">    else:</span><br><span class="line">        print(&quot;\n&quot;)</span><br><span class="line"></span><br><span class="line">def _get_spark_completed_applications(st):</span><br><span class="line">    s = re.findall(r&apos;&lt;div class=&quot;aggregated-completedApps.*?&lt;/div&gt;&apos;, body, re.S)[0]</span><br><span class="line">    s = re.sub(r&apos;\s+&apos;, &quot; &quot;, s)</span><br><span class="line">    s = re.sub(r&apos;&lt;a.*?&gt;|&lt;/a&gt;|&lt;form.*?&gt;.*&lt;/form&gt;&apos;, &quot;&quot;, s, re.S)</span><br><span class="line">    head = re.findall(r&apos;&lt;th .*?&gt;(.*?)&lt;/th&gt;&apos;, s)</span><br><span class="line">    run_work_info = [re.findall(r&apos;&lt;td.*?&gt;\s*(.*?)\s*&lt;/td&gt;&apos;, x) for x in re.findall(r&apos;&lt;tr&gt;.*?&lt;/tr&gt;&apos;, s)]</span><br><span class="line">    run_work_info.insert(0, head)</span><br><span class="line">    print_format = &quot;&#123;:&lt;28&#125;&#123;:20&#125;&#123;:10&#125;&#123;:25&#125;&#123;:25&#125;&#123;:10&#125;&#123;:13&#125;&#123;&#125;&quot;.format</span><br><span class="line">    print(&quot;****************Completed Applications (%s)****************&quot; % (len(run_work_info) - 1))</span><br><span class="line">    for row in run_work_info:</span><br><span class="line">        print(print_format(*row))</span><br><span class="line">    else:</span><br><span class="line">        print(&quot;\n&quot;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    url = &quot;http://192.168.100.10:8080/&quot;</span><br><span class="line"></span><br><span class="line">    body = _get_requests(url)</span><br><span class="line">    spark_common_info = _get_spark_common(body)</span><br><span class="line">    _get_spark_works(body)</span><br><span class="line">    _get_spark_running_applications(body)</span><br><span class="line">    _get_spark_completed_applications(body)</span><br></pre></td></tr></table></figure>
 
 ]]></content>
@@ -1587,7 +1587,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>二叉树</title>
-    <url>/dataStructure/ckj1jlqol004bt8yvnjfs6aoi.html</url>
+    <url>/dataStructure/%E4%BA%8C%E5%8F%89%E6%A0%91.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p><code>树</code> 是一种经常用到的数据结构，用来模拟具有树状结构性质的数据集合。</p>
 <p>树里的每一个节点有一个根植和一个包含所有子节点的列表。从图的观点来看，树也可视为一个拥有<code>N 个节点</code>和<code>N-1 条边</code>的一个有向无环图。</p>
 <p><code>二叉树</code>是一种更为典型的树树状结构。如它名字所描述的那样，二叉树是每个节点最多有<code>两个子树</code>的树结构，通常子树被称作“左子树”和“右子树”。</p>
@@ -1620,7 +1620,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>docker mysql官方镜像操作</title>
-    <url>/docker/ckj1jlqom004ct8yvvq3p8d97.html</url>
+    <url>/docker/docker-mysql%E5%AE%98%E6%96%B9%E9%95%9C%E5%83%8F%E6%93%8D%E4%BD%9C.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>…</p>
 <a id="more"></a>
 <h3 id="拉取镜像"><a href="#拉取镜像" class="headerlink" title="拉取镜像"></a>拉取镜像</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[root@hadoop01 ~]# docker pull mysql</span><br><span class="line"></span><br><span class="line"># 查看镜像</span><br><span class="line">[root@hadoop01 ~]# docker images</span><br><span class="line">REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE</span><br><span class="line">mysql               latest              b8fd9553f1f0        4 weeks ago         445MB</span><br></pre></td></tr></table></figure>
@@ -1637,7 +1637,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>力扣题库（python解法）</title>
-    <url>/dataStructure/ckj1jlqoo004ft8yva3bjlm1u.html</url>
+    <url>/dataStructure/%E5%8A%9B%E6%89%A3%E9%A2%98%E5%BA%93%EF%BC%88python%E8%A7%A3%E6%B3%95%EF%BC%89.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="1-两数之和"><a href="#1-两数之和" class="headerlink" title="1.两数之和"></a>1.两数之和</h2><h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><p><a href="https://leetcode-cn.com/problems/two-sum/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/two-sum/</a></p>
 <h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。</p>
 <p>你可以假设每种输入只会对应一个答案。但是，你不能重复利用这个数组中同样的元素。</p>
@@ -1790,7 +1790,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>spark standalone集群搭建</title>
-    <url>/bigdata/ckj1jlqop004gt8yvta0opg7l.html</url>
+    <url>/bigdata/spark-standalone%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="下载软件"><a href="#下载软件" class="headerlink" title="下载软件"></a>下载软件</h2><p><a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="noopener">java JDK-1.8</a></p>
 <p><a href="http://spark.apache.org/downloads.html" target="_blank" rel="noopener">spark</a></p>
 <a id="more"></a>
@@ -1834,7 +1834,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>docker安装</title>
-    <url>/docker/ckj1jlqop004ht8yvnay4zfhh.html</url>
+    <url>/docker/docker%E5%AE%89%E8%A3%85.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="什么是docker"><a href="#什么是docker" class="headerlink" title="什么是docker"></a>什么是docker</h2><p>Docker 是一个开源的应用容器引擎，基于Go语言并遵从Apache2.0协议开源。<br>Docker 可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。<br>容器是完全使用沙箱机制，相互之间不会有任何接口（类似 iPhone 的 app）,更重要的是容器性能开销极低。<br>Docker 从 17.03 版本之后分为 CE（Community Edition: 社区版） 和 EE（Enterprise Edition: 企业版）。</p>
 <a id="more"></a>
 
@@ -1872,7 +1872,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>docker参数说明</title>
-    <url>/docker/ckj1jlqos004lt8yvpwnrzj1w.html</url>
+    <url>/docker/docker%E5%8F%82%E6%95%B0%E8%AF%B4%E6%98%8E.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="Docker-命令参数"><a href="#Docker-命令参数" class="headerlink" title="Docker 命令参数"></a>Docker 命令参数</h3><a id="more"></a>
 
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[root@hadoop01 ~]# docker</span><br><span class="line"></span><br><span class="line">Usage:  docker [OPTIONS] COMMAND</span><br><span class="line"></span><br><span class="line">A self-sufficient runtime for containers</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">  --config string          Location of client config files (default &quot;/root/.docker&quot;)</span><br><span class="line">  -c, --context string     Name of the context to use to connect to the daemon (overrides DOCKER_HOST env var and default context</span><br><span class="line">                           set with &quot;docker context use&quot;)</span><br><span class="line">  -D, --debug              Enable debug mode</span><br><span class="line">  -H, --host list          Daemon socket(s) to connect to</span><br><span class="line">  -l, --log-level string   Set the logging level (&quot;debug&quot;|&quot;info&quot;|&quot;warn&quot;|&quot;error&quot;|&quot;fatal&quot;) (default &quot;info&quot;)</span><br><span class="line">      --tls                Use TLS; implied by --tlsverify</span><br><span class="line">      --tlscacert string   Trust certs signed only by this CA (default &quot;/root/.docker/ca.pem&quot;)</span><br><span class="line">      --tlscert string     Path to TLS certificate file (default &quot;/root/.docker/cert.pem&quot;)</span><br><span class="line">      --tlskey string      Path to TLS key file (default &quot;/root/.docker/key.pem&quot;)</span><br><span class="line">      --tlsverify          Use TLS and verify the remote</span><br><span class="line">  -v, --version            Print version information and quit</span><br><span class="line"></span><br><span class="line">Management Commands:</span><br><span class="line">  builder     Manage builds</span><br><span class="line">  config      Manage Docker configs</span><br><span class="line">  container   Manage containers</span><br><span class="line">  context     Manage contexts</span><br><span class="line">  engine      Manage the docker engine</span><br><span class="line">  image       Manage images</span><br><span class="line">  network     Manage networks</span><br><span class="line">  node        Manage Swarm nodes</span><br><span class="line">  plugin      Manage plugins</span><br><span class="line">  secret      Manage Docker secrets</span><br><span class="line">  service     Manage services</span><br><span class="line">  stack       Manage Docker stacks</span><br><span class="line">  swarm       Manage Swarm</span><br><span class="line">  system      Manage Docker</span><br><span class="line">  trust       Manage trust on Docker images</span><br><span class="line">  volume      Manage volumes</span><br><span class="line"></span><br><span class="line">Commands:</span><br><span class="line">  attach      Attach local standard input, output, and error streams to a running container</span><br><span class="line">  build       Build an image from a Dockerfile</span><br><span class="line">  commit      Create a new image from a container&apos;s changes</span><br><span class="line">  cp          Copy files/folders between a container and the local filesystem</span><br><span class="line">  create      Create a new container</span><br><span class="line">  diff        Inspect changes to files or directories on a container&apos;s filesystem</span><br><span class="line">  events      Get real time events from the server</span><br><span class="line">  exec        Run a command in a running container</span><br><span class="line">  export      Export a container&apos;s filesystem as a tar archive</span><br><span class="line">  history     Show the history of an image</span><br><span class="line">  images      List images</span><br><span class="line">  import      Import the contents from a tarball to create a filesystem image</span><br><span class="line">  info        Display system-wide information</span><br><span class="line">  inspect     Return low-level information on Docker objects</span><br><span class="line">  kill        Kill one or more running containers</span><br><span class="line">  load        Load an image from a tar archive or STDIN</span><br><span class="line">  login       Log in to a Docker registry</span><br><span class="line">  logout      Log out from a Docker registry</span><br><span class="line">  logs        Fetch the logs of a container</span><br><span class="line">  pause       Pause all processes within one or more containers</span><br><span class="line">  port        List port mappings or a specific mapping for the container</span><br><span class="line">  ps          List containers</span><br><span class="line">  pull        Pull an image or a repository from a registry</span><br><span class="line">  push        Push an image or a repository to a registry</span><br><span class="line">  rename      Rename a container</span><br><span class="line">  restart     Restart one or more containers</span><br><span class="line">  rm          Remove one or more containers</span><br><span class="line">  rmi         Remove one or more images</span><br><span class="line">  run         Run a command in a new container</span><br><span class="line">  save        Save one or more images to a tar archive (streamed to STDOUT by default)</span><br><span class="line">  search      Search the Docker Hub for images</span><br><span class="line">  start       Start one or more stopped containers</span><br><span class="line">  stats       Display a live stream of container(s) resource usage statistics</span><br><span class="line">  stop        Stop one or more running containers</span><br><span class="line">  tag         Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE</span><br><span class="line">  top         Display the running processes of a container</span><br><span class="line">  unpause     Unpause all processes within one or more containers</span><br><span class="line">  update      Update configuration of one or more containers</span><br><span class="line">  version     Show the Docker version information</span><br><span class="line">  wait        Block until one or more containers stop, then print their exit codes</span><br><span class="line"></span><br><span class="line">Run &apos;docker COMMAND --help&apos; for more information on a command.</span><br></pre></td></tr></table></figure>
@@ -1900,7 +1900,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>hexo error log</title>
-    <url>/hexo/error-log/ckj1jlqov004nt8yvr4oj2tp0.html</url>
+    <url>/hexo/error-log/hexo-error-log.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>搭建 hexo，在执行 hexo deploy 后,出现 error deployer not found:github 的错误</p>
 <p>hexo 更新到3.0之后，deploy的type 的github需要改成git<br>npm install hexo-deployer-git –save 改了之后执行，然后再部署</p>
 ]]></content>
@@ -1914,7 +1914,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>docker命令操作</title>
-    <url>/docker/ckj1jlqox004st8yvl20v5vet.html</url>
+    <url>/docker/docker%E5%91%BD%E4%BB%A4%E6%93%8D%E4%BD%9C.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="查看docker版本"><a href="#查看docker版本" class="headerlink" title="查看docker版本"></a>查看docker版本</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[root@hadoop01 ~]# docker -v</span><br><span class="line">Docker version 19.03.3, build a872fc2f86</span><br></pre></td></tr></table></figure>
 
 <a id="more"></a>
@@ -1965,7 +1965,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>window搭建spark及hadoop开发环境.md</title>
-    <url>/bigdata/ckj1jlqp0004vt8yvcmhzwbix.html</url>
+    <url>/bigdata/window%E6%90%AD%E5%BB%BAspark%E5%8F%8Ahadoop%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83-md.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>由于Spark是用Scala来写的，所以Spark对Scala肯定是原生态支持的，因此这里以Scala为主来介绍Spark环境的搭建，主要包括四个步骤，分别是：JDK的安装，Scala的安装，Spark的安装，Hadoop的下载和配置。</p>
 <a id="more"></a>
 
@@ -2062,7 +2062,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>docker构建流程</title>
-    <url>/docker/ckj1jlqp20050t8yvs0lw32gl.html</url>
+    <url>/docker/docker%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="docker构建镜像"><a href="#docker构建镜像" class="headerlink" title="docker构建镜像"></a>docker构建镜像</h2><figure class="highlight docker"><table><tr><td class="code"><pre><span class="line">docker build -t spark_clu:<span class="number">1.0</span>.<span class="number">0</span> .</span><br></pre></td></tr></table></figure>
 
 <blockquote>
@@ -2116,7 +2116,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>docker 学习笔记</title>
-    <url>/docker/ckj1jlqp40053t8yvqcdym7kf.html</url>
+    <url>/docker/docker-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="Docker简介"><a href="#Docker简介" class="headerlink" title="Docker简介"></a>Docker简介</h2><p>Docker 是一个开源的应用容器引擎，基于 Go 语言 并遵从 Apache2.0 协议开源。</p>
 <p>Docker 可以让开发者打包他们的应用以及依赖包到一个轻量级、可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。</p>
 <p>容器是完全使用沙箱机制，相互之间不会有任何接口（类似 iPhone 的 app）,更重要的是容器性能开销极低。</p>
@@ -2565,7 +2565,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>hexo 添加DaoVoice实现在线联系</title>
-    <url>/hexo/ckj1jlqp60058t8yvowpcfuce.html</url>
+    <url>/hexo/hexo-%E6%B7%BB%E5%8A%A0daovoice%E5%AE%9E%E7%8E%B0%E5%9C%A8%E7%BA%BF%E8%81%94%E7%B3%BB.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="注册登录DaoVoice"><a href="#注册登录DaoVoice" class="headerlink" title="注册登录DaoVoice"></a>注册登录DaoVoice</h2><p>注册地址: <a href="http://www.daovoice.io/" target="_blank" rel="noopener">http://www.daovoice.io/</a></p>
 ]]></content>
       <categories>
@@ -2577,7 +2577,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>hexo 文章置顶</title>
-    <url>/hexo/ckj1jlqpc005bt8yvhrx2981k.html</url>
+    <url>/hexo/hexo-%E6%96%87%E7%AB%A0%E7%BD%AE%E9%A1%B6.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm uninstall hexo-generator-index --save</span><br><span class="line">npm install hexo-generator-index-pin-top --save</span><br></pre></td></tr></table></figure>
 
 <h2 id="在需要置顶的文章的Front-matter中加上top"><a href="#在需要置顶的文章的Front-matter中加上top" class="headerlink" title="在需要置顶的文章的Front-matter中加上top"></a>在需要置顶的文章的Front-matter中加上top</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 2019</span><br><span class="line">date: 2019-02-14 16:10:03</span><br><span class="line">top: 10</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
@@ -2595,7 +2595,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>hexo 增加浏览次数与访客数量统计功能</title>
-    <url>/hexo/config/ckj1jlqpe005et8yvt0al8vwh.html</url>
+    <url>/hexo/config/hexo-%E5%A2%9E%E5%8A%A0%E6%B5%8F%E8%A7%88%E6%AC%A1%E6%95%B0%E4%B8%8E%E8%AE%BF%E5%AE%A2%E6%95%B0%E9%87%8F%E7%BB%9F%E8%AE%A1%E5%8A%9F%E8%83%BD.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>以NexT主题（其他主题类似）为例</p>
 <a id="more"></a>
 
@@ -2632,7 +2632,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>hexo 添加页面萌宠</title>
-    <url>/hexo/ckj1jlqpi005ht8yv7yzqt1z1.html</url>
+    <url>/hexo/hexo-%E6%B7%BB%E5%8A%A0%E9%A1%B5%E9%9D%A2%E8%90%8C%E5%AE%A0.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="安装Live2D插件"><a href="#安装Live2D插件" class="headerlink" title="安装Live2D插件"></a>安装Live2D插件</h2><p>在hexo根目录下执行以下命令</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install --save hexo-helper-live2d</span><br><span class="line">npm install xxx # xxx 为下载的model</span><br><span class="line"></span><br><span class="line"># model 列表</span><br><span class="line">live2d-widget-model-chitose</span><br><span class="line">live2d-widget-model-epsilon2_1</span><br><span class="line">live2d-widget-model-gf</span><br><span class="line">live2d-widget-model-haru/01 (use npm install --save live2d-widget-model-haru)</span><br><span class="line">live2d-widget-model-haru/02 (use npm install --save live2d-widget-model-haru)</span><br><span class="line">live2d-widget-model-haruto</span><br><span class="line">live2d-widget-model-hibiki</span><br><span class="line">live2d-widget-model-hijiki</span><br><span class="line">live2d-widget-model-izumi</span><br><span class="line">live2d-widget-model-koharu</span><br><span class="line">live2d-widget-model-miku</span><br><span class="line">live2d-widget-model-ni-j</span><br><span class="line">live2d-widget-model-nico</span><br><span class="line">live2d-widget-model-nietzsche</span><br><span class="line">live2d-widget-model-nipsilon</span><br><span class="line">live2d-widget-model-nito</span><br><span class="line">live2d-widget-model-shizuku</span><br><span class="line">live2d-widget-model-tororo</span><br><span class="line">live2d-widget-model-tsumiki</span><br><span class="line">live2d-widget-model-unitychan</span><br><span class="line">live2d-widget-model-wanko</span><br><span class="line">live2d-widget-model-z16</span><br></pre></td></tr></table></figure>
 
@@ -2662,7 +2662,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>hexo 添加页面点击特效</title>
-    <url>/hexo/ckj1jlqpj005kt8yv8g0oh6j1.html</url>
+    <url>/hexo/hexo-%E6%B7%BB%E5%8A%A0%E9%A1%B5%E9%9D%A2%E7%82%B9%E5%87%BB%E7%89%B9%E6%95%88.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>本文主要介绍点击页面出现心形图标。</p>
 <a id="more"></a>
 
@@ -2703,7 +2703,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>jupyter notebook 杂记</title>
-    <url>/jupyter/ckj1jlqpl005ot8yv0s4sgbvm.html</url>
+    <url>/jupyter/jupyter-notebook-%E6%9D%82%E8%AE%B0.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="启动命令"><a href="#启动命令" class="headerlink" title="启动命令"></a>启动命令</h2><figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">jupyter-notebook --ip <span class="number">10</span>.<span class="number">57</span>.<span class="number">43</span>.<span class="number">121</span> --allow-root --port <span class="number">9000</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="jupyter-notebook的快捷键"><a href="#jupyter-notebook的快捷键" class="headerlink" title="jupyter notebook的快捷键"></a>jupyter notebook的快捷键</h2><ul>
@@ -2719,7 +2719,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>git 教程</title>
-    <url>/git/ckj1jlqpm005rt8yv99k74bza.html</url>
+    <url>/git/git-%E6%95%99%E7%A8%8B.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="git-简介"><a href="#git-简介" class="headerlink" title="git 简介"></a>git 简介</h2><p>git是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。</p>
 <p>Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。</p>
 <p>Git 与常用的版本控制工具 CVS, Subversion 等不同，它采用了分布式版本库的方式，不必服务器端软件支持。</p>
@@ -2948,7 +2948,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>java学习笔记</title>
-    <url>/java/ckj1jlqpo005wt8yvsybyc4ma.html</url>
+    <url>/java/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>java学习随记</p>
 <a id="more"></a>
 
@@ -3533,7 +3533,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>k8s安装记录</title>
-    <url>/k8s/ckj1jlqpp005zt8yvi9e87mpb.html</url>
+    <url>/k8s/k8s%E5%AE%89%E8%A3%85%E8%AE%B0%E5%BD%95.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>k8s是一个docker集群的管理工具</p>
 <p><a href="https://segmentfault.com/a/1190000021672013" target="_blank" rel="noopener">K8S介绍</a></p>
 <a id="more"></a>
@@ -3648,7 +3648,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>git推送本地分支到远端</title>
-    <url>/git/ckj1jlqpr0062t8yvetfhn46a.html</url>
+    <url>/git/git%E6%8E%A8%E9%80%81%E6%9C%AC%E5%9C%B0%E5%88%86%E6%94%AF%E5%88%B0%E8%BF%9C%E7%AB%AF.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git push origin :DstBranch</span><br><span class="line">git push origin localBranch:DstBranch</span><br><span class="line">git branch --set-upstream-to=origin/DstBranch localBranch</span><br><span class="line"></span><br><span class="line"># 清空远端分支</span><br><span class="line"># 以本地分支为基础推送并创建远端分支</span><br><span class="line"># 关联本地分支与远端分支</span><br></pre></td></tr></table></figure>
 
 ]]></content>
@@ -3661,7 +3661,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>java 杂记</title>
-    <url>/java/ckj1jlqps0067t8yvse5cgo15.html</url>
+    <url>/java/java-%E6%9D%82%E8%AE%B0.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="错误记录"><a href="#错误记录" class="headerlink" title="错误记录"></a>错误记录</h2><h3 id="Cannot-make-a-static-reference-to-the-non-static-method的解决方法"><a href="#Cannot-make-a-static-reference-to-the-non-static-method的解决方法" class="headerlink" title="Cannot make a static reference to the non-static method的解决方法"></a>Cannot make a static reference to the non-static method的解决方法</h3><ul>
 <li><p>报错原因：</p>
 <p>在一个类中写了一个public String getContent()方法和一个main()方法，getContent()方法中包含了getClass()方法，在main()方法中直接调用了getContent()就出现如题的错误。</p>
@@ -3683,7 +3683,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>vscode 编辑java程序插件</title>
-    <url>/java/ckj1jlqpu006at8yvgmxxtxhw.html</url>
+    <url>/java/vscode-%E7%BC%96%E8%BE%91java%E7%A8%8B%E5%BA%8F%E6%8F%92%E4%BB%B6.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>VS Code is a fast editor and ships with great editing features. Add Java language support to VS Code by installing the popular Java extensions. To help set up Java on VS Code, there is a <a href="https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack" target="_blank" rel="noopener">Java Extension Pack</a>, which contains the most popular extensions for most Java developers:</p>
 <a id="more"></a>
 
@@ -3719,7 +3719,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>猴子爬山问题</title>
-    <url>/math/ckj1jlqpw006ft8yv9biqd8yz.html</url>
+    <url>/math/%E7%8C%B4%E5%AD%90%E7%88%AC%E5%B1%B1%E9%97%AE%E9%A2%98.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>一只顽猴儿在一座有 <strong>n</strong> 级台阶的山上爬山，假设猴子上山一步可跳1级台阶或3级台阶。试求猴子上山有多少种不同爬法。</p>
 <a id="more"></a>
 
@@ -3763,7 +3763,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>斐波那契数列</title>
-    <url>/math/ckj1jlqpx006it8yvq06r9qtj.html</url>
+    <url>/math/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>斐波那契数列（Fibonacci sequence），又称<a href="https://baike.baidu.com/item/黄金分割/115896" target="_blank" rel="noopener">黄金分割</a>数列、因数学家列昂纳多·斐波那契（Leonardoda Fibonacci）以兔子繁殖为例子而引入，故又称为“<a href="https://baike.baidu.com/item/兔子数列/6849441" target="_blank" rel="noopener">兔子数列</a>”。</p>
 <p>其指的是这样一个数列：1、1、2、3、5、8、13、21、34、……<br>如果设F(n）为该数列的第n项（n∈N*），那么这句话可以写成如下形式：:F(n)=F(n-1)+F(n-2)</p>
 <p>在现代物理、准晶体结构、化学等领域，斐波纳契数列都有直接的应用。</p>
@@ -3786,7 +3786,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>window mysql 初始化配置</title>
-    <url>/mysql/ckj1jlqpz006nt8yvwnmtu901.html</url>
+    <url>/mysql/window-mysql-%E5%88%9D%E5%A7%8B%E5%8C%96%E9%85%8D%E7%BD%AE.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="mysql-下载地址"><a href="#mysql-下载地址" class="headerlink" title="mysql 下载地址"></a>mysql 下载地址</h3><p><a href="https://dev.mysql.com/downloads/installer/" target="_blank" rel="noopener">https://dev.mysql.com/downloads/installer/</a></p>
 <p>注： msi安装包的就直接安装</p>
 <p>​         zip包的需要解压到特定地方然后配置系统变量的path路径，定位到mysql/bin目录下</p>
@@ -3820,7 +3820,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>git杂记</title>
-    <url>/git/ckj1jlqq0006qt8yvj5rllbjh.html</url>
+    <url>/git/git%E6%9D%82%E8%AE%B0.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="Git-clone-时出现Please-make-sure-you-have-the-correct-access-rights-and-the-repository-exists"><a href="#Git-clone-时出现Please-make-sure-you-have-the-correct-access-rights-and-the-repository-exists" class="headerlink" title="Git clone 时出现Please make sure you have the correct access rights and the repository exists."></a>Git clone 时出现Please make sure you have the correct access rights and the repository exists.</h2><ol>
 <li><p>删除 .ssh 文件夹【C:\Users(本地用户名).ssh】 中的 known_hosts文件</p>
 </li>
@@ -3882,7 +3882,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>mysql命令简述</title>
-    <url>/mysql/ckj1jlqq2006ut8yvmv93m2w6.html</url>
+    <url>/mysql/mysql%E5%91%BD%E4%BB%A4%E7%AE%80%E8%BF%B0.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>记录mysql常用命令。</p>
 <a id="more"></a>
 
@@ -4287,7 +4287,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>nginx 操作</title>
-    <url>/nginx/ckj1jlqq4006wt8yvq9lda0ne.html</url>
+    <url>/nginx/nginx-%E6%93%8D%E4%BD%9C.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="第-1-章-Nginx-简介"><a href="#第-1-章-Nginx-简介" class="headerlink" title="第 1 章 Nginx 简介"></a>第 1 章 Nginx 简介</h2><h3 id="1-1-Nginx-概述"><a href="#1-1-Nginx-概述" class="headerlink" title="1.1 Nginx 概述"></a>1.1 Nginx 概述</h3><p>Nginx (“engine x”) 是一个高性能的 HTTP 和反向代理服务器，特点是占有内存少，并发能力强，事实上 nginx 的并发能力确实在同类型的网页服务器中表现较好，中国大陆使用 nginx网站用户有：百度、京东、新浪、网易、腾讯、淘宝等。</p>
 <p><a href="https://lnmp.org/nginx.html" target="_blank" rel="noopener">https://lnmp.org/nginx.html</a> </p>
 <a id="more"></a>
@@ -4513,7 +4513,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>mysql简介</title>
-    <url>/mysql/ckj1jlqq60071t8yvsxttvorn.html</url>
+    <url>/mysql/mysql%E7%AE%80%E4%BB%8B.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>MySQL是一个关系型数据库管理系统，由瑞典MySQL AB 公司开发，属于 Oracle 旗下产品。MySQL 是最流行的关系型数据库管理系统之一，在 WEB 应用方面，MySQL是最好的 RDBMS (Relational Database Management System，关系数据库管理系统) 应用软件之一。</p>
 <p>MySQL是一种关系型数据库管理系统，关系数据库将数据保存在不同的表中，而不是将所有数据放在一个大仓库内，这样就增加了速度并提高了灵活性。</p>
 <p>MySQL所使用的 SQL 语言是用于访问数据库的最常用标准化语言。MySQL 软件采用了双授权政策，分为社区版和商业版，由于其体积小、速度快、总体拥有成本低，尤其是开放源码这一特点，一般中小型网站的开发都选择 MySQL 作为网站数据库。</p>
@@ -4952,7 +4952,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>Django的缓存</title>
-    <url>/python/ckj1jlqq70074t8yvpd9skahl.html</url>
+    <url>/python/django%E7%9A%84%E7%BC%93%E5%AD%98.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>Django给我们提供了三种缓存方式</strong>:</p>
 <ul>
 <li>站点级缓存————缓存整个网站</li>
@@ -5019,7 +5019,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>git 不同仓库间进行项目迁移</title>
-    <url>/git/ckj1jlqq90078t8yvxjfak1ot.html</url>
+    <url>/git/git-%E4%B8%8D%E5%90%8C%E4%BB%93%E5%BA%93%E9%97%B4%E8%BF%9B%E8%A1%8C%E9%A1%B9%E7%9B%AE%E8%BF%81%E7%A7%BB.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>需求</strong></p>
 <p>将仓库A的某个branch的代码独立成为一个新的仓库B。并且提交的代码为当前分支最新的，且保留整个提交历史。这种需求对于git来说小菜一碟，可通过git remote命令来实现。</p>
 <a id="more"></a>
@@ -5058,7 +5058,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>pycharm 配置pylint</title>
-    <url>/python/ckj1jlqqa007at8yv1bf1j79i.html</url>
+    <url>/python/pycharm-%E9%85%8D%E7%BD%AEpylint.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>pylint是一个用于检查python代码中的错误，尝试强制执行编码标准的工具。它还可以查找某些类型错误，可以建议如何重构特定块的建议，并可以向您提供有关代码复杂性的详细信息。</p>
 <a id="more"></a>
 
@@ -5091,7 +5091,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>pyspark 学习笔记</title>
-    <url>/python/ckj1jlqqc007ft8yvardccfa5.html</url>
+    <url>/python/pyspark-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>pypark用法记录。</p>
 <a id="more"></a>
 
@@ -5191,7 +5191,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>python import 原理</title>
-    <url>/python/ckj1jlqqe007it8yvo95ik0d9.html</url>
+    <url>/python/python-import-%E5%8E%9F%E7%90%86.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>本文测试环境为python3。这里先简单介绍下与 import 导入相关的概念。</p>
 <a id="more"></a>
 
@@ -5410,7 +5410,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>python numpy 快速入门</title>
-    <url>/python/module/ckj1jlqqg007lt8yvgj6fbc2t.html</url>
+    <url>/python/module/python-numpy-%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>Numpy</strong>是一个功能强大的Python库，允许更高级的数据操作和数学计算。</p>
 <a id="more"></a>
 
@@ -5642,7 +5642,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>Python 迭代器和生成器</title>
-    <url>/python/ckj1jlqqi007qt8yv84dbkg9q.html</url>
+    <url>/python/python-%E8%BF%AD%E4%BB%A3%E5%99%A8%E5%92%8C%E7%94%9F%E6%88%90%E5%99%A8.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h2><p>迭代是Python最强大的功能之一，是访问集合元素的一种方式。</p>
 <p>迭代器是一个实现了迭代器协议的对象。</p>
 <p>迭代器对象从集合的第一个元素开始访问，直到所有的元素被访问完结束。迭代器只能往前不会后退。</p>
@@ -5669,7 +5669,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>python起一个固定端口</title>
-    <url>/python/ckj1jlqqk007tt8yv2bh12t86.html</url>
+    <url>/python/python%E8%B5%B7%E4%B8%80%E4%B8%AA%E5%9B%BA%E5%AE%9A%E7%AB%AF%E5%8F%A3.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="python3"><a href="#python3" class="headerlink" title="python3"></a>python3</h2><p>python -m http.serve [port]</p>
 <figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"># python -m http.server --<span class="built_in">help</span></span><br><span class="line"></span><br><span class="line">[root@hadoop01 ~]# python3 -m http.server --<span class="built_in">help</span></span><br><span class="line"><span class="function">usage: <span class="title">server.py</span> [-<span class="title">h</span>] [--<span class="title">cgi</span>] [--<span class="title">bind</span> <span class="title">ADDRESS</span>] [--<span class="title">directory</span> <span class="title">DIRECTORY</span>] [<span class="title">port</span>]</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">positional</span> <span class="title">arguments</span>:</span></span><br><span class="line"><span class="function">  <span class="title">port</span>                  <span class="title">Specify</span> <span class="title">alternate</span> <span class="title">port</span> [<span class="title">default</span>: 8000]</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">optional</span> <span class="title">arguments</span>:</span></span><br><span class="line"><span class="function">  -<span class="title">h</span>, --<span class="title">help</span>            <span class="title">show</span> <span class="title">this</span> <span class="title">help</span> <span class="title">message</span> <span class="title">and</span> <span class="title">exit</span></span></span><br><span class="line"><span class="function">  --<span class="title">cgi</span>                 <span class="title">Run</span> <span class="title">as</span> <span class="title">CGI</span> <span class="title">Server</span></span></span><br><span class="line"><span class="function">  --<span class="title">bind</span> <span class="title">ADDRESS</span>, -<span class="title">b</span> <span class="title">ADDRESS</span></span></span><br><span class="line"><span class="function">                        <span class="title">Specify</span> <span class="title">alternate</span> <span class="title">bind</span> <span class="title">address</span> [<span class="title">default</span>: <span class="title">all</span></span></span><br><span class="line"><span class="function">                        <span class="title">interfaces</span>]</span></span><br><span class="line"><span class="function">  --<span class="title">directory</span> <span class="title">DIRECTORY</span>, -<span class="title">d</span> <span class="title">DIRECTORY</span></span></span><br><span class="line"><span class="function">                        <span class="title">Specify</span> <span class="title">alternative</span> <span class="title">directory</span> [<span class="title">default:current</span></span></span><br><span class="line"><span class="function">                        <span class="title">directory</span>]</span></span><br></pre></td></tr></table></figure>
 
@@ -5685,7 +5685,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>python3.8.3安装</title>
-    <url>/python/ckj1jlqqn007yt8yveqezlc4j.html</url>
+    <url>/python/python3-8-3%E5%AE%89%E8%A3%85.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h2><ul>
 <li>安装其它依赖包</li>
 </ul>
@@ -5725,7 +5725,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>The Python 魔法方法</title>
-    <url>/python/ckj1jlqqo0081t8yv9vw2w6dl.html</url>
+    <url>/python/the-python-%E9%AD%94%E6%B3%95%E6%96%B9%E6%B3%95.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>魔法方法</strong>，也叫做<strong>特殊方法</strong>，是指名称前面和后面都加上了双下划线的方法。</p>
 <p>对python而言，下划线对解释器有特殊的意义，而且是内建标识符所使用的符号，故应慎用下划线开始的变量名。</p>
 <p>python中，变量以单下划线和双下划线开始，有不同的含义：</p>
@@ -5749,7 +5749,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>python操作mysql</title>
-    <url>/python/ckj1jlqqr0086t8yvujdk97cd.html</url>
+    <url>/python/python%E6%93%8D%E4%BD%9Cmysql.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>python 与 mysql 相关的记录。</p>
 <a id="more"></a>
 
@@ -6233,7 +6233,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>shell 杂记</title>
-    <url>/shell/ckj1jlqqs0089t8yvom55732i.html</url>
+    <url>/shell/shell-%E6%9D%82%E8%AE%B0.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>shell 杂记主要记录shell使用的以下小技巧，及命令。</p>
 <a id="more"></a>
 
@@ -6371,7 +6371,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>shell 脚本</title>
-    <url>/shell/ckj1jlqqu008et8yvc0zixrq5.html</url>
+    <url>/shell/shell-%E8%84%9A%E6%9C%AC.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="第一个shell脚本"><a href="#第一个shell脚本" class="headerlink" title="第一个shell脚本"></a>第一个shell脚本</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">echo "Hello World !"</span><br><span class="line"></span><br><span class="line">注：</span><br><span class="line">    #! 是一个约定的标记，它告诉系统这个脚本需要什么解释器来执行，即使用哪一种 Shell。</span><br><span class="line">    echo 命令用于向窗口输出文本。</span><br></pre></td></tr></table></figure>
 
 <a id="more"></a>
@@ -7191,7 +7191,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>python 内建函数</title>
-    <url>/python/ckj1jlqqv008ht8yvgi3gwza5.html</url>
+    <url>/python/python-%E5%86%85%E5%BB%BA%E5%87%BD%E6%95%B0.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="min函数"><a href="#min函数" class="headerlink" title="min函数"></a>min函数</h2><p><strong>语法</strong>:</p>
 <figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">min(iterable, *[, default=obj, key=func]) -&gt; value</span><br><span class="line">min(arg1, arg2, *args, *[, key=func]) -&gt; value</span><br></pre></td></tr></table></figure>
 
@@ -7231,7 +7231,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>python3.7.3安装</title>
-    <url>/python/ckj1jlqqx008mt8yvidq969v9.html</url>
+    <url>/python/python3-7-3%E5%AE%89%E8%A3%85.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h2><ul>
 <li>安装gcc编译器</li>
 </ul>
@@ -7276,7 +7276,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>JavaScript Array</title>
-    <url>/web/JavaScript/ckj1jlqqy008pt8yvtld2kb85.html</url>
+    <url>/web/JavaScript/javascript-array.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>数组对象的作用是：使用单独的变量名来存储一系列的值。</p>
 <a id="more"></a>
 
@@ -7293,7 +7293,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>HTML 笔记</title>
-    <url>/web/HTML/ckj1jlqr0008ut8yv4pm58anr.html</url>
+    <url>/web/HTML/html-%E7%AC%94%E8%AE%B0.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>总得记点啥。。。</p>
 <a id="more"></a>
 
@@ -7475,7 +7475,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>python 杂记</title>
-    <url>/python/ckj1jlqr2008xt8yvga1z84ay.html</url>
+    <url>/python/python-%E6%9D%82%E8%AE%B0.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>记录python相关的知识或使用技巧。</p>
 <a id="more"></a>
 
@@ -7606,7 +7606,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>YAML基本语法</title>
-    <url>/yaml/ckj1jlqr40092t8yvklfdwvit.html</url>
+    <url>/yaml/yaml%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>YAML:以数据为中心，比json、xml等更适合做配置文件,yaml必须遵守的三个规则</p>
 <ul>
 <li><p>缩进</p>
@@ -7669,7 +7669,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>Linux killall command</title>
-    <url>/Linux/command/killall/ckj1jlqrn00aat8yvcbi8a90l.html</url>
+    <url>/Linux/command/killall/linux-killall-command.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><p>killall - kill processes by name</p>
 <p>killall  sends  a  signal  to all processes running any of the specified commands.  If no signal name is specified, SIGTERM is sent. Signals can be specified either by name (e.g.  -HUP or -SIGHUP) or by number (e.g.  -1) or by option -s.</p>
 <p>If the command name is not regular expression (option -r) and contains a slash (/), processes executing that  particular  file will be selected for killing, independent of their name.</p>
@@ -7730,7 +7730,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>Linux jps</title>
-    <url>/Linux/command/jps/ckj1jlqro00act8yvkz4cjvsb.html</url>
+    <url>/Linux/command/jps/linux-jps.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>jps(Java Virtual Machine Process Status Tool)</p>
 <a id="more"></a>
 
@@ -7752,7 +7752,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>Linux netstat command</title>
-    <url>/Linux/command/netstat/ckj1jlqrr00ait8yvpm0hfu84.html</url>
+    <url>/Linux/command/netstat/linux-netstat-command.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>在Internet <a href="https://baike.baidu.com/item/RFC/2798645" target="_blank" rel="noopener">RFC</a><a href="https://baike.baidu.com/item/标准" target="_blank" rel="noopener">标准</a>中， Netstat是在内核中访问网络连接状态及其相关信息的程序，它能提供TCP连接，TCP和UDP监听，进程内存管理的相关报告。</p>
 <p><strong>Netstat 是控制台命令</strong>，是一个监控TCP/IP网络的非常有用的工具，它可以<strong>显示路由表、实际的网络连接以及每一个网络接口设备的状态信息</strong>。  </p>
 <p>Netstat 用于<strong>显示与IP、<a href="https://baike.baidu.com/item/TCP" target="_blank" rel="noopener">TCP</a>、<a href="https://baike.baidu.com/item/UDP" target="_blank" rel="noopener">UDP</a>和<a href="https://baike.baidu.com/item/ICMP" target="_blank" rel="noopener">ICMP</a>协议相关的统计数据</strong>，一般用于检验本机各端口的网络连接情况。</p>
@@ -7821,7 +7821,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>Linux ping command</title>
-    <url>/Linux/command/ping/ckj1jlqrs00alt8yv6azdw94b.html</url>
+    <url>/Linux/command/ping/linux-ping-command.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>作用：</strong>网络命令，用来测试与目标主机的连通性。  </p>
 <a id="more"></a>
 
@@ -7863,7 +7863,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>Linux pkill command</title>
-    <url>/Linux/command/pkill/ckj1jlqru00aot8yv13q1atmu.html</url>
+    <url>/Linux/command/pkill/linux-pkill-command.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><p>pkill 用做管理进程时，pkill 命令和 killall 命令的用法相同，都是通过进程名杀死一类进程<br>pkill 另一重要的功能就是按照终端用户来剔出用户登录</p>
 <a id="more"></a>
 
@@ -7949,7 +7949,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>Linux kill command</title>
-    <url>/Linux/command/kill/ckj1jlqrv00art8yvrd0ez3jg.html</url>
+    <url>/Linux/command/kill/linux-kill-command.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><p>kill 命令是用来向进程发送一个用户指定的信号，对进程进行相应的操作。</p>
 <p>kill 命令的执行原理是向操作系统内核发送一个信号（多是终止信号）和目标进程的 PID，系统内核根据收到的信号类型，对指定进程进行相应的操作。</p>
 <p>进程PID可用ps、pidof、pstree、top等工具获取，然后使用kill命令来结束该进程。</p>
@@ -8020,7 +8020,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>Linux wc command</title>
-    <url>/Linux/command/wc/ckj1jlqrx00avt8yvg0h3unch.html</url>
+    <url>/Linux/command/wc/linux-wc-command.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><p><strong>wc</strong> 命令用于计算字数。</p>
 <p>利用 <strong>wc</strong> 指令我们可以计算文件的Byte数、字数、或是列数，若不指定文件名称、或是所给予的文件名为”-“，则wc指令会从标准输入设备读取数据。</p>
 <a id="more"></a>
@@ -8058,7 +8058,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>Linux ps command</title>
-    <url>/Linux/command/ps/ckj1jlqry00ayt8yvv720seje.html</url>
+    <url>/Linux/command/ps/linux-ps-command.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><p>ps 命令是Process Status的缩写，用于进程的监测和控制。</p>
 <p>ps 命令是最基本进程查看命令，使用该命令可以确定有哪些进程正在运行和运行的状态、进程是否结束、进程有没有僵尸、哪些进程占用了过多的资源等。</p>
 <p>ps 命令显示的是瞬间进程的状态，并不是动态连续的；如果想对进程进行实时监控可用<strong>top</strong>命令。   </p>
@@ -8165,7 +8165,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>spark web 用法</title>
-    <url>/spark/ckj1jlqs000b1t8yv79kv2kdr.html</url>
+    <url>/spark/spark-web-%E7%94%A8%E6%B3%95.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="修改spark默认启动端口"><a href="#修改spark默认启动端口" class="headerlink" title="修改spark默认启动端口"></a>修改spark默认启动端口</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">8080 --&gt; master WEB端口</span><br><span class="line">8081 --&gt; work WEB端口</span><br><span class="line">7077 --&gt; master通信端口</span><br><span class="line">18080 --&gt; spark历史服务器端口</span><br><span class="line">4040 --&gt; Spark当前执行的任务页面查看端口4040，如果任务结束了4040端口页面不能访问</span><br><span class="line"></span><br><span class="line">50070：HDFSwebUI的端口号</span><br><span class="line">8485:journalnode默认的端口号</span><br><span class="line">9000：非高可用访问数rpc端口</span><br><span class="line">8020：高可用访问数据rpc</span><br><span class="line">8088：yarn的webUI的端口号</span><br><span class="line">8080：master的webUI，Tomcat的端口号</span><br><span class="line">7077：spark基于standalone的提交任务的端口号</span><br><span class="line">8081：worker的webUI的端口号</span><br><span class="line">18080：historyServer的webUI的端口号</span><br><span class="line">4040：application的webUI的端口号</span><br><span class="line">2181：zookeeper的rpc端口号</span><br><span class="line">9083：hive的metastore的端口号</span><br><span class="line">60010：Hbase的webUI的端口号</span><br><span class="line">6379：Redis的端口号</span><br><span class="line">8080：sparkwebUI的端口号</span><br><span class="line">9092：kafka broker的端口</span><br></pre></td></tr></table></figure>
 
 <h2 id="修改默认端口"><a href="#修改默认端口" class="headerlink" title="修改默认端口"></a>修改默认端口</h2><p>在 standalone模式中配置spark-env.sh</p>
@@ -8239,7 +8239,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>spark异常处理</title>
-    <url>/spark/ckj1jlqs200b5t8yvgetjz4y6.html</url>
+    <url>/spark/spark%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
       <categories>
         <category>spark</category>
@@ -8250,7 +8250,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>spark参数配置说明</title>
-    <url>/python/spark/ckj1jlqs300b8t8yvps89y2pk.html</url>
+    <url>/python/spark/spark%E5%8F%82%E6%95%B0%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="spark配置修改方式"><a href="#spark配置修改方式" class="headerlink" title="spark配置修改方式"></a>spark配置修改方式</h2><p>Spark有以下三种方式修改配置：</p>
 <ol>
 <li><p>Spark properties （Spark属性）</p>
@@ -8277,7 +8277,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>python argparse module</title>
-    <url>/python/module/ckj1jlqub00cft8yv1n1v1a6i.html</url>
+    <url>/python/module/python-argparse-module.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>python 命令行解析模块</p>
 <a id="more"></a>
 
@@ -8329,7 +8329,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>python factions module</title>
-    <url>/python/module/ckj1jlquc00cgt8yvw2ii75wy.html</url>
+    <url>/python/module/python-factions-module.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>python 中处理分数的模块。</p>
 <p><strong>源代码</strong> <a href="https://github.com/python/cpython/tree/3.7/Lib/fractions.py" target="_blank" rel="noopener">Lib/fractions.py</a></p>
 <a id="more"></a>
@@ -8364,7 +8364,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>python collections module</title>
-    <url>/python/module/ckj1jlquf00cit8yvvaavfxcf.html</url>
+    <url>/python/module/python-collections-module.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>Source code:</strong> <a href="https://github.com/python/cpython/tree/3.8/Lib/collections/__init__.py" target="_blank" rel="noopener">Lib/collections/<strong>init</strong>.py</a></p>
 <p>这个模块实现了特定目标的容器，以提供Python标准内建容器 <strong>dict</strong> , list , <strong>set</strong> , 和 <strong>tuple</strong> 的替代选择。</p>
 <a id="more"></a>
@@ -8639,7 +8639,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>python fnmatch module</title>
-    <url>/python/module/ckj1jlqup00ckt8yv0laxylcj.html</url>
+    <url>/python/module/python-fnmatch-module.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>在python中，fnmatch模块是用来做字符串匹配文件名的标准库。</p>
 <p>源码: <a href> <a href="https://github.com/python/cpython/tree/3.7/Lib/fnmatch.py" target="_blank" rel="noopener">Lib/fnmatch.py</a></a></p>
 <p>fnmatch支持的通配符：</p>
@@ -8708,7 +8708,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>python io module</title>
-    <url>/python/module/ckj1jlqur00cnt8yv8w81qkkx.html</url>
+    <url>/python/module/python-io-module.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>参考：<a href="https://www.cnblogs.com/zhangxinqi/p/9135038.html" target="_blank" rel="noopener">python3之模块io使用流的核心工具</a></p>
 ]]></content>
       <categories>
@@ -8722,7 +8722,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>python glob module</title>
-    <url>/python/module/ckj1jlqut00cqt8yvl02pnhs9.html</url>
+    <url>/python/module/python-glob-module.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><strong>glob</strong> —查找符合特定规则的文件路径名</p>
 <p><strong>Source code:</strong> <a href="https://github.com/python/cpython/tree/3.7/Lib/glob.py" target="_blank" rel="noopener">Lib/glob.py</a></p>
 <p>匹配符：</p>
@@ -8763,7 +8763,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>python functools module</title>
-    <url>/python/module/ckj1jlquu00ctt8yv90lfjzqn.html</url>
+    <url>/python/module/python-functools-module.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>functools 模块应用于高阶函数，此模块的功能适用于所有可调用对象。</p>
 <p><strong>源代码:</strong> <a href="https://github.com/python/cpython/tree/3.7/Lib/functools.py" target="_blank" rel="noopener">Lib/functools.py</a></p>
 <a id="more"></a>
@@ -8869,7 +8869,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>python lxml module</title>
-    <url>/python/module/ckj1jlquv00cwt8yvwybim072.html</url>
+    <url>/python/module/python-lxml-module.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>lxml是python的一个解析库，支持HTML和XML的解析，支持XPath解析方式，而且解析效率非常高。</p>
 <p>XPath，全称XML Path Language，即XML路径语言，它是一门在XML文档中查找信息的语言，它最初是用来搜寻XML文档的，但是它同样适用于HTML文档的搜索。</p>
 <p>XPath的选择功能十分强大，它提供了非常简明的路径选择表达式，另外，它还提供了超过100个内建函数，用于字符串、数值、时间的匹配以及节点、序列的处理等，几乎所有我们想要定位的节点，都可以用XPath来选择</p>
@@ -8920,7 +8920,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>python heapq module</title>
-    <url>/python/module/ckj1jlqux00czt8yvv4sznd84.html</url>
+    <url>/python/module/python-heapq-module.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Python提供的关于堆的操作模块。</p>
 <p>源码：<a href="https://github.com/python/cpython/tree/3.7/Lib/heapq.py" target="_blank" rel="noopener">Lib/heapq.py</a></p>
 <p>Python 提供的是基于小顶堆的操作，因此 Python 可以对 list 中的元素进行小顶堆排列，这样程序每次获取堆中元素时，总会取得堆中最小的元素。</p>
@@ -8989,7 +8989,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>python pickle module</title>
-    <url>/python/module/ckj1jlquy00d2t8yvfvw2pp8m.html</url>
+    <url>/python/module/python-pickle-module.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>源代码：</strong> <a href="https://github.com/python/cpython/tree/3.8/Lib/pickle.py" target="_blank" rel="noopener">Lib/pickle.py</a></p>
 <p>pickle 模块实现了对一个 Python 对象结构的二进制序列化(pickling)和反序列化(unpickling)。</p>
 <p> pickling 是将 Python 对象及其所拥有的层次结构转化为一个字节流的过程, unpickling 是相反的操作，会将字节流转化回一个对象层次结构。</p>
@@ -9083,7 +9083,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>python __future__ module</title>
-    <url>/python/module/ckj1jlqv000d5t8yvm39xmsee.html</url>
+    <url>/python/module/python-future-module.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>将下一个新版本的特性导入到当前版本并进行测试（新版的改动不兼容老版本，就是这么任性）。</p>
 <p><strong>py2.7-源代码:</strong> <a href="https://github.com/python/cpython/tree/2.7/Lib/__future__.py" target="_blank" rel="noopener">Lib/__future__.py</a></p>
 <p><strong>py3.7-源代码：</strong><a href="https://github.com/python/cpython/tree/3.7/Lib/__future__.py" target="_blank" rel="noopener">Lib/__future__.py</a></p>
@@ -9206,7 +9206,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>python subprocess module</title>
-    <url>/python/module/ckj1jlqv200d8t8yv7zxvr18p.html</url>
+    <url>/python/module/python-subprocess-module.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><strong>源代码:</strong> <a href="https://github.com/python/cpython/tree/3.7/Lib/subprocess.py" target="_blank" rel="noopener">Lib/subprocess.py</a></p>
 <p>参考：</p>
 <p><a href="https://docs.python.org/zh-cn/3.7/library/subprocess.html" target="_blank" rel="noopener">官方文档</a></p>
@@ -9223,7 +9223,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>python zipfile module</title>
-    <url>/python/module/ckj1jlqv300dbt8yv1b8obnjt.html</url>
+    <url>/python/module/python-zipfile-module.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p><strong>zipfile</strong>是python里用来做zip格式编码的压缩和解压缩的</p>
 <p><strong>zipfile</strong>里有两个非常重要的class, 分别是<strong>ZipFile</strong>和<strong>ZipInfo</strong>, 在绝大多数的情况下，我们只需要使用这两个class就ok了</p>
 <ul>
@@ -9345,7 +9345,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>python unicodedata module</title>
-    <url>/python/module/ckj1jlqv500det8yv24yyovt0.html</url>
+    <url>/python/module/python-unicodedata-module.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>处理Unicode字符数据库(UCD)的模块，UCD为所有Unicode字符定义字符属性。</p>
 <p>UCD是Unicode字符数据库（Unicode Character DataBase）的缩写。</p>
 <p>UCD由一些描述Unicode字符属性和内部关系的纯文本或html文件组成。</p>
@@ -9404,7 +9404,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>python random module</title>
-    <url>/python/module/ckj1jlqv600dht8yvvhnszclm.html</url>
+    <url>/python/module/python-random-module.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>该模块实现了各种分布的伪随机数生成器。</p>
 <p>不应将此模块的伪随机生成器用于安全目的。 有关安全性或加密用途，请参阅 <a href="https://docs.python.org/zh-cn/3.7/library/secrets.html#module-secrets" target="_blank" rel="noopener"><code>secrets</code></a> 模块。</p>
 <p><strong>源码：</strong> <a href="https://github.com/python/cpython/tree/3.7/Lib/random.py" target="_blank" rel="noopener">Lib/random.py</a></p>
@@ -9454,7 +9454,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>python operator module</title>
-    <url>/python/module/ckj1jlqv700dkt8yv5gptuk5h.html</url>
+    <url>/python/module/python-operator-module.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><strong>operator</strong>模块提供了一套与Python的内置运算符对应的高效率函数。 许多函数名与特殊方法名相同，只是没有双下划线。为了向后兼容性，也保留了许多包含双下划线的函数。为了表述清楚，建议使用没有双下划线的函数。</p>
 <p>函数包含的种类有：<strong>对象的比较运算、逻辑运算、数学运算以及序列运算</strong>。</p>
 <p><strong>源代码:</strong> <a href="https://github.com/python/cpython/tree/3.7/Lib/operator.py" target="_blank" rel="noopener">Lib/operator.py</a></p>
@@ -9691,7 +9691,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>python 将Unicode文本标准化</title>
-    <url>/python/tips/ckj1jlqv900dnt8yvvyjs3eff.html</url>
+    <url>/python/tips/python-%E5%B0%86unicode%E6%96%87%E6%9C%AC%E6%A0%87%E5%87%86%E5%8C%96.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>你正在处理Unicode字符串，需要确保所有字符串在底层有相同的表示。</p>
 <a id="more"></a>
 
@@ -9724,7 +9724,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>python 在字符串中处理html和xml</title>
-    <url>/python/tips/ckj1jlqvb00dqt8yvksxxl1rp.html</url>
+    <url>/python/tips/python-%E5%9C%A8%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E5%A4%84%E7%90%86html%E5%92%8Cxml.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>你想将HTML或者XML实体如 &entity; 或 &#code; 替换为对应的文本。 再者，你需要转换文本中特定的字符(比如&lt;, &gt;, 或 &amp;)。</p>
 <a id="more"></a>
 
@@ -9748,7 +9748,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>python textwrap module</title>
-    <url>/python/module/ckj1jlqvc00dtt8yvhonjlpwr.html</url>
+    <url>/python/module/python-textwrap-module.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><p>通过调整换行符在段落中出现的位置来格式化文本。</p>
 <p>源码： <a href="https://github.com/python/cpython/tree/3.7/Lib/textwrap.py" target="_blank" rel="noopener">Lib/textwrap.py</a></p>
 <a id="more"></a>
@@ -9826,7 +9826,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>python 计算当前月份的日期范围</title>
-    <url>/python/tips/ckj1jlqve00dxt8yvb8polxzf.html</url>
+    <url>/python/tips/python-%E8%AE%A1%E7%AE%97%E5%BD%93%E5%89%8D%E6%9C%88%E4%BB%BD%E7%9A%84%E6%97%A5%E6%9C%9F%E8%8C%83%E5%9B%B4.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>你的代码需要在当前月份中循环每一天，想找到一个计算这个日期范围的高效方法。</p>
 <a id="more"></a>
 
@@ -9859,7 +9859,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>python 审查清理文本字符串</title>
-    <url>/python/tips/ckj1jlqvg00e0t8yvqxdt4dvx.html</url>
+    <url>/python/tips/python-%E5%AE%A1%E6%9F%A5%E6%B8%85%E7%90%86%E6%96%87%E6%9C%AC%E5%AD%97%E7%AC%A6%E4%B8%B2.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>一些无聊的幼稚黑客在你的网站页面表单中输入文本”pýtĥöñ”，然后你想将这些字符清理掉。</p>
 <a id="more"></a>
 
@@ -9901,7 +9901,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>python 字符串令牌解析</title>
-    <url>/python/tips/ckj1jlqvh00e4t8yvxs1heen9.html</url>
+    <url>/python/tips/python-%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%BB%A4%E7%89%8C%E8%A7%A3%E6%9E%90.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>你有一个字符串，想从左至右将其解析为一个令牌流。</p>
 <a id="more"></a>
 
@@ -9930,7 +9930,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>python 遍历目录获得所有文件</title>
-    <url>/python/tips/ckj1jlqvj00e7t8yvjd0qq0rs.html</url>
+    <url>/python/tips/python-%E9%81%8D%E5%8E%86%E7%9B%AE%E5%BD%95%E8%8E%B7%E5%BE%97%E6%89%80%E6%9C%89%E6%96%87%E4%BB%B6.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>给定一个本地路径，获得当前路径及其子路径下的所有文件。</p>
 <h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>通过 <code>os.walk</code> 方法实现。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">def traverse_directory(loc_path):</span><br><span class="line">    file_list = []</span><br><span class="line">    for dirpath, dirnames, filenames in os.walk(loc_path):</span><br><span class="line">        file_list += [os.path.join(dirpath, filename) for filename in filenames]</span><br><span class="line">    return file_list</span><br><span class="line"></span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    local_path = &apos;/home/path&apos;</span><br><span class="line">    traverse_directory(local_path)</span><br></pre></td></tr></table></figure>]]></content>
@@ -9944,7 +9944,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>python format用法</title>
-    <url>/python/tips/ckj1jlqvk00eat8yvmhznuv9x.html</url>
+    <url>/python/tips/python-format%E7%94%A8%E6%B3%95.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><p><code>str.format()</code> 方法通过字符串中的花括号 <code>{}</code> 来识别替换字段 <code>replacement field</code>，从而完成字符串的格式化。</p>
 <a id="more"></a>
 
@@ -10056,7 +10056,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>vue 安装</title>
-    <url>/web/vue/ckj1jlqvm00edt8yv0a70sq4w.html</url>
+    <url>/web/vue/vue-%E5%AE%89%E8%A3%85.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="独立版本"><a href="#独立版本" class="headerlink" title="独立版本"></a>独立版本</h3><p>我们可以在 Vue.js 的官网上直接下载 vue.min.js 并用 &lt;script&gt; 标签引入。<br><a href="https://vuejs.org/js/vue.min.js" target="_blank" rel="noopener">Vue.js下载地址</a></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;script src=&quot;path/to/vue.min.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
@@ -10094,7 +10094,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>npm install 安装依赖无反应</title>
-    <url>/web/npm/ckj1jlqvn00egt8yv0rczvoag.html</url>
+    <url>/web/npm/npm-install-%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%E6%97%A0%E5%8F%8D%E5%BA%94.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><ol>
 <li><p>查看是否是网络原因</p>
 </li>
@@ -10120,7 +10120,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>python numpy module</title>
-    <url>/python/module/ckj1jlqvp00ekt8yvcnwik7qs.html</url>
+    <url>/python/module/python-numpy-module.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>NumPy 是一个 Python 包。 它代表 “Numeric Python”。 它是一个由多维数组对象和用于处理数组的例程集合组成的库。</p>
 <p>Numeric，即 NumPy 的前身，是由 Jim Hugunin 开发的。 也开发了另一个包 Numarray ，它拥有一些额外的功能。 2005年，Travis Oliphant 通过将 Numarray 的功能集成到 Numeric 包中来创建 NumPy 包。 这个开源项目有很多贡献者。</p>
 <a id="more"></a>
@@ -10680,7 +10680,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>python itertools module</title>
-    <url>/python/module/ckj1jlqvr00eot8yvybmdp4f5.html</url>
+    <url>/python/module/python-itertools-module.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>itertools 是python的迭代器模块，itertools提供的工具相当高效且节省内存</p>
 <a id="more"></a>
 
@@ -10979,7 +10979,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>Linux grep command</title>
-    <url>/Linux/command/grep/ckj1jlqvs00ert8yv1ai4uvs5.html</url>
+    <url>/Linux/command/grep/linux-grep-command.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><p><strong>grep</strong>（global search regular expression(RE) and print out the line，全面搜索正则表达式并把行打印出来）是一种强大的文本搜索工具，它能使用正则表达式搜索文本，并把匹配的行打印出来。</p>
 <a id="more"></a>
 
@@ -11050,7 +11050,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>python timeit module</title>
-    <url>/python/module/ckj1jlqwd00ght8yv0019f53h.html</url>
+    <url>/python/module/python-timeit-module.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>用于计算一小段 Python 代码耗时的模块。</p>
 <p><strong>源码：</strong> <a href="https://github.com/python/cpython/tree/3.7/Lib/timeit.py" target="_blank" rel="noopener">Lib/timeit.py</a></p>
 <a id="more"></a>
@@ -11091,7 +11091,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>python datetime module</title>
-    <url>/python/module/ckj1jlqwf00git8yvotu4rces.html</url>
+    <url>/python/module/python-datetime-module.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>datetime Basic date and time types</p>
 <p><strong>Source code:</strong> <a href="https://github.com/python/cpython/tree/3.7/Lib/datetime.py" target="_blank" rel="noopener">Lib/datetime.py</a></p>
 <p>The datetime module supplies classes for manipulating dates and times in both simple and complex ways. While date and time arithmetic is supported, the focus of the implementation is on efficient attribute extraction for output formatting and manipulation. For related functionality, see also the <a href="https://docs.python.org/3/library/time.html#module-time" target="_blank" rel="noopener"><code>time</code></a> and <a href="https://docs.python.org/3/library/calendar.html#module-calendar" target="_blank" rel="noopener"><code>calendar</code></a> modules.</p>
@@ -11460,7 +11460,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>python zip 与 dict</title>
-    <url>/python/tips/ckj1jlqxl00grt8yvkqjcwgtp.html</url>
+    <url>/python/tips/python-zip-%E4%B8%8E-dict.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>zip 实现字典求最大值、最小值、排序等</p>
 <a id="more"></a>
 
@@ -11477,7 +11477,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>python  实现一个优先级队列</title>
-    <url>/python/tips/ckj1jlqxl00gst8yvw0ehge7o.html</url>
+    <url>/python/tips/python-%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E4%BC%98%E5%85%88%E7%BA%A7%E9%98%9F%E5%88%97.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="实现一个优先级队列"><a href="#实现一个优先级队列" class="headerlink" title="实现一个优先级队列"></a>实现一个优先级队列</h2><ul>
 <li><p>问题</p>
 <p>怎样实现一个按优先级排序的队列？ 并且在这个队列上面每次 pop 操作总是返回优先级最高的那个元素</p>
@@ -11500,7 +11500,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>python 删除序列相同元素并保持顺序</title>
-    <url>/python/tips/ckj1jlqxn00gut8yv5w6kibiy.html</url>
+    <url>/python/tips/python-%E5%88%A0%E9%99%A4%E5%BA%8F%E5%88%97%E7%9B%B8%E5%90%8C%E5%85%83%E7%B4%A0%E5%B9%B6%E4%BF%9D%E6%8C%81%E9%A1%BA%E5%BA%8F.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>怎样在一个序列上面保持元素顺序的同时消除重复的值？</p>
 <a id="more"></a>
 
@@ -11522,7 +11522,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>python 保留最后N个元素</title>
-    <url>/python/tips/ckj1jlqxo00gwt8yvvcjqb1a8.html</url>
+    <url>/python/tips/python-%E4%BF%9D%E7%95%99%E6%9C%80%E5%90%8En%E4%B8%AA%E5%85%83%E7%B4%A0.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="保留最后-N-个元素"><a href="#保留最后-N-个元素" class="headerlink" title="保留最后 N 个元素"></a>保留最后 N 个元素</h2><ul>
 <li><p><strong>问题</strong></p>
 <p>在迭代操作或者其他操作的时候，怎样只保留最后有限几个元素的历史记录？</p>
@@ -11556,7 +11556,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>python 字典中的键映射多个值</title>
-    <url>/python/tips/ckj1jlqxq00gzt8yvr0ubzy0w.html</url>
+    <url>/python/tips/python-%E5%AD%97%E5%85%B8%E4%B8%AD%E7%9A%84%E9%94%AE%E6%98%A0%E5%B0%84%E5%A4%9A%E4%B8%AA%E5%80%BC.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>实现一个键对应多个值的字典</p>
 <a id="more"></a>
 
@@ -11577,7 +11577,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>python 合并多个字典或映射</title>
-    <url>/python/tips/ckj1jlqxs00h2t8yvb5pf37ms.html</url>
+    <url>/python/tips/python-%E5%90%88%E5%B9%B6%E5%A4%9A%E4%B8%AA%E5%AD%97%E5%85%B8%E6%88%96%E6%98%A0%E5%B0%84.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>现在有多个字典或者映射，你想将它们从逻辑上合并为一个单一的映射后执行某些操作， 比如查找值或者检查某些键是否存在。</p>
 <a id="more"></a>
 <h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>通过 collections 模块中的 ChainMap 类来实现。</p>
@@ -11602,7 +11602,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>python 序列中出现次数最多的元素</title>
-    <url>/python/tips/ckj1jlqxu00h5t8yvuz3hm1ow.html</url>
+    <url>/python/tips/python-%E5%BA%8F%E5%88%97%E4%B8%AD%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0%E6%9C%80%E5%A4%9A%E7%9A%84%E5%85%83%E7%B4%A0.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>怎样找出一个序列中出现次数最多的元素呢？</p>
 <a id="more"></a>
 
@@ -11622,7 +11622,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>python 通过某个字段将记录分组</title>
-    <url>/python/tips/ckj1jlqxv00h8t8yv43u6d3vo.html</url>
+    <url>/python/tips/python-%E9%80%9A%E8%BF%87%E6%9F%90%E4%B8%AA%E5%AD%97%E6%AE%B5%E5%B0%86%E8%AE%B0%E5%BD%95%E5%88%86%E7%BB%84.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>你有一个字典或者实例的序列，然后你想根据某个特定的字段比如 date 来分组迭代访问。</p>
 <a id="more"></a>
 
@@ -11645,7 +11645,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>python 解压序列赋值给多个变量</title>
-    <url>/python/tips/ckj1jlqxx00hbt8yv0gp0z3nw.html</url>
+    <url>/python/tips/python-%E8%A7%A3%E5%8E%8B%E5%BA%8F%E5%88%97%E8%B5%8B%E5%80%BC%E7%BB%99%E5%A4%9A%E4%B8%AA%E5%8F%98%E9%87%8F.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>现在有一个包含 N 个元素的元组或者是序列，怎样将它里面的值解压后同时赋值给 N 个变量？</p>
 <a id="more"></a>
 
@@ -11660,7 +11660,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>python 实现一个顺序字典</title>
-    <url>/python/tips/ckj1jlqxy00het8yvouphziww.html</url>
+    <url>/python/tips/python-%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E9%A1%BA%E5%BA%8F%E5%AD%97%E5%85%B8.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>你想创建一个字典，并且在迭代或序列化这个字典的时候能够控制元素的顺序。</p>
 <a id="more"></a>
 
@@ -11684,7 +11684,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>python 查找最大或最小的 N 个元素</title>
-    <url>/python/tips/ckj1jlqy000hht8yvzco52q8e.html</url>
+    <url>/python/tips/python-%E6%9F%A5%E6%89%BE%E6%9C%80%E5%A4%A7%E6%88%96%E6%9C%80%E5%B0%8F%E7%9A%84-n-%E4%B8%AA%E5%85%83%E7%B4%A0.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="查找最大或最小的-N-个元素"><a href="#查找最大或最小的-N-个元素" class="headerlink" title="查找最大或最小的 N 个元素"></a>查找最大或最小的 N 个元素</h2><ul>
 <li><p><strong>问题</strong></p>
 <p>获得一个列表(列表元素很多)中最大或者最小的 N 个元素列表？</p>
@@ -11722,7 +11722,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>python 映射名称到序列元素</title>
-    <url>/python/tips/ckj1jlqy100hkt8yv9z9kiin4.html</url>
+    <url>/python/tips/python-%E6%98%A0%E5%B0%84%E5%90%8D%E7%A7%B0%E5%88%B0%E5%BA%8F%E5%88%97%E5%85%83%E7%B4%A0.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>你有一段通过下标访问列表或者元组中元素的代码，但是这样有时候会使得你的代码难以阅读， 于是你想通过名称来访问元素。</p>
 <a id="more"></a>
 
@@ -11740,7 +11740,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>mysql 多表连接查询</title>
-    <url>/mysql/ckj5tndnw00002wyvw5rz63y6.html</url>
+    <url>/mysql/mysql-%E5%A4%9A%E8%A1%A8%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>示例图片：</p>
 <p><img src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg2018.cnblogs.com%2Fcommon%2F842724%2F202002%2F842724-20200228155137649-1462263734.png&refer=http%3A%2F%2Fimg2018.cnblogs.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1611585170&t=cf9537e538554164e7bad0a122b496e0" alt="img"></p>
 <a id="more"></a>
@@ -11757,7 +11757,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>mysql 锁机制</title>
-    <url>/mysql/ckjijq3o60000gcyv7un17jc5.html</url>
+    <url>/mysql/mysql-%E9%94%81%E6%9C%BA%E5%88%B6.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="MySQL锁概述"><a href="#MySQL锁概述" class="headerlink" title="MySQL锁概述"></a>MySQL锁概述</h2><p>相对其他数据库而言，MySQL的锁机制比较简单，其最显著的特点是不同的存储引擎支持不同的锁机制。比如，MyISAM和MEMORY存储引擎采用的是表级锁（table-level locking）；BDB存储引擎采用的是页面锁（page-level locking），但也支持表级锁；InnoDB存储引擎既支持行级锁（row-level locking），也支持表级锁，但默认情况下是采用行级锁。</p>
 <a id="more"></a>
 
@@ -11905,7 +11905,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>Linux 密码修改</title>
-    <url>/Linux/ckk12n18h0000okyv3x54kmh4.html</url>
+    <url>/Linux/linux-%E5%AF%86%E7%A0%81%E4%BF%AE%E6%94%B9.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>Linux <code>passwd</code>命令用来更改使用者的密码</p>
 <a id="more"></a>
 
@@ -11948,7 +11948,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>pymysql 使用</title>
-    <url>/pymysql/ckk12n18u0003okyvegdjeht3.html</url>
+    <url>/pymysql/pymysql-%E4%BD%BF%E7%94%A8.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="连接MySQL"><a href="#连接MySQL" class="headerlink" title="连接MySQL"></a>连接MySQL</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> pymysql</span><br><span class="line"></span><br><span class="line"><span class="comment"># config</span></span><br><span class="line">HOST = <span class="string">'103.21.116.89'</span></span><br><span class="line">PORT = <span class="number">3306</span></span><br><span class="line">USER = <span class="string">'root'</span></span><br><span class="line">PASSWD = <span class="string">'QAZ!123#'</span></span><br><span class="line">DB = <span class="string">'ts_model'</span></span><br><span class="line">CHARSET = <span class="string">'utf8'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># connect mysql</span></span><br><span class="line">connection = pymysql.connect(host=HOST, port=PORT, user=USER, passwd=PASSWD,</span><br><span class="line">                             db=DB, charset=CHARSET)</span><br><span class="line"></span><br><span class="line">cursor = connection.cursor()</span><br></pre></td></tr></table></figure>
 
 <h2 id="插入单条数据"><a href="#插入单条数据" class="headerlink" title="插入单条数据"></a>插入单条数据</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    sql = <span class="string">"insert into ts_bigdata(age,score,name) values (%s,%s,'%s');"</span></span><br><span class="line">    cursor.execute(sql % (age, score, name))</span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">    connection.rollback()</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    connection.commit()</span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">    cursor.close()</span><br><span class="line">    connection.close()</span><br></pre></td></tr></table></figure>
@@ -11976,7 +11976,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>python 连接远程服务器</title>
-    <url>/python/ckk12n19v0004okyvkfr3tptk.html</url>
+    <url>/python/python-%E8%BF%9E%E6%8E%A5%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E5%99%A8.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>paramiko是Python的一个库，实现了SSHv2协议(底层使用cryptography)</p>
 <a id="more"></a>
 
@@ -11999,7 +11999,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>Django 序列化问题</title>
-    <url>/python/ckkcj7vn500008kyvx3a4cfgd.html</url>
+    <url>/python/django-%E5%BA%8F%E5%88%97%E5%8C%96%E9%97%AE%E9%A2%98.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>django 序列化类中，若涉及到默认值时，在项目启动后，其值不会再修改，如示例中的<code>date_expired</code>字段，即为项目启动时的时间</p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RegistionSerializer</span><span class="params">(serializers.ModelSerializer)</span>:</span></span><br><span class="line">    <span class="string">"""注册"""</span></span><br><span class="line">    phone = serializers.CharField(required=<span class="literal">True</span>, allow_blank=<span class="literal">False</span>,</span><br><span class="line">                                  allow_null=<span class="literal">False</span>)</span><br><span class="line">    smscode = serializers.CharField(</span><br><span class="line">        required=<span class="literal">True</span>, write_only=<span class="literal">True</span>, help_text=<span class="string">'验证码'</span>, max_length=<span class="number">6</span></span><br><span class="line">    )</span><br><span class="line">    password = serializers.CharField(write_only=<span class="literal">True</span>)</span><br><span class="line">    created_by = serializers.CharField(default=<span class="string">"Registion"</span>)</span><br><span class="line">    source = serializers.CharField(default=User.SOURCE_REGISTION)</span><br><span class="line">    date_expired = serializers.DateTimeField(</span><br><span class="line">        default=timezone.now() + timezone.timedelta(days=<span class="number">3</span>))</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        model = User</span><br><span class="line">        fields = [</span><br><span class="line">            <span class="string">'id'</span>, <span class="string">'name'</span>, <span class="string">'username'</span>, <span class="string">'phone'</span>, <span class="string">'smscode'</span>, <span class="string">'password'</span>,</span><br><span class="line">            <span class="string">'created_by'</span>, <span class="string">'source'</span>, <span class="string">'date_expired'</span></span><br><span class="line">        ]</span><br><span class="line">        read_only_fields = [<span class="string">'id'</span>]</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 通过再次赋值进行修改</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">validate</span><span class="params">(self, attrs)</span>:</span></span><br><span class="line">        attrs[<span class="string">"date_expired"</span>] = timezone.now() + timezone.timedelta(days=<span class="number">3</span>)</span><br><span class="line">        <span class="keyword">return</span> attrs</span><br></pre></td></tr></table></figure>
 
@@ -12014,7 +12014,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>python描述器使用指南</title>
-    <url>/python/ckkcj7vpd00058kyvc27drnlb.html</url>
+    <url>/python/python%E6%8F%8F%E8%BF%B0%E5%99%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="定义和简介"><a href="#定义和简介" class="headerlink" title="定义和简介"></a>定义和简介</h2><p>一般地，一个描述器是一个包含 “绑定行为” 的对象，对其属性的访问被描述器协议中定义的方法覆盖。这些方法有：<code>__get__()</code>，<code>__set__()</code> 和 <code>__delete__()</code>。如果某个对象中定义了这些方法中的任意一个，那么这个对象就可以被称为一个描述器。</p>
 <p>属性访问的默认行为是从一个对象的字典中获取、设置或删除属性。例如，<strong><code>a.x</code> 的查找顺序会从 <code>a.__dict__[&#39;x&#39;]</code> 开始，然后是 <code>type(a).__dict__[&#39;x&#39;]</code>，接下来依次查找 <code>type(a)</code> 的基类，不包括元类</strong>。 如果找到的值是定义了某个描述器方法的对象，则 Python 可能会重载默认行为并转而发起调用描述器方法。这具体发生在优先级链的哪个环节则要根据所定义的描述器方法及其被调用的方式来决定。</p>
 <a id="more"></a>
@@ -12046,7 +12046,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>python pip 用法</title>
-    <url>/python/ckkffplix0000hoyv0ww9y13v.html</url>
+    <url>/python/python-pip-%E7%94%A8%E6%B3%95.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>pip 是 Python 包管理工具，该工具提供了对Python 包的查找、下载、安装、卸载的功能。</p>
 <a id="more"></a>
 
@@ -12110,7 +12110,7 @@ redhat和fedora系统中，还支持一个参数：
   </entry>
   <entry>
     <title>python 安装虚拟环境</title>
-    <url>/python/ckkffplku0003hoyvbnbzfmxf.html</url>
+    <url>/python/python-%E5%AE%89%E8%A3%85%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>虚拟环境用于管理不同版本或不用项目的pyhton开发环境。</p>
 <a id="more"></a>
 

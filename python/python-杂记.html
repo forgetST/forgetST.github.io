@@ -1,0 +1,1579 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.2.0',
+    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})
+  (window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/af1c402f.js","daovoice")
+  daovoice('init', {
+    app_id: "af1c402f"});
+  daovoice('update');
+  </script>
+
+  <meta name="description" content="记录python相关的知识或使用技巧。">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python 杂记">
+<meta property="og:url" content="https://forgetst.github.io/python/python-杂记.html">
+<meta property="og:site_name" content="勿忘，须舍">
+<meta property="og:description" content="记录python相关的知识或使用技巧。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-01-30T16:00:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python 杂记">
+<meta name="twitter:description" content="记录python相关的知识或使用技巧。">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="勿忘，须舍" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="https://forgetst.github.io/python/python-杂记">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  
+  <title>python 杂记 | 勿忘，须舍</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <a href="https://github.com/forgetST" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+  
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">勿忘，须舍</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-python">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/python/" rel="section"><i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>python 随记</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/python/python-杂记.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr Wang">
+      <meta itemprop="description" content="行动了才会有故事，说出来才会有结果。">
+      <meta itemprop="image" content="/images/profile.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="勿忘，须舍">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">python 杂记
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-01-31 00:00" itemprop="dateCreated datePublished" datetime="2020-01-31T00:00:00+08:00">2020-01-31</time>
+            </span>
+          
+
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>记录python相关的知识或使用技巧。</p>
+<a id="more"></a>
+
+<h2 id="LEGB规则"><a href="#LEGB规则" class="headerlink" title="LEGB规则"></a>LEGB规则</h2><p><strong>LEGB含义解释：</strong><br><strong>L-Local(function)：</strong>函数内的名字空间<br><strong>E-Enclosing function locals：</strong>外部嵌套函数的名字空间(例如closure)<br><strong>G-Global(module)：</strong>函数定义所在模块（文件）的名字空间<br><strong>B-Builtin(Python)：</strong>Python内置模块的名字空间</p>
+<h2 id="yield-语句"><a href="#yield-语句" class="headerlink" title="yield 语句"></a>yield 语句</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">consumer</span><span class="params">()</span>:</span></span><br><span class="line">    r = <span class="string">''</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        n = <span class="keyword">yield</span> r</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> n:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        print(<span class="string">'[CONSUMER] Consuming %s...'</span> % n)</span><br><span class="line">        r = <span class="string">'200 OK'</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">produce</span><span class="params">(c)</span>:</span></span><br><span class="line">    c.send(<span class="literal">None</span>)    <span class="comment"># first para is None</span></span><br><span class="line">    n = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> n &lt; <span class="number">5</span>:</span><br><span class="line">        n = n + <span class="number">1</span></span><br><span class="line">        print(<span class="string">'[PRODUCER] Producing %s...'</span> % n)</span><br><span class="line">        r = c.send(n)</span><br><span class="line">        print(<span class="string">'[PRODUCER] Consumer return: %s'</span> % r)</span><br><span class="line">    c.close()</span><br><span class="line"></span><br><span class="line">c = consumer()</span><br><span class="line">produce(c)</span><br><span class="line"></span><br><span class="line"><span class="comment"># result</span></span><br><span class="line">[PRODUCER] Producing <span class="number">1.</span>..</span><br><span class="line">[CONSUMER] Consuming <span class="number">1.</span>..</span><br><span class="line">[PRODUCER] Consumer <span class="keyword">return</span>: <span class="number">200</span> OK</span><br><span class="line">[PRODUCER] Producing <span class="number">2.</span>..</span><br><span class="line">[CONSUMER] Consuming <span class="number">2.</span>..</span><br><span class="line">[PRODUCER] Consumer <span class="keyword">return</span>: <span class="number">200</span> OK</span><br><span class="line">[PRODUCER] Producing <span class="number">3.</span>..</span><br><span class="line">[CONSUMER] Consuming <span class="number">3.</span>..</span><br><span class="line">[PRODUCER] Consumer <span class="keyword">return</span>: <span class="number">200</span> OK</span><br><span class="line">[PRODUCER] Producing <span class="number">4.</span>..</span><br><span class="line">[CONSUMER] Consuming <span class="number">4.</span>..</span><br><span class="line">[PRODUCER] Consumer <span class="keyword">return</span>: <span class="number">200</span> OK</span><br><span class="line">[PRODUCER] Producing <span class="number">5.</span>..</span><br><span class="line">[CONSUMER] Consuming <span class="number">5.</span>..</span><br><span class="line">[PRODUCER] Consumer <span class="keyword">return</span>: <span class="number">200</span> OK</span><br></pre></td></tr></table></figure>
+
+<h2 id="将列表中的元素，依次每-k-个分作一组"><a href="#将列表中的元素，依次每-k-个分作一组" class="headerlink" title="将列表中的元素，依次每 k 个分作一组"></a>将列表中的元素，依次每 k 个分作一组</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">group_each</span><span class="params">(a, size: int)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">        将一个可迭代对象 a 内的元素, 每 size 个分为一组</span></span><br><span class="line"><span class="string">        list(group_each([1,2,3,4], 2)) -&gt; [(1,2), (3,4)]</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    iterators = [iter(a)] * size  <span class="comment"># 将新构造的 iterator 复制 size 次（浅复制）</span></span><br><span class="line">    <span class="keyword">return</span> zip(*iterators)  <span class="comment"># 然后 zip</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="偏函数"><a href="#偏函数" class="headerlink" title="偏函数"></a>偏函数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> partial</span><br><span class="line"></span><br><span class="line"> <span class="comment"># 每两个分一组</span></span><br><span class="line">group_each_2 = partial(group_each, size=<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="多-dict-的去重"><a href="#多-dict-的去重" class="headerlink" title="多 dict 的去重"></a>多 dict 的去重</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># a = [&#123;&apos;a&apos;: 1&#125;, &#123;&apos;a&apos;: 1&#125;, &#123;&apos;b&apos;: 2&#125;]</span><br><span class="line"># a = [&#123;&apos;a&apos;: 1&#125;, &#123;&apos;b&apos;: 2&#125;]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">unique_dicts</span><span class="params">(data_list: list)</span>:</span></span><br><span class="line">    <span class="string">"""unique a list of dict</span></span><br><span class="line"><span class="string">        dict 是 unhashable 的，不能放入 set 中，所以先转换成 str</span></span><br><span class="line"><span class="string">        </span></span><br><span class="line"><span class="string">        unique_dicts([&#123;'a': 1&#125;, &#123;'a': 1&#125;, &#123;'b': 2&#125;])  -&gt;  [&#123;'a': 1&#125;, &#123;'b': 2&#125;]</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    data_json_set = set(json.dumps(item) <span class="keyword">for</span> item <span class="keyword">in</span> data_list)</span><br><span class="line">    <span class="keyword">return</span> [json.loads(item) <span class="keyword">for</span> item <span class="keyword">in</span> data_json_set]</span><br></pre></td></tr></table></figure>
+
+<h2 id="str-的-startswith-和-endswith-两个函数的参数可以是元组"><a href="#str-的-startswith-和-endswith-两个函数的参数可以是元组" class="headerlink" title="str 的 startswith 和 endswith 两个函数的参数可以是元组"></a>str 的 startswith 和 endswith 两个函数的参数可以是元组</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>file = <span class="string">"/opt/gts.tar.gz"</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>file.endswith((<span class="string">".gz"</span>, <span class="string">"txt"</span>)) </span><br><span class="line"><span class="literal">True</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="交互环境下的”-”操作符"><a href="#交互环境下的”-”操作符" class="headerlink" title="交互环境下的”_”操作符"></a>交互环境下的”_”操作符</h2><p>在 Python 控制台，不论何时我们测试一个表达式或者调用一个方法，结果都会分配给一个临时变量： _（一个下划线） 。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">2</span> + <span class="number">3</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>_</span><br><span class="line"><span class="number">5</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="开启文件分享"><a href="#开启文件分享" class="headerlink" title="开启文件分享"></a>开启文件分享</h2><p>Python 允许运行一个 HTTP 服务器来从根路径共享文件，下面是开启服务器的命令：（python3环境）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 -m http.server</span><br></pre></td></tr></table></figure>
+
+<p>上面的命令会在默认端口也就是 8000 开启一个服务器，你可以将一个自定义的端口号以最后一个参数的方式传递到上面的命令中。</p>
+<h2 id="重置递归限制"><a href="#重置递归限制" class="headerlink" title="重置递归限制"></a>重置递归限制</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> sys</span><br><span class="line">     </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>sys.getrecursionlimit()</span><br><span class="line"><span class="number">1000</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>sys.setrecursionlimit(<span class="number">2000</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>sys.getrecursionlimit()</span><br><span class="line"><span class="number">2000</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="检查一个对象的内存使用"><a href="#检查一个对象的内存使用" class="headerlink" title="检查一个对象的内存使用"></a>检查一个对象的内存使用</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>sys.getsizeof(<span class="number">1</span>)</span><br><span class="line"><span class="number">28</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="使用slots来减少内存开支"><a href="#使用slots来减少内存开支" class="headerlink" title="使用slots来减少内存开支"></a>使用<strong>slots</strong>来减少内存开支</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">FileSystem</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, files, folders, devices)</span>:</span></span><br><span class="line">        self.files = files</span><br><span class="line">        self.folders = folders</span><br><span class="line">        self.devices = devices3</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>sys.getsizeof(FileSystem)   </span><br><span class="line"><span class="number">1056</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="class"><span class="keyword">class</span> <span class="title">FileSystem1</span><span class="params">(object)</span>:</span></span><br><span class="line">    __slots__ = [<span class="string">'files'</span>, <span class="string">'folders'</span>, <span class="string">'devices'</span>]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, files, folders, devices)</span>:</span></span><br><span class="line">        self.files = files</span><br><span class="line">        self.folders = folders</span><br><span class="line">        self.devices = devices</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>sys.getsizeof(FileSystem1)</span><br><span class="line"><span class="number">888</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="将中文转为unicode编码"><a href="#将中文转为unicode编码" class="headerlink" title="将中文转为unicode编码"></a>将中文转为unicode编码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">"编码"</span>.encode(<span class="string">"unicode_escape"</span>)</span><br><span class="line"><span class="string">b'\\u7f16\\u7801'</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="创建多级目录"><a href="#创建多级目录" class="headerlink" title="创建多级目录"></a>创建多级目录</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line">os.makdirs(<span class="string">"/opt/a/b/c"</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="打印日期序列"><a href="#打印日期序列" class="headerlink" title="打印日期序列"></a>打印日期序列</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = pd.date_range(<span class="string">"2020-02-25"</span>, <span class="string">"2020-03-02"</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a</span><br><span class="line">DatetimeIndex([<span class="string">'2020-02-25'</span>, <span class="string">'2020-02-26'</span>, <span class="string">'2020-02-27'</span>, <span class="string">'2020-02-28'</span>,</span><br><span class="line">               <span class="string">'2020-02-29'</span>, <span class="string">'2020-03-01'</span>, <span class="string">'2020-03-02'</span>],</span><br><span class="line">              dtype=<span class="string">'datetime64[ns]'</span>, freq=<span class="string">'D'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>time_list = [x.strftime(<span class="string">"%Y-%m-%d"</span>) <span class="keyword">for</span> x <span class="keyword">in</span> pd.date_range(<span class="string">"2020-02-25"</span>, <span class="string">"2020-03-02"</span>)]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>time_list</span><br><span class="line">[<span class="string">'2020-02-25'</span>, <span class="string">'2020-02-26'</span>, <span class="string">'2020-02-27'</span>, <span class="string">'2020-02-28'</span>, <span class="string">'2020-02-29'</span>, <span class="string">'2020-03-01'</span>, <span class="string">'2020-03-02'</span>]</span><br></pre></td></tr></table></figure>
+
+<h2 id="查看当前系统编码方式"><a href="#查看当前系统编码方式" class="headerlink" title="查看当前系统编码方式"></a>查看当前系统编码方式</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> locale</span><br><span class="line">     </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>locale.getpreferredencoding()</span><br></pre></td></tr></table></figure>
+
+<h2 id="序列过滤"><a href="#序列过滤" class="headerlink" title="序列过滤"></a>序列过滤</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; import random</span><br><span class="line">   </span><br><span class="line">&gt;&gt;&gt; lst = [random.randint(-10, 10) for range(10)]   </span><br><span class="line">&gt;&gt;&gt; lst  </span><br><span class="line">[2, 10, 3, 4, 6, -4, 2, 1, -6, -7]</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; [x for x in lst if x &gt; 0]   </span><br><span class="line">[2, 10, 3, 4, 6, 2, 1]</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; list(filter(lambda x: x &gt; 0, lst))    </span><br><span class="line">[2, 10, 3, 4, 6, 2, 1]</span><br></pre></td></tr></table></figure>
+
+<h2 id="命名元组"><a href="#命名元组" class="headerlink" title="命名元组"></a>命名元组</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">import collections</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">student = collections.namedtuple(&quot;student&quot;, (&quot;name&quot;, &quot;age&quot;, &quot;grade&quot;))</span><br><span class="line"></span><br><span class="line"># 方式一</span><br><span class="line">jack = student(&quot;Jack&quot;, 20, &quot;A&quot;) # student(name=&apos;Jack&apos;, age=20, grade=&apos;A&apos;)</span><br><span class="line"></span><br><span class="line"># 方式二</span><br><span class="line">bob = student(**dict(name=&quot;Jack&quot;, age=20, grade=&quot;A&quot;))</span><br><span class="line"></span><br><span class="line">print(jack[0])  # &apos;Jack&apos;</span><br><span class="line">print(jack.name)  #&apos;Jack&apos;</span><br><span class="line"></span><br><span class="line">print(bob[-1]) # &apos;A&apos;</span><br><span class="line">print(bob.grade) # &apos;A&apos;</span><br></pre></td></tr></table></figure>
+
+<h2 id="实现tail和head功能"><a href="#实现tail和head功能" class="headerlink" title="实现tail和head功能"></a>实现<code>tail</code>和<code>head</code>功能</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line"></span><br><span class="line">from collections import deque</span><br><span class="line">from itertools import islice</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def head(path, n=10, mode=&apos;r&apos;, buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opener=None):</span><br><span class="line">    try:</span><br><span class="line">        with open(path, mode, buffering, encoding, errors, newline, closefd, opener) as f:</span><br><span class="line">            return deque(islice(f, n - 1))</span><br><span class="line">    except Exception as e:</span><br><span class="line">        print(e)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def tail(path, n=10, mode=&apos;r&apos;, buffering=-1, encoding=None, errors=None, newline=None, closefd=True, opener=None):</span><br><span class="line">    try:</span><br><span class="line">        with open(path, mode, buffering, encoding, errors, newline, closefd, opener) as f:</span><br><span class="line">            return deque(f, maxlen=n)</span><br><span class="line">    except Exception as e:</span><br><span class="line">        print(e)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    path = &quot;NEWS.txt&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="实现轮询调度器"><a href="#实现轮询调度器" class="headerlink" title="实现轮询调度器"></a>实现轮询调度器</h2><p>实现下述需求</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">['ABC', 'D', 'EF'] --&gt; ['A', 'D', 'E', 'B', 'F', 'C']</span><br></pre></td></tr></table></figure>
+
+<p><strong>方式一：可以通过在 deque 中放入迭代器来实现。</strong></p>
+<p>值从当前迭代器的位置0被取出并暂存(yield)。 如果这个迭代器消耗完毕，就用 popleft() 将其从对列中移去；否则，就通过 rotate() 将它移到队列的末尾</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">from collections import deque</span><br><span class="line"></span><br><span class="line">def roundrobin(*iterables):</span><br><span class="line">    &quot;roundrobin(&apos;ABC&apos;, &apos;D&apos;, &apos;EF&apos;) --&gt; A D E B F C&quot;</span><br><span class="line">    iterators = deque(map(iter, iterables))</span><br><span class="line">    while iterators:</span><br><span class="line">        try:</span><br><span class="line">            while True:</span><br><span class="line">                yield next(iterators[0])</span><br><span class="line">                iterators.rotate(-1)</span><br><span class="line">        except StopIteration:</span><br><span class="line">            # Remove an exhausted iterator.</span><br><span class="line">            iterators.popleft()</span><br><span class="line"> </span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    roundrobin(&apos;ABC&apos;, &apos;D&apos;, &apos;EF&apos;)</span><br></pre></td></tr></table></figure>
+
+<p>耗时测试：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; import timeit</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; timeit.timeit(&quot;list(roundrobin(&apos;ABC&apos;, &apos;D&apos;, &apos;EF&apos;))&quot;, &quot;from __main__ import roundrobin&quot;)</span><br><span class="line">8.649481091000325</span><br></pre></td></tr></table></figure>
+
+<p><strong>方式二：通过zip_longest实现。</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; import functools</span><br><span class="line">&gt;&gt;&gt; import itertools</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; list(filter(lambda x: x, functools.reduce(lambda x, y: x + y, itertools.zip_longest(&apos;ABC&apos;, &apos;D&apos;, &apos;EF&apos;))))</span><br><span class="line">[&apos;A&apos;, &apos;D&apos;, &apos;E&apos;, &apos;B&apos;, &apos;F&apos;, &apos;C&apos;]</span><br></pre></td></tr></table></figure>
+
+<p>耗时测试：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; import timeit</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; timeit.timeit(&quot;list(filter(lambda x: x, functools.reduce(lambda x, y: x + y, itertools.zip_longest(&apos;ABC&apos;, &apos;D&apos;, &apos;EF&apos;))))&quot;, &quot;import functools&quot;)</span><br><span class="line">4.335959078000087</span><br></pre></td></tr></table></figure>
+
+<h2 id="python-在函数内部获取函数名"><a href="#python-在函数内部获取函数名" class="headerlink" title="python 在函数内部获取函数名"></a>python 在函数内部获取函数名</h2><p>方式一：sys._getframe().f_code.co_name</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import sys</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def my_function_1():</span><br><span class="line">    func_name = sys._getframe(0).f_code.co_name</span><br><span class="line">    print(func_name)</span><br></pre></td></tr></table></figure>
+
+<p>方式二：用inspect模块中的inspect.stack()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import inspect</span><br><span class="line"></span><br><span class="line">def my_function_2():</span><br><span class="line">    print(inspect.stack()[0][3])</span><br></pre></td></tr></table></figure>
+
+<h2 id="python获取当前进程所在的文件名"><a href="#python获取当前进程所在的文件名" class="headerlink" title="python获取当前进程所在的文件名"></a>python获取当前进程所在的文件名</h2><ul>
+<li>sys._getframe().f_code.co_filename</li>
+<li>__file__</li>
+</ul>
+<h2 id="re中的-1-2-3问题"><a href="#re中的-1-2-3问题" class="headerlink" title="re中的\1\2\3问题"></a>re中的\1\2\3问题</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; import re</span><br><span class="line">&gt;&gt;&gt; st = &quot;Today is 01/08/2020, yesterday is 01/08/2020.&quot;</span><br><span class="line">&gt;&gt;&gt; re.sub(&quot;(\d+)/(\d+)/(\d+)&quot;, r&quot;\3-\1-\2&quot;, st)</span><br><span class="line">&apos;Today is 2020-01-08, yesterday is 2020-01-08.&apos;</span><br></pre></td></tr></table></figure>
+
+<h2 id="简析Python中的四种队列"><a href="#简析Python中的四种队列" class="headerlink" title="简析Python中的四种队列"></a>简析Python中的四种队列</h2><p>参考：<a href="https://www.jianshu.com/p/55243999aa56" target="_blank" rel="noopener">https://www.jianshu.com/p/55243999aa56</a></p>
+<h2 id="spark-中文文档"><a href="#spark-中文文档" class="headerlink" title="spark 中文文档"></a>spark 中文文档</h2><p><a href="http://spark-cn.cn/rdd-programming-guide.html" target="_blank" rel="noopener">http://spark-cn.cn/rdd-programming-guide.html</a><br><a href="https://blog.csdn.net/u012185296/article/details/76855770" target="_blank" rel="noopener">Apache Spark 2.2.0 官方文档中文版</a></p>
+<h2 id="Python-中关于-round-函数的小坑"><a href="#Python-中关于-round-函数的小坑" class="headerlink" title="Python 中关于 round 函数的小坑"></a>Python 中关于 round 函数的小坑</h2><p>round的结果跟python版本有关：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Python 2.7.14 (v2.7.14:84471935ed, Sep 16 2017, 20:25:58) [MSC v.1500 64 bit (AMD64)] on win32</span><br><span class="line">Type &quot;copyright&quot;, &quot;credits&quot; or &quot;license()&quot; for more information.</span><br><span class="line">&gt;&gt;&gt; round(2.5)</span><br><span class="line">3.0</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Python 3.7.1 (v3.7.1:260ec2c36a, Oct 20 2018, 14:57:15) [MSC v.1915 64 bit (AMD64)] on win32</span><br><span class="line">Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license()&quot; for more information.</span><br><span class="line">&gt;&gt;&gt; round(2.5)</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
+
+<p>阅读一下python的文档，里面是这么写的：</p>
+<p>在python2.7的doc中，round()的最后写着，”Values are rounded to the closest multiple of 10 to the power minus ndigits; if two multiples are equally close, rounding is done away from 0.” 保留值将保留到离上一位更近的一端（四舍六入），如果距离两端一样远，则保留到离0远的一边。所以round(0.5)会近似到1，而round(-0.5)会近似到-1。</p>
+<p>但是到了python3.5的doc中，文档变成了”values are rounded to the closest multiple of 10 to the power minus ndigits; if two multiples are equally close, rounding is done toward the even choice.” 如果距离两边一样远，会保留到偶数的一边。比如round(0.5)和round(-0.5)都会保留到0，而round(1.5)会保留到2。</p>
+<h2 id="python-求最小公倍数"><a href="#python-求最小公倍数" class="headerlink" title="python 求最小公倍数"></a>python 求最小公倍数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># -*- coding:utf-8 -*-</span><br><span class="line">import math</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">while True:</span><br><span class="line">    try:</span><br><span class="line">        m, n = map(int, input().strip().split())</span><br><span class="line">        max_fac = math.gcd(m, n)  # 最大公约数</span><br><span class="line">        print(m * n // max_fac)   # 最小公倍数</span><br><span class="line">    except Exception as e:</span><br><span class="line">        break</span><br></pre></td></tr></table></figure>
+
+<h2 id="python求两数的最大公约数"><a href="#python求两数的最大公约数" class="headerlink" title="python求两数的最大公约数"></a>python求两数的最大公约数</h2><ul>
+<li>使用 math.gcd 方法</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; import math</span><br><span class="line">&gt;&gt;&gt; math.gcd(20, 25)</span><br><span class="line">5</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>欧几里德算法</li>
+</ul>
+<p>欧几里德算法又称辗转相除法， 用于计算两个整数a, b的最大公约数。其计算原理依赖于下面的定理：<br>定理：gcd(a, b) = gcd(b, a mod b) (a &gt; b)</p>
+<p>证明：<br>  a可以表示成a = kb + r, 则r = a mod b<br>  假设d是a, b的一个公约数， 则有  d|a, d|b, 而r = a - kb, 因此d|r。<br>  因此，d是(b, a mod b)的公约数。<br>  加上d是(b，a mod b)的公约数，则d|b, d|r, 但是a = kb + r,因此d也是(a, b)的公约数。<br>  因此，(a, b) 和(a, a mod b)的公约数是一样的，其最大公约数也必然相等，得证。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># -*- coding:utf-8 -*-</span><br><span class="line"></span><br><span class="line">def gcd(a, b):</span><br><span class="line">    a, b = a, b if a &gt;= b else b, a</span><br><span class="line">    while b != 0:</span><br><span class="line">        remainder = a % b</span><br><span class="line">        a = b</span><br><span class="line">        b = remainder</span><br><span class="line">    return a</span><br><span class="line"></span><br><span class="line">gcd(20, 25)</span><br></pre></td></tr></table></figure>
+
+<h2 id="python中开n次方根"><a href="#python中开n次方根" class="headerlink" title="python中开n次方根"></a>python中开n次方根</h2><p>利用 <code>pow(a, b)</code> 函数即可。需要开a的r次方则 <code>pow(a, 1/r)</code></p>
+<h2 id="‘ascii’-codec-can’t-encode-characters-in-position-0-6-ordinal-not-in-range-128"><a href="#‘ascii’-codec-can’t-encode-characters-in-position-0-6-ordinal-not-in-range-128" class="headerlink" title="‘ascii’ codec can’t encode characters in position 0-6: ordinal not in range(128)"></a>‘ascii’ codec can’t encode characters in position 0-6: ordinal not in range(128)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&apos;ascii&apos; codec can&apos;t encode characters in position 0-6: ordinal not in range(128)</span><br></pre></td></tr></table></figure>
+
+<p>方式一 在文件开头添加：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import sys</span><br><span class="line">reload(sys)</span><br><span class="line">sys.setdefaultencoding(&apos;utf8&apos;)</span><br></pre></td></tr></table></figure>
+
+<p>方式二：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import sys</span><br><span class="line">import io</span><br><span class="line">sys.stdout=io.TextIOWrapper(sys.stdout.buffer,encoding=&quot;utf-8&quot;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Python2-x-和-Python3-x-中-raw-input-和-input-区别"><a href="#Python2-x-和-Python3-x-中-raw-input-和-input-区别" class="headerlink" title="Python2.x 和 Python3.x 中 raw_input( ) 和 input( ) 区别"></a>Python2.x 和 Python3.x 中 raw_input( ) 和 input( ) 区别</h2><p>Python3.x 中 input() 函数接受一个标准输入数据，返回为 string 类型。</p>
+<p>Python2.x 中 input() 相等于 eval(raw_input(prompt)) ，用来获取控制台的输入。</p>
+<p>raw_input() 将所有输入作为字符串看待，返回字符串类型。而 input() 在对待纯数字输入时具有自己的特性，它返回所输入的数字的类型（ int, float ）。</p>
+<p>注意：input() 和 raw_input() 这两个函数均能接收 字符串 ，但 raw_input() 直接读取控制台的输入（任何类型的输入它都可以接收）。而对于 input() ，它希望能够读取一个合法的 python 表达式，即你输入字符串的时候必须使用引号将它括起来，否则它会引发一个 SyntaxError 。</p>
+<p>除非对 input() 有特别需要，否则一般情况下我们都是推荐使用 raw_input() 来与用户交互。</p>
+<p>注意：python3 里 input() 默认接收到的是 str 类型。</p>
+<h2 id="python-垃圾回收机制"><a href="#python-垃圾回收机制" class="headerlink" title="python 垃圾回收机制"></a>python 垃圾回收机制</h2><p><a href="https://www.cnblogs.com/pinganzi/p/6646742.html" target="_blank" rel="noopener">https://www.cnblogs.com/pinganzi/p/6646742.html</a></p>
+<h2 id="检查一个进程是否存在"><a href="#检查一个进程是否存在" class="headerlink" title="检查一个进程是否存在"></a>检查一个进程是否存在</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">def check_pid(pid):</span><br><span class="line">    &quot;&quot;&quot; Check For the existence of a unix pid. &quot;&quot;&quot;</span><br><span class="line">    try:</span><br><span class="line">        os.kill(pid, 0)</span><br><span class="line">    except (OSError, ProcessLookupError):</span><br><span class="line">        return False</span><br><span class="line">    else:</span><br><span class="line">        return True</span><br></pre></td></tr></table></figure>
+
+<h2 id="删除一个文件"><a href="#删除一个文件" class="headerlink" title="删除一个文件"></a>删除一个文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">os.unlink(file_path)</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; import os</span><br><span class="line">&gt;&gt;&gt; os.unlink(&quot;a&quot;)</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;</span><br><span class="line">OSError: [Errno 2] No such file or directory: &apos;a&apos;</span><br><span class="line"></span><br><span class="line">注：os.unlink() 方法用于删除文件,如果文件是一个目录则返回一个错误。</span><br></pre></td></tr></table></figure>
+
+<h2 id="python-控制台输出中文设置"><a href="#python-控制台输出中文设置" class="headerlink" title="python 控制台输出中文设置"></a>python 控制台输出中文设置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.environ[&quot;PYTHONIOENCODING&quot;] = &quot;UTF-8&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="处理-Django-admin-py-Unknown-command-‘collectstatic’"><a href="#处理-Django-admin-py-Unknown-command-‘collectstatic’" class="headerlink" title="处理 Django admin.py Unknown command: ‘collectstatic’"></a>处理 Django admin.py Unknown command: ‘collectstatic’</h2><p>在<code>settings.py</code>文件的INSTALLED_APPS中添加<code>django.contrib.staticfiles</code></p>
+<h2 id="python-格式化输出json文件"><a href="#python-格式化输出json文件" class="headerlink" title="python 格式化输出json文件"></a>python 格式化输出json文件</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root@master01 ~]<span class="comment"># python -m json.tool /etc/docker/key.json </span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="string">"crv"</span>: <span class="string">"P-256"</span>,</span><br><span class="line">    <span class="string">"d"</span>: <span class="string">"dhFxxOEzeg9Gp6VkTaxR-u1g7_B9fV5fCqRAVH9dbbU"</span>,</span><br><span class="line">    <span class="string">"kid"</span>: <span class="string">"6UJ7:FPOO:J6DR:MY5Q:SKVX:73MZ:2W33:ZAHS:5A4W:EWB2:TLNF:RBOY"</span>,</span><br><span class="line">    <span class="string">"kty"</span>: <span class="string">"EC"</span>,</span><br><span class="line">    <span class="string">"x"</span>: <span class="string">"znFo4I-9g1i8gAWDvtwc9JPKOewp5_iGB00Z7ZrRpRs"</span>,</span><br><span class="line">    <span class="string">"y"</span>: <span class="string">"BnhWJZhofXl74w9hm6uvdtOLuRf8X36Llb_hCBL2yPc"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+
+    
+      
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+      <div>
+        
+
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Mr Wang</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="https://forgetst.github.io/python/python-杂记.html" title="python 杂记">https://forgetst.github.io/python/python-杂记.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/python/module/python-numpy-module.html" rel="next" title="python numpy module">
+                <i class="fa fa-chevron-left"></i> python numpy module
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/Linux/linux-杂记.html" rel="prev" title="Linux 杂记">
+                Linux 杂记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  
+    <img class="site-author-image" itemprop="image" src="/images/profile.jpg" alt="Mr Wang">
+  
+  <p class="site-author-name" itemprop="name">Mr Wang</p>
+  <div class="site-description motion-element" itemprop="description">行动了才会有故事，说出来才会有结果。</div>
+</div>
+
+
+  <nav class="site-state motion-element">
+    
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">132</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">46</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+
+
+
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+
+
+
+
+
+  <div class="links-of-author motion-element">
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/forgetST" title="GitHub &rarr; https://github.com/forgetST" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:yourname@gmail.com" title="E-Mail &rarr; mailto:yourname@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://weibo.com/yourname" title="Weibo &rarr; https://weibo.com/yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+    
+  </div>
+
+
+
+
+
+
+
+          
+          
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#LEGB规则"><span class="nav-number">1.</span> <span class="nav-text">LEGB规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#yield-语句"><span class="nav-number">2.</span> <span class="nav-text">yield 语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#将列表中的元素，依次每-k-个分作一组"><span class="nav-number">3.</span> <span class="nav-text">将列表中的元素，依次每 k 个分作一组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#偏函数"><span class="nav-number">4.</span> <span class="nav-text">偏函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多-dict-的去重"><span class="nav-number">5.</span> <span class="nav-text">多 dict 的去重</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#str-的-startswith-和-endswith-两个函数的参数可以是元组"><span class="nav-number">6.</span> <span class="nav-text">str 的 startswith 和 endswith 两个函数的参数可以是元组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#交互环境下的”-”操作符"><span class="nav-number">7.</span> <span class="nav-text">交互环境下的”_”操作符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开启文件分享"><span class="nav-number">8.</span> <span class="nav-text">开启文件分享</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重置递归限制"><span class="nav-number">9.</span> <span class="nav-text">重置递归限制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#检查一个对象的内存使用"><span class="nav-number">10.</span> <span class="nav-text">检查一个对象的内存使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用slots来减少内存开支"><span class="nav-number">11.</span> <span class="nav-text">使用slots来减少内存开支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#将中文转为unicode编码"><span class="nav-number">12.</span> <span class="nav-text">将中文转为unicode编码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建多级目录"><span class="nav-number">13.</span> <span class="nav-text">创建多级目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#打印日期序列"><span class="nav-number">14.</span> <span class="nav-text">打印日期序列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看当前系统编码方式"><span class="nav-number">15.</span> <span class="nav-text">查看当前系统编码方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#序列过滤"><span class="nav-number">16.</span> <span class="nav-text">序列过滤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命名元组"><span class="nav-number">17.</span> <span class="nav-text">命名元组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现tail和head功能"><span class="nav-number">18.</span> <span class="nav-text">实现tail和head功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现轮询调度器"><span class="nav-number">19.</span> <span class="nav-text">实现轮询调度器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#python-在函数内部获取函数名"><span class="nav-number">20.</span> <span class="nav-text">python 在函数内部获取函数名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#python获取当前进程所在的文件名"><span class="nav-number">21.</span> <span class="nav-text">python获取当前进程所在的文件名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#re中的-1-2-3问题"><span class="nav-number">22.</span> <span class="nav-text">re中的\1\2\3问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简析Python中的四种队列"><span class="nav-number">23.</span> <span class="nav-text">简析Python中的四种队列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spark-中文文档"><span class="nav-number">24.</span> <span class="nav-text">spark 中文文档</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python-中关于-round-函数的小坑"><span class="nav-number">25.</span> <span class="nav-text">Python 中关于 round 函数的小坑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#python-求最小公倍数"><span class="nav-number">26.</span> <span class="nav-text">python 求最小公倍数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#python求两数的最大公约数"><span class="nav-number">27.</span> <span class="nav-text">python求两数的最大公约数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#python中开n次方根"><span class="nav-number">28.</span> <span class="nav-text">python中开n次方根</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#‘ascii’-codec-can’t-encode-characters-in-position-0-6-ordinal-not-in-range-128"><span class="nav-number">29.</span> <span class="nav-text">‘ascii’ codec can’t encode characters in position 0-6: ordinal not in range(128)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python2-x-和-Python3-x-中-raw-input-和-input-区别"><span class="nav-number">30.</span> <span class="nav-text">Python2.x 和 Python3.x 中 raw_input( ) 和 input( ) 区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#python-垃圾回收机制"><span class="nav-number">31.</span> <span class="nav-text">python 垃圾回收机制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#检查一个进程是否存在"><span class="nav-number">32.</span> <span class="nav-text">检查一个进程是否存在</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除一个文件"><span class="nav-number">33.</span> <span class="nav-text">删除一个文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#python-控制台输出中文设置"><span class="nav-number">34.</span> <span class="nav-text">python 控制台输出中文设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#处理-Django-admin-py-Unknown-command-‘collectstatic’"><span class="nav-number">35.</span> <span class="nav-text">处理 Django admin.py Unknown command: ‘collectstatic’</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#python-格式化输出json文件"><span class="nav-number">36.</span> <span class="nav-text">python 格式化输出json文件</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+      
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+</div>
+
+
+        
+      </main></div>
+    
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mr Wang</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+  <span class="post-meta-divider">|</span>
+  <span id="busuanzi_container_site_uv">总访客数<span id="busuanzi_value_site_uv"></span>人</span>
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+  
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+
+
+  <script src="/js/utils.js?v=7.2.0"></script>
+
+  <script src="/js/motion.js?v=7.2.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.2.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
+
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/01/assets/haru01.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7}});</script></body>
+
+
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+
+</html>
+
+
