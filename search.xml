@@ -12045,7 +12045,7 @@ redhat和fedora系统中，还支持一个参数：
       </tags>
   </entry>
   <entry>
-    <title>python 安装虚拟环境</title>
+    <title>python pip 用法</title>
     <url>/python/ckkffplix0000hoyv0ww9y13v.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>pip 是 Python 包管理工具，该工具提供了对Python 包的查找、下载、安装、卸载的功能。</p>
 <a id="more"></a>
