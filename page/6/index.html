@@ -387,6 +387,490 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/dataStructure/ckj1jlqoo004ft8yva3bjlm1u.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr Wang">
+      <meta itemprop="description" content="行动了才会有故事，说出来才会有结果。">
+      <meta itemprop="image" content="/images/profile.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="勿忘，须舍">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/dataStructure/ckj1jlqoo004ft8yva3bjlm1u.html" class="post-title-link" itemprop="url">力扣题库（python解法）</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-11-06 00:00" itemprop="dateCreated datePublished" datetime="2019-11-06T00:00:00+08:00">2019-11-06</time>
+            </span>
+          
+
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/dataStructure/" itemprop="url" rel="index"><span itemprop="name">dataStructure</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1-两数之和"><a href="#1-两数之和" class="headerlink" title="1.两数之和"></a>1.两数之和</h2><h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><p><a href="https://leetcode-cn.com/problems/two-sum/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/two-sum/</a></p>
+<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。</p>
+<p>你可以假设每种输入只会对应一个答案。但是，你不能重复利用这个数组中同样的元素。</p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">给定 nums = [2, 7, 11, 15], target = 9</span><br><span class="line"></span><br><span class="line">因为 nums[0] + nums[1] = 2 + 7 = 9</span><br><span class="line">所以返回 [0, 1]</span><br></pre></td></tr></table></figure>
+
+<h3 id="解法分析"><a href="#解法分析" class="headerlink" title="解法分析"></a>解法分析</h3><h4 id="方法一：暴力法"><a href="#方法一：暴力法" class="headerlink" title="方法一：暴力法"></a>方法一：暴力法</h4><p>暴力法很简单，遍历每个元素 x<em>x</em>，并查找是否存在一个值与 target - x<em>t<strong>a</strong>r<strong>g</strong>e*<em>t</em>−*x</em> 相等的目标元素。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def twoSum(self, nums: List[int], target: int) -&gt; List[int]:</span><br><span class="line">        hash_dict = &#123;v:i for i, v in enumerate(nums)&#125;</span><br><span class="line">        for index1, value in enumerate(nums):</span><br><span class="line">            v = target - value</span><br><span class="line">            index2 = hash_dict.get(v)</span><br><span class="line">            if v in hash_dict and index1 != index2:</span><br><span class="line">                return [index1, index2]</span><br></pre></td></tr></table></figure>
+
+<p>复杂度分析：</p>
+<ul>
+<li><p>时间复杂度：O(n^2)<br>对于每个元素，我们试图通过遍历数组的其余部分来寻找它所对应的目标元素，这将耗费 O(n)O(n) 的时间。因此时间复杂度为 O(n^2)。</p>
+</li>
+<li><p>空间复杂度：O(1)。</p>
+</li>
+</ul>
+<h4 id="方法二：两遍哈希表"><a href="#方法二：两遍哈希表" class="headerlink" title="方法二：两遍哈希表"></a>方法二：两遍哈希表</h4><p>为了对运行时间复杂度进行优化，我们需要一种更有效的方法来检查数组中是否存在目标元素。如果存在，我们需要找出它的索引。保持数组中的每个元素与其索引相互对应的最好方法是什么？哈希表。</p>
+<p>通过以空间换取速度的方式，我们可以将查找时间从 O(n)降低到 O(1)。哈希表正是为此目的而构建的，它支持以 近似 恒定的时间进行快速查找。我用“近似”来描述，是因为一旦出现冲突，查找用时可能会退化到 O(n)。但只要你仔细地挑选哈希函数，在哈希表中进行查找的用时应当被摊销为 O(1)。</p>
+<p>一个简单的实现使用了两次迭代。在第一次迭代中，我们将每个元素的值和它的索引添加到表中。然后，在第二次迭代中，我们将检查每个元素所对应的目标元素（target - nums[i]）是否存在于表中。注意，该目标元素不能是 nums[i] 本身！</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def twoSum(self, nums: List[int], target: int) -&gt; List[int]:</span><br><span class="line">        hash_dict = &#123;v:i for i, v in enumerate(nums)&#125;</span><br><span class="line">        for index1, value in enumerate(nums):</span><br><span class="line">            v = target - value</span><br><span class="line">            index2 = hash_dict.get(v)</span><br><span class="line">            if v in hash_dict and index1 != index2:</span><br><span class="line">                return [index1, index2]</span><br></pre></td></tr></table></figure>
+
+<p>复杂度分析：</p>
+<ul>
+<li><p>时间复杂度：O(n)，<br>我们把包含有 n 个元素的列表遍历两次。由于哈希表将查找时间缩短到 O(1) ，所以时间复杂度为 O(n)。</p>
+</li>
+<li><p>空间复杂度：O(n)，<br>所需的额外空间取决于哈希表中存储的元素数量，该表中存储了 n 个元素。</p>
+</li>
+</ul>
+<h4 id="方法三：一遍哈希表"><a href="#方法三：一遍哈希表" class="headerlink" title="方法三：一遍哈希表"></a>方法三：一遍哈希表</h4><p>事实证明，我们可以一次完成。在进行迭代并将元素插入到表中的同时，我们还会回过头来检查表中是否已经存在当前元素所对应的目标元素。如果它存在，那我们已经找到了对应解，并立即将其返回.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def twoSum(self, nums: List[int], target: int) -&gt; List[int]:</span><br><span class="line">        hash_dict = &#123;&#125;</span><br><span class="line">        for index1, value in enumerate(nums):</span><br><span class="line">            v = target - value</span><br><span class="line">            if v in hash_dict:</span><br><span class="line">                return [hash_dict[v], index1]</span><br><span class="line">            hash_dict[value] = index1</span><br></pre></td></tr></table></figure>
+
+<p>复杂度分析：</p>
+<ul>
+<li><p>时间复杂度：O(n)，<br>我们只遍历了包含有 n 个元素的列表一次。在表中进行的每次查找只花费 O(1)的时间。</p>
+</li>
+<li><p>空间复杂度：O(n)，<br>所需的额外空间取决于哈希表中存储的元素数量，该表最多需要存储 nn 个元素。</p>
+</li>
+</ul>
+<h2 id="2-两数相加"><a href="#2-两数相加" class="headerlink" title="2.两数相加"></a>2.两数相加</h2><h3 id="链接-1"><a href="#链接-1" class="headerlink" title="链接"></a>链接</h3><p><a href="https://leetcode-cn.com/problems/add-two-numbers/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/add-two-numbers/</a></p>
+<h3 id="问题-1"><a href="#问题-1" class="headerlink" title="问题"></a>问题</h3><p>给出两个非空的链表用来表示两个非负的整数。其中，它们各自的位数是按照逆序的方式存储的，并且它们的每个节点只能存储 一位 数字。</p>
+<p>如果，我们将这两个数相加起来，则会返回一个新的链表来表示它们的和。</p>
+<p>您可以假设除了数字 0 之外，这两个数都不会以 0 开头。</p>
+<h3 id="示例-1"><a href="#示例-1" class="headerlink" title="示例"></a>示例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：(2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)</span><br><span class="line">输出：7 -&gt; 0 -&gt; 8</span><br><span class="line">原因：342 + 465 = 807</span><br></pre></td></tr></table></figure>
+
+<h3 id="代码示例："><a href="#代码示例：" class="headerlink" title="代码示例："></a>代码示例：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"># Definition for singly-linked list.</span><br><span class="line"># class ListNode:</span><br><span class="line">#     def __init__(self, x):</span><br><span class="line">#         self.val = x</span><br><span class="line">#         self.next = None</span><br><span class="line"></span><br><span class="line">class Solution:</span><br><span class="line">    def addTwoNumbers(self, l1: ListNode, l2: ListNode) -&gt; ListNode:</span><br><span class="line">        init_value = ListNode(0)</span><br><span class="line">        tmp = init_value</span><br><span class="line">        array = 0</span><br><span class="line">        while l1 or l2:</span><br><span class="line">            x, y = l1.val if l1 else 0, l2.val if l2 else 0</span><br><span class="line">            sum = x + y + array</span><br><span class="line">            array = sum // 10</span><br><span class="line">            tmp.next = ListNode(sum % 10)</span><br><span class="line">            tmp = tmp.next</span><br><span class="line">            if l1 is not None:</span><br><span class="line">                l1 = l1.next</span><br><span class="line">            </span><br><span class="line">            if l2 is not None:</span><br><span class="line">                l2 = l2.next</span><br><span class="line">        if array:</span><br><span class="line">            tmp.next = ListNode(array)</span><br><span class="line">        return init_value.next</span><br></pre></td></tr></table></figure>
+
+<h2 id="200-岛屿数量"><a href="#200-岛屿数量" class="headerlink" title="200.岛屿数量"></a>200.岛屿数量</h2><h3 id="链接-2"><a href="#链接-2" class="headerlink" title="链接"></a>链接</h3><p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/number-of-islands" target="_blank" rel="noopener">https://leetcode-cn.com/problems/number-of-islands</a></p>
+<h3 id="问题-2"><a href="#问题-2" class="headerlink" title="问题"></a>问题</h3><p>给定一个由 ‘1’（陆地）和 ‘0’（水）组成的的二维网格，计算岛屿的数量。一个岛被水包围，并且它是通过水平方向或垂直方向上相邻的陆地连接而成的。你可以假设网格的四个边均被水包围。</p>
+<h3 id="示例-2"><a href="#示例-2" class="headerlink" title="示例"></a>示例</h3><p>示例 1:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">输入:</span><br><span class="line">11110</span><br><span class="line">11010</span><br><span class="line">11000</span><br><span class="line">00000</span><br><span class="line"></span><br><span class="line">输出: 1</span><br></pre></td></tr></table></figure>
+
+<p>示例 2:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">输入:</span><br><span class="line">11000</span><br><span class="line">11000</span><br><span class="line">00100</span><br><span class="line">00011</span><br><span class="line"></span><br><span class="line">输出: 3</span><br></pre></td></tr></table></figure>
+
+<h3 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h3><p>分析：<a href="https://leetcode-cn.com/problems/number-of-islands/solution/dao-yu-shu-liang-by-leetcode/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/number-of-islands/solution/dao-yu-shu-liang-by-leetcode/</a></p>
+<p><a href="https://leetcode-cn.com/problems/number-of-islands/solution/dfs-bfs-bing-cha-ji-python-dai-ma-java-dai-ma-by-l/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/number-of-islands/solution/dfs-bfs-bing-cha-ji-python-dai-ma-java-dai-ma-by-l/</a></p>
+<h4 id="方法一：深度优先搜索"><a href="#方法一：深度优先搜索" class="headerlink" title="方法一：深度优先搜索"></a>方法一：深度优先搜索</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">from typing import List</span><br><span class="line"></span><br><span class="line">class Solution:</span><br><span class="line">    def numIslands(self, grid: List[List[str]]) -&gt; int:</span><br><span class="line">        count = 0</span><br><span class="line">        self.m = len(grid)</span><br><span class="line">        if self.m == 0:</span><br><span class="line">            return count</span><br><span class="line"></span><br><span class="line">        self.n = len(grid[0])</span><br><span class="line">        for row, v1 in enumerate(grid):</span><br><span class="line">            for column, v2 in enumerate(v1):</span><br><span class="line">                if v2 == &quot;1&quot;:</span><br><span class="line">                    count += 1</span><br><span class="line">                    self._dfs(row, column, grid)</span><br><span class="line">        return count</span><br><span class="line">    </span><br><span class="line">    def _dfs(self, row, column, grid):</span><br><span class="line">        grid[row][column] = &quot;0&quot;</span><br><span class="line">        for x, y in [(row - 1, column), (row, column + 1), (row + 1, column), (row, column - 1)]:</span><br><span class="line">            if 0 &lt;= x &lt; self.m and 0&lt;= y &lt; self.n and grid[x][y] == &quot;1&quot;:</span><br><span class="line">                self._dfs(x, y, grid)</span><br><span class="line"></span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    lst = [[&quot;1&quot;, &quot;1&quot;, &quot;1&quot;, &quot;1&quot;, &quot;0&quot;], [&quot;1&quot;, &quot;1&quot;, &quot;0&quot;, &quot;1&quot;, &quot;0&quot;],</span><br><span class="line">           [&quot;1&quot;, &quot;1&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;], [&quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;, &quot;0&quot;]]</span><br><span class="line">    obj = Solution()</span><br><span class="line">    count = obj.numIslands(lst)</span><br><span class="line">    print(count)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"># DFS</span><br><span class="line"></span><br><span class="line">class Solution:</span><br><span class="line">    def numIslands(self, grid: List[List[str]]) -&gt; int:</span><br><span class="line">        if not grid: return 0</span><br><span class="line">        row = len(grid)</span><br><span class="line">        col = len(grid[0])</span><br><span class="line">        cnt = 0</span><br><span class="line"></span><br><span class="line">        def dfs(i, j):</span><br><span class="line">            grid[i][j] = &quot;0&quot;</span><br><span class="line">            for x, y in [[-1, 0], [1, 0], [0, -1], [0, 1]]:</span><br><span class="line">                tmp_i = i + x</span><br><span class="line">                tmp_j = j + y</span><br><span class="line">                if 0 &lt;= tmp_i &lt; row and 0 &lt;= tmp_j &lt; col and grid[tmp_i][tmp_j] == &quot;1&quot;:</span><br><span class="line">                    dfs(tmp_i, tmp_j)</span><br><span class="line"></span><br><span class="line">        for i in range(row):</span><br><span class="line">            for j in range(col):</span><br><span class="line">                if grid[i][j] == &quot;1&quot;:</span><br><span class="line">                    dfs(i, j)</span><br><span class="line">                    cnt += 1</span><br><span class="line">        return cnt</span><br></pre></td></tr></table></figure>
+
+<h4 id="方法二：广度优先遍历"><a href="#方法二：广度优先遍历" class="headerlink" title="方法二：广度优先遍历"></a>方法二：广度优先遍历</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"># BFS</span><br><span class="line"></span><br><span class="line">class Solution:</span><br><span class="line">    def numIslands(self, grid: List[List[str]]) -&gt; int:</span><br><span class="line">        from collections import deque</span><br><span class="line">        if not grid: return 0</span><br><span class="line">        row = len(grid)</span><br><span class="line">        col = len(grid[0])</span><br><span class="line">        cnt = 0</span><br><span class="line"></span><br><span class="line">        def bfs(i, j):</span><br><span class="line">            queue = deque()</span><br><span class="line">            queue.appendleft((i, j))</span><br><span class="line">            grid[i][j] = &quot;0&quot;</span><br><span class="line">            while queue:</span><br><span class="line">                i, j = queue.pop()</span><br><span class="line">                for x, y in [[-1, 0], [1, 0], [0, -1], [0, 1]]:</span><br><span class="line">                    tmp_i = i + x</span><br><span class="line">                    tmp_j = j + y</span><br><span class="line">                    if 0 &lt;= tmp_i &lt; row and 0 &lt;= tmp_j &lt; col and grid[tmp_i][tmp_j] == &quot;1&quot;:</span><br><span class="line">                        grid[tmp_i][tmp_j] = &quot;0&quot;</span><br><span class="line">                        queue.appendleft((tmp_i, tmp_j))</span><br><span class="line"></span><br><span class="line">        for i in range(row):</span><br><span class="line">            for j in range(col):</span><br><span class="line">                if grid[i][j] == &quot;1&quot;:</span><br><span class="line">                    bfs(i, j)</span><br><span class="line">                    cnt += 1</span><br><span class="line">        return cnt</span><br></pre></td></tr></table></figure>
+
+<h4 id="方法三：并查集"><a href="#方法三：并查集" class="headerlink" title="方法三：并查集"></a>方法三：并查集</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def numIslands(self, grid: List[List[str]]) -&gt; int:</span><br><span class="line">        f = &#123;&#125;</span><br><span class="line"></span><br><span class="line">        def find(x):</span><br><span class="line">            f.setdefault(x, x)</span><br><span class="line">            if f[x] != x:</span><br><span class="line">                f[x] = find(f[x])</span><br><span class="line">            return f[x]</span><br><span class="line"></span><br><span class="line">        def union(x, y):</span><br><span class="line">            f[find(x)] = find(y)</span><br><span class="line"></span><br><span class="line">        if not grid: return 0</span><br><span class="line">        row = len(grid)</span><br><span class="line">        col = len(grid[0])</span><br><span class="line"></span><br><span class="line">        for i in range(row):</span><br><span class="line">            for j in range(col):</span><br><span class="line">                if grid[i][j] == &quot;1&quot;:</span><br><span class="line">                    for x, y in [[-1, 0], [0, -1]]:</span><br><span class="line">                        tmp_i = i + x</span><br><span class="line">                        tmp_j = j + y</span><br><span class="line">                        if 0 &lt;= tmp_i &lt; row and 0 &lt;= tmp_j &lt; col and grid[tmp_i][tmp_j] == &quot;1&quot;:</span><br><span class="line">                            union(tmp_i * row + tmp_j, i * row + j)</span><br><span class="line">        # print(f)</span><br><span class="line">        res = set()</span><br><span class="line">        for i in range(row):</span><br><span class="line">            for j in range(col):</span><br><span class="line">                if grid[i][j] == &quot;1&quot;:</span><br><span class="line">                    res.add(find((i * row + j)))</span><br><span class="line">        return len(res)</span><br></pre></td></tr></table></figure>
+
+<h2 id="622-设计循环队列"><a href="#622-设计循环队列" class="headerlink" title="622.设计循环队列"></a>622.设计循环队列</h2><h3 id="链接-3"><a href="#链接-3" class="headerlink" title="链接"></a>链接</h3><p>来源：力扣（LeetCode）<br>链接：<a href="https://leetcode-cn.com/problems/design-circular-queue" target="_blank" rel="noopener">https://leetcode-cn.com/problems/design-circular-queue</a></p>
+<h3 id="问题-3"><a href="#问题-3" class="headerlink" title="问题"></a>问题</h3><p>设计你的循环队列实现。 循环队列是一种线性数据结构，其操作表现基于 FIFO（先进先出）原则并且队尾被连接在队首之后以形成一个循环。它也被称为“环形缓冲器”。</p>
+<p>循环队列的一个好处是我们可以利用这个队列之前用过的空间。在一个普通队列里，一旦一个队列满了，我们就不能插入下一个元素，即使在队列前面仍有空间。但是使用循环队列，我们能使用这些空间去存储新的值。</p>
+<p>你的实现应该支持如下操作：</p>
+<ul>
+<li>MyCircularQueue(k): 构造器，设置队列长度为 k 。</li>
+<li>Front: 从队首获取元素。如果队列为空，返回 -1 。</li>
+<li>Rear: 获取队尾元素。如果队列为空，返回 -1 。</li>
+<li>enQueue(value): 向循环队列插入一个元素。如果成功插入则返回真。</li>
+<li>deQueue(): 从循环队列中删除一个元素。如果成功删除则返回真。</li>
+<li>isEmpty(): 检查循环队列是否为空。</li>
+<li>isFull(): 检查循环队列是否已满。</li>
+</ul>
+<h3 id="示例-3"><a href="#示例-3" class="headerlink" title="示例"></a>示例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Your MyCircularQueue object will be instantiated and called as such:</span><br><span class="line"># obj = MyCircularQueue(k)</span><br><span class="line"># param_1 = obj.enQueue(value)</span><br><span class="line"># param_2 = obj.deQueue()</span><br><span class="line"># param_3 = obj.Front()</span><br><span class="line"># param_4 = obj.Rear()</span><br><span class="line"># param_5 = obj.isEmpty()</span><br><span class="line"># param_6 = obj.isFull()</span><br></pre></td></tr></table></figure>
+
+<h3 id="代码示例：-1"><a href="#代码示例：-1" class="headerlink" title="代码示例："></a>代码示例：</h3><p>示例一（数组实现）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">class MyCircularQueue:</span><br><span class="line"></span><br><span class="line">    def __init__(self, k: int):</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        Initialize your data structure here. Set the size of the queue to be k.</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        self.queue = [0] * k</span><br><span class="line">        self.head_index = 0</span><br><span class="line">        self.count = 0</span><br><span class="line">        self.capacity = k</span><br><span class="line"></span><br><span class="line">    def enQueue(self, value: int) -&gt; bool:</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        Insert an element into the circular queue. Return true if the operation is successful.</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        if self.count == self.capacity:</span><br><span class="line">            return False</span><br><span class="line">        self.queue[(self.head_index + self.count) % self.capacity] = value</span><br><span class="line">        self.count += 1</span><br><span class="line">        return True</span><br><span class="line"></span><br><span class="line">    def deQueue(self) -&gt; bool:</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        Delete an element from the circular queue. Return true if the operation is successful.</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        if self.count == 0:</span><br><span class="line">            return False</span><br><span class="line">        self.head_index = (self.head_index + 1) % self.capacity</span><br><span class="line">        self.count -= 1</span><br><span class="line">        return True</span><br><span class="line"></span><br><span class="line">    def Front(self) -&gt; int:</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        Get the front item from the queue.</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        if self.count == 0:</span><br><span class="line">            return -1</span><br><span class="line">        return self.queue[self.head_index]</span><br><span class="line"></span><br><span class="line">    def Rear(self) -&gt; int:</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        Get the last item from the queue.</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        if self.count == 0:</span><br><span class="line">            return -1</span><br><span class="line">        return self.queue[(self.head_index + self.count - 1) % self.capacity]</span><br><span class="line"></span><br><span class="line">    def isEmpty(self) -&gt; bool:</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        Checks whether the circular queue is empty or not.</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        return self.count == 0</span><br><span class="line"></span><br><span class="line">    def isFull(self) -&gt; bool:</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        Checks whether the circular queue is full or not.</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        return self.count == self.capacity</span><br><span class="line"></span><br><span class="line"># Your MyCircularQueue object will be instantiated and called as such:</span><br><span class="line"># obj = MyCircularQueue(k)</span><br><span class="line"># param_1 = obj.enQueue(value)</span><br><span class="line"># param_2 = obj.deQueue()</span><br><span class="line"># param_3 = obj.Front()</span><br><span class="line"># param_4 = obj.Rear()</span><br><span class="line"># param_5 = obj.isEmpty()</span><br><span class="line"># param_6 = obj.isFull()</span><br></pre></td></tr></table></figure>
+
+<p>示例二（链表实现）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line">class Node:</span><br><span class="line">    def __init__(self, value, next_node=None):</span><br><span class="line">        self.value = value</span><br><span class="line">        self.next_node = next_node</span><br><span class="line"> </span><br><span class="line">class MyCircularQueue:</span><br><span class="line"></span><br><span class="line">    def __init__(self, k: int):</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        Initialize your data structure here. Set the size of the queue to be k.</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        self.head = None</span><br><span class="line">        self.tail = None</span><br><span class="line">        self.count = 0</span><br><span class="line">        self.capacity = k</span><br><span class="line"></span><br><span class="line">    def enQueue(self, value: int) -&gt; bool:</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        Insert an element into the circular queue. Return true if the operation is successful.</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        if self.count == self.capacity:</span><br><span class="line">            return False</span><br><span class="line"></span><br><span class="line">        if self.count == 0:</span><br><span class="line">            self.head = Node(value)</span><br><span class="line">            self.tail = self.head</span><br><span class="line">        else:</span><br><span class="line">            self.tail.next_node = Node(value)</span><br><span class="line">            self.tail = self.tail.next_node</span><br><span class="line">        self.count += 1</span><br><span class="line">        return True</span><br><span class="line"></span><br><span class="line">    def deQueue(self) -&gt; bool:</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        Delete an element from the circular queue. Return true if the operation is successful.</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        if self.count == 0:</span><br><span class="line">            return False</span><br><span class="line">        self.head = self.head.next_node</span><br><span class="line">        self.count -= 1</span><br><span class="line">        return True</span><br><span class="line"></span><br><span class="line">    def Front(self) -&gt; int:</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        Get the front item from the queue.</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        if self.count == 0:</span><br><span class="line">            return -1</span><br><span class="line">        return self.head.value</span><br><span class="line"></span><br><span class="line">    def Rear(self) -&gt; int:</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        Get the last item from the queue.</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        if self.count == 0:</span><br><span class="line">            return -1</span><br><span class="line">        return self.tail.value</span><br><span class="line"></span><br><span class="line">    def isEmpty(self) -&gt; bool:</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        Checks whether the circular queue is empty or not.</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        return self.count == 0</span><br><span class="line"></span><br><span class="line">    def isFull(self) -&gt; bool:</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        Checks whether the circular queue is full or not.</span><br><span class="line">        &quot;&quot;&quot;</span><br><span class="line">        return self.count == self.capacity</span><br><span class="line">        </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># Your MyCircularQueue object will be instantiated and called as such:</span><br><span class="line"># obj = MyCircularQueue(k)</span><br><span class="line"># param_1 = obj.enQueue(value)</span><br><span class="line"># param_2 = obj.deQueue()</span><br><span class="line"># param_3 = obj.Front()</span><br><span class="line"># param_4 = obj.Rear()</span><br><span class="line"># param_5 = obj.isEmpty()</span><br><span class="line"># param_6 = obj.isFull()</span><br></pre></td></tr></table></figure>
+
+<h2 id="892-三维形体的表面积"><a href="#892-三维形体的表面积" class="headerlink" title="892. 三维形体的表面积"></a>892. 三维形体的表面积</h2><h3 id="链接-4"><a href="#链接-4" class="headerlink" title="链接"></a>链接</h3><p><a href="https://leetcode-cn.com/problems/surface-area-of-3d-shapes/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/surface-area-of-3d-shapes/</a></p>
+<h3 id="问题-4"><a href="#问题-4" class="headerlink" title="问题"></a>问题</h3><p>在 N * N 的网格上，我们放置一些 1 * 1 * 1  的立方体。每个值 v = grid[i][j] 表示 v 个正方体叠放在对应单元格 (i, j) 上。请你返回最终形体的表面积。</p>
+<p>提示：</p>
+<p>1 &lt;= N &lt;= 50<br>0 &lt;= grid[i][j] &lt;= 50</p>
+<h3 id="示例-4"><a href="#示例-4" class="headerlink" title="示例"></a>示例</h3><p>示例 1：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：[[2]]</span><br><span class="line">输出：10</span><br></pre></td></tr></table></figure>
+
+<p>示例 2：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：[[1,2],[3,4]]</span><br><span class="line">输出：34</span><br></pre></td></tr></table></figure>
+
+<p>示例 3：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：[[1,0],[0,2]]</span><br><span class="line">输出：16</span><br></pre></td></tr></table></figure>
+
+<p>示例 4：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：[[1,1,1],[1,0,1],[1,1,1]]</span><br><span class="line">输出：32</span><br></pre></td></tr></table></figure>
+
+<p>示例 5：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：[[2,2,2],[2,1,2],[2,2,2]]</span><br><span class="line">输出：46</span><br></pre></td></tr></table></figure>
+
+<h3 id="解法分析-1"><a href="#解法分析-1" class="headerlink" title="解法分析"></a>解法分析</h3><h4 id="方法：分步累加"><a href="#方法：分步累加" class="headerlink" title="方法：分步累加"></a>方法：分步累加</h4><h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p>我们单独计算每一个 v = grid[i][j] 所贡献的表面积，再将所有的 v 值相加就能得到最终形体的表面积：</p>
+<p>对于顶面和底面的表面积，如果 v &gt; 0，那么顶面和底面各贡献了 1 的表面积，总计 2 的表面积；</p>
+<p>对于四个侧面的表面积，只有在相邻位置的高度小于 v 时，对应的那个侧面才会贡献表面积，且贡献的数量为 v - nv，其中 nv 是相邻位置的高度。我们可以将其写成 max(v - nv, 0)。</p>
+<p>举一个例子，对于网格</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1 5</span><br><span class="line">6 7</span><br></pre></td></tr></table></figure>
+
+<p>而言，位置 grid[0][1] 的高度为 5：因为 5 &gt; 0，所以贡献了 2 的顶面和底面表面积；该位置的上方和右侧没有单元格，可以看成高度为 0，所以分别贡献了 max(5 - 0, 0) = 5 的表面积；该位置的左侧高度为 1，所以贡献了 max(5 - 1, 0) = 4 的表面积；该位置的下方高度为 7，所以贡献了 max(5 - 7, 0) = 0 的表面积。</p>
+<p>因此 grid[0][1] 贡献的表面积总和为 2 + 5 + 5 + 4 + 0 = 16。</p>
+<h4 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h4><p>对于每个 v = grid[r][c] &gt; 0，计算 ans += 2，对于 grid[r][c] 四个方向的每个相邻值 nv 还要加上 max(v - nv, 0)。</p>
+<h4 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h4><ul>
+<li>时间复杂度：O(N^2)，其中 N 是 <code>grid</code> 中的行和列的数目。</li>
+<li>空间复杂度：O(1)<em>O</em>(1)。</li>
+</ul>
+<h3 id="python3代码示例"><a href="#python3代码示例" class="headerlink" title="python3代码示例"></a>python3代码示例</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def surfaceArea(self, grid: List[List[int]]) -&gt; int:</span><br><span class="line">        N = len(grid)</span><br><span class="line">        ans = 0</span><br><span class="line">        </span><br><span class="line">        for r in range(N):</span><br><span class="line">            for c in range(N):</span><br><span class="line">                if grid[r][c] &gt; 0:</span><br><span class="line">                    ans += 2</span><br><span class="line">                    for nr, nc in ((r - 1, c), (r + 1, c), (r, c - 1), (r, c + 1)):</span><br><span class="line">                         nval = grid[nr][nc] if 0 &lt;= nr &lt; N and 0 &lt;= nc &lt; N else 0</span><br><span class="line">                         ans += max(grid[r][c] - nval, 0)</span><br><span class="line">        return ans</span><br></pre></td></tr></table></figure>
+
+<h2 id="盘子装苹果问题"><a href="#盘子装苹果问题" class="headerlink" title="盘子装苹果问题"></a>盘子装苹果问题</h2><p>题目描述</p>
+<p>把M个同样的苹果放在N个同样的盘子里，允许有的盘子空着不放，问共有多少种不同的分法？（用K表示）5，1，1和1，5，1 是同一种分法。</p>
+<p>输入<br>每个用例包含二个整数M和N。0&lt;=m&lt;=10，1&lt;=n&lt;=10。</p>
+<p>样例输入<br>7 3</p>
+<p>样例输出<br>8</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"># 解题分析：</span><br><span class="line">#     设f(m,n) 为m个苹果，n个盘子的放法数目，则先对n作讨论，</span><br><span class="line">#     当n&gt;m：必定有n-m个盘子永远空着，去掉它们对摆放苹果方法数目不产生影响。即if(n&gt;m) f(m,n) = f(m,m)　　</span><br><span class="line">#     当n&lt;=m：不同的放法可以分成两类：</span><br><span class="line">#     1、有至少一个盘子空着，即相当于f(m,n) = f(m,n-1); </span><br><span class="line">#     2、所有盘子都有苹果，相当于可以从每个盘子中拿掉一个苹果，不影响不同放法的数目，即f(m,n) = f(m-n,n).</span><br><span class="line">#     而总的放苹果的放法数目等于两者的和，即 f(m,n) =f(m,n-1)+f(m-n,n)</span><br><span class="line"># 递归出口条件说明：</span><br><span class="line">#     当n=1时，所有苹果都必须放在一个盘子里，所以返回１；</span><br><span class="line">#     当没有苹果可放时，定义为１种放法；</span><br><span class="line">#     递归的两条路，第一条n会逐渐减少，终会到达出口n==1;</span><br><span class="line">#     第二条m会逐渐减少，因为n&gt;m时，我们会return f(m,m)　所以终会到达出口m==0．</span><br><span class="line"></span><br><span class="line">def fn(m, n):</span><br><span class="line">    if n == 1 or m == 0:</span><br><span class="line">        return 1</span><br><span class="line">    elif n &gt; m:</span><br><span class="line">        return fn(m, m)</span><br><span class="line">    else:</span><br><span class="line">        return fn(m, n-1) + fn(m-n, n)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">while True:</span><br><span class="line">    try:</span><br><span class="line">        m, n = map(int, input().strip().split())</span><br><span class="line">        count = 0</span><br><span class="line">        if not (1 &lt;= m &lt;= 10 and 1 &lt;= n &lt;= 10):</span><br><span class="line">            print(-1)</span><br><span class="line">        else:</span><br><span class="line">            print(fn(m, n))</span><br><span class="line">    except Exception as e:</span><br><span class="line">        break</span><br></pre></td></tr></table></figure>
+
+<h2 id="合唱队问题"><a href="#合唱队问题" class="headerlink" title="合唱队问题"></a>合唱队问题</h2><p>链接：<br><a href="https://www.nowcoder.com/questionTerminal/6d9d69e3898f45169a441632b325c7b4?answerType=1&amp;f=discussion" target="_blank" rel="noopener">https://www.nowcoder.com/questionTerminal/6d9d69e3898f45169a441632b325c7b4?answerType=1&amp;f=discussion</a></p>
+<p>问题：<br>计算最少出列多少位同学，使得剩下的同学排成合唱队形</p>
+<p>说明：</p>
+<p>N位同学站成一排，音乐老师要请其中的(N-K)位同学出列，使得剩下的K位同学排成合唱队形。<br>合唱队形是指这样的一种队形：设K位同学从左到右依次编号为1，2…，K，他们的身高分别为T1，T2，…，TK，则他们的身高满足存在i（1&lt;=i&lt;=K）使得T1&lt;T2&lt;……&lt;Ti-1<ti>Ti+1&gt;……&gt;TK。<br>你的任务是，已知所有N位同学的身高，计算最少需要几位同学出列，可以使得剩下的同学排成合唱队形。<br>请注意处理多组输入输出！</ti></p>
+<p>示例：<br>输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">8</span><br><span class="line">186 186 150 200 160 130 197 200</span><br></pre></td></tr></table></figure>
+
+<p>输出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4</span><br></pre></td></tr></table></figure>
+
+<p>思路：</p>
+<p>对于题目，所有人都已经站好位，不能再改变位置了，只能从当中去掉人组成合唱队。同时，可以考虑中间的人两边没有人的情况（比如两头的两个人，或者这个人太矮周围的人都比他高的情况），但是这种情况基本被pass掉。<br>计算出每个人左边能出现的最多的人数：<br>比如题中所给出的示例：186 186 150 200 160 130 197 200。首先如果第一个数186在中间，左边没有数，就自己一个人，所以是1；第二个数186因为左边那个人跟他一边高，没有比他矮的了，所以也是1；第三个数150，左边的人都比他高，他如果是中间的话左边也他自己一个人，所以还是1；第四个数200，因为不能换位置，所以只能留186或者150，加上自己，就是2…最后再以197为例，左边保留150,160是左边人最多的情况，再加上自己，就是3。所以每个人左边人最多的情况（加上自己）就是（186）1 1 1 2 2 1 3 4（200）。同理，看一下每个人右边可能出现最多的人，这时我们从后往前看。200在最右面，所以自己一个人，是1；197最右面没有比他矮的，自己，是1…160左边一个比他矮的，所以算上自己是2，以此类推。所以每个人右边人做多的情况（加上自己）就是（186）3 3 2 3 2 1 1 1（200）<br>所以将上面两个划横线的对应相加，就可以得到自己如果是中间的那个人，可以得到的最大的合唱队人数。当然，自己加了两遍，所以得减掉一个自己。另外题目问的是最少去掉的人，所以最后的结果：<br>总人数 - 该数所在队列人数 = 需要出队的人数</p>
+<p>代码示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"># -*- coding:utf-8 -*-</span><br><span class="line"></span><br><span class="line">def get_left_max(lst):</span><br><span class="line">    tmp = [1] * len(lst)</span><br><span class="line">    for i in range(len(lst)):</span><br><span class="line">        for j in range(i):</span><br><span class="line">            if lst[j] &lt; lst[i] and tmp[i] &lt; tmp[j] + 1:</span><br><span class="line">                tmp[i] += 1</span><br><span class="line">    return tmp</span><br><span class="line"></span><br><span class="line">while True:</span><br><span class="line">    try:</span><br><span class="line">        num = int(input().strip())</span><br><span class="line">        team_list = list(map(int, input().strip().split()))</span><br><span class="line">        index_l = get_left_max(team_list)</span><br><span class="line">        index_r = get_left_max(team_list[::-1])[::-1]</span><br><span class="line">        rst = num - max(x + y for x, y in zip(index_l, index_r)) + 1</span><br><span class="line">        print(rst)</span><br><span class="line">    except Exception as e:</span><br><span class="line">        break</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"># -*- coding:utf-8 -*-</span><br><span class="line"></span><br><span class="line">import bisect</span><br><span class="line"></span><br><span class="line">def get_left_max(lst):</span><br><span class="line">    tmp = [1]</span><br><span class="line">    dp = []</span><br><span class="line">    for x in lst:</span><br><span class="line">        if not dp:</span><br><span class="line">            dp.append(x)</span><br><span class="line">        else:</span><br><span class="line">            index = bisect.bisect_left(dp, x)</span><br><span class="line">            dp[index: index + 1] = [x]</span><br><span class="line">            tmp.append(index + 1)</span><br><span class="line">    return tmp</span><br><span class="line"></span><br><span class="line">while True:</span><br><span class="line">    try:</span><br><span class="line">        num = int(input().strip())</span><br><span class="line">        team_list = list(map(int, input().strip().split()))</span><br><span class="line">        index_l = get_left_max(team_list)</span><br><span class="line">        index_r = get_left_max(team_list[::-1])[::-1]</span><br><span class="line">        rst = num - max(x + y for x, y in zip(index_l, index_r)) + 1</span><br><span class="line">        print(rst)</span><br><span class="line">    except Exception as e:</span><br><span class="line">        break</span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/web/JavaScript/ckj1jlqqy008pt8yvtld2kb85.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr Wang">
+      <meta itemprop="description" content="行动了才会有故事，说出来才会有结果。">
+      <meta itemprop="image" content="/images/profile.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="勿忘，须舍">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/web/JavaScript/ckj1jlqqy008pt8yvtld2kb85.html" class="post-title-link" itemprop="url">JavaScript Array</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-10-31 00:00" itemprop="dateCreated datePublished" datetime="2019-10-31T00:00:00+08:00">2019-10-31</time>
+            </span>
+          
+
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/web/" itemprop="url" rel="index"><span itemprop="name">web</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/web/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>数组对象的作用是：使用单独的变量名来存储一系列的值。</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/web/JavaScript/ckj1jlqqy008pt8yvtld2kb85.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/python/module/ckj1jlqv200d8t8yv7zxvr18p.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1812,368 +2296,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/python/spark/ckj1jlqs300b8t8yvps89y2pk.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Mr Wang">
-      <meta itemprop="description" content="行动了才会有故事，说出来才会有结果。">
-      <meta itemprop="image" content="/images/profile.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="勿忘，须舍">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/python/spark/ckj1jlqs300b8t8yvps89y2pk.html" class="post-title-link" itemprop="url">spark参数配置说明</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-10-18 00:00" itemprop="dateCreated datePublished" datetime="2019-10-18T00:00:00+08:00">2019-10-18</time>
-            </span>
-          
-
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/spark/" itemprop="url" rel="index"><span itemprop="name">spark</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="spark配置修改方式"><a href="#spark配置修改方式" class="headerlink" title="spark配置修改方式"></a>spark配置修改方式</h2><p>Spark有以下三种方式修改配置：</p>
-<ol>
-<li><p>Spark properties （Spark属性）</p>
-<p>可以控制绝大多数应用程序参数，而且既可以通过 SparkConf 对象来设置，也可以通过Java系统属性来设置。</p>
-</li>
-<li><p>Environment variables （环境变量）</p>
-<p>可以指定一些各个机器相关的设置，如IP地址，其设置方法是写在每台机器上的conf/spark-env.sh中。</p>
-</li>
-<li><p>Logging （日志）</p>
-<p>可以通过log4j.properties配置日志。</p>
-</li>
-</ol>
-<h2 id="spark配置参数"><a href="#spark配置参数" class="headerlink" title="spark配置参数"></a>spark配置参数</h2><p>官方链接：<a href="https://spark.apache.org/docs/latest/configuration.html" target="_blank" rel="noopener">https://spark.apache.org/docs/latest/configuration.html</a></p>
-<p>其它参考：<a href="http://ifeve.com/spark-config/" target="_blank" rel="noopener">http://ifeve.com/spark-config/</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/python/module/ckj1jlqur00cnt8yv8w81qkkx.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Mr Wang">
-      <meta itemprop="description" content="行动了才会有故事，说出来才会有结果。">
-      <meta itemprop="image" content="/images/profile.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="勿忘，须舍">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/python/module/ckj1jlqur00cnt8yv8w81qkkx.html" class="post-title-link" itemprop="url">python io module</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-10-16 00:00" itemprop="dateCreated datePublished" datetime="2019-10-16T00:00:00+08:00">2019-10-16</time>
-            </span>
-          
-
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/module/" itemprop="url" rel="index"><span itemprop="name">module</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>参考：<a href="https://www.cnblogs.com/zhangxinqi/p/9135038.html" target="_blank" rel="noopener">python3之模块io使用流的核心工具</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -2218,7 +2345,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">130</span>
+          <span class="site-state-item-count">132</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

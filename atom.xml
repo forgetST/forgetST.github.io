@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://forgetst.github.io/"/>
-  <updated>2021-01-19T16:00:00.000Z</updated>
+  <updated>2021-01-26T16:00:00.000Z</updated>
   <id>https://forgetst.github.io/</id>
   
   <author>
@@ -15,6 +15,46 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>python 安装虚拟环境</title>
+    <link href="https://forgetst.github.io/python/ckkffplix0000hoyv0ww9y13v.html"/>
+    <id>https://forgetst.github.io/python/ckkffplix0000hoyv0ww9y13v.html</id>
+    <published>2021-01-26T16:00:00.000Z</published>
+    <updated>2021-01-26T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;pip 是 Python 包管理工具，该工具提供了对Python 包的查找、下载、安装、卸载的功能。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="python" scheme="https://forgetst.github.io/categories/python/"/>
+    
+    
+      <category term="python" scheme="https://forgetst.github.io/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python 安装虚拟环境</title>
+    <link href="https://forgetst.github.io/python/ckkffplku0003hoyvbnbzfmxf.html"/>
+    <id>https://forgetst.github.io/python/ckkffplku0003hoyvbnbzfmxf.html</id>
+    <published>2021-01-25T16:00:00.000Z</published>
+    <updated>2021-01-25T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;虚拟环境用于管理不同版本或不用项目的pyhton开发环境。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="python" scheme="https://forgetst.github.io/categories/python/"/>
+    
+    
+      <category term="python" scheme="https://forgetst.github.io/tags/python/"/>
+    
+  </entry>
   
   <entry>
     <title>python描述器使用指南</title>
@@ -438,52 +478,6 @@
       <category term="python" scheme="https://forgetst.github.io/tags/python/"/>
     
       <category term="mysql" scheme="https://forgetst.github.io/tags/mysql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>nginx 操作</title>
-    <link href="https://forgetst.github.io/nginx/ckj1jlqq4006wt8yvq9lda0ne.html"/>
-    <id>https://forgetst.github.io/nginx/ckj1jlqq4006wt8yvq9lda0ne.html</id>
-    <published>2020-03-12T16:00:00.000Z</published>
-    <updated>2020-03-12T16:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;第-1-章-Nginx-简介&quot;&gt;&lt;a href=&quot;#第-1-章-Nginx-简介&quot; class=&quot;headerlink&quot; title=&quot;第 1 章 Nginx 简介&quot;&gt;&lt;/a&gt;第 1 章 Nginx 简介&lt;/h2&gt;&lt;h3 id=&quot;1-1-Nginx-概述&quot;&gt;&lt;a href=&quot;#1-1-Nginx-概述&quot; class=&quot;headerlink&quot; title=&quot;1.1 Nginx 概述&quot;&gt;&lt;/a&gt;1.1 Nginx 概述&lt;/h3&gt;&lt;p&gt;Nginx (“engine x”) 是一个高性能的 HTTP 和反向代理服务器，特点是占有内存少，并发能力强，事实上 nginx 的并发能力确实在同类型的网页服务器中表现较好，中国大陆使用 nginx网站用户有：百度、京东、新浪、网易、腾讯、淘宝等。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://lnmp.org/nginx.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://lnmp.org/nginx.html&lt;/a&gt; &lt;/p&gt;
-    
-    </summary>
-    
-      <category term="nginx" scheme="https://forgetst.github.io/categories/nginx/"/>
-    
-    
-      <category term="nginx" scheme="https://forgetst.github.io/tags/nginx/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>python functools module</title>
-    <link href="https://forgetst.github.io/python/module/ckj1jlquu00ctt8yv90lfjzqn.html"/>
-    <id>https://forgetst.github.io/python/module/ckj1jlquu00ctt8yv90lfjzqn.html</id>
-    <published>2020-03-11T16:00:00.000Z</published>
-    <updated>2020-03-11T16:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;functools 模块应用于高阶函数，此模块的功能适用于所有可调用对象。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;源代码:&lt;/strong&gt; &lt;a href=&quot;https://github.com/python/cpython/tree/3.7/Lib/functools.py&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Lib/functools.py&lt;/a&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="python" scheme="https://forgetst.github.io/categories/python/"/>
-    
-      <category term="module" scheme="https://forgetst.github.io/categories/python/module/"/>
-    
-    
-      <category term="python" scheme="https://forgetst.github.io/tags/python/"/>
-    
-      <category term="module" scheme="https://forgetst.github.io/tags/module/"/>
     
   </entry>
   
