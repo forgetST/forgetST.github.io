@@ -102,18 +102,18 @@
   daovoice('update');
   </script>
 
-  <meta name="description" content="docker构建镜像1docker build -t spark_clu:1.0.0 .   语法： ​    docker build [OPTIONS] PATH | URL | - 常用OPTIONS参数： ​    -f :指定要使用的Dockerfile路径； ​    –force-rm :设置镜像过程中删除中间容器； ​    -m :设置内存最大值； ​    –no-cache">
+  <meta name="description" content="docker构建镜像1docker build -t spark_clu:1.0.0 .   语法： docker build [OPTIONS] PATH | URL | - 常用OPTIONS参数： ​ -f :指定要使用的Dockerfile路径； –force-rm :设置镜像过程中删除中间容器； -m :设置内存最大值； –no-cache :创建镜像的过程不使用缓存； –pull :尝">
 <meta name="keywords" content="docker">
 <meta property="og:type" content="article">
 <meta property="og:title" content="docker构建流程">
 <meta property="og:url" content="https://forgetst.github.io/docker/docker构建流程.html">
 <meta property="og:site_name" content="勿忘，须舍">
-<meta property="og:description" content="docker构建镜像1docker build -t spark_clu:1.0.0 .   语法： ​    docker build [OPTIONS] PATH | URL | - 常用OPTIONS参数： ​    -f :指定要使用的Dockerfile路径； ​    –force-rm :设置镜像过程中删除中间容器； ​    -m :设置内存最大值； ​    –no-cache">
+<meta property="og:description" content="docker构建镜像1docker build -t spark_clu:1.0.0 .   语法： docker build [OPTIONS] PATH | URL | - 常用OPTIONS参数： ​ -f :指定要使用的Dockerfile路径； –force-rm :设置镜像过程中删除中间容器； -m :设置内存最大值； –no-cache :创建镜像的过程不使用缓存； –pull :尝">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-10-13T16:00:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="docker构建流程">
-<meta name="twitter:description" content="docker构建镜像1docker build -t spark_clu:1.0.0 .   语法： ​    docker build [OPTIONS] PATH | URL | - 常用OPTIONS参数： ​    -f :指定要使用的Dockerfile路径； ​    –force-rm :设置镜像过程中删除中间容器； ​    -m :设置内存最大值； ​    –no-cache">
+<meta name="twitter:description" content="docker构建镜像1docker build -t spark_clu:1.0.0 .   语法： docker build [OPTIONS] PATH | URL | - 常用OPTIONS参数： ​ -f :指定要使用的Dockerfile路径； –force-rm :设置镜像过程中删除中间容器； -m :设置内存最大值； –no-cache :创建镜像的过程不使用缓存； –pull :尝">
 
 
 
@@ -490,44 +490,44 @@
 
 <blockquote>
 <p>语法：</p>
-<p>​    docker build [OPTIONS] PATH | URL | -</p>
+<p>docker build [OPTIONS] PATH | URL | -</p>
 <p>常用OPTIONS参数：</p>
-<p>​    <strong>-f :</strong>指定要使用的Dockerfile路径；</p>
-<p>​    <strong>–force-rm :</strong>设置镜像过程中删除中间容器；</p>
-<p>​    <strong>-m :</strong>设置内存最大值；</p>
-<p>​    <strong>–no-cache :</strong>创建镜像的过程不使用缓存；</p>
-<p>​    <strong>–pull :</strong>尝试去更新镜像的新版本；</p>
-<p>​    <strong>–quiet, -q :</strong>安静模式，成功后只输出镜像 ID；</p>
-<p>​    <strong>–rm :</strong>设置镜像成功后删除中间容器；</p>
-<p>​    <strong>–tag, -t:</strong> 镜像的名字及标签，通常 name:tag 或者 name 格式；可以在一次构建中为一个镜像设置多个标签。</p>
-<p>​    <strong>–network:</strong> 默认 default。在构建期间设置RUN指令的网络模式</p>
+<p>​ <strong>-f :</strong>指定要使用的Dockerfile路径；</p>
+<p><strong>–force-rm :</strong>设置镜像过程中删除中间容器；</p>
+<p><strong>-m :</strong>设置内存最大值；</p>
+<p><strong>–no-cache :</strong>创建镜像的过程不使用缓存；</p>
+<p><strong>–pull :</strong>尝试去更新镜像的新版本；</p>
+<p><strong>–quiet, -q :</strong>安静模式，成功后只输出镜像 ID；</p>
+<p><strong>–rm :</strong>设置镜像成功后删除中间容器；</p>
+<p><strong>–tag, -t:</strong> 镜像的名字及标签，通常 name:tag 或者 name 格式；可以在一次构建中为一个镜像设置多个标签。</p>
+<p><strong>–network:</strong> 默认 default。在构建期间设置RUN指令的网络模式</p>
 </blockquote>
 <p><a href="https://www.runoob.com/docker/docker-build-command.html" target="_blank" rel="noopener">Docker build 命令</a></p>
 <h2 id="docker存储镜像"><a href="#docker存储镜像" class="headerlink" title="docker存储镜像"></a>docker存储镜像</h2><figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker save -o spark_clu.tar spark_clu:<span class="number">1.0</span>.<span class="number">0</span></span><br><span class="line">gzip spark_clu.tar  <span class="comment"># spark_clu.tar.gz</span></span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p>语法：</p>
-<p>​    docker save [OPTIONS] IMAGE [IMAGE…]</p>
+<p>docker save [OPTIONS] IMAGE [IMAGE…]</p>
 <p>OPTIONS选项</p>
-<p>​    <strong>-o :</strong>输出到的文件。</p>
+<p><strong>-o :</strong>输出到的文件。</p>
 </blockquote>
 <h2 id="docker删除镜像"><a href="#docker删除镜像" class="headerlink" title="docker删除镜像"></a>docker删除镜像</h2><figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rmi -f spark_clu:<span class="number">1.0</span>.<span class="number">0</span></span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p>语法：</p>
-<p>​    docker rmi [OPTIONS] IMAGE [IMAGE…]</p>
+<p>​docker rmi [OPTIONS] IMAGE [IMAGE…]</p>
 <p>OPTIONS选项：</p>
-<p>​    <strong>-f :</strong>强制删除；</p>
-<p>​    <strong>–no-prune :</strong>不移除该镜像的过程镜像，默认移除；</p>
+<p>​<strong>-f :</strong>强制删除；</p>
+<p>​<strong>–no-prune :</strong>不移除该镜像的过程镜像，默认移除；</p>
 </blockquote>
 <h2 id="docker载入镜像"><a href="#docker载入镜像" class="headerlink" title="docker载入镜像"></a>docker载入镜像</h2><figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker load -i spark_clu.tar.gz</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p>语法：</p>
-<p>​    docker load [OPTIONS]</p>
+<p>​docker load [OPTIONS]</p>
 <p>OPTIONS 选项：</p>
-<p>​    <strong>–input , -i :</strong> 指定导入的文件，代替 STDIN。</p>
-<p>​    <strong>–quiet , -q :</strong> 精简输出信息。</p>
+<p>​<strong>–input , -i :</strong> 指定导入的文件，代替 STDIN。</p>
+<p>​<strong>–quiet , -q :</strong> 精简输出信息。</p>
 </blockquote>
 
       
