@@ -1593,6 +1593,7 @@ redhat和fedora系统中，还支持一个参数：
 <p><code>二叉树</code>是一种更为典型的树树状结构。如它名字所描述的那样，二叉树是每个节点最多有<code>两个子树</code>的树结构，通常子树被称作“左子树”和“右子树”。</p>
 <a id="more"></a>
 
+<p><code>满二叉树</code>即每一层上的结点数都是最大结点数。若其深度为k，则有<code>2^k-1</code>个结点。</p>
 <h2 id="树的遍历"><a href="#树的遍历" class="headerlink" title="树的遍历"></a>树的遍历</h2><p>以二叉树为例，示例如下:</p>
 <figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">输入: [<span class="number">1</span>,null,<span class="number">2</span>,<span class="number">3</span>]  </span><br><span class="line">   <span class="number">1</span></span><br><span class="line">    \</span><br><span class="line">     <span class="number">2</span></span><br><span class="line">    /</span><br><span class="line">   <span class="number">3</span> </span><br><span class="line"></span><br><span class="line">输出: [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</span><br></pre></td></tr></table></figure>
 
