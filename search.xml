@@ -11994,4 +11994,36 @@ redhat和fedora系统中，还支持一个参数：
         <tag>python</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Golang在package main包下的中函数互相调用</title>
+    <url>/go/golang%E5%9C%A8package-main%E5%8C%85%E4%B8%8B%E7%9A%84%E4%B8%AD%E5%87%BD%E6%95%B0%E4%BA%92%E7%9B%B8%E8%B0%83%E7%94%A8.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><code>Golang</code> Main包下多个文件的相互调用，引发 <code>.\main.go:82:2: undefined: tsPra01</code>异常，处理如下。</p>
+<a id="more"></a>
+
+<h2 id="目录树"><a href="#目录树" class="headerlink" title="目录树"></a>目录树</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[root@i-2ld7xfi6 main]# pwd</span><br><span class="line">/opt/project/go_project/src/main</span><br><span class="line"></span><br><span class="line">[root@i-2ld7xfi6 main]# tree</span><br><span class="line">.</span><br><span class="line">├── main.go</span><br><span class="line">└── test.go</span><br></pre></td></tr></table></figure>
+
+<p>main.go</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">package main</span><br><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line">    SayHello()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>test.go</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">package main</span><br><span class="line"></span><br><span class="line">import &quot;fmt&quot;</span><br><span class="line"></span><br><span class="line">func SayHello() &#123;</span><br><span class="line">    fmt.Println(&quot;hello world&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以看到，main.go和test.go都是在package main里面，main.go的main方法调用了main包的SayHello()方法。<br>运行main.go的main方法时，报错 <code>Undefined: SayHello</code></p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">[root@i-<span class="number">2</span>ld7xfi6 main]# go run main.go</span><br><span class="line"># command-line-arguments</span><br><span class="line">./main.go:<span class="number">4</span>:<span class="number">5</span>: undefined: SayHello</span><br></pre></td></tr></table></figure>
+
+<h2 id="报错原因"><a href="#报错原因" class="headerlink" title="报错原因"></a>报错原因</h2><p>在运行<code>main.go</code>时，<code>test.go</code>包未一起编译</p>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>在Linux中：</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"># 方法一</span><br><span class="line">[root@i-<span class="number">2</span>ld7xfi6 main]# go run *.go</span><br><span class="line">hello world</span><br><span class="line"></span><br><span class="line"># 方法二</span><br><span class="line">[root@i-<span class="number">2</span>ld7xfi6 main]# go run main.go test.go</span><br><span class="line">hello world</span><br></pre></td></tr></table></figure>
+
+<p>在window中：</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="function">D:\...\<span class="title">main</span>&gt;<span class="title">go</span> <span class="title">run</span> <span class="title">main.go</span> <span class="title">test.go</span></span></span><br><span class="line"><span class="function"><span class="title">hello</span> <span class="title">world</span></span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>go</category>
+      </categories>
+      <tags>
+        <tag>go</tag>
+      </tags>
+  </entry>
 </search>
