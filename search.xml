@@ -3532,7 +3532,7 @@ redhat和fedora系统中，还支持一个参数：
 <a id="more"></a>
 
 <ul>
-<li><a href="https://marketplace.visualstudio.com/items?itemName=redhat.java" target="_blank" rel="noopener"> Language Support for Java(TM) by Red Hat </a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=redhat.java" target="_blank" rel="noopener">Language Support for Java(TM) by Red Hat</a></li>
 <li><a href="https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug" target="_blank" rel="noopener">Debugger for Java</a></li>
 <li><a href="https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-test" target="_blank" rel="noopener">Java Test Runner</a></li>
 <li><a href="https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven" target="_blank" rel="noopener">Maven for Java</a></li>
