@@ -504,14 +504,29 @@
 <p>注：运行supervisord服务的时候，需要指定supervisor配置文件，如果没有显示指定，默认在以下目录查找：</p>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$CWD/supervisord.conf</span><br><span class="line">$CWD/etc/supervisord.conf</span><br><span class="line">/etc/supervisord.conf</span><br><span class="line">/etc/supervisor/supervisord.conf (since Supervisor <span class="number">3</span>.<span class="number">3</span>.<span class="number">0</span>)</span><br><span class="line">../etc/supervisord.conf (Relative to the executable)</span><br><span class="line">../supervisord.conf (Relative to the executable)</span><br><span class="line"></span><br><span class="line">$CWD表示运行supervisord程序的目录。</span><br></pre></td></tr></table></figure>
 
-<h2 id="配置文件参数说明"><a href="#配置文件参数说明" class="headerlink" title="配置文件参数说明"></a>配置文件参数说明</h2><p><a href="https://blog.csdn.net/xyang81/article/details/51555473" target="_blank" rel="noopener">https://blog.csdn.net/xyang81/article/details/51555473</a><br><a href="https://www.cnblogs.com/xuezhigu/p/7660203.html(详细)" target="_blank" rel="noopener">https://www.cnblogs.com/xuezhigu/p/7660203.html(详细)</a></p>
+<h2 id="配置文件参数说明"><a href="#配置文件参数说明" class="headerlink" title="配置文件参数说明"></a>配置文件参数说明</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[root@vm192-168-0-5 ~]# cat /etc/supervisord.d/backend_dev.conf</span><br><span class="line"></span><br><span class="line">[program:smartant_backend]</span><br><span class="line">command=/opt/virtual_env/backend_env/bin/python /data/smartant_backend_shangqi_v2/runserver start all</span><br><span class="line">stdout_logfile=/data/logs/smartant_backend.log</span><br><span class="line">user=root</span><br><span class="line">autostart=true</span><br><span class="line">autorestart=true</span><br><span class="line">startsecs=60</span><br><span class="line">stopasgroup=true</span><br><span class="line">ikillasgroup=true</span><br><span class="line">startretries=1</span><br><span class="line">redirect_stderr=true</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://blog.csdn.net/xyang81/article/details/51555473" target="_blank" rel="noopener">https://blog.csdn.net/xyang81/article/details/51555473</a><br><a href="https://www.cnblogs.com/xuezhigu/p/7660203.html(详细)" target="_blank" rel="noopener">https://www.cnblogs.com/xuezhigu/p/7660203.html(详细)</a></p>
 <h2 id="配置管理进程"><a href="#配置管理进程" class="headerlink" title="配置管理进程"></a>配置管理进程</h2><p>进程管理配置参数，不建议全都写在supervisord.conf文件中，应该每个进程写一个配置文件放在include指定的目录下包含进supervisord.conf文件中。</p>
 <p>1&gt; 创建/etc/supervisor/config.d目录，用于存放进程管理的配置文件<br>2&gt; 修改/etc/supervisor/supervisord.conf中的include参数，将/etc/supervisor/conf.d目录添加到include中</p>
-<h2 id="启动Supervisor服务"><a href="#启动Supervisor服务" class="headerlink" title="启动Supervisor服务"></a>启动Supervisor服务</h2><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@i-x676awuk ~]# supervisord -c /etc/supervisor/supervisord.conf</span><br></pre></td></tr></table></figure>
+<h2 id="suppervisor-常用操作"><a href="#suppervisor-常用操作" class="headerlink" title="suppervisor 常用操作"></a>suppervisor 常用操作</h2><p>查看、启动、停止、重启supervisor进程</p>
+<h3 id="启动Supervisor服务"><a href="#启动Supervisor服务" class="headerlink" title="启动Supervisor服务"></a>启动Supervisor服务</h3><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">supervisord -c /etc/supervisor/supervisord.conf</span><br></pre></td></tr></table></figure>
 
-<h2 id="停止Supervisor服务"><a href="#停止Supervisor服务" class="headerlink" title="停止Supervisor服务"></a>停止Supervisor服务</h2><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@i-x676awuk ~]# systemctl stop supervisord.service</span><br></pre></td></tr></table></figure>
+<h3 id="停止Supervisor服务"><a href="#停止Supervisor服务" class="headerlink" title="停止Supervisor服务"></a>停止Supervisor服务</h3><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">supervisorctl stop supervisord.service</span><br></pre></td></tr></table></figure>
 
-<h2 id="加载Supervisor服务"><a href="#加载Supervisor服务" class="headerlink" title="加载Supervisor服务"></a>加载Supervisor服务</h2><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@i-x676awuk ~]# systemctl reload</span><br></pre></td></tr></table></figure>
+<h3 id="重新启动配置中的所有程序"><a href="#重新启动配置中的所有程序" class="headerlink" title="重新启动配置中的所有程序"></a>重新启动配置中的所有程序</h3><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">supervisorctl reload</span><br></pre></td></tr></table></figure>
+
+<h3 id="更新配置后必须执行更新命令才生效"><a href="#更新配置后必须执行更新命令才生效" class="headerlink" title="更新配置后必须执行更新命令才生效"></a>更新配置后必须执行更新命令才生效</h3><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">supervisorctl update</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看supervisor进程"><a href="#查看supervisor进程" class="headerlink" title="查看supervisor进程"></a>查看supervisor进程</h3><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">supervisorctl status</span><br></pre></td></tr></table></figure>
+
+<h3 id="启动某个supervisor进程"><a href="#启动某个supervisor进程" class="headerlink" title="启动某个supervisor进程"></a>启动某个supervisor进程</h3><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">supervisorctl <span class="built_in">start</span> xxxx</span><br></pre></td></tr></table></figure>
+
+<h3 id="停止某个supervisor进程"><a href="#停止某个supervisor进程" class="headerlink" title="停止某个supervisor进程"></a>停止某个supervisor进程</h3><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo supervisorctl stop xxxx</span><br></pre></td></tr></table></figure>
+
+<h3 id="停止所有supervisor进程"><a href="#停止所有supervisor进程" class="headerlink" title="停止所有supervisor进程"></a>停止所有supervisor进程</h3><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo supervisorctl stop all</span><br></pre></td></tr></table></figure>
+
+<h3 id="重启某个supervisor进程"><a href="#重启某个supervisor进程" class="headerlink" title="重启某个supervisor进程"></a>重启某个supervisor进程</h3><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo supervisorctl restart xxxx</span><br></pre></td></tr></table></figure>
 
 
       
@@ -675,7 +690,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">132</span>
+          <span class="site-state-item-count">134</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -794,7 +809,9 @@
         
           
         
-        <span class="site-state-item-count">47</span>
+          
+        
+        <span class="site-state-item-count">48</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -891,7 +908,9 @@
         
           
         
-        <span class="site-state-item-count">38</span>
+          
+        
+        <span class="site-state-item-count">39</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
@@ -969,7 +988,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装supervisor"><span class="nav-number">1.</span> <span class="nav-text">安装supervisor</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置supervisor"><span class="nav-number">2.</span> <span class="nav-text">配置supervisor</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置文件参数说明"><span class="nav-number">3.</span> <span class="nav-text">配置文件参数说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置管理进程"><span class="nav-number">4.</span> <span class="nav-text">配置管理进程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动Supervisor服务"><span class="nav-number">5.</span> <span class="nav-text">启动Supervisor服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#停止Supervisor服务"><span class="nav-number">6.</span> <span class="nav-text">停止Supervisor服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#加载Supervisor服务"><span class="nav-number">7.</span> <span class="nav-text">加载Supervisor服务</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装supervisor"><span class="nav-number">1.</span> <span class="nav-text">安装supervisor</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置supervisor"><span class="nav-number">2.</span> <span class="nav-text">配置supervisor</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置文件参数说明"><span class="nav-number">3.</span> <span class="nav-text">配置文件参数说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置管理进程"><span class="nav-number">4.</span> <span class="nav-text">配置管理进程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#suppervisor-常用操作"><span class="nav-number">5.</span> <span class="nav-text">suppervisor 常用操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#启动Supervisor服务"><span class="nav-number">5.1.</span> <span class="nav-text">启动Supervisor服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#停止Supervisor服务"><span class="nav-number">5.2.</span> <span class="nav-text">停止Supervisor服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重新启动配置中的所有程序"><span class="nav-number">5.3.</span> <span class="nav-text">重新启动配置中的所有程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更新配置后必须执行更新命令才生效"><span class="nav-number">5.4.</span> <span class="nav-text">更新配置后必须执行更新命令才生效</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看supervisor进程"><span class="nav-number">5.5.</span> <span class="nav-text">查看supervisor进程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动某个supervisor进程"><span class="nav-number">5.6.</span> <span class="nav-text">启动某个supervisor进程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#停止某个supervisor进程"><span class="nav-number">5.7.</span> <span class="nav-text">停止某个supervisor进程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#停止所有supervisor进程"><span class="nav-number">5.8.</span> <span class="nav-text">停止所有supervisor进程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重启某个supervisor进程"><span class="nav-number">5.9.</span> <span class="nav-text">重启某个supervisor进程</span></a></li></ol></li></ol></div>
             
 
           </div>

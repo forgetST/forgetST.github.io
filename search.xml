@@ -541,14 +541,29 @@
 <p>注：运行supervisord服务的时候，需要指定supervisor配置文件，如果没有显示指定，默认在以下目录查找：</p>
 <figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">$CWD/supervisord.conf</span><br><span class="line">$CWD/etc/supervisord.conf</span><br><span class="line">/etc/supervisord.conf</span><br><span class="line">/etc/supervisor/supervisord.conf (since Supervisor <span class="number">3</span>.<span class="number">3</span>.<span class="number">0</span>)</span><br><span class="line">../etc/supervisord.conf (Relative to the executable)</span><br><span class="line">../supervisord.conf (Relative to the executable)</span><br><span class="line"></span><br><span class="line">$CWD表示运行supervisord程序的目录。</span><br></pre></td></tr></table></figure>
 
-<h2 id="配置文件参数说明"><a href="#配置文件参数说明" class="headerlink" title="配置文件参数说明"></a>配置文件参数说明</h2><p><a href="https://blog.csdn.net/xyang81/article/details/51555473" target="_blank" rel="noopener">https://blog.csdn.net/xyang81/article/details/51555473</a><br><a href="https://www.cnblogs.com/xuezhigu/p/7660203.html(详细)" target="_blank" rel="noopener">https://www.cnblogs.com/xuezhigu/p/7660203.html(详细)</a></p>
+<h2 id="配置文件参数说明"><a href="#配置文件参数说明" class="headerlink" title="配置文件参数说明"></a>配置文件参数说明</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[root@vm192-168-0-5 ~]# cat /etc/supervisord.d/backend_dev.conf</span><br><span class="line"></span><br><span class="line">[program:smartant_backend]</span><br><span class="line">command=/opt/virtual_env/backend_env/bin/python /data/smartant_backend_shangqi_v2/runserver start all</span><br><span class="line">stdout_logfile=/data/logs/smartant_backend.log</span><br><span class="line">user=root</span><br><span class="line">autostart=true</span><br><span class="line">autorestart=true</span><br><span class="line">startsecs=60</span><br><span class="line">stopasgroup=true</span><br><span class="line">ikillasgroup=true</span><br><span class="line">startretries=1</span><br><span class="line">redirect_stderr=true</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://blog.csdn.net/xyang81/article/details/51555473" target="_blank" rel="noopener">https://blog.csdn.net/xyang81/article/details/51555473</a><br><a href="https://www.cnblogs.com/xuezhigu/p/7660203.html(详细)" target="_blank" rel="noopener">https://www.cnblogs.com/xuezhigu/p/7660203.html(详细)</a></p>
 <h2 id="配置管理进程"><a href="#配置管理进程" class="headerlink" title="配置管理进程"></a>配置管理进程</h2><p>进程管理配置参数，不建议全都写在supervisord.conf文件中，应该每个进程写一个配置文件放在include指定的目录下包含进supervisord.conf文件中。</p>
 <p>1&gt; 创建/etc/supervisor/config.d目录，用于存放进程管理的配置文件<br>2&gt; 修改/etc/supervisor/supervisord.conf中的include参数，将/etc/supervisor/conf.d目录添加到include中</p>
-<h2 id="启动Supervisor服务"><a href="#启动Supervisor服务" class="headerlink" title="启动Supervisor服务"></a>启动Supervisor服务</h2><figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">[root@i-x676awuk ~]# supervisord -c /etc/supervisor/supervisord.conf</span><br></pre></td></tr></table></figure>
+<h2 id="suppervisor-常用操作"><a href="#suppervisor-常用操作" class="headerlink" title="suppervisor 常用操作"></a>suppervisor 常用操作</h2><p>查看、启动、停止、重启supervisor进程</p>
+<h3 id="启动Supervisor服务"><a href="#启动Supervisor服务" class="headerlink" title="启动Supervisor服务"></a>启动Supervisor服务</h3><figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">supervisord -c /etc/supervisor/supervisord.conf</span><br></pre></td></tr></table></figure>
 
-<h2 id="停止Supervisor服务"><a href="#停止Supervisor服务" class="headerlink" title="停止Supervisor服务"></a>停止Supervisor服务</h2><figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">[root@i-x676awuk ~]# systemctl stop supervisord.service</span><br></pre></td></tr></table></figure>
+<h3 id="停止Supervisor服务"><a href="#停止Supervisor服务" class="headerlink" title="停止Supervisor服务"></a>停止Supervisor服务</h3><figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">supervisorctl stop supervisord.service</span><br></pre></td></tr></table></figure>
 
-<h2 id="加载Supervisor服务"><a href="#加载Supervisor服务" class="headerlink" title="加载Supervisor服务"></a>加载Supervisor服务</h2><figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">[root@i-x676awuk ~]# systemctl reload</span><br></pre></td></tr></table></figure>
+<h3 id="重新启动配置中的所有程序"><a href="#重新启动配置中的所有程序" class="headerlink" title="重新启动配置中的所有程序"></a>重新启动配置中的所有程序</h3><figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">supervisorctl reload</span><br></pre></td></tr></table></figure>
+
+<h3 id="更新配置后必须执行更新命令才生效"><a href="#更新配置后必须执行更新命令才生效" class="headerlink" title="更新配置后必须执行更新命令才生效"></a>更新配置后必须执行更新命令才生效</h3><figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">supervisorctl update</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看supervisor进程"><a href="#查看supervisor进程" class="headerlink" title="查看supervisor进程"></a>查看supervisor进程</h3><figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">supervisorctl status</span><br></pre></td></tr></table></figure>
+
+<h3 id="启动某个supervisor进程"><a href="#启动某个supervisor进程" class="headerlink" title="启动某个supervisor进程"></a>启动某个supervisor进程</h3><figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">supervisorctl <span class="built_in">start</span> xxxx</span><br></pre></td></tr></table></figure>
+
+<h3 id="停止某个supervisor进程"><a href="#停止某个supervisor进程" class="headerlink" title="停止某个supervisor进程"></a>停止某个supervisor进程</h3><figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">sudo supervisorctl stop xxxx</span><br></pre></td></tr></table></figure>
+
+<h3 id="停止所有supervisor进程"><a href="#停止所有supervisor进程" class="headerlink" title="停止所有supervisor进程"></a>停止所有supervisor进程</h3><figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">sudo supervisorctl stop all</span><br></pre></td></tr></table></figure>
+
+<h3 id="重启某个supervisor进程"><a href="#重启某个supervisor进程" class="headerlink" title="重启某个supervisor进程"></a>重启某个supervisor进程</h3><figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">sudo supervisorctl restart xxxx</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
@@ -4133,23 +4148,23 @@ redhat和fedora系统中，还支持一个参数：
     <title>nginx 操作</title>
     <url>/nginx/nginx-%E6%93%8D%E4%BD%9C.html</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="第-1-章-Nginx-简介"><a href="#第-1-章-Nginx-简介" class="headerlink" title="第 1 章 Nginx 简介"></a>第 1 章 Nginx 简介</h2><h3 id="1-1-Nginx-概述"><a href="#1-1-Nginx-概述" class="headerlink" title="1.1 Nginx 概述"></a>1.1 Nginx 概述</h3><p>Nginx (“engine x”) 是一个高性能的 HTTP 和反向代理服务器，特点是占有内存少，并发能力强，事实上 nginx 的并发能力确实在同类型的网页服务器中表现较好，中国大陆使用 nginx网站用户有：百度、京东、新浪、网易、腾讯、淘宝等。</p>
-<p><a href="https://lnmp.org/nginx.html" target="_blank" rel="noopener">https://lnmp.org/nginx.html</a> </p>
+<p><a href="https://lnmp.org/nginx.html" target="_blank" rel="noopener">https://lnmp.org/nginx.html</a></p>
 <a id="more"></a>
 
 <h3 id="1-2-Nginx-作为-web-服务器"><a href="#1-2-Nginx-作为-web-服务器" class="headerlink" title="1.2 Nginx 作为 web 服务器"></a>1.2 Nginx 作为 web 服务器</h3><p>Nginx 可以作为静态页面的 web 服务器，同时还支持 CGI 协议的动态语言，比如 perl、 php等。但是不支持 java。 Java 程序只能通过与 tomcat 配合完成。 Nginx 专为性能优化而开发，性能是其最重要的考量，实现上非常注重效率 ，能经受高负载的考验，有报告表明能支持高达 50,000 个并发连接数。</p>
-<h3 id="1-3-正向代理"><a href="#1-3-正向代理" class="headerlink" title="1.3 正向代理"></a>1.3 正向代理</h3><p>如果把局域网外的 Internet 想象成一个巨大的资源库，则局域网中的客户端要访<br>问 Internet，则需要通过代理服务器来访问，这种代理服务就称为正向代理 </p>
-<img src="/nginx/ckj1jlqq4006wt8yvq9lda0ne/forward_agent.PNG" title="This is an browser picture">
+<h3 id="1-3-正向代理"><a href="#1-3-正向代理" class="headerlink" title="1.3 正向代理"></a>1.3 正向代理</h3><p>如果把局域网外的 Internet 想象成一个巨大的资源库，则局域网中的客户端要访<br>问 Internet，则需要通过代理服务器来访问，这种代理服务就称为正向代理</p>
+<img src="/nginx/nginx-操作/forward_agent.PNG" title="This is an browser picture">
 
 <h3 id="1-4-反向代理"><a href="#1-4-反向代理" class="headerlink" title="1.4 反向代理"></a>1.4 反向代理</h3><p>反向代理，其实客户端对代理是无感知的，因为客户端不需要任何配置就可以访问，我们只需要将请求发送到反向代理服务器，由反向代理服务器去选择目标服务器获取数据后，在返回给客户端，此时反向代理服务器和目标服务器对外就是一个服务器，暴露的是代理服务器地址，隐藏了真实服务器 IP 地址 。</p>
-<img src="/nginx/ckj1jlqq4006wt8yvq9lda0ne/reverse_proxy.PNG" title="This is an browser picture">
+<img src="/nginx/nginx-操作/reverse_proxy.PNG" title="This is an browser picture">
 
 <h3 id="1-5-负载均衡"><a href="#1-5-负载均衡" class="headerlink" title="1.5 负载均衡"></a>1.5 负载均衡</h3><p>客户端发送多个请求到服务器，服务器处理请求，有一些可能要与数据库进行交互，服务器处理完毕后，再将结果返回给客户端。这种架构模式对于早期的系统相对单一，并发请求相对较少的情况下是比较适合的，成本也低。但是随着信息数量的不断增长，访问量和数据量的飞速增长，以及系统业务的复杂度增加，这种架构会造成服务器相应客户端的请求日益缓慢，并发量特别大的时候，还容易<br>造成服务器直接崩溃。很明显这是由于服务器性能的瓶颈造成的问题，那么如何解决这种情况呢？</p>
 <p>我们首先想到的可能是升级服务器的配置，比如提高 CPU 执行频率，加大内存等提高机器的物理性能来解决此问题，但是我们知道摩尔定律的日益失效，硬件的性能提升已经不能满足日益提升的需求了。最明显的一个例子，天猫双十一当天，某个热销商品的瞬时访问量是极其庞大的，那么类似上面的系统架构，将机器都增加到现有的顶级物理配置，都是不能够满足需求的。那么怎么办呢？<br>上面的分析我们去掉了增加服务器物理配置来解决问题的办法，也就是说纵向解决问题的办法行不通了，那么横向增加服务器的数量呢？</p>
 <p>这时候集群的概念产生了，单个服务器解决不了，我们增加服务器的数量，然后将请求分发到各个服务器上，将原先请求集中到单个 服务器上的情况改为将请求分发到多个服务器上，将负载分发到不同的服务器，也就是我们所说的<strong>负载均衡</strong>。</p>
-<img src="/nginx/ckj1jlqq4006wt8yvq9lda0ne/load_balancing.PNG" title="This is an browser picture">
+<img src="/nginx/nginx-操作/load_balancing.PNG" title="This is an browser picture">
 
-<h3 id="1-6-动静分离"><a href="#1-6-动静分离" class="headerlink" title="1.6 动静分离"></a>1.6 动静分离</h3><p>为了加快网站的解析速度，可以把动态页面和静态页面由不同的服务器来解析，加快解析速度。降低原来单个服务器的压力。 </p>
-<img src="/nginx/ckj1jlqq4006wt8yvq9lda0ne/dynamic_and_static_separation.PNG" title="This is an browser picture">
+<h3 id="1-6-动静分离"><a href="#1-6-动静分离" class="headerlink" title="1.6 动静分离"></a>1.6 动静分离</h3><p>为了加快网站的解析速度，可以把动态页面和静态页面由不同的服务器来解析，加快解析速度。降低原来单个服务器的压力。</p>
+<img src="/nginx/nginx-操作/dynamic_and_static_separation.PNG" title="This is an browser picture">
 
 <h2 id="第-2-章-Nginx-安装"><a href="#第-2-章-Nginx-安装" class="headerlink" title="第 2 章 Nginx 安装"></a>第 2 章 Nginx 安装</h2><h3 id="2-1-下载-地址"><a href="#2-1-下载-地址" class="headerlink" title="2.1 下载 地址"></a>2.1 下载 地址</h3><p><a href="http://nginx.org/" target="_blank" rel="noopener">http://nginx.org/</a></p>
 <h3 id="2-2-安装-nginx"><a href="#2-2-安装-nginx" class="headerlink" title="2.2 安装 nginx"></a>2.2 安装 nginx</h3><ul>
@@ -4165,26 +4180,26 @@ redhat和fedora系统中，还支持一个参数：
 <ol>
 <li>解压缩 nginx-xx.tar.gz 包。</li>
 <li>进入解压缩目录， 执行./configure。</li>
-<li>make &amp;&amp; make install </li>
+<li>make &amp;&amp; make install</li>
 </ol>
 </li>
 <li><p>查看开放的端口号<br>firewall-cmd –list-all</p>
 </li>
 <li><p>设置开放的端口号<br>firewall-cmd –add-service=http –permanent<br>sudo firewall-cmd –add-port=80/tcp –permanent</p>
 </li>
-<li><p>重启防火墙<br>firewall-cmd –reload </p>
+<li><p>重启防火墙<br>firewall-cmd –reload</p>
 </li>
 </ul>
 <h2 id="第-3-章-nginx-常用的命令和配置文件"><a href="#第-3-章-nginx-常用的命令和配置文件" class="headerlink" title="第 3 章 nginx 常用的命令和配置文件"></a>第 3 章 nginx 常用的命令和配置文件</h2><h3 id="3-1-nginx-常用的命令"><a href="#3-1-nginx-常用的命令" class="headerlink" title="3.1 nginx 常用的命令"></a>3.1 nginx 常用的命令</h3><ul>
 <li><p>查看帮助文档</p>
 <figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">[root@hadoop01 software]# <span class="built_in">cd</span> /usr/local/nginx/</span><br><span class="line">[root@hadoop01 nginx]# ./sbin/nginx -h</span><br><span class="line">nginx version: nginx/<span class="number">1</span>.<span class="number">12</span>.<span class="number">2</span></span><br><span class="line"><span class="function">Usage: <span class="title">nginx</span> [-?<span class="title">hvVtTq</span>] [-<span class="title">s</span> <span class="title">signal</span>] [-<span class="title">c</span> <span class="title">filename</span>] [-<span class="title">p</span> <span class="title">prefix</span>] [-<span class="title">g</span> <span class="title">directives</span>]</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">Options</span>:</span></span><br><span class="line"><span class="function">  -?,-<span class="title">h</span>         : <span class="title">this</span> <span class="title">help</span></span></span><br><span class="line"><span class="function">  -<span class="title">v</span>            : <span class="title">show</span> <span class="title">version</span> <span class="title">and</span> <span class="title">exit</span></span></span><br><span class="line"><span class="function">  -<span class="title">V</span>            : <span class="title">show</span> <span class="title">version</span> <span class="title">and</span> <span class="title">configure</span> <span class="title">options</span> <span class="title">then</span> <span class="title">exit</span></span></span><br><span class="line"><span class="function">  -<span class="title">t</span>            : <span class="title">test</span> <span class="title">configuration</span> <span class="title">and</span> <span class="title">exit</span></span></span><br><span class="line"><span class="function">  -<span class="title">T</span>            : <span class="title">test</span> <span class="title">configuration</span>, <span class="title">dump</span> <span class="title">it</span> <span class="title">and</span> <span class="title">exit</span></span></span><br><span class="line"><span class="function">  -<span class="title">q</span>            : <span class="title">suppress</span> <span class="title">non</span>-<span class="title">error</span> <span class="title">messages</span> <span class="title">during</span> <span class="title">configuration</span> <span class="title">testing</span></span></span><br><span class="line"><span class="function">  -<span class="title">s</span> <span class="title">signal</span>     : <span class="title">send</span> <span class="title">signal</span> <span class="title">to</span> <span class="title">a</span> <span class="title">master</span> <span class="title">process</span>: <span class="title">stop</span>, <span class="title">quit</span>, <span class="title">reopen</span>, <span class="title">reload</span></span></span><br><span class="line"><span class="function">  -<span class="title">p</span> <span class="title">prefix</span>     : <span class="title">set</span> <span class="title">prefix</span> <span class="title">path</span> (<span class="title">default</span>: /<span class="title">usr</span>/<span class="title">local</span>/<span class="title">nginx</span>/)</span></span><br><span class="line"><span class="function">  -<span class="title">c</span> <span class="title">filename</span>   : <span class="title">set</span> <span class="title">configuration</span> <span class="title">file</span> (<span class="title">default</span>: <span class="title">conf</span>/<span class="title">nginx.conf</span>)</span></span><br><span class="line"><span class="function">  -<span class="title">g</span> <span class="title">directives</span> : <span class="title">set</span> <span class="title">global</span> <span class="title">directives</span> <span class="title">out</span> <span class="title">of</span> <span class="title">configuration</span> <span class="title">file</span></span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>启动命令 </p>
-<p>在/usr/local/nginx/sbin 目录下执行 ./nginx </p>
+<li><p>启动命令</p>
+<p>在/usr/local/nginx/sbin 目录下执行 ./nginx</p>
 </li>
-<li><p>关闭命令<br>在/usr/local/nginx/sbin 目录下执行 ./nginx -s stop </p>
+<li><p>关闭命令<br>在/usr/local/nginx/sbin 目录下执行 ./nginx -s stop</p>
 </li>
-<li><p>重新加载命令<br>在/usr/local/nginx/sbin 目录下执行 ./nginx -s reload </p>
+<li><p>重新加载命令<br>在/usr/local/nginx/sbin 目录下执行 ./nginx -s reload</p>
 </li>
 </ul>
 <h3 id="3-2-nginx-conf-配置文件"><a href="#3-2-nginx-conf-配置文件" class="headerlink" title="3.2 nginx.conf 配置文件"></a>3.2 nginx.conf 配置文件</h3><p>nginx 安装目录下，其默认的配置文件都放在这个目录的 conf 目录下，而主配置文件nginx.conf 也在其中，后续对 nginx 的使用基本上都是对此配置文件进行相应的修改 。</p>
@@ -4192,32 +4207,40 @@ redhat和fedora系统中，还支持一个参数：
 
 <p>nginx.conf 配置文件分为三部分 :</p>
 <ul>
-<li><p>第一部分：全局块 </p>
+<li><p>第一部分：全局块</p>
 <p>从配置文件开始到 events 块之间的内容，主要会设置一些影响 nginx 服务器整体运行的配置指令，主要包括配置运行 Nginx 服务器的用户（组）、允许生成的 worker process 数， 进程 PID 存放路径、日志存放路径和类型以及配置文件的引入等。</p>
 <p>这是 Nginx 服务器并发处理服务的关键配置， worker_processes 值越大，可以支持的并发处理量也越多，但是会受到硬件、软件等设备的制约 。</p>
 </li>
-<li><p>第二部分： events 块 </p>
-<p>events 块涉及的指令主要影响 Nginx 服务器与用户的网络连接，常用的设置包括是否开启对多 work process下的网络连接进行序列化，是否允许同时接收多个网络连接，选取哪种事件驱动模型来处理连接请求，每个 word process 可以同时支持的最大连接数等。 </p>
-<p>这部分的配置对 Nginx 的性能影响较大，在实际中应该灵活配置。 </p>
+<li><p>第二部分：events块</p>
+<p>events 块涉及的指令主要影响 Nginx 服务器与用户的网络连接，常用的设置包括是否开启对多 work process下的网络连接进行序列化，是否允许同时接收多个网络连接，选取哪种事件驱动模型来处理连接请求，每个 word process 可以同时支持的最大连接数等。</p>
+<p>这部分的配置对 Nginx 的性能影响较大，在实际中应该灵活配置。</p>
 </li>
-<li><p>第三部分： http 块 </p>
-<p>这算是 Nginx 服务器配置中最频繁的部分，代理、缓存和日志定义等绝大多数功能和第三方模块的配置都在这里。<br>需要注意的是： http 块也可以包括 http 全局块、 server 块。 </p>
+<li><p>第三部分： http 块</p>
+<p>这算是 Nginx 服务器配置中最频繁的部分，代理、缓存和日志定义等绝大多数功能和第三方模块的配置都在这里。<br>需要注意的是： http 块也可以包括 http 全局块、 server 块。</p>
 <ul>
 <li><p>http 全局块</p>
-<p>http 全局块配置的指令包括文件引入、 MIME-TYPE 定义、日志自定义、连接超时时间、单链接请求数上限等。 </p>
+<p>http 全局块配置的指令包括文件引入、 MIME-TYPE 定义、日志自定义、连接超时时间、单链接请求数上限等。</p>
 </li>
-<li><p>server 块 </p>
+<li><p>server 块</p>
 <p>这块和虚拟主机有密切关系，虚拟主机从用户角度看，和一台独立的硬件主机是完全一样的，该技术的产生是为了节省互联网服务器硬件成本。<br>每个 http 块可以包括多个 server 块，而每个 server 块就相当于一个虚拟主机。<br>每个 server 块也分为全局 server 块，以及可以同时包含多个 locaton 块。</p>
 <ul>
-<li>全局 server 块<br>最常见的配置是本虚拟机主机的监听配置和本虚拟主机的名称或 IP 配置。</li>
-<li>location 块<br>一个 server 块可以配置多个 location 块。这块的主要作用是基于 Nginx 服务器接收到的请求字符串（例如 server_name/uri-string），对虚拟主机名称（也可以是 IP 别名）之外的字符串（例如 前面的 /uri-string）进行匹配，对特定的请求进行处理。地址定向、数据缓存和应答控制等功能，还有许多第三方模块的配置也在这里进行。 </li>
-</ul>
+<li><p>全局 server 块<br>最常见的配置是本虚拟机主机的监听配置和本虚拟主机的名称或 IP 配置。</p>
+</li>
+<li><p>location 块<br>一个 server 块可以配置多个 location 块。这块的主要作用是基于 Nginx 服务器接收到的请求字符串（例如 server_name/uri-string），对虚拟主机名称（也可以是 IP 别名）之外的字符串（例如 前面的 /uri-string）进行匹配，对特定的请求进行处理。地址定向、数据缓存和应答控制等功能，还有许多第三方模块的配置也在这里进行。</p>
 </li>
 </ul>
 </li>
 </ul>
-<h2 id="第-4-章-nginx-配置实例-反向代理"><a href="#第-4-章-nginx-配置实例-反向代理" class="headerlink" title="第 4 章 nginx 配置实例-反向代理"></a>第 4 章 nginx 配置实例-反向代理</h2><h3 id="4-1-反向代理实例一"><a href="#4-1-反向代理实例一" class="headerlink" title="4.1 反向代理实例一"></a>4.1 反向代理实例一</h3><h4 id="实现效果"><a href="#实现效果" class="headerlink" title="实现效果"></a>实现效果</h4><p>使用 nginx 反向代理，访问 <a href="http://www.spark.com" target="_blank" rel="noopener">www.spark.com</a> 直接跳转到spark页面（192.168.100.10:8080）</p>
-<h4 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h4><ul>
+</li>
+</ul>
+<h2 id="第-4-章-nginx-配置实例-反向代理"><a href="#第-4-章-nginx-配置实例-反向代理" class="headerlink" title="第 4 章 nginx 配置实例-反向代理"></a>第 4 章 nginx 配置实例-反向代理</h2><h3 id="4-1-反向代理实例一"><a href="#4-1-反向代理实例一" class="headerlink" title="4.1 反向代理实例一"></a>4.1 反向代理实例一</h3><blockquote>
+<p>实现效果</p>
+</blockquote>
+<p>使用 nginx 反向代理，访问 <a href="http://www.spark.com" target="_blank" rel="noopener">www.spark.com</a> 直接跳转到spark页面（192.168.100.10:8080）</p>
+<blockquote>
+<p>准备工作</p>
+</blockquote>
+<ul>
 <li><p>启动spark</p>
 <figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"># 进入SPARK_HOME</span><br><span class="line">[root@hadoop01 ~]# <span class="built_in">cd</span> /opt/spark-<span class="number">2</span>.<span class="number">4</span>.<span class="number">4</span>-bin-hadoop2.<span class="number">7</span>/</span><br><span class="line">[root@hadoop01 spark-<span class="number">2</span>.<span class="number">4</span>.<span class="number">4</span>-bin-hadoop2.<span class="number">7</span>]# ./sbin/<span class="built_in">start</span>-all.sh</span><br><span class="line">starting org.apache.spark.deploy.master.Master, logging to /opt/spark-<span class="number">2</span>.<span class="number">4</span>.<span class="number">4</span>-bin-hadoop2.<span class="number">7</span>/logs/spark-root-org.apache.spark.deploy.master.Master-<span class="number">1</span>-hadoop01.out</span><br><span class="line"><span class="function">localhost: <span class="title">starting</span> <span class="title">org.apache.spark.deploy.worker.Worker</span>, <span class="title">logging</span> <span class="title">to</span> /<span class="title">opt</span>/<span class="title">spark</span>-2.4.4-<span class="title">bin</span>-<span class="title">hadoop2</span>.7/<span class="title">logs</span>/<span class="title">spark</span>-<span class="title">root</span>-<span class="title">org.apache.spark.deploy.worker.Worker</span>-1-<span class="title">hadoop01.out</span></span></span><br><span class="line"><span class="function">[<span class="title">root</span>@<span class="title">hadoop01</span> <span class="title">spark</span>-2.4.4-<span class="title">bin</span>-<span class="title">hadoop2</span>.7]# <span class="title">jps</span></span></span><br><span class="line"><span class="function">9302 <span class="title">Worker</span></span></span><br><span class="line"><span class="function">9336 <span class="title">Jps</span></span></span><br><span class="line"><span class="function">9209 <span class="title">Master</span></span></span><br><span class="line"><span class="function">[<span class="title">root</span>@<span class="title">hadoop01</span> <span class="title">spark</span>-2.4.4-<span class="title">bin</span>-<span class="title">hadoop2</span>.7]#</span></span><br></pre></td></tr></table></figure>
 
@@ -4231,27 +4254,36 @@ redhat和fedora系统中，还支持一个参数：
 <p>路径：C:\Windows\System32\drivers\etc\hosts</p>
 <p>添加：<code>192.168.100.10  www.spark.com</code></p>
 <blockquote>
-<p>注：通过<a href="http://www.spark.com:8080/在浏览器中登陆验证，看域名映射是否生效" target="_blank" rel="noopener">http://www.spark.com:8080/在浏览器中登陆验证，看域名映射是否生效</a></p>
+<p>注：通过<a href="http://www.spark.com:8080/" target="_blank" rel="noopener">http://www.spark.com:8080/</a>在浏览器中登陆验证，看域名映射是否生效</p>
 </blockquote>
 </li>
-<li><p>修改nginx.conf文件， 进行请求转发的配置（反向代理配置） </p>
+<li><p>修改nginx.conf文件， 进行请求转发的配置（反向代理配置）</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        listen       80;</span><br><span class="line">        server_name  192.168.100.10;</span><br><span class="line"></span><br><span class="line">        location / &#123;</span><br><span class="line">            root   html;</span><br><span class="line">            proxy_pass  http://192.168.100.10:8080;</span><br><span class="line">            index  index.html index.htm;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        error_page   500 502 503 504  /50x.html;</span><br><span class="line">        location = /50x.html &#123;</span><br><span class="line">            root   html;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p>修改http块中的server块：</p>
-<p>​    server_name修改为所在主机的IP</p>
-<p>​    在location中添加proxy_pass  <a href="http://192.168.100.10:8080" target="_blank" rel="noopener">http://192.168.100.10:8080</a>;</p>
-<p>​    注意末尾分号</p>
+<p>​server_name修改为所在主机的IP</p>
+<p>​在location中添加proxy_pass  <a href="http://192.168.100.10:8080" target="_blank" rel="noopener">http://192.168.100.10:8080</a>;</p>
+<p>​注意末尾分号</p>
 </blockquote>
 </li>
 </ul>
-<h4 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h4><p>在浏览器中输入<code>http://www.spark.com/</code>，看其是否可以跳转至spark页面</p>
-<img src="/nginx/ckj1jlqq4006wt8yvq9lda0ne/spark.PNG" title="This is an browser picture">
+<blockquote>
+<p>验证</p>
+</blockquote>
+<p>在浏览器中输入<code>http://www.spark.com/</code>，看其是否可以跳转至spark页面</p>
+<img src="/nginx/nginx-操作/spark.PNG" title="This is an browser picture">
 
-<h3 id="4-2-反向代理实例二"><a href="#4-2-反向代理实例二" class="headerlink" title="4.2 反向代理实例二"></a>4.2 反向代理实例二</h3><h4 id="实现效果-1"><a href="#实现效果-1" class="headerlink" title="实现效果"></a>实现效果</h4><p>使用 nginx 反向代理， 根据访问的路径跳转到不同端口的服务中<br>nginx 监听端口为 9001，<br>访问 <a href="http://192.168.100.10:9001/index_80" target="_blank" rel="noopener">http://192.168.100.10:9001/index_80</a> 直接跳转到127.0.0.0:8000/index_80<br>访问 <a href="http://192.168.100.10:9001/index_81" target="_blank" rel="noopener">http://192.168.100.10:9001/index_81</a> 直接跳转到127.0.0.0:8001/index_81</p>
-<h4 id="准备工作-1"><a href="#准备工作-1" class="headerlink" title="准备工作"></a>准备工作</h4><ul>
+<h3 id="4-2-反向代理实例二"><a href="#4-2-反向代理实例二" class="headerlink" title="4.2 反向代理实例二"></a>4.2 反向代理实例二</h3><blockquote>
+<p>实现效果</p>
+</blockquote>
+<p>使用 nginx 反向代理， 根据访问的路径跳转到不同端口的服务中<br>nginx 监听端口为 9001，<br>访问 <a href="http://192.168.100.10:9001/index_80" target="_blank" rel="noopener">http://192.168.100.10:9001/index_80</a> 直接跳转到127.0.0.0:8000/index_80<br>访问 <a href="http://192.168.100.10:9001/index_81" target="_blank" rel="noopener">http://192.168.100.10:9001/index_81</a> 直接跳转到127.0.0.0:8001/index_81</p>
+<blockquote>
+<p>准备工作</p>
+</blockquote>
+<ul>
 <li><p>启动两个模拟端口(用flask启动)</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># dir tree</span><br><span class="line">├── app.py</span><br><span class="line">└── templates</span><br><span class="line">    └── index.html</span><br></pre></td></tr></table></figure>
+<figure class="highlight d"><table><tr><td class="code"><pre><span class="line"># dir tree</span><br><span class="line">├── app.py</span><br><span class="line">└── templates</span><br><span class="line">    └── index.html</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li><p>8000端口</p>
@@ -4280,12 +4312,15 @@ redhat和fedora系统中，还支持一个参数：
 
 </li>
 </ul>
-<h4 id="验证-1"><a href="#验证-1" class="headerlink" title="验证"></a>验证</h4><p>在浏览器中输入 <a href="http://192.168.100.10:9001/index_80和" target="_blank" rel="noopener">http://192.168.100.10:9001/index_80和</a> <a href="http://192.168.100.10:9001/index_81进行验证" target="_blank" rel="noopener">http://192.168.100.10:9001/index_81进行验证</a></p>
-<img src="/nginx/ckj1jlqq4006wt8yvq9lda0ne/flask_8000.PNG" title="This is an browser picture">
+<blockquote>
+<p>验证</p>
+</blockquote>
+<p>在浏览器中输入 <a href="http://192.168.100.10:9001/index_80" target="_blank" rel="noopener">http://192.168.100.10:9001/index_80</a>和 <a href="http://192.168.100.10:9001/index_81" target="_blank" rel="noopener">http://192.168.100.10:9001/index_81</a>进行验证</p>
+<img src="/nginx/nginx-操作/flask_8000.PNG" title="This is an browser picture">
 
-<img src="/nginx/ckj1jlqq4006wt8yvq9lda0ne/flask_8081.PNG" title="This is an browser picture">
+<img src="/nginx/nginx-操作/flask_8081.PNG" title="This is an browser picture">
 
-<h3 id="location-指令说明"><a href="#location-指令说明" class="headerlink" title="location 指令说明"></a>location 指令说明</h3><p>该指令用于匹配 URL，语法如下： </p>
+<h3 id="location-指令说明"><a href="#location-指令说明" class="headerlink" title="location 指令说明"></a>location 指令说明</h3><p>该指令用于匹配 URL，语法如下：</p>
 <figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">location</span> [= | <span class="regexp">~ |</span> <span class="regexp">~* |</span><span class="regexp"> ^~]</span> url &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>说明：</p>
@@ -4299,31 +4334,32 @@ redhat和fedora系统中，还支持一个参数：
 <li><p>^~：用于不含正则表达式的 uri 前，要求 Nginx 服务器找到标识 uri 和请求字符串匹配度最高的 location 后，立即使用此 location 处理请求，而不再使用 location块中的正则 uri 和请求字符串做匹配。</p>
 </li>
 </ul>
-<p>注意：如果 uri 包含正则表达式，则必须要有 ~ 或者 ~* 标识。 </p>
-<h2 id="第-5-章-nginx-配置实例-负载均衡"><a href="#第-5-章-nginx-配置实例-负载均衡" class="headerlink" title="第 5 章 nginx 配置实例-负载均衡"></a>第 5 章 nginx 配置实例-负载均衡</h2><p>随着互联网信息的爆炸性增长，负载均衡（load balance）已经不再是一个很陌生的话题，顾名思义，负载均衡即是将负载分摊到不同的服务单元，既保证服务的可用性，又保证响应足够快，给用户很好的体验。快速增长的访问量和数据流量催生了各式各样的负载均衡产品，很多专业的负载均衡硬件提供了很好的功能，但却价格不菲，这使得负载均衡软件大受欢迎，nginx 就是其中的一个，在 linux 下有 Nginx、 LVS、 Haproxy 等等服务可以提供负载均衡服务，而且 Nginx 提供了几种分配方式(策略)： </p>
+<p>注意：如果 uri 包含正则表达式，则必须要有 ~ 或者 ~* 标识。</p>
+<h2 id="第-5-章-nginx-配置实例-负载均衡"><a href="#第-5-章-nginx-配置实例-负载均衡" class="headerlink" title="第 5 章 nginx 配置实例-负载均衡"></a>第 5 章 nginx 配置实例-负载均衡</h2><p>随着互联网信息的爆炸性增长，负载均衡（load balance）已经不再是一个很陌生的话题，顾名思义，负载均衡即是将负载分摊到不同的服务单元，既保证服务的可用性，又保证响应足够快，给用户很好的体验。快速增长的访问量和数据流量催生了各式各样的负载均衡产品，很多专业的负载均衡硬件提供了很好的功能，但却价格不菲，这使得负载均衡软件大受欢迎，nginx 就是其中的一个，在 linux 下有 Nginx、 LVS、 Haproxy 等等服务可以提供负载均衡服务，而且 Nginx 提供了几种分配方式(策略)：</p>
 <ol>
 <li><p>轮询（默认）<br>每个请求按时间顺序逐一分配到不同的后端服务器，如果后端服务器 down 掉，能自动剔除。</p>
 </li>
-<li><p>weight<br>weight 代表权,重默认为 1,权重越高被分配的客户端越多指定轮询几率， weight 和访问比率成正比，用于后端服务器性能不均的情况。 例如： </p>
+<li><p>weight<br>weight 代表权,重默认为 1,权重越高被分配的客户端越多指定轮询几率， weight 和访问比率成正比，用于后端服务器性能不均的情况。 例如：</p>
 <figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">upstream</span> server_pool&#123;</span><br><span class="line">    <span class="attribute">server</span> <span class="number">192.168.5.21</span> weight=<span class="number">10</span>;</span><br><span class="line">    <span class="attribute">server</span> <span class="number">192.168.5.22</span> weight=<span class="number">10</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>ip_hash<br>每个请求按访问 ip 的 hash 结果分配，这样每个访客固定访问一个后端服务器，可以解决 session 的问题。 例如：</p>
 <figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">upstream</span> server_pool&#123;</span><br><span class="line">    ip_hash;</span><br><span class="line">    <span class="attribute">server</span> <span class="number">192.168.5.21:80</span>;</span><br><span class="line">    <span class="attribute">server</span> <span class="number">192.168.5.22:80</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
 </li>
-</ol>
-<ol start="4">
 <li><p>fair（第三方）<br>按后端服务器的响应时间来分配请求，响应时间短的优先分配。</p>
 <figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">upstream</span> server_pool&#123;</span><br><span class="line">    <span class="attribute">server</span> <span class="number">192.168.5.21:80</span>;</span><br><span class="line">    <span class="attribute">server</span> <span class="number">192.168.5.22:80</span>;</span><br><span class="line">    fair;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-
 </li>
 </ol>
-<h3 id="5-1-示例"><a href="#5-1-示例" class="headerlink" title="5.1 示例"></a>5.1 示例</h3><h4 id="实现效果-2"><a href="#实现效果-2" class="headerlink" title="实现效果"></a>实现效果</h4><p>页面输入<code>http://192.168.100.10/index</code>，实现负载均衡，转发在8000和8001端口中。</p>
-<h4 id="准备工作-2"><a href="#准备工作-2" class="headerlink" title="准备工作"></a>准备工作</h4><ul>
+<h3 id="5-1-示例"><a href="#5-1-示例" class="headerlink" title="5.1 示例"></a>5.1 示例</h3><blockquote>
+<p>实现效果</p>
+</blockquote>
+<p>页面输入<code>http://192.168.100.10/index</code>，实现负载均衡，转发在8000和8001端口中。</p>
+<blockquote>
+<p>准备工作</p>
+</blockquote>
+<ul>
 <li><p>启动两个测试端口</p>
-<p>访问 <a href="http://192.168.100.10:8000/index，响应内容是`我是8000端口`" target="_blank" rel="noopener">http://192.168.100.10:8000/index，响应内容是`我是8000端口`</a><br>访问 <a href="http://192.168.100.10:8001/index，响应内容是`我是8001端口`" target="_blank" rel="noopener">http://192.168.100.10:8001/index，响应内容是`我是8001端口`</a></p>
+<p>访问 <a href="http://192.168.100.10:8000/index" target="_blank" rel="noopener">http://192.168.100.10:8000/index</a>，响应内容是<code>我是8000端口</code><br>访问 <a href="http://192.168.100.10:8001/index" target="_blank" rel="noopener">http://192.168.100.10:8001/index</a>，响应内容是<code>我是8001端口</code></p>
 </li>
 <li><p>修改nginx.conf文件， 进行请求转发的配置（负载均衡配置）</p>
 <figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">upstream</span> myserver &#123;</span><br><span class="line">        <span class="attribute">server</span> localhost:<span class="number">8000</span>;</span><br><span class="line">        <span class="attribute">server</span> localhost:<span class="number">8001</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">    <span class="attribute">listen</span>    <span class="number">8500</span>;</span><br><span class="line">    <span class="attribute">server_name</span>   <span class="number">192.168.100.10</span>;</span><br><span class="line">    <span class="attribute">location</span>  = /index &#123;</span><br><span class="line">        <span class="attribute">proxy_pass</span> http://myserver;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -4335,18 +4371,16 @@ redhat和fedora系统中，还支持一个参数：
 <p>另外一种方法就是动态跟静态文件混合在一起发布，通过 nginx 来分开。<br>通过 location 指定不同的后缀名实现不同的请求转发。通过 expires 参数设置，可以使浏览器缓存过期时间，减少与服务器之前的请求和流量。具体 Expires 定义：是给一个资源设定一个过期时间，也就是说无需去服务端验证，直接通过浏览器自身确认是否过期即可，所以不会产生额外的流量。此种方法非常适合不经常变动的资源。（如果经常更新的文件，不建议使用 Expires 来缓存），我这里设置 3d，表示在这 3 天之内访问这个 URL，发送一个请求，比对服务器该文件最后更新时间没有变化，则不会从服务器抓取，返回状态码304，如果有修改，则直接从服务器重新下载，返回状态码 200。</p>
 <figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">location</span> /www/ &#123;</span><br><span class="line">    <span class="attribute">root</span> /opt/project/;</span><br><span class="line">    <span class="attribute">index</span>  index.html index.htm;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="attribute">location</span> /images/ &#123;</span><br><span class="line">    <span class="attribute">root</span> /opt/project/; <span class="comment"># 指向服务器的路径</span></span><br><span class="line">    <span class="attribute">autoindex</span> <span class="literal">on</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="第-7-章-nginx-原理与优化参数配置"><a href="#第-7-章-nginx-原理与优化参数配置" class="headerlink" title="第 7 章 nginx 原理与优化参数配置"></a>第 7 章 nginx 原理与优化参数配置</h2><img src="/nginx/ckj1jlqq4006wt8yvq9lda0ne/master_work1.PNG" title="This is an browser picture">
+<h2 id="第-7-章-nginx-原理与优化参数配置"><a href="#第-7-章-nginx-原理与优化参数配置" class="headerlink" title="第 7 章 nginx 原理与优化参数配置"></a>第 7 章 nginx 原理与优化参数配置</h2><img src="/nginx/nginx-操作/master_work1.PNG" title="This is an browser picture">
 
-<img src="/nginx/ckj1jlqq4006wt8yvq9lda0ne/master_work2.PNG" title="This is an browser picture">
+<img src="/nginx/nginx-操作/master_work2.PNG" title="This is an browser picture">
 
-<h3 id="master-workers-的机制的好处"><a href="#master-workers-的机制的好处" class="headerlink" title="master-workers 的机制的好处"></a>master-workers 的机制的好处</h3><p>首先，对于每个 worker 进程来说，独立的进程，不需要加锁，所以省掉了锁带来的开销，同时在编程以及问题查找时，也会方便很多。其次，采用独立的进程，可以让互相之间不会影响，一个进程退出后，其它进程还在工作，服务不会中断， master 进程则很快启动新的worker 进程。当然， worker 进程的异常退出，肯定是程序有 bug 了，异常退出，会导致当前 worker 上的所有请求失败，不过不会影响到所有请求，所以降低了风险。 </p>
-<h3 id="需要设置多少个-worker"><a href="#需要设置多少个-worker" class="headerlink" title="需要设置多少个 worker"></a>需要设置多少个 worker</h3><p>Nginx 同 redis 类似都采用了 io 多路复用机制，每个 worker 都是一个独立的进程，但每个进程里只有一个主线程，通过异步非阻塞的方式来处理请求， 即使是成千上万个请求也不在话下。每个 worker 的线程可以把一个 cpu 的性能发挥到极致。所以 worker 数和服务器的 cpu数相等是最为适宜的。设少了会浪费 cpu，设多了会造成 cpu 频繁切换上下文带来的损耗。 </p>
-<p>#设置 worker 数量。<br>worker_processes 4</p>
-<p>#work 绑定 cpu(4 work 绑定 4cpu)。<br>worker_cpu_affinity 0001 0010 0100 1000</p>
-<p>#work 绑定 cpu (4 work 绑定 8cpu 中的 4 个) 。<br>worker_cpu_affinity 0000001 00000010 00000100 00001000 </p>
-<h3 id="连接数-worker-connection"><a href="#连接数-worker-connection" class="headerlink" title="连接数 worker_connection"></a>连接数 worker_connection</h3><p>这个值是表示每个 worker 进程所能建立连接的最大值，所以，一个 nginx 能建立的最大连接数，应该是 worker_connections * worker_processes。当然，这里说的是最大连接数，对于HTTP 请 求 本 地 资 源 来 说 ， 能 够 支 持 的 最 大 并 发 数 量 是 worker_connections * worker_processes，如果是支持 http1.1 的浏览器每次访问要占两个连接，所以普通的静态访问最大并发数是： worker_connections * worker_processes /2，而如果是 HTTP 作 为反向代<br>理来说，最大并发数量应该是 worker_connections * worker_processes / 4。因为作为反向代理服务器，每个并发会建立与客户端的连接和与后端服务的连接，会占用两个连接。 </p>
-<img src="/nginx/ckj1jlqq4006wt8yvq9lda0ne/nginx_conf.PNG" title="This is an browser picture">
+<h3 id="master-workers-的机制的好处"><a href="#master-workers-的机制的好处" class="headerlink" title="master-workers 的机制的好处"></a>master-workers 的机制的好处</h3><p>首先，对于每个 worker 进程来说，独立的进程，不需要加锁，所以省掉了锁带来的开销，同时在编程以及问题查找时，也会方便很多。其次，采用独立的进程，可以让互相之间不会影响，一个进程退出后，其它进程还在工作，服务不会中断， master 进程则很快启动新的worker 进程。当然， worker 进程的异常退出，肯定是程序有 bug 了，异常退出，会导致当前 worker 上的所有请求失败，不过不会影响到所有请求，所以降低了风险。</p>
+<h3 id="需要设置多少个-worker"><a href="#需要设置多少个-worker" class="headerlink" title="需要设置多少个 worker"></a>需要设置多少个 worker</h3><p>Nginx 同 redis 类似都采用了 io 多路复用机制，每个 worker 都是一个独立的进程，但每个进程里只有一个主线程，通过异步非阻塞的方式来处理请求， 即使是成千上万个请求也不在话下。每个 worker 的线程可以把一个 cpu 的性能发挥到极致。所以 worker 数和服务器的 cpu数相等是最为适宜的。设少了会浪费 cpu，设多了会造成 cpu 频繁切换上下文带来的损耗。</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">#设置 worker 数量。</span><br><span class="line">worker_processes <span class="number">4</span></span><br><span class="line">#work 绑定 cpu(<span class="number">4</span> work 绑定 <span class="number">4</span>cpu)。</span><br><span class="line">worker_cpu_affinity <span class="number">0001</span> <span class="number">0010</span> <span class="number">0100</span> <span class="number">1000</span></span><br><span class="line">#work 绑定 cpu (<span class="number">4</span> work 绑定 <span class="number">8</span>cpu 中的 <span class="number">4</span> 个) 。</span><br><span class="line">worker_cpu_affinity <span class="number">0000001</span> <span class="number">00000010</span> <span class="number">00000100</span> <span class="number">00001000</span></span><br></pre></td></tr></table></figure>
 
+<h3 id="连接数-worker-connection"><a href="#连接数-worker-connection" class="headerlink" title="连接数 worker_connection"></a>连接数 worker_connection</h3><p>这个值是表示每个 worker 进程所能建立连接的最大值，所以，一个 nginx 能建立的最大连接数，应该是 worker_connections * worker_processes。当然，这里说的是最大连接数，对于HTTP 请 求 本 地 资 源 来 说 ， 能 够 支 持 的 最 大 并 发 数 量 是 worker_connections * worker_processes，如果是支持 http1.1 的浏览器每次访问要占两个连接，所以普通的静态访问最大并发数是： worker_connections * worker_processes /2，而如果是 HTTP 作 为反向代<br>理来说，最大并发数量应该是 worker_connections * worker_processes / 4。因为作为反向代理服务器，每个并发会建立与客户端的连接和与后端服务的连接，会占用两个连接。</p>
+<img src="/nginx/nginx-操作/nginx_conf.PNG" title="This is an browser picture">
 ]]></content>
       <categories>
         <category>nginx</category>
@@ -12024,6 +12058,49 @@ redhat和fedora系统中，还支持一个参数：
       </categories>
       <tags>
         <tag>go</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>使用Celery Once来防止Celery重复执行同一个任务</title>
+    <url>/celery/%E4%BD%BF%E7%94%A8celery-once%E6%9D%A5%E9%98%B2%E6%AD%A2celery%E9%87%8D%E5%A4%8D%E6%89%A7%E8%A1%8C%E5%90%8C%E4%B8%80%E4%B8%AA%E4%BB%BB%E5%8A%A1.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>在使用<code>Celery</code>的时候发现有的时候<code>Celery</code>会将同一个任务执行两遍。比如相同的任务在不同的<code>worker</code>中被分别执行，并且时间只相差几毫秒，使用<code>Celery Once</code>可以处理这一情况。<code>Celery Once</code>是利用 Redis 加锁来实现, <code>Celery Once</code>在 <code>Task</code>类基础上实现了<code>QueueOnce</code>类，该类提供了任务去重的功能，所以在使用时，我们自己实现的方法需要将<code>QueueOnce</code>设置为<code>base</code>。</p>
+<a id="more"></a>
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">@task(base=QueueOnce, once=&#123;'graceful': True&#125;)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">handel</span><span class="params">(*args, **kwargs)</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
+
+<p>说明：<code>once</code>参数表示，在遇到重复方法时的处理方式，默认 graceful 为 False，那样 Celery 会抛出 AlreadyQueued 异常，手动设置为 True，则静默处理。</p>
+<p>另外如果要手动设置任务的key，可以指定keys参数, 例：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="meta">@celery.task(base=QueueOnce, once=&#123;'keys': ['a']&#125;)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">slow_add</span><span class="params">(a, b)</span>:</span></span><br><span class="line">    sleep(<span class="number">30</span>)</span><br><span class="line">    <span class="keyword">return</span> a + b</span><br></pre></td></tr></table></figure>
+
+<p>参考：<a href="https://blog.csdn.net/qq_41333582/article/details/83899884" target="_blank" rel="noopener">https://blog.csdn.net/qq_41333582/article/details/83899884</a></p>
+]]></content>
+      <categories>
+        <category>celery</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>celery</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python 异常记录</title>
+    <url>/python/python-%E5%BC%82%E5%B8%B8%E8%AE%B0%E5%BD%95.html</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="数据库异常记录"><a href="#数据库异常记录" class="headerlink" title="数据库异常记录"></a>数据库异常记录</h2><h3 id="django-core-exceptions-ImproperlyConfigured-Field-name-transerver-is-not-valid-for-model-SysTask"><a href="#django-core-exceptions-ImproperlyConfigured-Field-name-transerver-is-not-valid-for-model-SysTask" class="headerlink" title="django.core.exceptions.ImproperlyConfigured: Field name transerver is not valid for model SysTask"></a>django.core.exceptions.ImproperlyConfigured: Field name <code>transerver</code> is not valid for model <code>SysTask</code></h3><p>日志信息如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[2021-02-04 10:35:07] [log.py:log_response:228] ERROR Internal Server Error: /api/v2/migratetasks/sys_task/</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;/opt/virtual_env/backend_env/lib/python3.6/site-packages/django/core/handlers/exception.py&quot;, line 34, in inner</span><br><span class="line">    response = get_response(request)</span><br><span class="line">  File &quot;/opt/virtual_env/backend_env/lib/python3.6/site-packages/django/core/handlers/base.py&quot;, line 126, in _get_response</span><br><span class="line">    response = self.process_exception_by_middleware(e, request)</span><br><span class="line">  File &quot;/opt/virtual_env/backend_env/lib/python3.6/site-packages/django/core/handlers/base.py&quot;, line 124, in _get_response</span><br><span class="line">    response = wrapped_callback(request, *callback_args, **callback_kwargs)</span><br><span class="line">  File &quot;/usr/lib64/python3.6/contextlib.py&quot;, line 52, in inner</span><br><span class="line">    return func(*args, **kwds)</span><br><span class="line">  File &quot;/opt/virtual_env/backend_env/lib/python3.6/site-packages/django/views/decorators/csrf.py&quot;, line 54, in wrapped_view</span><br><span class="line">    return view_func(*args, **kwargs)</span><br><span class="line">  File &quot;/opt/virtual_env/backend_env/lib/python3.6/site-packages/django/views/generic/base.py&quot;, line 68, in view</span><br><span class="line">    return self.dispatch(request, *args, **kwargs)</span><br><span class="line">  File &quot;/opt/virtual_env/backend_env/lib/python3.6/site-packages/rest_framework/views.py&quot;, line 483, in dispatch</span><br><span class="line">    response = self.handle_exception(exc)</span><br><span class="line">  File &quot;/opt/virtual_env/backend_env/lib/python3.6/site-packages/rest_framework/views.py&quot;, line 443, in handle_exception</span><br><span class="line">    self.raise_uncaught_exception(exc)</span><br><span class="line">  File &quot;/opt/virtual_env/backend_env/lib/python3.6/site-packages/rest_framework/views.py&quot;, line 480, in dispatch</span><br><span class="line">    response = handler(request, *args, **kwargs)</span><br><span class="line">  File &quot;/opt/virtual_env/backend_env/lib/python3.6/site-packages/rest_framework/generics.py&quot;, line 192, in post</span><br><span class="line">    return self.create(request, *args, **kwargs)</span><br><span class="line">  File &quot;/opt/virtual_env/backend_env/lib/python3.6/site-packages/rest_framework/mixins.py&quot;, line 20, in create</span><br><span class="line">    serializer.is_valid(raise_exception=True)</span><br><span class="line">  File &quot;/opt/virtual_env/backend_env/lib/python3.6/site-packages/rest_framework/serializers.py&quot;, line 236, in is_valid</span><br><span class="line">    self._validated_data = self.run_validation(self.initial_data)</span><br><span class="line">  File &quot;/opt/virtual_env/backend_env/lib/python3.6/site-packages/rest_framework/serializers.py&quot;, line 434, in run_validation</span><br><span class="line">    value = self.to_internal_value(data)</span><br><span class="line">  File &quot;/opt/virtual_env/backend_env/lib/python3.6/site-packages/rest_framework/serializers.py&quot;, line 482, in to_internal_value</span><br><span class="line">    fields = self._writable_fields</span><br><span class="line">  File &quot;/opt/virtual_env/backend_env/lib/python3.6/site-packages/django/utils/functional.py&quot;, line 37, in __get__</span><br><span class="line">    res = instance.__dict__[self.name] = self.func(instance)</span><br><span class="line">  File &quot;/opt/virtual_env/backend_env/lib/python3.6/site-packages/rest_framework/serializers.py&quot;, line 370, in _writable_fields</span><br><span class="line">    field for field in self.fields.values() if not field.read_only</span><br><span class="line">  File &quot;/opt/virtual_env/backend_env/lib/python3.6/site-packages/rest_framework/serializers.py&quot;, line 363, in fields</span><br><span class="line">    for key, value in self.get_fields().items():</span><br><span class="line">  File &quot;/opt/virtual_env/backend_env/lib/python3.6/site-packages/rest_framework/serializers.py&quot;, line 1045, in get_fields</span><br><span class="line">    source, info, model, depth</span><br><span class="line">  File &quot;/opt/virtual_env/backend_env/lib/python3.6/site-packages/rest_framework/serializers.py&quot;, line 1190, in build_field</span><br><span class="line">    return self.build_unknown_field(field_name, model_class)</span><br><span class="line">  File &quot;/opt/virtual_env/backend_env/lib/python3.6/site-packages/rest_framework/serializers.py&quot;, line 1302, in build_unknown_field</span><br><span class="line">    (field_name, model_class.__name__)</span><br><span class="line">django.core.exceptions.ImproperlyConfigured: Field name `transerver` is not valid for model `SysTask`.</span><br></pre></td></tr></table></figure>
+
+<p>原因分析：</p>
+<p>串行器(serializers.ModeSerializer)中调用的models里面的字段不对而导致的，即在serializers的fields列表里引入了model中不存在的字段</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class SysTaskSerializer(serializers.ModelSerializer):</span><br><span class="line"></span><br><span class="line">    class Meta:</span><br><span class="line">        model = SysTask</span><br><span class="line">        fields = (&quot;id&quot;, &quot;user&quot;, &quot;task_name&quot;, &quot;region_id&quot;, &quot;zone_id&quot;, &quot;zone_name&quot;,</span><br><span class="line">                  &quot;bandwidth_limit&quot;, &quot;is_automatically&quot;, &quot;account&quot;, &quot;source&quot;,</span><br><span class="line">                  &quot;disk_list&quot;, &quot;target_server&quot;, &quot;transerver&quot;, &quot;start_time&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>例如上述序列化中，<code>SysTask</code>表中没有<code>transerver</code>字段，在序列化中引入就会引发上述错误</p>
+<p>处理：</p>
+<p>查看是否引入了不存在的字段，或引入的字段与model中定义的字段不同，删掉或修改即可</p>
+]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
       </tags>
   </entry>
 </search>
