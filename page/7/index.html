@@ -499,7 +499,7 @@
 
 <h2 id="Spark-Web-UI详解"><a href="#Spark-Web-UI详解" class="headerlink" title="Spark Web UI详解"></a>Spark Web UI详解</h2><h3 id="默认登陆URL"><a href="#默认登陆URL" class="headerlink" title="默认登陆URL"></a>默认登陆URL</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://&#123;spark_ip&#125;:4040/jobs/</span><br></pre></td></tr></table></figure>
 
-<h3 id="jobs页面"><a href="#jobs页面" class="headerlink" title="jobs页面"></a>jobs页面</h3><img src="/spark/ckj1jlqs000b1t8yv79kv2kdr/job.PNG" title="This is an browser picture">
+<h3 id="jobs页面"><a href="#jobs页面" class="headerlink" title="jobs页面"></a>jobs页面</h3><img src="/spark/spark-web-用法/job.PNG" title="This is an browser picture">
 
 <blockquote>
 <p><strong>User</strong>:  spark任务提交的用户，用以进行权限控制与资源分配。</p>
@@ -510,7 +510,7 @@
 <p><strong>Completed Jobs</strong>:  已完成Job的基本信息，如想查看某一个Job的详细情况，可点击对应Job进行查看。</p>
 </blockquote>
 <p>注：Job默认都是串行提交运行的，如果Job间没有依赖，可以使用多线程并行提交Job，实现Job并发。</p>
-<h3 id="Jobs-Detail页面"><a href="#Jobs-Detail页面" class="headerlink" title="Jobs Detail页面"></a>Jobs Detail页面</h3><img src="/spark/ckj1jlqs000b1t8yv79kv2kdr/job_detail.PNG" title="This is an browser picture">
+<h3 id="Jobs-Detail页面"><a href="#Jobs-Detail页面" class="headerlink" title="Jobs Detail页面"></a>Jobs Detail页面</h3><img src="/spark/spark-web-用法/job_detail.PNG" title="This is an browser picture">
 
 <blockquote>
 <p>在Jobs页面点击进入某个Job之后，可以查看某一Job的详细信息：</p>
@@ -521,7 +521,7 @@
 <p><strong>Event Timeline</strong>: 展示当前Job运行期间stage的提交与结束、Executor的加入与退出等事件信息。</p>
 <p><strong>DAG Visualization</strong>:  当前Job所包含的所有stage信息（stage中包含的明细的tranformation操作），以及各stage间的DAG依赖图。DAG也是一种调度模型，在spark的作业调度中，有很多作业存在依赖关系，所以没有依赖关系的作业可以并行执行，有依赖的作业不能并行执行。</p>
 </blockquote>
-<h3 id="Stages页面"><a href="#Stages页面" class="headerlink" title="Stages页面"></a>Stages页面</h3><img src="/spark/ckj1jlqs000b1t8yv79kv2kdr/stage.PNG" title="This is an browser picture">
+<h3 id="Stages页面"><a href="#Stages页面" class="headerlink" title="Stages页面"></a>Stages页面</h3><img src="/spark/spark-web-用法/stage.PNG" title="This is an browser picture">
 
 <blockquote>
 <p>在Job Detail页点击进入某个stage后，可以查看某一stage的详细信息：</p>
@@ -535,12 +535,12 @@
 <p><strong>Aggregated Metrics by Executor</strong>:  将task运行的指标信息按excutor做聚合后的统计信息，并可查看某个Excutor上任务运行的日志信息。</p>
 <p><strong>Tasks</strong>:  当前stage中所有任务运行的明细信息，是与Event Timeline中的信息对应的文字展示（可以点击某个task查看具体的任务日志）。</p>
 </blockquote>
-<h3 id="Storage页面"><a href="#Storage页面" class="headerlink" title="Storage页面"></a>Storage页面</h3><img src="/spark/ckj1jlqs000b1t8yv79kv2kdr/storage1.PNG" title="This is an browser picture">
+<h3 id="Storage页面"><a href="#Storage页面" class="headerlink" title="Storage页面"></a>Storage页面</h3><img src="/spark/spark-web-用法/storage1.PNG" title="This is an browser picture">
 
 <blockquote>
 <p>storage页面能看出application当前使用的缓存情况，可以看到有哪些RDD被缓存了，以及占用的内存资源。如果job在执行时持久化（persist）/缓存（cache）了一个RDD，那么RDD的信息可以在这个选项卡中查看。</p>
 </blockquote>
-<h3 id="Storage-Detail页面"><a href="#Storage-Detail页面" class="headerlink" title="Storage Detail页面"></a>Storage Detail页面</h3><img src="/spark/ckj1jlqs000b1t8yv79kv2kdr/storage2.PNG" title="This is an browser picture">
+<h3 id="Storage-Detail页面"><a href="#Storage-Detail页面" class="headerlink" title="Storage Detail页面"></a>Storage Detail页面</h3><img src="/spark/spark-web-用法/storage2.PNG" title="This is an browser picture">
 
 <blockquote>
 <p>点击某个RDD即可查看该RDD缓存的详细信息，包括缓存在哪个Executor中，使用的block情况，RDD上分区（partitions）的信息以及存储RDD的主机的地址。</p>
@@ -553,170 +553,6 @@
 <p><a href="https://www.jianshu.com/p/8143a50a5af9" target="_blank" rel="noopener">https://www.jianshu.com/p/8143a50a5af9</a></p>
 <p><a href="https://blog.csdn.net/minge_se/article/details/79146737" target="_blank" rel="noopener">https://blog.csdn.net/minge_se/article/details/79146737</a></p>
 
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/spark/spark异常处理.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Mr Wang">
-      <meta itemprop="description" content="行动了才会有故事，说出来才会有结果。">
-      <meta itemprop="image" content="/images/profile.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="勿忘，须舍">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/spark/spark异常处理.html" class="post-title-link" itemprop="url">spark异常处理</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-10-18 00:00" itemprop="dateCreated datePublished" datetime="2019-10-18T00:00:00+08:00">2019-10-18</time>
-            </span>
-          
-
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/spark/" itemprop="url" rel="index"><span itemprop="name">spark</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
           
         
       
@@ -902,6 +738,170 @@
 <h2 id="spark配置参数"><a href="#spark配置参数" class="headerlink" title="spark配置参数"></a>spark配置参数</h2><p>官方链接：<a href="https://spark.apache.org/docs/latest/configuration.html" target="_blank" rel="noopener">https://spark.apache.org/docs/latest/configuration.html</a></p>
 <p>其它参考：<a href="http://ifeve.com/spark-config/" target="_blank" rel="noopener">http://ifeve.com/spark-config/</a></p>
 
+          
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/spark/spark异常处理.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr Wang">
+      <meta itemprop="description" content="行动了才会有故事，说出来才会有结果。">
+      <meta itemprop="image" content="/images/profile.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="勿忘，须舍">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/spark/spark异常处理.html" class="post-title-link" itemprop="url">spark异常处理</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-10-18 00:00" itemprop="dateCreated datePublished" datetime="2019-10-18T00:00:00+08:00">2019-10-18</time>
+            </span>
+          
+
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/spark/" itemprop="url" rel="index"><span itemprop="name">spark</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
           
         
       
