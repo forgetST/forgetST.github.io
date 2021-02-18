@@ -102,18 +102,18 @@
   daovoice('update');
   </script>
 
-  <meta name="description" content="Git clone 时出现Please make sure you have the correct access rights and the repository exists. 删除 .ssh 文件夹【C:\Users(本地用户名).ssh】 中的 known_hosts文件  生成密钥，在下载好的Git中的bin目录下打开bash.exe输入命令ssh-keygen -t rsa -C &amp;">
+  <meta name="description" content="Git clone 时出现Please make sure you have the correct access rights and the repository exists 删除 .ssh 文件夹【C:\Users(本地用户名).ssh】 中的 known_hosts文件  生成密钥，在下载好的Git中的bin目录下打开bash.exe输入命令ssh-keygen -t rsa -C &amp;q">
 <meta name="keywords" content="git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git杂记">
 <meta property="og:url" content="https://forgetst.github.io/git/git杂记.html">
 <meta property="og:site_name" content="勿忘，须舍">
-<meta property="og:description" content="Git clone 时出现Please make sure you have the correct access rights and the repository exists. 删除 .ssh 文件夹【C:\Users(本地用户名).ssh】 中的 known_hosts文件  生成密钥，在下载好的Git中的bin目录下打开bash.exe输入命令ssh-keygen -t rsa -C &amp;">
+<meta property="og:description" content="Git clone 时出现Please make sure you have the correct access rights and the repository exists 删除 .ssh 文件夹【C:\Users(本地用户名).ssh】 中的 known_hosts文件  生成密钥，在下载好的Git中的bin目录下打开bash.exe输入命令ssh-keygen -t rsa -C &amp;q">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-07-31T16:00:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git杂记">
-<meta name="twitter:description" content="Git clone 时出现Please make sure you have the correct access rights and the repository exists. 删除 .ssh 文件夹【C:\Users(本地用户名).ssh】 中的 known_hosts文件  生成密钥，在下载好的Git中的bin目录下打开bash.exe输入命令ssh-keygen -t rsa -C &amp;">
+<meta name="twitter:description" content="Git clone 时出现Please make sure you have the correct access rights and the repository exists 删除 .ssh 文件夹【C:\Users(本地用户名).ssh】 中的 known_hosts文件  生成密钥，在下载好的Git中的bin目录下打开bash.exe输入命令ssh-keygen -t rsa -C &amp;q">
 
 
 
@@ -486,7 +486,7 @@
       
 
       
-        <h2 id="Git-clone-时出现Please-make-sure-you-have-the-correct-access-rights-and-the-repository-exists"><a href="#Git-clone-时出现Please-make-sure-you-have-the-correct-access-rights-and-the-repository-exists" class="headerlink" title="Git clone 时出现Please make sure you have the correct access rights and the repository exists."></a>Git clone 时出现Please make sure you have the correct access rights and the repository exists.</h2><ol>
+        <h2 id="Git-clone-时出现Please-make-sure-you-have-the-correct-access-rights-and-the-repository-exists"><a href="#Git-clone-时出现Please-make-sure-you-have-the-correct-access-rights-and-the-repository-exists" class="headerlink" title="Git clone 时出现Please make sure you have the correct access rights and the repository exists"></a>Git clone 时出现Please make sure you have the correct access rights and the repository exists</h2><ol>
 <li><p>删除 .ssh 文件夹【C:\Users(本地用户名).ssh】 中的 known_hosts文件</p>
 </li>
 <li><p>生成密钥，在下载好的Git中的bin目录下打开bash.exe输入命令<code>ssh-keygen -t rsa -C &quot;username&quot;</code> (注：username为你git上的用户名)，</p>
@@ -495,14 +495,14 @@
 </li>
 <li><p>打开<a href="https://github.com/，登陆你的账户，进入设置（Settings）找到SSH" target="_blank" rel="noopener">https://github.com/，登陆你的账户，进入设置（Settings）找到SSH</a> keys</p>
 </li>
-<li><p>然后将你复制的内容粘贴到key中，再点击Add SSH Key                     </p>
+<li><p>然后将你复制的内容粘贴到key中，再点击Add SSH Key</p>
 </li>
 <li><p>仍然在bash.exe中输入ssh -T <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>然后会跳出一堆内容你只需输入yes回车就完事了，然后他会提示你成功了。</p>
 </li>
 </ol>
 <p>参考：<a href="https://blog.csdn.net/qq_36181310/article/details/88760623" target="_blank" rel="noopener">https://blog.csdn.net/qq_36181310/article/details/88760623</a></p>
 <h2 id="git-提交到github不显示贡献小绿点问题的解决"><a href="#git-提交到github不显示贡献小绿点问题的解决" class="headerlink" title="git 提交到github不显示贡献小绿点问题的解决"></a>git 提交到github不显示贡献小绿点问题的解决</h2><p>原因: git commit 提交的 user.name 和 user.email 与你的github不同</p>
-<p>解决： </p>
+<p>解决：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name “github’s Name”</span><br><span class="line"></span><br><span class="line">$ git config --global user.email &quot;github’ Email&quot;</span><br></pre></td></tr></table></figure>
 
 <p>参考：<a href="https://www.cnblogs.com/zzhangyuhang/p/9896151.html" target="_blank" rel="noopener">https://www.cnblogs.com/zzhangyuhang/p/9896151.html</a></p>
@@ -521,7 +521,7 @@
 <li>删除远程分支: <code>git push origin --delete [branchname]</code></li>
 </ul>
 <p>提示删除了远程分支<br>提示删除了一个名为 201804019-test-files 的分支,<br>注意: 在删除远程分支时，同名的本地分支并不会被删除，所以还需要单独删除本地同名分支<br>如果发生以下错误:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">error: unable to delete ‘origin/xxxxxxxx-fixbug’: remote ref does not exist</span><br><span class="line">error: failed to push some refs to ‘git@github.com:xxxxxxxx/xxxxxxxxxx.git’</span><br><span class="line"></span><br><span class="line">解决办法： git checkout xxxxx-fixbug 切换到当前分支上， 然后再 进行 git push --delete origin origin/xxxxx-fixbug</span><br><span class="line">此时将不会再发生错误 。</span><br></pre></td></tr></table></figure>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">error: <span class="title">unable</span> <span class="title">to</span> <span class="title">delete</span> ‘<span class="title">origin</span>/<span class="title">xxxxxxxx</span>-<span class="title">fixbug</span>’: <span class="title">remote</span> <span class="title">ref</span> <span class="title">does</span> <span class="title">not</span> <span class="title">exist</span></span></span><br><span class="line"><span class="function"><span class="title">error</span>: <span class="title">failed</span> <span class="title">to</span> <span class="title">push</span> <span class="title">some</span> <span class="title">refs</span> <span class="title">to</span> ‘<span class="title">git</span>@<span class="title">github.com:xxxxxxxx</span>/<span class="title">xxxxxxxxxx.git</span>’</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">解决办法： <span class="title">git</span> <span class="title">checkout</span> <span class="title">xxxxx</span>-<span class="title">fixbug</span> 切换到当前分支上， 然后再 进行 <span class="title">git</span> <span class="title">push</span> --<span class="title">delete</span> <span class="title">origin</span> <span class="title">origin</span>/<span class="title">xxxxx</span>-<span class="title">fixbug</span></span></span><br><span class="line"><span class="function">此时将不会再发生错误 。</span></span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>创建分支 ：<code>git branch [branchname]</code></li>
@@ -1001,7 +1001,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-clone-时出现Please-make-sure-you-have-the-correct-access-rights-and-the-repository-exists"><span class="nav-number">1.</span> <span class="nav-text">Git clone 时出现Please make sure you have the correct access rights and the repository exists.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-提交到github不显示贡献小绿点问题的解决"><span class="nav-number">2.</span> <span class="nav-text">git 提交到github不显示贡献小绿点问题的解决</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生成多个git-ssh密钥"><span class="nav-number">3.</span> <span class="nav-text">生成多个git ssh密钥</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-branch-命令操作"><span class="nav-number">4.</span> <span class="nav-text">git branch 命令操作</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-clone-时出现Please-make-sure-you-have-the-correct-access-rights-and-the-repository-exists"><span class="nav-number">1.</span> <span class="nav-text">Git clone 时出现Please make sure you have the correct access rights and the repository exists</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-提交到github不显示贡献小绿点问题的解决"><span class="nav-number">2.</span> <span class="nav-text">git 提交到github不显示贡献小绿点问题的解决</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生成多个git-ssh密钥"><span class="nav-number">3.</span> <span class="nav-text">生成多个git ssh密钥</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-branch-命令操作"><span class="nav-number">4.</span> <span class="nav-text">git branch 命令操作</span></a></li></ol></div>
             
 
           </div>

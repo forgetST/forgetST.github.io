@@ -2273,7 +2273,7 @@ redhat和fedora系统中，还支持一个参数：
   <entry>
     <title>git杂记</title>
     <url>/git/git%E6%9D%82%E8%AE%B0.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="Git-clone-时出现Please-make-sure-you-have-the-correct-access-rights-and-the-repository-exists"><a href="#Git-clone-时出现Please-make-sure-you-have-the-correct-access-rights-and-the-repository-exists" class="headerlink" title="Git clone 时出现Please make sure you have the correct access rights and the repository exists."></a>Git clone 时出现Please make sure you have the correct access rights and the repository exists.</h2><ol>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="Git-clone-时出现Please-make-sure-you-have-the-correct-access-rights-and-the-repository-exists"><a href="#Git-clone-时出现Please-make-sure-you-have-the-correct-access-rights-and-the-repository-exists" class="headerlink" title="Git clone 时出现Please make sure you have the correct access rights and the repository exists"></a>Git clone 时出现Please make sure you have the correct access rights and the repository exists</h2><ol>
 <li><p>删除 .ssh 文件夹【C:\Users(本地用户名).ssh】 中的 known_hosts文件</p>
 </li>
 <li><p>生成密钥，在下载好的Git中的bin目录下打开bash.exe输入命令<code>ssh-keygen -t rsa -C &quot;username&quot;</code> (注：username为你git上的用户名)，</p>
@@ -2282,14 +2282,14 @@ redhat和fedora系统中，还支持一个参数：
 </li>
 <li><p>打开<a href="https://github.com/，登陆你的账户，进入设置（Settings）找到SSH" target="_blank" rel="noopener">https://github.com/，登陆你的账户，进入设置（Settings）找到SSH</a> keys</p>
 </li>
-<li><p>然后将你复制的内容粘贴到key中，再点击Add SSH Key                     </p>
+<li><p>然后将你复制的内容粘贴到key中，再点击Add SSH Key</p>
 </li>
 <li><p>仍然在bash.exe中输入ssh -T <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>然后会跳出一堆内容你只需输入yes回车就完事了，然后他会提示你成功了。</p>
 </li>
 </ol>
 <p>参考：<a href="https://blog.csdn.net/qq_36181310/article/details/88760623" target="_blank" rel="noopener">https://blog.csdn.net/qq_36181310/article/details/88760623</a></p>
 <h2 id="git-提交到github不显示贡献小绿点问题的解决"><a href="#git-提交到github不显示贡献小绿点问题的解决" class="headerlink" title="git 提交到github不显示贡献小绿点问题的解决"></a>git 提交到github不显示贡献小绿点问题的解决</h2><p>原因: git commit 提交的 user.name 和 user.email 与你的github不同</p>
-<p>解决： </p>
+<p>解决：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ git config --global user.name “github’s Name”</span><br><span class="line"></span><br><span class="line">$ git config --global user.email &quot;github’ Email&quot;</span><br></pre></td></tr></table></figure>
 
 <p>参考：<a href="https://www.cnblogs.com/zzhangyuhang/p/9896151.html" target="_blank" rel="noopener">https://www.cnblogs.com/zzhangyuhang/p/9896151.html</a></p>
@@ -2308,7 +2308,7 @@ redhat和fedora系统中，还支持一个参数：
 <li>删除远程分支: <code>git push origin --delete [branchname]</code></li>
 </ul>
 <p>提示删除了远程分支<br>提示删除了一个名为 201804019-test-files 的分支,<br>注意: 在删除远程分支时，同名的本地分支并不会被删除，所以还需要单独删除本地同名分支<br>如果发生以下错误:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">error: unable to delete ‘origin/xxxxxxxx-fixbug’: remote ref does not exist</span><br><span class="line">error: failed to push some refs to ‘git@github.com:xxxxxxxx/xxxxxxxxxx.git’</span><br><span class="line"></span><br><span class="line">解决办法： git checkout xxxxx-fixbug 切换到当前分支上， 然后再 进行 git push --delete origin origin/xxxxx-fixbug</span><br><span class="line">此时将不会再发生错误 。</span><br></pre></td></tr></table></figure>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="function">error: <span class="title">unable</span> <span class="title">to</span> <span class="title">delete</span> ‘<span class="title">origin</span>/<span class="title">xxxxxxxx</span>-<span class="title">fixbug</span>’: <span class="title">remote</span> <span class="title">ref</span> <span class="title">does</span> <span class="title">not</span> <span class="title">exist</span></span></span><br><span class="line"><span class="function"><span class="title">error</span>: <span class="title">failed</span> <span class="title">to</span> <span class="title">push</span> <span class="title">some</span> <span class="title">refs</span> <span class="title">to</span> ‘<span class="title">git</span>@<span class="title">github.com:xxxxxxxx</span>/<span class="title">xxxxxxxxxx.git</span>’</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">解决办法： <span class="title">git</span> <span class="title">checkout</span> <span class="title">xxxxx</span>-<span class="title">fixbug</span> 切换到当前分支上， 然后再 进行 <span class="title">git</span> <span class="title">push</span> --<span class="title">delete</span> <span class="title">origin</span> <span class="title">origin</span>/<span class="title">xxxxx</span>-<span class="title">fixbug</span></span></span><br><span class="line"><span class="function">此时将不会再发生错误 。</span></span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>创建分支 ：<code>git branch [branchname]</code></li>
@@ -8602,7 +8602,7 @@ redhat和fedora系统中，还支持一个参数：
   <entry>
     <title>spark web 用法</title>
     <url>/spark/spark-web-%E7%94%A8%E6%B3%95.html</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="修改spark默认启动端口"><a href="#修改spark默认启动端口" class="headerlink" title="修改spark默认启动端口"></a>修改spark默认启动端口</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">8080 --&gt; master WEB端口</span><br><span class="line">8081 --&gt; work WEB端口</span><br><span class="line">7077 --&gt; master通信端口</span><br><span class="line">18080 --&gt; spark历史服务器端口</span><br><span class="line">4040 --&gt; Spark当前执行的任务页面查看端口4040，如果任务结束了4040端口页面不能访问</span><br><span class="line"></span><br><span class="line">50070：HDFSwebUI的端口号</span><br><span class="line">8485:journalnode默认的端口号</span><br><span class="line">9000：非高可用访问数rpc端口</span><br><span class="line">8020：高可用访问数据rpc</span><br><span class="line">8088：yarn的webUI的端口号</span><br><span class="line">8080：master的webUI，Tomcat的端口号</span><br><span class="line">7077：spark基于standalone的提交任务的端口号</span><br><span class="line">8081：worker的webUI的端口号</span><br><span class="line">18080：historyServer的webUI的端口号</span><br><span class="line">4040：application的webUI的端口号</span><br><span class="line">2181：zookeeper的rpc端口号</span><br><span class="line">9083：hive的metastore的端口号</span><br><span class="line">60010：Hbase的webUI的端口号</span><br><span class="line">6379：Redis的端口号</span><br><span class="line">8080：sparkwebUI的端口号</span><br><span class="line">9092：kafka broker的端口</span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="修改spark默认启动端口"><a href="#修改spark默认启动端口" class="headerlink" title="修改spark默认启动端口"></a>修改spark默认启动端口</h2><figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="number">8080</span> --&gt; master WEB端口</span><br><span class="line"><span class="number">8081</span> --&gt; work WEB端口</span><br><span class="line"><span class="number">7077</span> --&gt; master通信端口</span><br><span class="line"><span class="number">18080</span> --&gt; spark历史服务器端口</span><br><span class="line"><span class="number">4040</span> --&gt; Spark当前执行的任务页面查看端口<span class="number">4040</span>，如果任务结束了<span class="number">4040</span>端口页面不能访问</span><br><span class="line"></span><br><span class="line"><span class="number">50070</span>：HDFSwebUI的端口号</span><br><span class="line"><span class="number">8485</span>:journalnode默认的端口号</span><br><span class="line"><span class="number">9000</span>：非高可用访问数rpc端口</span><br><span class="line"><span class="number">8020</span>：高可用访问数据rpc</span><br><span class="line"><span class="number">8088</span>：yarn的webUI的端口号</span><br><span class="line"><span class="number">8080</span>：master的webUI，Tomcat的端口号</span><br><span class="line"><span class="number">7077</span>：spark基于standalone的提交任务的端口号</span><br><span class="line"><span class="number">8081</span>：worker的webUI的端口号</span><br><span class="line"><span class="number">18080</span>：historyServer的webUI的端口号</span><br><span class="line"><span class="number">4040</span>：application的webUI的端口号</span><br><span class="line"><span class="number">2181</span>：zookeeper的rpc端口号</span><br><span class="line"><span class="number">9083</span>：hive的metastore的端口号</span><br><span class="line"><span class="number">60010</span>：Hbase的webUI的端口号</span><br><span class="line"><span class="number">6379</span>：Redis的端口号</span><br><span class="line"><span class="number">8080</span>：sparkwebUI的端口号</span><br><span class="line"><span class="number">9092</span>：kafka broker的端口</span><br></pre></td></tr></table></figure>
 
 <h2 id="修改默认端口"><a href="#修改默认端口" class="headerlink" title="修改默认端口"></a>修改默认端口</h2><p>在 standalone模式中配置spark-env.sh</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Master节点的web端口是8080 </span><br><span class="line">export SPARK_MASTER_WEBUI_PORT=8080</span><br><span class="line"></span><br><span class="line"># work节点的web端口是8081</span><br><span class="line">export SPARK_WORKER_WEBUI_PORT=8081</span><br><span class="line"></span><br><span class="line"># Master通信端口是7077</span><br><span class="line">export SPARK_MASTER_PORT=7077</span><br></pre></td></tr></table></figure>
@@ -8628,7 +8628,7 @@ redhat和fedora系统中，还支持一个参数：
 <blockquote>
 <p>在Jobs页面点击进入某个Job之后，可以查看某一Job的详细信息：</p>
 <p><strong>Staus:</strong>  展示Job的当前状态信息。</p>
-<p> <strong>Active Stages</strong>:  正在运行的stages信息，点击某个stage可进入查看具体的stage信息。</p>
+<p><strong>Active Stages</strong>:  正在运行的stages信息，点击某个stage可进入查看具体的stage信息。</p>
 <p><strong>Pending Stages</strong>:  排队的stages信息，根据解析的DAG图stage可并发提交运行，而有依赖的stage未运行完时则处于等待队列中。</p>
 <p><strong>Completed Stages</strong>:  已经完成的stages信息。</p>
 <p><strong>Event Timeline</strong>: 展示当前Job运行期间stage的提交与结束、Executor的加入与退出等事件信息。</p>
