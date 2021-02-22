@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://forgetst.github.io/"/>
-  <updated>2021-02-06T16:00:00.000Z</updated>
+  <updated>2021-02-19T16:00:00.000Z</updated>
   <id>https://forgetst.github.io/</id>
   
   <author>
@@ -15,6 +15,61 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>go get命令及下载异常处理</title>
+    <link href="https://forgetst.github.io/go/command/go-get%E5%91%BD%E4%BB%A4%E5%8F%8A%E4%B8%8B%E8%BD%BD%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86.html"/>
+    <id>https://forgetst.github.io/go/command/go-get命令及下载异常处理.html</id>
+    <published>2021-02-19T16:00:00.000Z</published>
+    <updated>2021-02-19T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;go get 命令可以借助代码管理工具通过远程拉取或更新代码包及其依赖包，并自动完成编译和安装。整个过程就像安装一个 App 一样简单。&lt;/p&gt;
+&lt;p&gt;这个命令可以动态获取远程代码包，目前支持的有 BitBucket、GitHub、Google Code 和 Launchpad。在使用 go get 命令前，需要安装与远程包匹配的代码管理工具，如 Git、SVN、HG 等，参数中需要提供一个包名。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="go" scheme="https://forgetst.github.io/categories/go/"/>
+    
+      <category term="command" scheme="https://forgetst.github.io/categories/go/command/"/>
+    
+    
+      <category term="go" scheme="https://forgetst.github.io/tags/go/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux flock command</title>
+    <link href="https://forgetst.github.io/Linux/command/flock/linux-flock-command.html"/>
+    <id>https://forgetst.github.io/Linux/command/flock/linux-flock-command.html</id>
+    <published>2021-02-18T16:00:00.000Z</published>
+    <updated>2021-02-18T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;linux在多个进程同时操作同一份文件的时候,很容易导致文件混乱,这时候就需要锁,来保证文件的完成性。&lt;br&gt;flock主要三种操作类型：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;lock_sh，常被用作读共享锁；&lt;/li&gt;
+&lt;li&gt;LOCK_EX，只能被一个进行使用，常被用作写锁；&lt;/li&gt;
+&lt;li&gt;LOCK_UN，释放锁；&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;使用共享锁LOCK_SH，如果是读取，不需要等待，但如果是写入，需要等待读取完成。&lt;br&gt;使用独占锁LOCK_EX，无论写入/读取都需要等待。&lt;br&gt;LOCK_UN，无论使用共享/读占锁，使用完后需要解锁。&lt;br&gt;LOCK_NB，当被锁定时，不阻塞，而是提示锁定。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Linux" scheme="https://forgetst.github.io/categories/Linux/"/>
+    
+      <category term="command" scheme="https://forgetst.github.io/categories/Linux/command/"/>
+    
+      <category term="flock" scheme="https://forgetst.github.io/categories/Linux/command/flock/"/>
+    
+    
+      <category term="Linux" scheme="https://forgetst.github.io/tags/Linux/"/>
+    
+      <category term="command" scheme="https://forgetst.github.io/tags/command/"/>
+    
+  </entry>
   
   <entry>
     <title>rclone 教程</title>
@@ -413,60 +468,6 @@
     
     
       <category term="k8s" scheme="https://forgetst.github.io/tags/k8s/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Django的缓存</title>
-    <link href="https://forgetst.github.io/python/django%E7%9A%84%E7%BC%93%E5%AD%98.html"/>
-    <id>https://forgetst.github.io/python/django的缓存.html</id>
-    <published>2020-11-23T16:00:00.000Z</published>
-    <updated>2020-11-23T16:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;strong&gt;Django给我们提供了三种缓存方式&lt;/strong&gt;:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;站点级缓存————缓存整个网站&lt;/li&gt;
-&lt;li&gt;单个view缓存————对单个有效的视图的输出进行缓存&lt;/li&gt;
-&lt;li&gt;模板片段缓存————缓存模板里面的某一部分内容&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-      <category term="python" scheme="https://forgetst.github.io/categories/python/"/>
-    
-    
-      <category term="python" scheme="https://forgetst.github.io/tags/python/"/>
-    
-      <category term="django" scheme="https://forgetst.github.io/tags/django/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>python lxml module</title>
-    <link href="https://forgetst.github.io/python/module/python-lxml-module.html"/>
-    <id>https://forgetst.github.io/python/module/python-lxml-module.html</id>
-    <published>2020-11-23T16:00:00.000Z</published>
-    <updated>2020-11-23T16:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;p&gt;lxml是python的一个解析库，支持HTML和XML的解析，支持XPath解析方式，而且解析效率非常高。&lt;/p&gt;
-&lt;p&gt;XPath，全称XML Path Language，即XML路径语言，它是一门在XML文档中查找信息的语言，它最初是用来搜寻XML文档的，但是它同样适用于HTML文档的搜索。&lt;/p&gt;
-&lt;p&gt;XPath的选择功能十分强大，它提供了非常简明的路径选择表达式，另外，它还提供了超过100个内建函数，用于字符串、数值、时间的匹配以及节点、序列的处理等，几乎所有我们想要定位的节点，都可以用XPath来选择&lt;/p&gt;
-&lt;p&gt;XPath于1999年11月16日成为W3C标准，它被设计为供XSLT、XPointer以及其他XML解析软件使用，更多的文档可以访问其官方网站：&lt;a href=&quot;https://www.w3.org/TR/xpath/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://www.w3.org/TR/xpath/&lt;/a&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="python" scheme="https://forgetst.github.io/categories/python/"/>
-    
-      <category term="module" scheme="https://forgetst.github.io/categories/python/module/"/>
-    
-    
-      <category term="python" scheme="https://forgetst.github.io/tags/python/"/>
-    
-      <category term="module" scheme="https://forgetst.github.io/tags/module/"/>
     
   </entry>
   

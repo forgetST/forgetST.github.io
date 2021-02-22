@@ -387,6 +387,399 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/git/git杂记.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr Wang">
+      <meta itemprop="description" content="行动了才会有故事，说出来才会有结果。">
+      <meta itemprop="image" content="/images/profile.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="勿忘，须舍">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/git/git杂记.html" class="post-title-link" itemprop="url">git杂记</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-01 00:00" itemprop="dateCreated datePublished" datetime="2019-08-01T00:00:00+08:00">2019-08-01</time>
+            </span>
+          
+
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Git-clone-时出现Please-make-sure-you-have-the-correct-access-rights-and-the-repository-exists"><a href="#Git-clone-时出现Please-make-sure-you-have-the-correct-access-rights-and-the-repository-exists" class="headerlink" title="Git clone 时出现Please make sure you have the correct access rights and the repository exists"></a>Git clone 时出现Please make sure you have the correct access rights and the repository exists</h2><ol>
+<li><p>删除 .ssh 文件夹【C:\Users(本地用户名).ssh】 中的 known_hosts文件</p>
+</li>
+<li><p>生成密钥，在下载好的Git中的bin目录下打开bash.exe输入命令<code>ssh-keygen -t rsa -C &quot;username&quot;</code> (注：username为你git上的用户名)，</p>
+</li>
+<li><p>然后找到系统自动在.ssh文件夹下生成两个文件，id_rsa和id_rsa.pub，用记事本打开id_rsa.pub将全部的内容复制。</p>
+</li>
+<li><p>打开<a href="https://github.com/，登陆你的账户，进入设置（Settings）找到SSH" target="_blank" rel="noopener">https://github.com/，登陆你的账户，进入设置（Settings）找到SSH</a> keys</p>
+</li>
+<li><p>然后将你复制的内容粘贴到key中，再点击Add SSH Key</p>
+</li>
+<li><p>仍然在bash.exe中输入ssh -T <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>然后会跳出一堆内容你只需输入yes回车就完事了，然后他会提示你成功了。</p>
+</li>
+</ol>
+<p>参考：<a href="https://blog.csdn.net/qq_36181310/article/details/88760623" target="_blank" rel="noopener">https://blog.csdn.net/qq_36181310/article/details/88760623</a></p>
+<h2 id="git-提交到github不显示贡献小绿点问题的解决"><a href="#git-提交到github不显示贡献小绿点问题的解决" class="headerlink" title="git 提交到github不显示贡献小绿点问题的解决"></a>git 提交到github不显示贡献小绿点问题的解决</h2><p>原因: git commit 提交的 user.name 和 user.email 与你的github不同</p>
+<p>解决：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># git config --global user.name “github’s Name”</span><br><span class="line"></span><br><span class="line"># git config --global user.email &quot;github’ Email&quot;</span><br></pre></td></tr></table></figure>
+
+<p>参考：<a href="https://www.cnblogs.com/zzhangyuhang/p/9896151.html" target="_blank" rel="noopener">https://www.cnblogs.com/zzhangyuhang/p/9896151.html</a></p>
+<h2 id="生成多个git-ssh密钥"><a href="#生成多个git-ssh密钥" class="headerlink" title="生成多个git ssh密钥"></a>生成多个git ssh密钥</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;YOUR_EMAIL@YOUREMAIL.COM&quot; -f ~/.ssh/aysee</span><br><span class="line"></span><br><span class="line"># 执行命令后，生成命名的公钥和生成默认公钥的步骤一样。</span><br></pre></td></tr></table></figure>
+
+<p>参考：<a href="https://www.cnblogs.com/SUNSHINEC/p/8617029.html" target="_blank" rel="noopener">https://www.cnblogs.com/SUNSHINEC/p/8617029.html</a></p>
+<h2 id="git-branch-命令操作"><a href="#git-branch-命令操作" class="headerlink" title="git branch 命令操作"></a>git branch 命令操作</h2><ul>
+<li>查看本地分支 ： <code>git branch</code></li>
+</ul>
+<p>前面带有*号的是当前分支</p>
+<ul>
+<li>删除本地已合并的分支： <code>git branch -d [branchname]</code></li>
+</ul>
+<p>某些情况下可以用 git branch -D [branchName] (使用时应注意是否已合并)<br>提示删除了一个名为:list的本地分支<br>提示删除了一个名为list的本地分支</p>
+<ul>
+<li>删除远程分支: <code>git push origin --delete [branchname]</code></li>
+</ul>
+<p>提示删除了远程分支<br>提示删除了一个名为 201804019-test-files 的分支,<br>注意: 在删除远程分支时，同名的本地分支并不会被删除，所以还需要单独删除本地同名分支<br>如果发生以下错误:</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">error: <span class="title">unable</span> <span class="title">to</span> <span class="title">delete</span> ‘<span class="title">origin</span>/<span class="title">xxxxxxxx</span>-<span class="title">fixbug</span>’: <span class="title">remote</span> <span class="title">ref</span> <span class="title">does</span> <span class="title">not</span> <span class="title">exist</span></span></span><br><span class="line"><span class="function"><span class="title">error</span>: <span class="title">failed</span> <span class="title">to</span> <span class="title">push</span> <span class="title">some</span> <span class="title">refs</span> <span class="title">to</span> ‘<span class="title">git</span>@<span class="title">github.com:xxxxxxxx</span>/<span class="title">xxxxxxxxxx.git</span>’</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">解决办法： <span class="title">git</span> <span class="title">checkout</span> <span class="title">xxxxx</span>-<span class="title">fixbug</span> 切换到当前分支上， 然后再 进行 <span class="title">git</span> <span class="title">push</span> --<span class="title">delete</span> <span class="title">origin</span> <span class="title">origin</span>/<span class="title">xxxxx</span>-<span class="title">fixbug</span></span></span><br><span class="line"><span class="function">此时将不会再发生错误 。</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>创建分支 ：<code>git branch [branchname]</code></li>
+</ul>
+<p>需要注意，创建分支时，不会有什么提示。</p>
+<ul>
+<li><p>查看全部分支(包含本地和远程) ：<code>git branch -a</code></p>
+</li>
+<li><p>根据指定版本号创建分支: <code>git checkout -b branchName commitId</code></p>
+</li>
+<li><p>清理本地无效分支(远程已删除本地没删除的分支): <code>git fetch -p</code></p>
+</li>
+<li><p>分支模糊查找: git branch | grep ‘branchName’</p>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/web/HTML/html-笔记.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr Wang">
+      <meta itemprop="description" content="行动了才会有故事，说出来才会有结果。">
+      <meta itemprop="image" content="/images/profile.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="勿忘，须舍">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/web/HTML/html-笔记.html" class="post-title-link" itemprop="url">HTML 笔记</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-01 00:00" itemprop="dateCreated datePublished" datetime="2019-08-01T00:00:00+08:00">2019-08-01</time>
+            </span>
+          
+
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/web/" itemprop="url" rel="index"><span itemprop="name">web</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/web/HTML/" itemprop="url" rel="index"><span itemprop="name">HTML</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>总得记点啥。。。</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/web/HTML/html-笔记.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/python/module/python-datetime-module.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1742,7 +2135,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">137</span>
+          <span class="site-state-item-count">139</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1865,7 +2258,11 @@
         
           
         
-        <span class="site-state-item-count">49</span>
+          
+        
+          
+        
+        <span class="site-state-item-count">51</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
