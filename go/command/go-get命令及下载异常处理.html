@@ -501,11 +501,28 @@
 
 <h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$ go get -insecure -v github.com/gin-gonic/gin</span><br><span class="line"><span class="function">go: <span class="title">downloading</span> <span class="title">github.com</span>/<span class="title">gin</span>-<span class="title">gonic</span>/<span class="title">gin</span> <span class="title">v1</span>.6.3</span></span><br><span class="line"><span class="function"><span class="title">go</span>: <span class="title">github.com</span>/<span class="title">gin</span>-<span class="title">gonic</span>/<span class="title">gin</span> <span class="title">upgrade</span> =&gt; <span class="title">v1</span>.6.3</span></span><br><span class="line"><span class="function"><span class="title">go</span>: <span class="title">downloading</span> <span class="title">github.com</span>/<span class="title">gin</span>-<span class="title">contrib</span>/<span class="title">sse</span> <span class="title">v0</span>.1.0</span></span><br><span class="line"><span class="function"><span class="title">go</span>: <span class="title">downloading</span> <span class="title">github.com</span>/<span class="title">mattn</span>/<span class="title">go</span>-<span class="title">isatty</span> <span class="title">v0</span>.0.12</span></span><br><span class="line"><span class="function"><span class="title">go</span>: <span class="title">downloading</span> <span class="title">gopkg.in</span>/<span class="title">yaml.v2</span> <span class="title">v2</span>.2.8</span></span><br><span class="line"><span class="function"><span class="title">go</span>: <span class="title">downloading</span> <span class="title">github.com</span>/<span class="title">ugorji</span>/<span class="title">go</span> <span class="title">v1</span>.1.7</span></span><br><span class="line"><span class="function"><span class="title">go</span>: <span class="title">downloading</span> <span class="title">github.com</span>/<span class="title">golang</span>/<span class="title">protobuf</span> <span class="title">v1</span>.3.3</span></span><br><span class="line"><span class="function"><span class="title">go</span>: <span class="title">downloading</span> <span class="title">github.com</span>/<span class="title">go</span>-<span class="title">playground</span>/<span class="title">validator</span>/<span class="title">v10</span> <span class="title">v10</span>.2.0</span></span><br><span class="line"><span class="function"><span class="title">go</span>: <span class="title">downloading</span> <span class="title">github.com</span>/<span class="title">json</span>-<span class="title">iterator</span>/<span class="title">go</span> <span class="title">v1</span>.1.9</span></span><br><span class="line"><span class="function"><span class="title">go</span>: <span class="title">downloading</span> <span class="title">golang.org</span>/<span class="title">x</span>/<span class="title">sys</span> <span class="title">v0</span>.0.0-20200116001909-<span class="title">b77594299b42</span></span></span><br><span class="line"><span class="function"><span class="title">go</span>: <span class="title">downloading</span> <span class="title">github.com</span>/<span class="title">ugorji</span>/<span class="title">go</span>/<span class="title">codec</span> <span class="title">v1</span>.1.7</span></span><br><span class="line"><span class="function"><span class="title">go</span>: <span class="title">downloading</span> <span class="title">github.com</span>/<span class="title">modern</span>-<span class="title">go</span>/<span class="title">concurrent</span> <span class="title">v0</span>.0.0-20180228061459-<span class="title">e0a39a4cb4</span></span></span><br><span class="line"><span class="function">......</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h2><h3 id="package-golang-org-x-crypto-sha3-unrecognized-import"><a href="#package-golang-org-x-crypto-sha3-unrecognized-import" class="headerlink" title="package golang.org/x/crypto/sha3: unrecognized import"></a>package golang.org/x/crypto/sha3: unrecognized import</h3><p>package golang.org/x/crypto/sha3: unrecognized import path “golang.org/x/crypto/sha3”: http/https fetch: Get “<a href="http://golang.org/x/crypto/sha3?go-get=1&quot;" target="_blank" rel="noopener">http://golang.org/x/crypto/sha3?go-get=1&quot;</a>: read tcp 172.24.107.53:54865-&gt;216.239.37.1:80: wsarecv: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.</p>
+<h2 id="go-get-取包原理"><a href="#go-get-取包原理" class="headerlink" title="go get 取包原理"></a>go get 取包原理</h2><blockquote>
+<p>正则匹配出依赖包的查询路径</p>
+</blockquote>
+<p>以包路径github.com/liujianping/foo为例，正则匹配后，得出的查询路径就是：<a href="https://github.com/liujianping/foo" target="_blank" rel="noopener">https://github.com/liujianping/foo</a><br>再结合go-get参数，向远端VCS系统发起<a href="https://github.com/liujianping/foo?go-get=1" target="_blank" rel="noopener">https://github.com/liujianping/foo?go-get=1</a>请求。</p>
+<blockquote>
+<p>查询得出包的远端仓库地址</p>
+</blockquote>
+<p>包的远端仓库地址，可以通过go get请求的响应中的go-import的meta标签中的content中获取的。</p>
+<p>示例：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$: curl https://github.com/liujianping/foo?go-get=<span class="number">1</span> | grep go-import</span><br><span class="line">&lt;meta name="go-import" content="github.com/liujianping/foo git https://github.com/liujianping/foo.git"&gt;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>根据仓库地址clone到本地</p>
+</blockquote>
+<h2 id="go-get命令在go-mod目录下与正常目录执行的区别"><a href="#go-get命令在go-mod目录下与正常目录执行的区别" class="headerlink" title="go get命令在go mod目录下与正常目录执行的区别"></a>go get命令在go mod目录下与正常目录执行的区别</h2><h2 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h2><h3 id="package-golang-org-x-crypto-sha3-unrecognized-import"><a href="#package-golang-org-x-crypto-sha3-unrecognized-import" class="headerlink" title="package golang.org/x/crypto/sha3: unrecognized import"></a>package golang.org/x/crypto/sha3: unrecognized import</h3><p>package golang.org/x/crypto/sha3: unrecognized import path “golang.org/x/crypto/sha3”: http/https fetch: Get “<a href="http://golang.org/x/crypto/sha3?go-get=1&quot;" target="_blank" rel="noopener">http://golang.org/x/crypto/sha3?go-get=1&quot;</a>: read tcp 172.24.107.53:54865-&gt;216.239.37.1:80: wsarecv: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.</p>
 <p>解决方案，设置代理：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># export GOPROXY=https://goproxy.io</span><br><span class="line"># export GO111MODULE=on</span><br></pre></td></tr></table></figure>
 
 <p>C:\Users\MrWang\go\src\github.com\gin-gonic\gin\binding\protobuf.go:11:2: cannot find package “github.com/golang/protobuf/proto” in any of:<br>        E:\env\Go\src\github.com\golang\protobuf\proto (from $GOROOT)<br>        C:\Users\MrWang\go\src\github.com\golang\protobuf\proto (from $GOPATH)<br>C:\Users\MrWang\go\src\github.com\go-playground\validator\baked_in.go:20:2: cannot find package “golang.org/x/crypto/sha3” in any of:<br>        E:\env\Go\src\golang.org\x\crypto\sha3 (from $GOROOT)<br>        C:\Users\MrWang\go\src\golang.org\x\crypto\sha3 (from $GOPATH)</p>
+<h2 id="下载指定版本的包"><a href="#下载指定版本的包" class="headerlink" title="下载指定版本的包"></a>下载指定版本的包</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">go</span> get github.com/beego/beego/v2@v2<span class="number">.0</span><span class="number">.0</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="goLang命令"><a href="#goLang命令" class="headerlink" title="goLang命令"></a>goLang命令</h2><p><a href="https://zhuanlan.zhihu.com/p/62893405" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/62893405</a></p>
 
       
     </div>
@@ -594,6 +611,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/go/gorm/golang-gorm使用记录.html" rel="prev" title="golang gorm使用记录">
+                golang gorm使用记录 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -664,7 +685,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">139</span>
+          <span class="site-state-item-count">149</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -791,7 +812,21 @@
         
           
         
-        <span class="site-state-item-count">51</span>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">58</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -892,7 +927,13 @@
         
           
         
-        <span class="site-state-item-count">40</span>
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">43</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
@@ -970,7 +1011,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#命令参数"><span class="nav-number">1.</span> <span class="nav-text">命令参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#示例"><span class="nav-number">2.</span> <span class="nav-text">示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#错误处理"><span class="nav-number">3.</span> <span class="nav-text">错误处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#package-golang-org-x-crypto-sha3-unrecognized-import"><span class="nav-number">3.1.</span> <span class="nav-text">package golang.org/x/crypto/sha3: unrecognized import</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#命令参数"><span class="nav-number">1.</span> <span class="nav-text">命令参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#示例"><span class="nav-number">2.</span> <span class="nav-text">示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#go-get-取包原理"><span class="nav-number">3.</span> <span class="nav-text">go get 取包原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#go-get命令在go-mod目录下与正常目录执行的区别"><span class="nav-number">4.</span> <span class="nav-text">go get命令在go mod目录下与正常目录执行的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#错误处理"><span class="nav-number">5.</span> <span class="nav-text">错误处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#package-golang-org-x-crypto-sha3-unrecognized-import"><span class="nav-number">5.1.</span> <span class="nav-text">package golang.org/x/crypto/sha3: unrecognized import</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下载指定版本的包"><span class="nav-number">6.</span> <span class="nav-text">下载指定版本的包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#goLang命令"><span class="nav-number">7.</span> <span class="nav-text">goLang命令</span></a></li></ol></div>
             
 
           </div>

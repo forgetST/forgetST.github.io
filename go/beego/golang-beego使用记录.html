@@ -1,0 +1,1553 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.2.0',
+    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    }
+  };
+</script>
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})
+  (window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/af1c402f.js","daovoice")
+  daovoice('init', {
+    app_id: "af1c402f"});
+  daovoice('update');
+  </script>
+
+  <meta name="description" content="beego 简介beego 是一个快速开发 Go 应用的 HTTP 框架，他可以用来快速开发 API、Web 及后端服务等各种应用，是一个 RESTful 的框架，主要设计灵感来源于 tornado、sinatra 和 flask 这三个框架，但是结合了 Go 本身的一些特性（interface、struct 嵌入等）而设计的一个框架。">
+<meta name="keywords" content="go,beego">
+<meta property="og:type" content="article">
+<meta property="og:title" content="golang beego使用记录">
+<meta property="og:url" content="https://forgetst.github.io/go/beego/golang-beego使用记录.html">
+<meta property="og:site_name" content="勿忘，须舍">
+<meta property="og:description" content="beego 简介beego 是一个快速开发 Go 应用的 HTTP 框架，他可以用来快速开发 API、Web 及后端服务等各种应用，是一个 RESTful 的框架，主要设计灵感来源于 tornado、sinatra 和 flask 这三个框架，但是结合了 Go 本身的一些特性（interface、struct 嵌入等）而设计的一个框架。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2021-03-04T16:00:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="golang beego使用记录">
+<meta name="twitter:description" content="beego 简介beego 是一个快速开发 Go 应用的 HTTP 框架，他可以用来快速开发 API、Web 及后端服务等各种应用，是一个 RESTful 的框架，主要设计灵感来源于 tornado、sinatra 和 flask 这三个框架，但是结合了 Go 本身的一些特性（interface、struct 嵌入等）而设计的一个框架。">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="勿忘，须舍" type="application/atom+xml">
+
+
+
+  
+  
+  <link rel="canonical" href="https://forgetst.github.io/go/beego/golang-beego使用记录">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  
+  <title>golang beego使用记录 | 勿忘，须舍</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <a href="https://github.com/forgetST" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+  
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">勿忘，须舍</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-python">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/python/" rel="section"><i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>python 随记</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/go/beego/golang-beego使用记录.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr Wang">
+      <meta itemprop="description" content="行动了才会有故事，说出来才会有结果。">
+      <meta itemprop="image" content="/images/profile.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="勿忘，须舍">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">golang beego使用记录
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2021-03-05 00:00" itemprop="dateCreated datePublished" datetime="2021-03-05T00:00:00+08:00">2021-03-05</time>
+            </span>
+          
+
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/go/" itemprop="url" rel="index"><span itemprop="name">go</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/go/beego/" itemprop="url" rel="index"><span itemprop="name">beego</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="beego-简介"><a href="#beego-简介" class="headerlink" title="beego 简介"></a>beego 简介</h2><p>beego 是一个快速开发 Go 应用的 HTTP 框架，他可以用来快速开发 API、Web 及后端服务等各种应用，是一个 RESTful 的框架，主要设计灵感来源于 tornado、sinatra 和 flask 这三个框架，但是结合了 Go 本身的一些特性（interface、struct 嵌入等）而设计的一个框架。</p>
+<a id="more"></a>
+
+<h2 id="beego-的安装"><a href="#beego-的安装" class="headerlink" title="beego 的安装"></a>beego 的安装</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">go</span> get github.com/beego/beego/v2</span><br></pre></td></tr></table></figure>
+
+<h2 id="bee-工具简介"><a href="#bee-工具简介" class="headerlink" title="bee 工具简介"></a>bee 工具简介</h2><p>bee 工具是一个为了协助快速开发 beego 项目而创建的项目，通过 bee 您可以很容易的进行 beego 项目的创建、热编译、开发、测试、和部署。</p>
+<h3 id="bee-工具的安装"><a href="#bee-工具的安装" class="headerlink" title="bee 工具的安装"></a>bee 工具的安装</h3><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go get -u github.com/beego/bee/v2</span><br></pre></td></tr></table></figure>
+
+<p>安装完之后，bee 可执行文件默认存放在 $GOPATH/bin 里面，所以您需要把 $GOPATH/bin 添加到您的环境变量中，才可以进行下一步。</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">Bee is a Fast and Flexible tool <span class="keyword">for</span> managing your Beego Web Application.</span><br><span class="line"></span><br><span class="line"><span class="function">Usage:</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">    <span class="title">bee</span> <span class="title">command</span> [<span class="title">arguments</span>]</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">The</span> <span class="title">commands</span> <span class="title">are</span>:</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">    <span class="title">version</span>     <span class="title">show</span> <span class="title">the</span> <span class="title">bee</span> &amp; <span class="title">beego</span> <span class="title">version</span></span></span><br><span class="line"><span class="function">    <span class="title">migrate</span>     <span class="title">run</span> <span class="title">database</span> <span class="title">migrations</span></span></span><br><span class="line"><span class="function">    <span class="title">api</span>         <span class="title">create</span> <span class="title">an</span> <span class="title">api</span> <span class="title">application</span> <span class="title">base</span> <span class="title">on</span> <span class="title">beego</span> <span class="title">framework</span></span></span><br><span class="line"><span class="function">    <span class="title">bale</span>        <span class="title">packs</span> <span class="title">non</span>-<span class="title">Go</span> <span class="title">files</span> <span class="title">to</span> <span class="title">Go</span> <span class="title">source</span> <span class="title">files</span>    </span></span><br><span class="line"><span class="function">    <span class="title">new</span>         <span class="title">create</span> <span class="title">an</span> <span class="title">application</span> <span class="title">base</span> <span class="title">on</span> <span class="title">beego</span> <span class="title">framework</span></span></span><br><span class="line"><span class="function">    <span class="title">run</span>         <span class="title">run</span> <span class="title">the</span> <span class="title">app</span> <span class="title">which</span> <span class="title">can</span> <span class="title">hot</span> <span class="title">compile</span></span></span><br><span class="line"><span class="function">    <span class="title">pack</span>        <span class="title">compress</span> <span class="title">an</span> <span class="title">beego</span> <span class="title">project</span></span></span><br><span class="line"><span class="function">    <span class="title">fix</span>         <span class="title">Fixes</span> <span class="title">your</span> <span class="title">application</span> <span class="title">by</span> <span class="title">making</span> <span class="title">it</span> <span class="title">compatible</span> <span class="title">with</span> <span class="title">newer</span> <span class="title">versions</span> <span class="title">of</span> <span class="title">Beego</span></span></span><br><span class="line"><span class="function">    <span class="title">dlv</span>         <span class="title">Start</span> <span class="title">a</span> <span class="title">debugging</span> <span class="title">session</span> <span class="title">using</span> <span class="title">Delve</span></span></span><br><span class="line"><span class="function">    <span class="title">dockerize</span>   <span class="title">Generates</span> <span class="title">a</span> <span class="title">Dockerfile</span> <span class="title">for</span> <span class="title">your</span> <span class="title">Beego</span> <span class="title">application</span></span></span><br><span class="line"><span class="function">    <span class="title">generate</span>    <span class="title">Source</span> <span class="title">code</span> <span class="title">generator</span></span></span><br><span class="line"><span class="function">    <span class="title">hprose</span>      <span class="title">Creates</span> <span class="title">an</span> <span class="title">RPC</span> <span class="title">application</span> <span class="title">based</span> <span class="title">on</span> <span class="title">Hprose</span> <span class="title">and</span> <span class="title">Beego</span> <span class="title">frameworks</span></span></span><br><span class="line"><span class="function">    <span class="title">pack</span>        <span class="title">Compresses</span> <span class="title">a</span> <span class="title">Beego</span> <span class="title">application</span> <span class="title">into</span> <span class="title">a</span> <span class="title">single</span> <span class="title">file</span></span></span><br><span class="line"><span class="function">    <span class="title">rs</span>          <span class="title">Run</span> <span class="title">customized</span> <span class="title">scripts</span></span></span><br><span class="line"><span class="function">    <span class="title">run</span>         <span class="title">Run</span> <span class="title">the</span> <span class="title">application</span> <span class="title">by</span> <span class="title">starting</span> <span class="title">a</span> <span class="title">local</span> <span class="title">development</span> <span class="title">server</span></span></span><br><span class="line"><span class="function">    <span class="title">server</span>      <span class="title">serving</span> <span class="title">static</span> <span class="title">content</span> <span class="title">over</span> <span class="title">HTTP</span> <span class="title">on</span> <span class="title">port</span></span></span><br><span class="line"><span class="function">    </span></span><br><span class="line"><span class="function"><span class="title">Use</span> <span class="title">bee</span> <span class="title">help</span> [<span class="title">command</span>] <span class="title">for</span> <span class="title">more</span> <span class="title">information</span> <span class="title">about</span> <span class="title">a</span> <span class="title">command</span>.</span></span><br></pre></td></tr></table></figure>
+
+<p>详细参考：<a href="https://beego.me/docs/install/bee.md" target="_blank" rel="noopener">https://beego.me/docs/install/bee.md</a></p>
+<h2 id="beego-返回-json-响应"><a href="#beego-返回-json-响应" class="headerlink" title="beego 返回 json 响应"></a>beego 返回 json 响应</h2><p>需要注意的是 json 结构体里面的字段必须是大写字母开头，否则是不会返回的。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> person <span class="keyword">struct</span> &#123;</span><br><span class="line">    Name <span class="keyword">string</span> <span class="string">`json:"name"`</span></span><br><span class="line">    Age <span class="keyword">int</span>     <span class="string">`json:"age"`</span></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">type</span> JsonResponse1 <span class="keyword">struct</span> &#123;</span><br><span class="line">    Data [<span class="number">2</span>]person <span class="string">`json:"data"`</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> controllers</span><br><span class="line"> </span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">"github.com/astaxie/beego"</span></span><br><span class="line">)</span><br><span class="line"> </span><br><span class="line"><span class="keyword">type</span> LoggerController <span class="keyword">struct</span> &#123;</span><br><span class="line">    beego.Controller</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">type</span> person <span class="keyword">struct</span> &#123;</span><br><span class="line">    Name <span class="keyword">string</span> <span class="string">`json:"name"`</span></span><br><span class="line">    Age <span class="keyword">int</span>     <span class="string">`json:"age"`</span></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">type</span> JsonResponse <span class="keyword">struct</span> &#123;</span><br><span class="line">    Data []person <span class="string">`json:"data"`</span></span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(c *LoggerController)</span> <span class="title">Get</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> jsonResponse JsonResponse</span><br><span class="line">     </span><br><span class="line">    <span class="keyword">var</span> persons  []person</span><br><span class="line">    persons = <span class="built_in">append</span>(persons, person&#123;<span class="string">"awks"</span>, <span class="number">23</span>&#125;)</span><br><span class="line">    persons = <span class="built_in">append</span>(persons, person&#123;<span class="string">"ruby"</span>, <span class="number">25</span>&#125;)</span><br><span class="line">    jsonResponse.Data = persons</span><br><span class="line">    c.Data[<span class="string">"json"</span>] = &amp;jsonResponse</span><br><span class="line">     </span><br><span class="line">    c.ServeJSON()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Beego框架：表单数据验证"><a href="#Beego框架：表单数据验证" class="headerlink" title="Beego框架：表单数据验证"></a>Beego框架：表单数据验证</h2><p>git地址：<a href="https://github.com/go-playground/validator" target="_blank" rel="noopener">https://github.com/go-playground/validator</a></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">StructTag 可用的验证函数：</span><br><span class="line"></span><br><span class="line">Required 不为空，即各个类型要求不为其零值</span><br><span class="line">Min(min <span class="keyword">int</span>) 最小值，有效类型：<span class="keyword">int</span>，其他类型都将不能通过验证</span><br><span class="line">Max(max <span class="keyword">int</span>) 最大值，有效类型：<span class="keyword">int</span>，其他类型都将不能通过验证</span><br><span class="line">Range(min, max <span class="keyword">int</span>)  <span class="number">1</span> &lt;= * &lt;= <span class="number">140</span>，超出此范围即为不合法</span><br><span class="line">MinSize(min <span class="keyword">int</span>) 最小长度，有效类型：<span class="keyword">string</span>，slice，其他类型都将不能通过验证</span><br><span class="line">MaxSize(max <span class="keyword">int</span>) 最大长度，有效类型：<span class="keyword">string</span>，slice，其他类型都将不能通过验证</span><br><span class="line">Length(length <span class="keyword">int</span>) 指定长度，有效类型：<span class="keyword">string</span>，slice，其他类型都将不能通过验证</span><br><span class="line">Alpha   </span><br><span class="line">Numeric 数字，有效类型：<span class="keyword">string</span>，其他类型都将不能通过验证</span><br><span class="line">AlphaNumeric alpha字符或数字，有效类型：<span class="keyword">string</span>，其他类型都将不能通过验证</span><br><span class="line">Match(pattern <span class="keyword">string</span>)正则匹配，有效类型：<span class="keyword">string</span>，其他类型都将被转成字符串再匹配(fmt.Sprintf(“%v”, obj).Match)</span><br><span class="line">AlphaDash</span><br><span class="line">Email</span><br><span class="line">IP IP 格式，目前只支持 IPv4格式验证，有效类型：<span class="keyword">string</span>，其他类型都将不能通过验证</span><br><span class="line">Base64 base64编码，有效类型：<span class="keyword">string</span>，其他类型都将不能通过验证</span><br><span class="line">Mobile</span><br><span class="line">Tel固定电话号，有效类型：<span class="keyword">string</span>，其他类型都将不能通过验证</span><br><span class="line">Phone手机号或固定电话号，有效类型：<span class="keyword">string</span>，其他类型都将不能通过验证</span><br><span class="line">ZipCode邮政编码，有效类型：<span class="keyword">string</span>，其他类型都将不能通过验证</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">"log"</span></span><br><span class="line">    <span class="string">"strings"</span></span><br><span class="line"></span><br><span class="line">    <span class="string">"github.com/beego/beego/v2/core/validation"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 验证函数写在 "valid" tag 的标签里</span></span><br><span class="line"><span class="comment">// 各个函数之间用分号 ";" 分隔，分号后面可以有空格</span></span><br><span class="line"><span class="comment">// 参数用括号 "()" 括起来，多个参数之间用逗号 "," 分开，逗号后面可以有空格</span></span><br><span class="line"><span class="comment">// 正则函数(Match)的匹配模式用两斜杠 "/" 括起来</span></span><br><span class="line"><span class="comment">// 各个函数的结果的 key 值为字段名.验证函数名</span></span><br><span class="line"><span class="comment">// label 指定字段别名</span></span><br><span class="line"><span class="keyword">type</span> user <span class="keyword">struct</span> &#123;</span><br><span class="line">    Id     <span class="keyword">int</span></span><br><span class="line">    Name   <span class="keyword">string</span> <span class="string">`valid:"Required;Match(/^Bee.*/)"`</span> <span class="comment">// Name 不能为空并且以 Bee 开头</span></span><br><span class="line">    Age    <span class="keyword">int</span>    <span class="string">`valid:"Range(1, 140)"`</span> <span class="comment">// 1 &lt;= Age &lt;= 140，超出此范围即为不合法</span></span><br><span class="line">    Email  <span class="keyword">string</span> <span class="string">`valid:"Email; MaxSize(100)"`</span> <span class="comment">// Email 字段需要符合邮箱格式，并且最大长度不能大于 100 个字符</span></span><br><span class="line">    Mobile <span class="keyword">string</span> <span class="string">`valid:"Mobile;"`</span> <span class="comment">// Mobile 必须为正确的手机号</span></span><br><span class="line">    IP     <span class="keyword">string</span> <span class="string">`valid:"IP" label:"srcIp"`</span> <span class="comment">// IP 必须为一个正确的 IPv4 地址,</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果你的 struct 实现了接口 validation.ValidFormer</span></span><br><span class="line"><span class="comment">//当 StructTag 中的测试都成功时，将会执行 Valid 函数进行自定义验证</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(u *user)</span> <span class="title">Valid</span><span class="params">(v *validation.Validation)</span></span> &#123;</span><br><span class="line">   <span class="keyword">if</span> strings.Index(u.Name, <span class="string">"admin"</span>) != <span class="number">-1</span> &#123;</span><br><span class="line">       <span class="comment">// 通过 SetError 设置 Name 的错误信息，HasErrors 将会返回 true</span></span><br><span class="line">       v.SetError(<span class="string">"Name"</span>, <span class="string">"名称里不能含有 admin"</span>)</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    valid := validation.Validation&#123;&#125;</span><br><span class="line">    u := user&#123;Name: <span class="string">"Beego"</span>, Age: <span class="number">2</span>, Email: <span class="string">"dev@beego.me"</span>&#125;</span><br><span class="line">    <span class="comment">//valid.Required()</span></span><br><span class="line">    b, err := valid.Valid(&amp;u)</span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="comment">// handle error</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> !b &#123;</span><br><span class="line">        <span class="comment">// validation does not pass</span></span><br><span class="line">        <span class="comment">// blabla...</span></span><br><span class="line">        <span class="keyword">for</span> _, err := <span class="keyword">range</span> valid.Errors &#123;</span><br><span class="line">            log.Println(err.Key, err.Message)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//2021/03/07 12:14:21 Mobile.Mobile. Mobile Must be valid mobile number</span></span><br><span class="line"><span class="comment">//2021/03/07 12:14:21 IP.IP.srcIp srcIp Must be a valid ip address</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="beego-httplib"><a href="#beego-httplib" class="headerlink" title="beego httplib"></a>beego httplib</h2><h3 id="httplib简单使用"><a href="#httplib简单使用" class="headerlink" title="httplib简单使用"></a>httplib简单使用</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">req := httplib.Get(<span class="string">"http://beego.me/"</span>)</span><br><span class="line">str, err := req.String()</span><br><span class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">    t.Fatal(err)</span><br><span class="line">&#125;</span><br><span class="line">fmt.Println(str)</span><br></pre></td></tr></table></figure>
+
+<h3 id="支持的请求方法"><a href="#支持的请求方法" class="headerlink" title="支持的请求方法"></a>支持的请求方法</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Get(url <span class="keyword">string</span>)</span><br><span class="line">Post(url <span class="keyword">string</span>)</span><br><span class="line">Put(url <span class="keyword">string</span>)</span><br><span class="line">Delete(url <span class="keyword">string</span>)</span><br><span class="line">Head(url <span class="keyword">string</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="支持超时"><a href="#支持超时" class="headerlink" title="支持超时"></a>支持超时</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">req.SetTimeout(connectTimeout, readWriteTimeout)</span><br><span class="line">httplib.Get(<span class="string">"http://beego.me/"</span>).SetTimeout(<span class="number">100</span> * time.Second, <span class="number">30</span> * time.Second</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置请求参数"><a href="#设置请求参数" class="headerlink" title="设置请求参数"></a>设置请求参数</h3><ul>
+<li>方法一</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">req := httplib.Post(<span class="string">"http://beego.me/"</span>)</span><br><span class="line">req.Param(<span class="string">"username"</span>,<span class="string">"astaxie"</span>)</span><br><span class="line">req.Param(<span class="string">"password"</span>,<span class="string">"123456"</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>方法二</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">req := httplib.Post(<span class="string">"http://127.0.0.1:9999"</span>)</span><br><span class="line">req.JSONBody(<span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">interface</span>&#123;&#125;&#123;<span class="string">"jsonrpc"</span>:<span class="string">"2.0"</span>,<span class="string">"method"</span>:<span class="string">"eth_blockNumber"</span>,<span class="string">"id"</span>:<span class="number">83</span>&#125;)</span><br><span class="line"><span class="keyword">var</span> js <span class="keyword">interface</span>&#123;&#125;</span><br><span class="line">req.ToJSON(&amp;js)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>方法三 发送大片的数据</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">req := httplib.Post(<span class="string">"http://beego.me/"</span>)</span><br><span class="line">bt,err:=ioutil.ReadFile(<span class="string">"hello.txt"</span>)</span><br><span class="line"><span class="keyword">if</span> err!=<span class="literal">nil</span>&#123;</span><br><span class="line">    log.Fatal(<span class="string">"read file err:"</span>,err)</span><br><span class="line">&#125;</span><br><span class="line">req.Body(bt)</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置header信息"><a href="#设置header信息" class="headerlink" title="设置header信息"></a>设置header信息</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">req := httplib.Post(<span class="string">"http://beego.me/"</span>)</span><br><span class="line">req.Header(<span class="string">"Accept-Encoding"</span>,<span class="string">"gzip,deflate,sdch"</span>)</span><br><span class="line">req.Header(<span class="string">"Host"</span>,<span class="string">"beego.me"</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="直接上传文件"><a href="#直接上传文件" class="headerlink" title="直接上传文件"></a>直接上传文件</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">PostFile 第一个参数是 form 表单的字段名,第二个是需要发送的文件名或者文件路径</span><br><span class="line">b:=httplib.Post(<span class="string">"http://beego.me/"</span>)</span><br><span class="line">b.Param(<span class="string">"username"</span>,<span class="string">"astaxie"</span>)</span><br><span class="line">b.Param(<span class="string">"password"</span>,<span class="string">"123456"</span>)</span><br><span class="line">b.PostFile(<span class="string">"uploadfile1"</span>, <span class="string">"httplib.pdf"</span>)</span><br><span class="line">b.PostFile(<span class="string">"uploadfile2"</span>, <span class="string">"httplib.txt"</span>)</span><br><span class="line">str, err := b.String()</span><br><span class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">    t.Fatal(err)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="获取返回结果"><a href="#获取返回结果" class="headerlink" title="获取返回结果"></a>获取返回结果</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> 返回 Response 对象，req.Response() 方法</span><br><span class="line">   这个是 http.Response 对象，用户可以自己读取 body 的数据等。</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span> 返回 bytes,req.Bytes() 方法</span><br><span class="line">   直接返回请求 URL 返回的内容</span><br><span class="line"></span><br><span class="line"><span class="number">3.</span> 返回 <span class="keyword">string</span>，req.String() 方法</span><br><span class="line">   直接返回请求 URL 返回的内容</span><br><span class="line"></span><br><span class="line"><span class="number">4.</span> 保存为文件，req.ToFile(filename) 方法</span><br><span class="line">   返回结果保存到文件名为 filename 的文件中</span><br><span class="line"></span><br><span class="line"><span class="number">5.</span> 解析为 JSON 结构，req.ToJSON(&amp;result) 方法</span><br><span class="line">   返回结构直接解析为 JSON 格式，解析到 result 对象中</span><br><span class="line"></span><br><span class="line"><span class="number">6.</span> 解析为 XML 结构，req.ToXml(&amp;result) 方法</span><br><span class="line">   返回结构直接解析为 XML 格式，解析到 result 对象中</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+
+    
+      
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+      <div>
+        
+
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Mr Wang</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="https://forgetst.github.io/go/beego/golang-beego使用记录.html" title="golang beego使用记录">https://forgetst.github.io/go/beego/golang-beego使用记录.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/go/" rel="tag"><i class="fa fa-tag"></i> go</a>
+          
+            <a href="/tags/beego/" rel="tag"><i class="fa fa-tag"></i> beego</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/go/package/uuid/golang-uuid使用.html" rel="next" title="golang uuid使用">
+                <i class="fa fa-chevron-left"></i> golang uuid使用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/go/golang常用库：字段参数验证库-validator使用.html" rel="prev" title="golang常用库：字段参数验证库-validator使用">
+                golang常用库：字段参数验证库-validator使用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  
+    <img class="site-author-image" itemprop="image" src="/images/profile.jpg" alt="Mr Wang">
+  
+  <p class="site-author-name" itemprop="name">Mr Wang</p>
+  <div class="site-description motion-element" itemprop="description">行动了才会有故事，说出来才会有结果。</div>
+</div>
+
+
+  <nav class="site-state motion-element">
+    
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">149</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">58</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+
+
+
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+
+
+
+
+
+  <div class="links-of-author motion-element">
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://github.com/forgetST" title="GitHub &rarr; https://github.com/forgetST" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="mailto:yourname@gmail.com" title="E-Mail &rarr; mailto:yourname@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+      
+        <a href="https://weibo.com/yourname" title="Weibo &rarr; https://weibo.com/yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+    
+  </div>
+
+
+
+
+
+
+
+          
+          
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#beego-简介"><span class="nav-number">1.</span> <span class="nav-text">beego 简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#beego-的安装"><span class="nav-number">2.</span> <span class="nav-text">beego 的安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bee-工具简介"><span class="nav-number">3.</span> <span class="nav-text">bee 工具简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#bee-工具的安装"><span class="nav-number">3.1.</span> <span class="nav-text">bee 工具的安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#beego-返回-json-响应"><span class="nav-number">4.</span> <span class="nav-text">beego 返回 json 响应</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Beego框架：表单数据验证"><span class="nav-number">5.</span> <span class="nav-text">Beego框架：表单数据验证</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#beego-httplib"><span class="nav-number">6.</span> <span class="nav-text">beego httplib</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#httplib简单使用"><span class="nav-number">6.1.</span> <span class="nav-text">httplib简单使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#支持的请求方法"><span class="nav-number">6.2.</span> <span class="nav-text">支持的请求方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#支持超时"><span class="nav-number">6.3.</span> <span class="nav-text">支持超时</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置请求参数"><span class="nav-number">6.4.</span> <span class="nav-text">设置请求参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置header信息"><span class="nav-number">6.5.</span> <span class="nav-text">设置header信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#直接上传文件"><span class="nav-number">6.6.</span> <span class="nav-text">直接上传文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取返回结果"><span class="nav-number">6.7.</span> <span class="nav-text">获取返回结果</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+      
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+</div>
+
+
+        
+      </main></div>
+    
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mr Wang</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+  <span class="post-meta-divider">|</span>
+  <span id="busuanzi_container_site_uv">总访客数<span id="busuanzi_value_site_uv"></span>人</span>
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+  
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+
+
+  <script src="/js/utils.js?v=7.2.0"></script>
+
+  <script src="/js/motion.js?v=7.2.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.2.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
+
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/01/assets/haru01.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7}});</script></body>
+
+
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+
+</html>
+
+

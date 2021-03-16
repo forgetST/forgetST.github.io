@@ -387,7 +387,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/web/vue/vue-安装.html">
+    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/database/cassandra相关操作.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mr Wang">
@@ -407,7 +407,1569 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/web/vue/vue-安装.html" class="post-title-link" itemprop="url">vue 安装</a>
+                <a href="/database/cassandra相关操作.html" class="post-title-link" itemprop="url">cassandra相关操作</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-12-15 00:00" itemprop="dateCreated datePublished" datetime="2019-12-15T00:00:00+08:00">2019-12-15</time>
+            </span>
+          
+
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/database/" itemprop="url" rel="index"><span itemprop="name">database</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="用法示例"><a href="#用法示例" class="headerlink" title="用法示例"></a>用法示例</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line"></span><br><span class="line">from cassandra.auth import PlainTextProvider</span><br><span class="line">from cassandra.cluster import Cluster</span><br><span class="line">from cassandra.cqlengine import columns, connection</span><br><span class="line">from  cassandra.cqlengine.models import Model</span><br><span class="line">from  cassandra.query import dict_factory</span><br><span class="line"></span><br><span class="line">hosts = [&quot;192.168.10.10&quot;, &quot;192.168.10.11&quot;]</span><br><span class="line">username = &quot;username&quot;</span><br><span class="line">password = &quot;password&quot;</span><br><span class="line">port = 9042</span><br><span class="line">keyspace = &quot;mykeyspace&quot;</span><br><span class="line"></span><br><span class="line">auth_provider = PlainTextProvider(username=username, password=password)</span><br><span class="line">cluser_conf_dict = dict(port=port, auth_provider=auth_provider)</span><br><span class="line">connection.setup(hosts, keyspace, **cluser_conf_dict)</span><br><span class="line">cluster = connection.get_cluster()</span><br><span class="line">session = connection.get_session()</span><br><span class="line"></span><br><span class="line">session.set_keyspace(keyspace)</span><br><span class="line">session.default_fetch_size = 10000</span><br><span class="line">session.default_timeout = 120</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class ExapleModel(Models):</span><br><span class="line">    partition_1 = columns.Text(partition_key=True, primary_key=True)</span><br><span class="line">    partition_2 = columns.Text(partition_key=True, primary_key=True)</span><br><span class="line">    primary_1 = columns.Text(primary_key=True)</span><br><span class="line">    primary_2 = columns.Text(primary_key=True)</span><br><span class="line">    str_type = columns.Text()</span><br><span class="line">    boolean_type = columns.Boolean()</span><br><span class="line">    int_type = columns.Integer()</span><br><span class="line">    bigint_type = columns.BigInt()</span><br><span class="line">    float_type = columns.Float()</span><br><span class="line">    datatime_type = columns.DataTime()</span><br><span class="line">    list_str_type = columns.List(columns.Text)</span><br><span class="line">    set_str_type = columns.Set(columns.Text)</span><br><span class="line">    set_int_type = columns.Set(columns.Integer)</span><br><span class="line">    set_bigint_type = columns.Set(columns.Bigint)</span><br><span class="line">    map_type = columns.Map(columns.Text, columns.Float)</span><br><span class="line"></span><br><span class="line"># create db statement</span><br><span class="line">CREATE TABLE mykeyspace.examplemodel (</span><br><span class="line">    partition_1 text,</span><br><span class="line">    partition_2 text,</span><br><span class="line">    primary_1 text,</span><br><span class="line">    primary_2 text,</span><br><span class="line">    str_type text,</span><br><span class="line">    boolean_type boolea,</span><br><span class="line">    int_type int,</span><br><span class="line">    bigint_type bigint,</span><br><span class="line">    float_type float,</span><br><span class="line">    datatime_type timestamp,</span><br><span class="line">    list_str_type list&lt;text&gt;,</span><br><span class="line">    set_str_type set&lt;text&gt;,</span><br><span class="line">    set_int_type set&lt;int&gt;,</span><br><span class="line">    set_bigint_type set&lt;bigint&gt;,</span><br><span class="line">    map_type map&lt;text, float&gt;,</span><br><span class="line">    PRIMARY KEY((partition_1, partition_2), primary_1, primary_2)</span><br><span class="line">) WITH CLUSTERING ORDER BY (primary_1 ASC, primary_2 ASC)</span><br><span class="line">    AND gc_grace_seconds = 0;</span><br><span class="line"></span><br><span class="line">def connect_db(hosts, username, password, port, keyspace, timeout=120, default_size=10000):</span><br><span class="line">    auth_provider = PlainTextProvider(username=username, password=password)</span><br><span class="line">    cluster = Cluster(contact_points=hosts, port=port, auth_provider=auth_provider)</span><br><span class="line">    session = cluster.connect(keyspace)</span><br><span class="line"></span><br><span class="line">    # set session</span><br><span class="line">    session.default_fetch_size = default_size</span><br><span class="line">    session.default_timeout = timeout</span><br><span class="line">    session.row_factory = dict_factory</span><br><span class="line">    return cluster, session</span><br><span class="line"></span><br><span class="line">def close_db(cluster, session):</span><br><span class="line">    session.shutdown()</span><br><span class="line">    cluster.shutdown()</span><br><span class="line"></span><br><span class="line">def exec_sql(sql, **kwargs):</span><br><span class="line">    try:</span><br><span class="line">        cluster, session =connect_db(hosts, username, password, port, keyspace)</span><br><span class="line">        future = session.execute(sql, kwargs)</span><br><span class="line">        close_db(cluster, session)</span><br><span class="line">    except Execption as e:</span><br><span class="line">        close_db(cluster, session)</span><br><span class="line">        future = []</span><br><span class="line">    return future</span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/minio/minio-mc使用.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr Wang">
+      <meta itemprop="description" content="行动了才会有故事，说出来才会有结果。">
+      <meta itemprop="image" content="/images/profile.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="勿忘，须舍">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/minio/minio-mc使用.html" class="post-title-link" itemprop="url">minio mc使用</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-12-15 00:00" itemprop="dateCreated datePublished" datetime="2019-12-15T00:00:00+08:00">2019-12-15</time>
+            </span>
+          
+
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/minio/" itemprop="url" rel="index"><span itemprop="name">minio</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h3><p>MinIO Client (mc)为ls，cat，cp，mirror，diff，find等UNIX命令提供了一种替代方案。它支持文件系统和兼容Amazon S3的云存储服务（AWS Signature v2和v4）。</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/minio/minio-mc使用.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/python/module/python操作minio.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr Wang">
+      <meta itemprop="description" content="行动了才会有故事，说出来才会有结果。">
+      <meta itemprop="image" content="/images/profile.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="勿忘，须舍">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/python/module/python操作minio.html" class="post-title-link" itemprop="url">python操作minio</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-12-15 00:00" itemprop="dateCreated datePublished" datetime="2019-12-15T00:00:00+08:00">2019-12-15</time>
+            </span>
+          
+
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/module/" itemprop="url" rel="index"><span itemprop="name">module</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>python版本：3.7</p>
+<p>minio版本：5.0.5</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 使用pip安装</span><br><span class="line">pip install minio</span><br><span class="line"></span><br><span class="line"># 使用源码安装</span><br><span class="line">git clone https://github.com/minio/minio-py</span><br><span class="line"><span class="built_in">cd</span> minio-py</span><br><span class="line">python setup.py install</span><br></pre></td></tr></table></figure>
+
+<p>参考文档：</p>
+<p>快速入门：<a href="https://docs.min.io/cn/python-client-quickstart-guide.html" target="_blank" rel="noopener">https://docs.min.io/cn/python-client-quickstart-guide.html</a></p>
+<p>完整文档：<a href="https://docs.min.io/cn/python-client-api-reference.html" target="_blank" rel="noopener">https://docs.min.io/cn/python-client-api-reference.html</a></p>
+<p>API示例：<a href="https://github.com/minio/minio-py/tree/master/examples" target="_blank" rel="noopener">https://github.com/minio/minio-py/tree/master/examples</a></p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/python/module/python操作minio.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/python/pycharm2018-1激活教程.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr Wang">
+      <meta itemprop="description" content="行动了才会有故事，说出来才会有结果。">
+      <meta itemprop="image" content="/images/profile.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="勿忘，须舍">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/python/pycharm2018-1激活教程.html" class="post-title-link" itemprop="url">pycharm2018.1激活教程</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-12-08 00:00" itemprop="dateCreated datePublished" datetime="2019-12-08T00:00:00+08:00">2019-12-08</time>
+            </span>
+          
+
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="补丁下载"><a href="#补丁下载" class="headerlink" title="补丁下载"></a>补丁下载</h3><p>下载补丁：<a href="https://pan.baidu.com/s/1fAq_F_i3BSHGTT-QSg-zgQ#list/path=%2F" target="_blank" rel="noopener">JetbrainsCrack-release-enc.jar</a></p>
+<h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><ol>
+<li><p>下载的补丁保存到PyCharm安装目录下的\bin目录下</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">E:\PyCharm 2018.1.1\bin\JetbrainsCrack-release-enc.jar</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改配置文件</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 在PyCharm安装目录下的\bin目录中找到pycharm.exe.vmoptions和pycharm64.exe.vmoptions, 添加：</span><br><span class="line"></span><br><span class="line">-javaagent:E:\PyCharm 2018.1.1\bin\JetbrainsCrack-release-enc.jar</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动pycharm,输入激活码, Help-&gt;Register-&gt;Activation code</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">// An highlighted block</span><br><span class="line">ThisCrackLicenseId-&#123;</span><br><span class="line">“licenseId”:”11011”,</span><br><span class="line">“licenseeName”:”Wechat”,</span><br><span class="line">“assigneeName”:”IT--Pig”,</span><br><span class="line">“assigneeEmail”:”1113449881@qq.com”,</span><br><span class="line">“licenseRestriction”:””,</span><br><span class="line">“checkConcurrentUse”:false,</span><br><span class="line">“products”:[</span><br><span class="line">&#123;“code”:”II”,”paidUpTo”:”2099-12-31”&#125;,</span><br><span class="line">&#123;“code”:”DM”,”paidUpTo”:”2099-12-31”&#125;,</span><br><span class="line">&#123;“code”:”AC”,”paidUpTo”:”2099-12-31”&#125;,</span><br><span class="line">&#123;“code”:”RS0”,”paidUpTo”:”2099-12-31”&#125;,</span><br><span class="line">&#123;“code”:”WS”,”paidUpTo”:”2099-12-31”&#125;,</span><br><span class="line">&#123;“code”:”DPN”,”paidUpTo”:”2099-12-31”&#125;,</span><br><span class="line">&#123;“code”:”RC”,”paidUpTo”:”2099-12-31”&#125;,</span><br><span class="line">&#123;“code”:”PS”,”paidUpTo”:”2099-12-31”&#125;,</span><br><span class="line">&#123;“code”:”DC”,”paidUpTo”:”2099-12-31”&#125;,</span><br><span class="line">&#123;“code”:”RM”,”paidUpTo”:”2099-12-31”&#125;,</span><br><span class="line">&#123;“code”:”CL”,”paidUpTo”:”2099-12-31”&#125;,</span><br><span class="line">&#123;“code”:”PC”,”paidUpTo”:”2099-12-31”&#125;</span><br><span class="line">],</span><br><span class="line">“hash”:”2911276/0”,</span><br><span class="line">“gracePeriodDays”:7,</span><br><span class="line">“autoProlongated”:false&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看有效期</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Help-&gt;About</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/bigdata/spark常见错误处理.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr Wang">
+      <meta itemprop="description" content="行动了才会有故事，说出来才会有结果。">
+      <meta itemprop="image" content="/images/profile.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="勿忘，须舍">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/bigdata/spark常见错误处理.html" class="post-title-link" itemprop="url">spark常见错误处理</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-12-08 00:00" itemprop="dateCreated datePublished" datetime="2019-12-08T00:00:00+08:00">2019-12-08</time>
+            </span>
+          
+
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/bigdata/" itemprop="url" rel="index"><span itemprop="name">bigdata</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>参考：<a href="https://blog.csdn.net/cjlion/article/details/81234336" target="_blank" rel="noopener">spark常见错误汇总</a></p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/bigdata/spark常见错误处理.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/bigdata/spark-standalone集群搭建.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr Wang">
+      <meta itemprop="description" content="行动了才会有故事，说出来才会有结果。">
+      <meta itemprop="image" content="/images/profile.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="勿忘，须舍">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/bigdata/spark-standalone集群搭建.html" class="post-title-link" itemprop="url">spark standalone集群搭建</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-12-08 00:00" itemprop="dateCreated datePublished" datetime="2019-12-08T00:00:00+08:00">2019-12-08</time>
+            </span>
+          
+
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/bigdata/" itemprop="url" rel="index"><span itemprop="name">bigdata</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="下载软件"><a href="#下载软件" class="headerlink" title="下载软件"></a>下载软件</h2><p><a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="noopener">java JDK-1.8</a></p>
+<p><a href="http://spark.apache.org/downloads.html" target="_blank" rel="noopener">spark</a></p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/bigdata/spark-standalone集群搭建.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/bigdata/spark-web信息获取.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr Wang">
+      <meta itemprop="description" content="行动了才会有故事，说出来才会有结果。">
+      <meta itemprop="image" content="/images/profile.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="勿忘，须舍">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/bigdata/spark-web信息获取.html" class="post-title-link" itemprop="url">spark web信息获取</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-12-08 00:00" itemprop="dateCreated datePublished" datetime="2019-12-08T00:00:00+08:00">2019-12-08</time>
+            </span>
+          
+
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/bigdata/" itemprop="url" rel="index"><span itemprop="name">bigdata</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"># -*- coding: utf-8 -*-</span><br><span class="line"></span><br><span class="line">import re</span><br><span class="line">import requests</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def _get_requests(url):</span><br><span class="line">    response = requests.get(url)</span><br><span class="line">    content = &quot;&quot;</span><br><span class="line">    if response.status_code == 200:</span><br><span class="line">        content = response.content.decode()</span><br><span class="line">    return content</span><br><span class="line"></span><br><span class="line">def _get_spark_common(st):</span><br><span class="line">    s = re.findall(r&apos;&lt;ul class=&quot;unstyled&quot;.*&lt;/ul&gt;&apos;, body, re.S)[0]</span><br><span class="line">    s = re.sub(r&apos;\s&#123;2,&#125;|&lt;a.*?&gt;|&lt;/a&gt;&apos;, &apos; &apos;, s)</span><br><span class="line">    print_format = &quot;&#123;:15&#125;&#123;&#125;&quot;.format</span><br><span class="line">    print(&quot;********************************&quot;)</span><br><span class="line">    info = re.findall(r&apos;&lt;strong&gt;(.*?)&lt;/strong&gt;\s*(.*?)\s*&lt;/li&gt;&apos;, s)</span><br><span class="line">    for k, v in info:</span><br><span class="line">        print(print_format(k, v))</span><br><span class="line">    else:</span><br><span class="line">        print(&quot;\n&quot;)</span><br><span class="line">    </span><br><span class="line">def _get_spark_works(st):</span><br><span class="line">    s = re.findall(r&apos;&lt;div class=&quot;aggregated-workers collapsible-table&quot;.*?&lt;/div&gt;&apos;, body, re.S)[0]</span><br><span class="line">    s = re.sub(r&apos;&lt;a.*&gt;|&lt;/a&gt;&apos;, &quot;&quot;, s)</span><br><span class="line">    s = re.sub(r&apos;\s+&apos;, &quot; &quot;, s)</span><br><span class="line">    head = re.findall(r&apos;&lt;th .*?&gt;(.*?)&lt;/th&gt;&apos;, s)</span><br><span class="line">    work_info = [re.findall(r&apos;&lt;td.*?&gt;\s*(.*?)\s*&lt;/td&gt;&apos;, x) for x in re.findall(r&apos;&lt;tr&gt;.*?&lt;/tr&gt;&apos;, s)]</span><br><span class="line">    work_info.insert(0, head)</span><br><span class="line">    print_format = &quot;&#123;:&lt;46&#125;&#123;:25&#125;&#123;:10&#125;&#123;:15&#125;&#123;&#125;&quot;.format</span><br><span class="line">    print(&quot;****************Workers (%s)****************&quot; % (len(work_info) - 1))</span><br><span class="line">    for row in work_info:</span><br><span class="line">        print(print_format(*row))</span><br><span class="line">    else:</span><br><span class="line">        print(&quot;\n&quot;)</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">def _get_spark_running_applications(st):</span><br><span class="line">    s = re.findall(r&apos;&lt;div class=&quot;aggregated-activeApps.*?&lt;/div&gt;&apos;, body, re.S)[0]</span><br><span class="line">    s = re.sub(r&apos;\s+&apos;, &quot; &quot;, s)</span><br><span class="line">    s = re.sub(r&apos;&lt;a.*?&gt;|&lt;/a&gt;|&lt;form.*?&gt;.*&lt;/form&gt;&apos;, &quot;&quot;, s, re.S)</span><br><span class="line">    head = re.findall(r&apos;&lt;th .*?&gt;(.*?)&lt;/th&gt;&apos;, s)</span><br><span class="line">    run_work_info = [re.findall(r&apos;&lt;td.*?&gt;\s*(.*?)\s*&lt;/td&gt;&apos;, x) for x in re.findall(r&apos;&lt;tr&gt;.*?&lt;/tr&gt;&apos;, s)]</span><br><span class="line">    run_work_info.insert(0, head)</span><br><span class="line">    print_format = &quot;&#123;:&lt;28&#125;&#123;:20&#125;&#123;:10&#125;&#123;:25&#125;&#123;:25&#125;&#123;:10&#125;&#123;:13&#125;&#123;&#125;&quot;.format</span><br><span class="line">    print(&quot;****************Running Applications (%s)***************&quot; % (len(run_work_info) - 1))</span><br><span class="line">    for row in run_work_info:</span><br><span class="line">        print(print_format(*row))</span><br><span class="line">    else:</span><br><span class="line">        print(&quot;\n&quot;)</span><br><span class="line"></span><br><span class="line">def _get_spark_completed_applications(st):</span><br><span class="line">    s = re.findall(r&apos;&lt;div class=&quot;aggregated-completedApps.*?&lt;/div&gt;&apos;, body, re.S)[0]</span><br><span class="line">    s = re.sub(r&apos;\s+&apos;, &quot; &quot;, s)</span><br><span class="line">    s = re.sub(r&apos;&lt;a.*?&gt;|&lt;/a&gt;|&lt;form.*?&gt;.*&lt;/form&gt;&apos;, &quot;&quot;, s, re.S)</span><br><span class="line">    head = re.findall(r&apos;&lt;th .*?&gt;(.*?)&lt;/th&gt;&apos;, s)</span><br><span class="line">    run_work_info = [re.findall(r&apos;&lt;td.*?&gt;\s*(.*?)\s*&lt;/td&gt;&apos;, x) for x in re.findall(r&apos;&lt;tr&gt;.*?&lt;/tr&gt;&apos;, s)]</span><br><span class="line">    run_work_info.insert(0, head)</span><br><span class="line">    print_format = &quot;&#123;:&lt;28&#125;&#123;:20&#125;&#123;:10&#125;&#123;:25&#125;&#123;:25&#125;&#123;:10&#125;&#123;:13&#125;&#123;&#125;&quot;.format</span><br><span class="line">    print(&quot;****************Completed Applications (%s)****************&quot; % (len(run_work_info) - 1))</span><br><span class="line">    for row in run_work_info:</span><br><span class="line">        print(print_format(*row))</span><br><span class="line">    else:</span><br><span class="line">        print(&quot;\n&quot;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &quot;__main__&quot;:</span><br><span class="line">    url = &quot;http://192.168.100.10:8080/&quot;</span><br><span class="line"></span><br><span class="line">    body = _get_requests(url)</span><br><span class="line">    spark_common_info = _get_spark_common(body)</span><br><span class="line">    _get_spark_works(body)</span><br><span class="line">    _get_spark_running_applications(body)</span><br><span class="line">    _get_spark_completed_applications(body)</span><br></pre></td></tr></table></figure>
+
+
+          
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/dataStructure/二叉树.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr Wang">
+      <meta itemprop="description" content="行动了才会有故事，说出来才会有结果。">
+      <meta itemprop="image" content="/images/profile.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="勿忘，须舍">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/dataStructure/二叉树.html" class="post-title-link" itemprop="url">二叉树</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-11-06 00:00" itemprop="dateCreated datePublished" datetime="2019-11-06T00:00:00+08:00">2019-11-06</time>
+            </span>
+          
+
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/dataStructure/" itemprop="url" rel="index"><span itemprop="name">dataStructure</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p><code>树</code> 是一种经常用到的数据结构，用来模拟具有树状结构性质的数据集合。</p>
+<p>树里的每一个节点有一个根植和一个包含所有子节点的列表。从图的观点来看，树也可视为一个拥有<code>N 个节点</code>和<code>N-1 条边</code>的一个有向无环图。</p>
+<p><code>二叉树</code>是一种更为典型的树树状结构。如它名字所描述的那样，二叉树是每个节点最多有<code>两个子树</code>的树结构，通常子树被称作“左子树”和“右子树”。</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/dataStructure/二叉树.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/web/JavaScript/javascript-array.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr Wang">
+      <meta itemprop="description" content="行动了才会有故事，说出来才会有结果。">
+      <meta itemprop="image" content="/images/profile.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="勿忘，须舍">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/web/JavaScript/javascript-array.html" class="post-title-link" itemprop="url">JavaScript Array</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-10-31 00:00" itemprop="dateCreated datePublished" datetime="2019-10-31T00:00:00+08:00">2019-10-31</time>
+            </span>
+          
+
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/web/" itemprop="url" rel="index"><span itemprop="name">web</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/web/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>数组对象的作用是：使用单独的变量名来存储一系列的值。</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/web/JavaScript/javascript-array.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/python/module/python-subprocess-module.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr Wang">
+      <meta itemprop="description" content="行动了才会有故事，说出来才会有结果。">
+      <meta itemprop="image" content="/images/profile.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="勿忘，须舍">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/python/module/python-subprocess-module.html" class="post-title-link" itemprop="url">python subprocess module</a>
               
             
           </h1>
@@ -447,1456 +2009,6 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/web/" itemprop="url" rel="index"><span itemprop="name">web</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/web/vue/" itemprop="url" rel="index"><span itemprop="name">vue</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="独立版本"><a href="#独立版本" class="headerlink" title="独立版本"></a>独立版本</h3><p>我们可以在 Vue.js 的官网上直接下载 vue.min.js 并用 &lt;script&gt; 标签引入。<br><a href="https://vuejs.org/js/vue.min.js" target="_blank" rel="noopener">Vue.js下载地址</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;path/to/vue.min.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/web/vue/vue-安装.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/mysql/window-mysql-初始化配置.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Mr Wang">
-      <meta itemprop="description" content="行动了才会有故事，说出来才会有结果。">
-      <meta itemprop="image" content="/images/profile.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="勿忘，须舍">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/mysql/window-mysql-初始化配置.html" class="post-title-link" itemprop="url">window mysql 初始化配置</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-10-28 00:00" itemprop="dateCreated datePublished" datetime="2019-10-28T00:00:00+08:00">2019-10-28</time>
-            </span>
-          
-
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/mysql/" itemprop="url" rel="index"><span itemprop="name">mysql</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="mysql-下载地址"><a href="#mysql-下载地址" class="headerlink" title="mysql 下载地址"></a>mysql 下载地址</h3><p><a href="https://dev.mysql.com/downloads/installer/" target="_blank" rel="noopener">https://dev.mysql.com/downloads/installer/</a></p>
-<p>注： msi安装包的就直接安装</p>
-<p>​         zip包的需要解压到特定地方然后配置系统变量的path路径，定位到mysql/bin目录下</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/mysql/window-mysql-初始化配置.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/mysql/mysql简介.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Mr Wang">
-      <meta itemprop="description" content="行动了才会有故事，说出来才会有结果。">
-      <meta itemprop="image" content="/images/profile.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="勿忘，须舍">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/mysql/mysql简介.html" class="post-title-link" itemprop="url">mysql简介</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-10-28 00:00" itemprop="dateCreated datePublished" datetime="2019-10-28T00:00:00+08:00">2019-10-28</time>
-            </span>
-          
-
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/mysql/" itemprop="url" rel="index"><span itemprop="name">mysql</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>MySQL是一个关系型数据库管理系统，由瑞典MySQL AB 公司开发，属于 Oracle 旗下产品。MySQL 是最流行的关系型数据库管理系统之一，在 WEB 应用方面，MySQL是最好的 RDBMS (Relational Database Management System，关系数据库管理系统) 应用软件之一。</p>
-<p>MySQL是一种关系型数据库管理系统，关系数据库将数据保存在不同的表中，而不是将所有数据放在一个大仓库内，这样就增加了速度并提高了灵活性。</p>
-<p>MySQL所使用的 SQL 语言是用于访问数据库的最常用标准化语言。MySQL 软件采用了双授权政策，分为社区版和商业版，由于其体积小、速度快、总体拥有成本低，尤其是开放源码这一特点，一般中小型网站的开发都选择 MySQL 作为网站数据库。</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/mysql/mysql简介.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/python/module/python-itertools-module.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Mr Wang">
-      <meta itemprop="description" content="行动了才会有故事，说出来才会有结果。">
-      <meta itemprop="image" content="/images/profile.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="勿忘，须舍">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/python/module/python-itertools-module.html" class="post-title-link" itemprop="url">python itertools module</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-10-25 00:00" itemprop="dateCreated datePublished" datetime="2019-10-25T00:00:00+08:00">2019-10-25</time>
-            </span>
-          
-
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/module/" itemprop="url" rel="index"><span itemprop="name">module</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>itertools 是python的迭代器模块，itertools提供的工具相当高效且节省内存</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/python/module/python-itertools-module.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/docker/docker参数说明.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Mr Wang">
-      <meta itemprop="description" content="行动了才会有故事，说出来才会有结果。">
-      <meta itemprop="image" content="/images/profile.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="勿忘，须舍">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/docker/docker参数说明.html" class="post-title-link" itemprop="url">docker参数说明</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-10-21 00:00" itemprop="dateCreated datePublished" datetime="2019-10-21T00:00:00+08:00">2019-10-21</time>
-            </span>
-          
-
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/docker/" itemprop="url" rel="index"><span itemprop="name">docker</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="Docker-命令参数"><a href="#Docker-命令参数" class="headerlink" title="Docker 命令参数"></a>Docker 命令参数</h3>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/docker/docker参数说明.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/spark/spark-web-用法.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Mr Wang">
-      <meta itemprop="description" content="行动了才会有故事，说出来才会有结果。">
-      <meta itemprop="image" content="/images/profile.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="勿忘，须舍">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/spark/spark-web-用法.html" class="post-title-link" itemprop="url">spark web 用法</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-10-18 00:00" itemprop="dateCreated datePublished" datetime="2019-10-18T00:00:00+08:00">2019-10-18</time>
-            </span>
-          
-
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/spark/" itemprop="url" rel="index"><span itemprop="name">spark</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="修改spark默认启动端口"><a href="#修改spark默认启动端口" class="headerlink" title="修改spark默认启动端口"></a>修改spark默认启动端口</h2><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">8080</span> --&gt; master WEB端口</span><br><span class="line"><span class="number">8081</span> --&gt; work WEB端口</span><br><span class="line"><span class="number">7077</span> --&gt; master通信端口</span><br><span class="line"><span class="number">18080</span> --&gt; spark历史服务器端口</span><br><span class="line"><span class="number">4040</span> --&gt; Spark当前执行的任务页面查看端口<span class="number">4040</span>，如果任务结束了<span class="number">4040</span>端口页面不能访问</span><br><span class="line"></span><br><span class="line"><span class="number">50070</span>：HDFSwebUI的端口号</span><br><span class="line"><span class="number">8485</span>:journalnode默认的端口号</span><br><span class="line"><span class="number">9000</span>：非高可用访问数rpc端口</span><br><span class="line"><span class="number">8020</span>：高可用访问数据rpc</span><br><span class="line"><span class="number">8088</span>：yarn的webUI的端口号</span><br><span class="line"><span class="number">8080</span>：master的webUI，Tomcat的端口号</span><br><span class="line"><span class="number">7077</span>：spark基于standalone的提交任务的端口号</span><br><span class="line"><span class="number">8081</span>：worker的webUI的端口号</span><br><span class="line"><span class="number">18080</span>：historyServer的webUI的端口号</span><br><span class="line"><span class="number">4040</span>：application的webUI的端口号</span><br><span class="line"><span class="number">2181</span>：zookeeper的rpc端口号</span><br><span class="line"><span class="number">9083</span>：hive的metastore的端口号</span><br><span class="line"><span class="number">60010</span>：Hbase的webUI的端口号</span><br><span class="line"><span class="number">6379</span>：Redis的端口号</span><br><span class="line"><span class="number">8080</span>：sparkwebUI的端口号</span><br><span class="line"><span class="number">9092</span>：kafka broker的端口</span><br></pre></td></tr></table></figure>
-
-<h2 id="修改默认端口"><a href="#修改默认端口" class="headerlink" title="修改默认端口"></a>修改默认端口</h2><p>在 standalone模式中配置spark-env.sh</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Master节点的web端口是8080 </span><br><span class="line">export SPARK_MASTER_WEBUI_PORT=8080</span><br><span class="line"></span><br><span class="line"># work节点的web端口是8081</span><br><span class="line">export SPARK_WORKER_WEBUI_PORT=8081</span><br><span class="line"></span><br><span class="line"># Master通信端口是7077</span><br><span class="line">export SPARK_MASTER_PORT=7077</span><br></pre></td></tr></table></figure>
-
-<p>在 standalone模式中配置spark-defaults.confspark-env.sh</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># Spark历史服务器端口是18080</span><br><span class="line">spark.history.ui.port    18080</span><br><span class="line"></span><br><span class="line"># Spark外部服务端口是6066，这个端口有被黑客攻击的漏洞建议关闭</span><br><span class="line">spark.master.rest.enabled    false</span><br><span class="line">spark.master.rest.port    16066</span><br><span class="line"></span><br><span class="line"># Spark当前执行的任务页面查看端口4040</span><br><span class="line">spark.ui.port    14040</span><br></pre></td></tr></table></figure>
-
-<h2 id="Spark-Web-UI详解"><a href="#Spark-Web-UI详解" class="headerlink" title="Spark Web UI详解"></a>Spark Web UI详解</h2><h3 id="默认登陆URL"><a href="#默认登陆URL" class="headerlink" title="默认登陆URL"></a>默认登陆URL</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://&#123;spark_ip&#125;:4040/jobs/</span><br></pre></td></tr></table></figure>
-
-<h3 id="jobs页面"><a href="#jobs页面" class="headerlink" title="jobs页面"></a>jobs页面</h3><img src="/spark/spark-web-用法/job.PNG" title="This is an browser picture">
-
-<blockquote>
-<p><strong>User</strong>:  spark任务提交的用户，用以进行权限控制与资源分配。</p>
-<p><strong>Total Uptime</strong>:  spark application总的运行时间，从app master开始运行到结束的整体时间。</p>
-<p><strong>Scheduling Mode</strong>:  application中task任务的调度策略，由参数spark.scheduler.mode来设置，可选的参数有FAIR和FIFO，默认是FIFO。这与yarn的资源调度策略的层级不同，yarn的资源调度是针对集群中不同application间的，而spark scheduler mode则是针对application内部task set级别的资源分配，不同FAIR策略的参数配置方式与yarn中FAIR策略的配置方式相同。</p>
-<p><strong>Active Jobs</strong>: 正在运行的Job的基本信息。</p>
-<p><strong>Event Timeline</strong>:  在application应用运行期间，Job和Exector的增加和删除事件进行图形化的展现。这个就是用来表示调度job何时启动何时结束，以及Excutor何时加入何时移除。我们可以很方便看到哪些job已经运行完成，使用了多少Excutor，哪些正在运行。</p>
-<p><strong>Completed Jobs</strong>:  已完成Job的基本信息，如想查看某一个Job的详细情况，可点击对应Job进行查看。</p>
-</blockquote>
-<p>注：Job默认都是串行提交运行的，如果Job间没有依赖，可以使用多线程并行提交Job，实现Job并发。</p>
-<h3 id="Jobs-Detail页面"><a href="#Jobs-Detail页面" class="headerlink" title="Jobs Detail页面"></a>Jobs Detail页面</h3><img src="/spark/spark-web-用法/job_detail.PNG" title="This is an browser picture">
-
-<blockquote>
-<p>在Jobs页面点击进入某个Job之后，可以查看某一Job的详细信息：</p>
-<p><strong>Staus:</strong>  展示Job的当前状态信息。</p>
-<p><strong>Active Stages</strong>:  正在运行的stages信息，点击某个stage可进入查看具体的stage信息。</p>
-<p><strong>Pending Stages</strong>:  排队的stages信息，根据解析的DAG图stage可并发提交运行，而有依赖的stage未运行完时则处于等待队列中。</p>
-<p><strong>Completed Stages</strong>:  已经完成的stages信息。</p>
-<p><strong>Event Timeline</strong>: 展示当前Job运行期间stage的提交与结束、Executor的加入与退出等事件信息。</p>
-<p><strong>DAG Visualization</strong>:  当前Job所包含的所有stage信息（stage中包含的明细的tranformation操作），以及各stage间的DAG依赖图。DAG也是一种调度模型，在spark的作业调度中，有很多作业存在依赖关系，所以没有依赖关系的作业可以并行执行，有依赖的作业不能并行执行。</p>
-</blockquote>
-<h3 id="Stages页面"><a href="#Stages页面" class="headerlink" title="Stages页面"></a>Stages页面</h3><img src="/spark/spark-web-用法/stage.PNG" title="This is an browser picture">
-
-<blockquote>
-<p>在Job Detail页点击进入某个stage后，可以查看某一stage的详细信息：</p>
-<p><strong>Total time across all tasks</strong>:  当前stage中所有task花费的时间和。</p>
-<p><strong>Locality Level Summary</strong>:  不同本地化级别下的任务数，本地化级别是指数据与计算间的关系（PROCESS_LOCAL进程本地化：task与计算的数据在同一个Executor中。NODE_LOCAL节点本地化：情况一：task要计算的数据是在同一个Worker的不同Executor进程中；情况二：task要计算的数据是在同一个Worker的磁盘上，或在 HDFS 上，恰好有 block 在同一个节点上。RACK_LOCAL机架本地化，数据在同一机架的不同节点上：情况一：task计算的数据在Worker2的Executor中；情况二：task计算的数据在Worker2的磁盘上。ANY跨机架，数据在非同一机架的网络上，速度最慢）。</p>
-<p><strong>Input Size/Records</strong>: 输入的数据字节数大小/记录条数。</p>
-<p><strong>Shuffle Write</strong>:  为下一个依赖的stage提供输入数据，shuffle过程中通过网络传输的数据字节数/记录条数。应该尽量减少shuffle的数据量及其操作次数，这是spark任务优化的一条基本原则。</p>
-<p><strong>DAG Visualization</strong>:  当前stage中包含的详细的tranformation操作流程图。</p>
-<p><strong>Metrics</strong>:  当前stage中所有task的一些指标（每一指标项鼠标移动上去后会有对应解释信息）统计信息。</p>
-<p><strong>Event Timeline</strong>:  清楚地展示在每个Executor上各个task的各个阶段的时间统计信息，可以清楚地看到task任务时间是否有明显倾斜，以及倾斜的时间主要是属于哪个阶段，从而有针对性的进行优化。</p>
-<p><strong>Aggregated Metrics by Executor</strong>:  将task运行的指标信息按excutor做聚合后的统计信息，并可查看某个Excutor上任务运行的日志信息。</p>
-<p><strong>Tasks</strong>:  当前stage中所有任务运行的明细信息，是与Event Timeline中的信息对应的文字展示（可以点击某个task查看具体的任务日志）。</p>
-</blockquote>
-<h3 id="Storage页面"><a href="#Storage页面" class="headerlink" title="Storage页面"></a>Storage页面</h3><img src="/spark/spark-web-用法/storage1.PNG" title="This is an browser picture">
-
-<blockquote>
-<p>storage页面能看出application当前使用的缓存情况，可以看到有哪些RDD被缓存了，以及占用的内存资源。如果job在执行时持久化（persist）/缓存（cache）了一个RDD，那么RDD的信息可以在这个选项卡中查看。</p>
-</blockquote>
-<h3 id="Storage-Detail页面"><a href="#Storage-Detail页面" class="headerlink" title="Storage Detail页面"></a>Storage Detail页面</h3><img src="/spark/spark-web-用法/storage2.PNG" title="This is an browser picture">
-
-<blockquote>
-<p>点击某个RDD即可查看该RDD缓存的详细信息，包括缓存在哪个Executor中，使用的block情况，RDD上分区（partitions）的信息以及存储RDD的主机的地址。</p>
-</blockquote>
-<h3 id="Enviroment页面"><a href="#Enviroment页面" class="headerlink" title="Enviroment页面"></a>Enviroment页面</h3><p>Environment选项卡提供有关Spark应用程序（或SparkContext）中使用的各种属性和环境变量的信息。用户可以通过这个选项卡得到非常有用的各种Spark属性信息，而不用去翻找属性配置文件。</p>
-<h3 id="Executor页面"><a href="#Executor页面" class="headerlink" title="Executor页面"></a>Executor页面</h3><p>Executors选项卡提供了关于内存、CPU核和其他被Executors使用的资源的信息。这些信息在Executor级别和汇总级别都可以获取到。一方面通过它可以看出来每个excutor是否发生了数据倾斜，另一方面可以具体分析目前的应用是否产生了大量的shuffle，是否可以通过数据的本地性或者减小数据的传输来减少shuffle的数据量。</p>
-<p>Summary: 该application运行过程中使用Executor的统计信息。<br>Executors: 每个Excutor的详细信息（包含driver），可以点击查看某个Executor中任务运行的详细日志。</p>
-<h3 id="SQL页面"><a href="#SQL页面" class="headerlink" title="SQL页面"></a>SQL页面</h3><p>SQL选项卡（只有执行了spark SQL查询才会有SQL选项卡）可以查看SQL执行计划的细节，它提供了SQL查询的DAG以及显示Spark如何优化已执行的SQL查询的查询计划。</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://blog.csdn.net/weixin_40083942/article/details/88392780" target="_blank" rel="noopener">spark的UI界面及调优</a></p>
-<p><a href="https://www.jianshu.com/p/8143a50a5af9" target="_blank" rel="noopener">https://www.jianshu.com/p/8143a50a5af9</a></p>
-<p><a href="https://blog.csdn.net/minge_se/article/details/79146737" target="_blank" rel="noopener">https://blog.csdn.net/minge_se/article/details/79146737</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/python/spark/spark参数配置说明.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Mr Wang">
-      <meta itemprop="description" content="行动了才会有故事，说出来才会有结果。">
-      <meta itemprop="image" content="/images/profile.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="勿忘，须舍">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/python/spark/spark参数配置说明.html" class="post-title-link" itemprop="url">spark参数配置说明</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-10-18 00:00" itemprop="dateCreated datePublished" datetime="2019-10-18T00:00:00+08:00">2019-10-18</time>
-            </span>
-          
-
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/spark/" itemprop="url" rel="index"><span itemprop="name">spark</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="spark配置修改方式"><a href="#spark配置修改方式" class="headerlink" title="spark配置修改方式"></a>spark配置修改方式</h2><p>Spark有以下三种方式修改配置：</p>
-<ol>
-<li><p>Spark properties （Spark属性）</p>
-<p>可以控制绝大多数应用程序参数，而且既可以通过 SparkConf 对象来设置，也可以通过Java系统属性来设置。</p>
-</li>
-<li><p>Environment variables （环境变量）</p>
-<p>可以指定一些各个机器相关的设置，如IP地址，其设置方法是写在每台机器上的conf/spark-env.sh中。</p>
-</li>
-<li><p>Logging （日志）</p>
-<p>可以通过log4j.properties配置日志。</p>
-</li>
-</ol>
-<h2 id="spark配置参数"><a href="#spark配置参数" class="headerlink" title="spark配置参数"></a>spark配置参数</h2><p>官方链接：<a href="https://spark.apache.org/docs/latest/configuration.html" target="_blank" rel="noopener">https://spark.apache.org/docs/latest/configuration.html</a></p>
-<p>其它参考：<a href="http://ifeve.com/spark-config/" target="_blank" rel="noopener">http://ifeve.com/spark-config/</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/spark/spark异常处理.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Mr Wang">
-      <meta itemprop="description" content="行动了才会有故事，说出来才会有结果。">
-      <meta itemprop="image" content="/images/profile.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="勿忘，须舍">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/spark/spark异常处理.html" class="post-title-link" itemprop="url">spark异常处理</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-10-18 00:00" itemprop="dateCreated datePublished" datetime="2019-10-18T00:00:00+08:00">2019-10-18</time>
-            </span>
-          
-
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/spark/" itemprop="url" rel="index"><span itemprop="name">spark</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/python/module/python-io-module.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Mr Wang">
-      <meta itemprop="description" content="行动了才会有故事，说出来才会有结果。">
-      <meta itemprop="image" content="/images/profile.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="勿忘，须舍">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/python/module/python-io-module.html" class="post-title-link" itemprop="url">python io module</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-10-16 00:00" itemprop="dateCreated datePublished" datetime="2019-10-16T00:00:00+08:00">2019-10-16</time>
-            </span>
-          
-
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
 
                 
@@ -1946,180 +2058,12 @@
       
         
           
-            <p>参考：<a href="https://www.cnblogs.com/zhangxinqi/p/9135038.html" target="_blank" rel="noopener">python3之模块io使用流的核心工具</a></p>
+            <p><strong>源代码:</strong> <a href="https://github.com/python/cpython/tree/3.7/Lib/subprocess.py" target="_blank" rel="noopener">Lib/subprocess.py</a></p>
+<p>参考：</p>
+<p><a href="https://docs.python.org/zh-cn/3.7/library/subprocess.html" target="_blank" rel="noopener">官方文档</a></p>
+<p><a href="https://www.jb51.net/article/133941.htm" target="_blank" rel="noopener">Python subprocess模块详细解读</a></p>
 
           
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/docker/docker-mysql官方镜像操作.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Mr Wang">
-      <meta itemprop="description" content="行动了才会有故事，说出来才会有结果。">
-      <meta itemprop="image" content="/images/profile.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="勿忘，须舍">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/docker/docker-mysql官方镜像操作.html" class="post-title-link" itemprop="url">docker mysql官方镜像操作</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-10-15 00:00" itemprop="dateCreated datePublished" datetime="2019-10-15T00:00:00+08:00">2019-10-15</time>
-            </span>
-          
-
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/docker/" itemprop="url" rel="index"><span itemprop="name">docker</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>…</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/docker/docker-mysql官方镜像操作.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
         
       
     </div>
@@ -2169,7 +2113,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -2214,7 +2158,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">139</span>
+          <span class="site-state-item-count">149</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -2341,7 +2285,21 @@
         
           
         
-        <span class="site-state-item-count">51</span>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">58</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -2442,7 +2400,13 @@
         
           
         
-        <span class="site-state-item-count">40</span>
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">43</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>

@@ -387,7 +387,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/git/git杂记.html">
+    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/Linux/command/kill/linux-kill-command.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mr Wang">
@@ -407,7 +407,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/git/git杂记.html" class="post-title-link" itemprop="url">git杂记</a>
+                <a href="/Linux/command/kill/linux-kill-command.html" class="post-title-link" itemprop="url">Linux kill command</a>
               
             
           </h1>
@@ -432,7 +432,7 @@
                 
               
 
-              <time title="创建时间：2019-08-01 00:00" itemprop="dateCreated datePublished" datetime="2019-08-01T00:00:00+08:00">2019-08-01</time>
+              <time title="创建时间：2019-08-06 00:00" itemprop="dateCreated datePublished" datetime="2019-08-06T00:00:00+08:00">2019-08-06</time>
             </span>
           
 
@@ -447,229 +447,21 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Git-clone-时出现Please-make-sure-you-have-the-correct-access-rights-and-the-repository-exists"><a href="#Git-clone-时出现Please-make-sure-you-have-the-correct-access-rights-and-the-repository-exists" class="headerlink" title="Git clone 时出现Please make sure you have the correct access rights and the repository exists"></a>Git clone 时出现Please make sure you have the correct access rights and the repository exists</h2><ol>
-<li><p>删除 .ssh 文件夹【C:\Users(本地用户名).ssh】 中的 known_hosts文件</p>
-</li>
-<li><p>生成密钥，在下载好的Git中的bin目录下打开bash.exe输入命令<code>ssh-keygen -t rsa -C &quot;username&quot;</code> (注：username为你git上的用户名)，</p>
-</li>
-<li><p>然后找到系统自动在.ssh文件夹下生成两个文件，id_rsa和id_rsa.pub，用记事本打开id_rsa.pub将全部的内容复制。</p>
-</li>
-<li><p>打开<a href="https://github.com/，登陆你的账户，进入设置（Settings）找到SSH" target="_blank" rel="noopener">https://github.com/，登陆你的账户，进入设置（Settings）找到SSH</a> keys</p>
-</li>
-<li><p>然后将你复制的内容粘贴到key中，再点击Add SSH Key</p>
-</li>
-<li><p>仍然在bash.exe中输入ssh -T <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>然后会跳出一堆内容你只需输入yes回车就完事了，然后他会提示你成功了。</p>
-</li>
-</ol>
-<p>参考：<a href="https://blog.csdn.net/qq_36181310/article/details/88760623" target="_blank" rel="noopener">https://blog.csdn.net/qq_36181310/article/details/88760623</a></p>
-<h2 id="git-提交到github不显示贡献小绿点问题的解决"><a href="#git-提交到github不显示贡献小绿点问题的解决" class="headerlink" title="git 提交到github不显示贡献小绿点问题的解决"></a>git 提交到github不显示贡献小绿点问题的解决</h2><p>原因: git commit 提交的 user.name 和 user.email 与你的github不同</p>
-<p>解决：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># git config --global user.name “github’s Name”</span><br><span class="line"></span><br><span class="line"># git config --global user.email &quot;github’ Email&quot;</span><br></pre></td></tr></table></figure>
-
-<p>参考：<a href="https://www.cnblogs.com/zzhangyuhang/p/9896151.html" target="_blank" rel="noopener">https://www.cnblogs.com/zzhangyuhang/p/9896151.html</a></p>
-<h2 id="生成多个git-ssh密钥"><a href="#生成多个git-ssh密钥" class="headerlink" title="生成多个git ssh密钥"></a>生成多个git ssh密钥</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;YOUR_EMAIL@YOUREMAIL.COM&quot; -f ~/.ssh/aysee</span><br><span class="line"></span><br><span class="line"># 执行命令后，生成命名的公钥和生成默认公钥的步骤一样。</span><br></pre></td></tr></table></figure>
-
-<p>参考：<a href="https://www.cnblogs.com/SUNSHINEC/p/8617029.html" target="_blank" rel="noopener">https://www.cnblogs.com/SUNSHINEC/p/8617029.html</a></p>
-<h2 id="git-branch-命令操作"><a href="#git-branch-命令操作" class="headerlink" title="git branch 命令操作"></a>git branch 命令操作</h2><ul>
-<li>查看本地分支 ： <code>git branch</code></li>
-</ul>
-<p>前面带有*号的是当前分支</p>
-<ul>
-<li>删除本地已合并的分支： <code>git branch -d [branchname]</code></li>
-</ul>
-<p>某些情况下可以用 git branch -D [branchName] (使用时应注意是否已合并)<br>提示删除了一个名为:list的本地分支<br>提示删除了一个名为list的本地分支</p>
-<ul>
-<li>删除远程分支: <code>git push origin --delete [branchname]</code></li>
-</ul>
-<p>提示删除了远程分支<br>提示删除了一个名为 201804019-test-files 的分支,<br>注意: 在删除远程分支时，同名的本地分支并不会被删除，所以还需要单独删除本地同名分支<br>如果发生以下错误:</p>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">error: <span class="title">unable</span> <span class="title">to</span> <span class="title">delete</span> ‘<span class="title">origin</span>/<span class="title">xxxxxxxx</span>-<span class="title">fixbug</span>’: <span class="title">remote</span> <span class="title">ref</span> <span class="title">does</span> <span class="title">not</span> <span class="title">exist</span></span></span><br><span class="line"><span class="function"><span class="title">error</span>: <span class="title">failed</span> <span class="title">to</span> <span class="title">push</span> <span class="title">some</span> <span class="title">refs</span> <span class="title">to</span> ‘<span class="title">git</span>@<span class="title">github.com:xxxxxxxx</span>/<span class="title">xxxxxxxxxx.git</span>’</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">解决办法： <span class="title">git</span> <span class="title">checkout</span> <span class="title">xxxxx</span>-<span class="title">fixbug</span> 切换到当前分支上， 然后再 进行 <span class="title">git</span> <span class="title">push</span> --<span class="title">delete</span> <span class="title">origin</span> <span class="title">origin</span>/<span class="title">xxxxx</span>-<span class="title">fixbug</span></span></span><br><span class="line"><span class="function">此时将不会再发生错误 。</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>创建分支 ：<code>git branch [branchname]</code></li>
-</ul>
-<p>需要注意，创建分支时，不会有什么提示。</p>
-<ul>
-<li><p>查看全部分支(包含本地和远程) ：<code>git branch -a</code></p>
-</li>
-<li><p>根据指定版本号创建分支: <code>git checkout -b branchName commitId</code></p>
-</li>
-<li><p>清理本地无效分支(远程已删除本地没删除的分支): <code>git fetch -p</code></p>
-</li>
-<li><p>分支模糊查找: git branch | grep ‘branchName’</p>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/web/HTML/html-笔记.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Mr Wang">
-      <meta itemprop="description" content="行动了才会有故事，说出来才会有结果。">
-      <meta itemprop="image" content="/images/profile.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="勿忘，须舍">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/web/HTML/html-笔记.html" class="post-title-link" itemprop="url">HTML 笔记</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-08-01 00:00" itemprop="dateCreated datePublished" datetime="2019-08-01T00:00:00+08:00">2019-08-01</time>
-            </span>
-          
-
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/web/" itemprop="url" rel="index"><span itemprop="name">web</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
 
                 
                 
                   ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/web/HTML/" itemprop="url" rel="index"><span itemprop="name">HTML</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/command/" itemprop="url" rel="index"><span itemprop="name">command</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/command/kill/" itemprop="url" rel="index"><span itemprop="name">kill</span></a></span>
 
                 
                 
@@ -710,11 +502,13 @@
 
       
         
-          <p>总得记点啥。。。</p>
+          <h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><p>kill 命令是用来向进程发送一个用户指定的信号，对进程进行相应的操作。</p>
+<p>kill 命令的执行原理是向操作系统内核发送一个信号（多是终止信号）和目标进程的 PID，系统内核根据收到的信号类型，对指定进程进行相应的操作。</p>
+<p>进程PID可用ps、pidof、pstree、top等工具获取，然后使用kill命令来结束该进程。</p>
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/web/HTML/html-笔记.html#more" rel="contents">
+              <a class="btn" href="/Linux/command/kill/linux-kill-command.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -780,7 +574,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/python/module/python-datetime-module.html">
+    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/Linux/command/ps/linux-ps-command.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mr Wang">
@@ -800,7 +594,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/python/module/python-datetime-module.html" class="post-title-link" itemprop="url">python datetime module</a>
+                <a href="/Linux/command/ps/linux-ps-command.html" class="post-title-link" itemprop="url">Linux ps command</a>
               
             
           </h1>
@@ -825,24 +619,197 @@
                 
               
 
-              <time title="创建时间：2019-08-01 00:00" itemprop="dateCreated datePublished" datetime="2019-08-01T00:00:00+08:00">2019-08-01</time>
+              <time title="创建时间：2019-08-06 00:00" itemprop="dateCreated datePublished" datetime="2019-08-06T00:00:00+08:00">2019-08-06</time>
+            </span>
+          
+
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/command/" itemprop="url" rel="index"><span itemprop="name">command</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/command/ps/" itemprop="url" rel="index"><span itemprop="name">ps</span></a></span>
+
+                
+                
+              
             </span>
           
 
           
             
+            
+          
 
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><p>ps 命令是Process Status的缩写，用于进程的监测和控制。</p>
+<p>ps 命令是最基本进程查看命令，使用该命令可以确定有哪些进程正在运行和运行的状态、进程是否结束、进程有没有僵尸、哪些进程占用了过多的资源等。</p>
+<p>ps 命令显示的是瞬间进程的状态，并不是动态连续的；如果想对进程进行实时监控可用<strong>top</strong>命令。   </p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/Linux/command/ps/linux-ps-command.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/python/module/python-future-module.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr Wang">
+      <meta itemprop="description" content="行动了才会有故事，说出来才会有结果。">
+      <meta itemprop="image" content="/images/profile.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="勿忘，须舍">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/python/module/python-future-module.html" class="post-title-link" itemprop="url">python __future__ module</a>
+              
             
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-08-02 00:00" itemprop="dateModified" datetime="2019-08-02T00:00:00+08:00">2019-08-02</time>
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
               </span>
-            
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-06 00:00" itemprop="dateCreated datePublished" datetime="2019-08-06T00:00:00+08:00">2019-08-06</time>
+            </span>
+          
+
           
 
           
@@ -902,13 +869,13 @@
 
       
         
-          <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>datetime Basic date and time types</p>
-<p><strong>Source code:</strong> <a href="https://github.com/python/cpython/tree/3.7/Lib/datetime.py" target="_blank" rel="noopener">Lib/datetime.py</a></p>
-<p>The datetime module supplies classes for manipulating dates and times in both simple and complex ways. While date and time arithmetic is supported, the focus of the implementation is on efficient attribute extraction for output formatting and manipulation. For related functionality, see also the <a href="https://docs.python.org/3/library/time.html#module-time" target="_blank" rel="noopener"><code>time</code></a> and <a href="https://docs.python.org/3/library/calendar.html#module-calendar" target="_blank" rel="noopener"><code>calendar</code></a> modules.</p>
+          <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>将下一个新版本的特性导入到当前版本并进行测试（新版的改动不兼容老版本，就是这么任性）。</p>
+<p><strong>py2.7-源代码:</strong> <a href="https://github.com/python/cpython/tree/2.7/Lib/__future__.py" target="_blank" rel="noopener">Lib/__future__.py</a></p>
+<p><strong>py3.7-源代码：</strong><a href="https://github.com/python/cpython/tree/3.7/Lib/__future__.py" target="_blank" rel="noopener">Lib/__future__.py</a></p>
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/python/module/python-datetime-module.html#more" rel="contents">
+              <a class="btn" href="/python/module/python-future-module.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -974,7 +941,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/Linux/ssh/linux-安装ssh以及ssh用法与免密登录.html">
+    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/Linux/command/netstat/linux-netstat-command.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mr Wang">
@@ -994,7 +961,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/Linux/ssh/linux-安装ssh以及ssh用法与免密登录.html" class="post-title-link" itemprop="url">linux 安装ssh以及ssh用法与免密登录</a>
+                <a href="/Linux/command/netstat/linux-netstat-command.html" class="post-title-link" itemprop="url">Linux netstat command</a>
               
             
           </h1>
@@ -1019,24 +986,10 @@
                 
               
 
-              <time title="创建时间：2019-07-31 00:00" itemprop="dateCreated datePublished" datetime="2019-07-31T00:00:00+08:00">2019-07-31</time>
+              <time title="创建时间：2019-08-05 00:00" itemprop="dateCreated datePublished" datetime="2019-08-05T00:00:00+08:00">2019-08-05</time>
             </span>
           
 
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2020-12-21 21:14" itemprop="dateModified" datetime="2020-12-21T21:14:50+08:00">2020-12-21</time>
-              </span>
-            
           
 
           
@@ -1055,373 +1008,14 @@
                   ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/ssh/" itemprop="url" rel="index"><span itemprop="name">ssh</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="ssh-简述"><a href="#ssh-简述" class="headerlink" title="ssh 简述"></a>ssh 简述</h3><p>SSH ( Secure Shell) 由 IETF 的网络工作小组（Network Working Group）所制定；</p>
-<p>SSH 是目前较可靠，专为远程登录会话和其他网络服务提供安全性的协议。其是建立在应用层和传输层基础上的安全协议。利用 SSH 协议可以有效防止远程管理过程中的信息泄露问题。</p>
-<p>SSH最初是UNIX系统上的一个程序，后来又迅速扩展到其他操作平台。SSH在正确使用时可弥补网络中的漏洞。</p>
-<p>SSH客户端适用于多种平台。几乎所有UNIX平台—包括HP-UX、Linux、AIX、Solaris、Digital UNIX、Irix，以及其他平台，都可运行SSH。</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/Linux/ssh/linux-安装ssh以及ssh用法与免密登录.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/Typora/typora简单教程.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Mr Wang">
-      <meta itemprop="description" content="行动了才会有故事，说出来才会有结果。">
-      <meta itemprop="image" content="/images/profile.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="勿忘，须舍">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/Typora/typora简单教程.html" class="post-title-link" itemprop="url">Typora简单教程</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-07-29 00:00" itemprop="dateCreated datePublished" datetime="2019-07-29T00:00:00+08:00">2019-07-29</time>
-            </span>
-          
-
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Typora/" itemprop="url" rel="index"><span itemprop="name">Typora</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h3><p>Typora是一款轻便简洁的Markdown编辑器，支持即时渲染技术，这也是与其他Markdown编辑器最显著的区别。即时渲染使得你写Markdown就想是写Word文档一样流畅自如，不像其他编辑器的有编辑栏和显示栏。</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/Typora/typora简单教程.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/hexo/error-log/hexo-error-log.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Mr Wang">
-      <meta itemprop="description" content="行动了才会有故事，说出来才会有结果。">
-      <meta itemprop="image" content="/images/profile.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="勿忘，须舍">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/hexo/error-log/hexo-error-log.html" class="post-title-link" itemprop="url">hexo error log</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-07-28 23:00" itemprop="dateCreated datePublished" datetime="2019-07-28T23:00:00+08:00">2019-07-28</time>
-            </span>
-          
-
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2020-12-21 21:14" itemprop="dateModified" datetime="2020-12-21T21:14:50+08:00">2020-12-21</time>
-              </span>
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/command/" itemprop="url" rel="index"><span itemprop="name">command</span></a></span>
 
                 
                 
                   ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/hexo/error-log/" itemprop="url" rel="index"><span itemprop="name">error log</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Linux/command/netstat/" itemprop="url" rel="index"><span itemprop="name">netstat</span></a></span>
 
                 
                 
@@ -1462,191 +1056,13 @@
 
       
         
-          
-            <p>搭建 hexo，在执行 hexo deploy 后,出现 error deployer not found:github 的错误</p>
-<p>hexo 更新到3.0之后，deploy的type 的github需要改成git<br>npm install hexo-deployer-git –save 改了之后执行，然后再部署</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/markdown/markdown-教程.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Mr Wang">
-      <meta itemprop="description" content="行动了才会有故事，说出来才会有结果。">
-      <meta itemprop="image" content="/images/profile.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="勿忘，须舍">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/markdown/markdown-教程.html" class="post-title-link" itemprop="url">Markdown 教程</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-
-          
-          
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-07-28 22:31" itemprop="dateCreated datePublished" datetime="2019-07-28T22:31:49+08:00">2019-07-28</time>
-            </span>
-          
-
-          
-            
-
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-07-29 00:00" itemprop="dateModified" datetime="2019-07-29T00:00:00+08:00">2019-07-29</time>
-              </span>
-            
-          
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/markdown/" itemprop="url" rel="index"><span itemprop="name">markdown</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          <br>
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h2><p>Markdown 是一种标记语言（轻量级的、可用纯文本编写）;<br>Markdown 诞生于2004年，由约翰·格鲁伯（John Gruber）创建；<br>Markdown 编写的文档可以导出 HTML 、Word、图像、PDF、Epub 等多种格式。<br>Markdown 编写的文档后缀为 .md, .markdown。</p>
+          <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>在Internet <a href="https://baike.baidu.com/item/RFC/2798645" target="_blank" rel="noopener">RFC</a><a href="https://baike.baidu.com/item/标准" target="_blank" rel="noopener">标准</a>中， Netstat是在内核中访问网络连接状态及其相关信息的程序，它能提供TCP连接，TCP和UDP监听，进程内存管理的相关报告。</p>
+<p><strong>Netstat 是控制台命令</strong>，是一个监控TCP/IP网络的非常有用的工具，它可以<strong>显示路由表、实际的网络连接以及每一个网络接口设备的状态信息</strong>。  </p>
+<p>Netstat 用于<strong>显示与IP、<a href="https://baike.baidu.com/item/TCP" target="_blank" rel="noopener">TCP</a>、<a href="https://baike.baidu.com/item/UDP" target="_blank" rel="noopener">UDP</a>和<a href="https://baike.baidu.com/item/ICMP" target="_blank" rel="noopener">ICMP</a>协议相关的统计数据</strong>，一般用于检验本机各端口的网络连接情况。</p>
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/markdown/markdown-教程.html#more" rel="contents">
+              <a class="btn" href="/Linux/command/netstat/linux-netstat-command.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1712,7 +1128,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/uncategorized/杂记.html">
+    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/python/module/python-glob-module.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mr Wang">
@@ -1732,7 +1148,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/uncategorized/杂记.html" class="post-title-link" itemprop="url">杂记</a>
+                <a href="/python/module/python-glob-module.html" class="post-title-link" itemprop="url">python glob module</a>
               
             
           </h1>
@@ -1757,12 +1173,34 @@
                 
               
 
-              <time title="创建时间：2019-07-21 00:00" itemprop="dateCreated datePublished" datetime="2019-07-21T00:00:00+08:00">2019-07-21</time>
+              <time title="创建时间：2019-08-05 00:00" itemprop="dateCreated datePublished" datetime="2019-08-05T00:00:00+08:00">2019-08-05</time>
             </span>
           
 
           
 
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/module/" itemprop="url" rel="index"><span itemprop="name">module</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -1798,62 +1236,23 @@
 
       
         
+          <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><strong>glob</strong> —查找符合特定规则的文件路径名</p>
+<p><strong>Source code:</strong> <a href="https://github.com/python/cpython/tree/3.7/Lib/glob.py" target="_blank" rel="noopener">Lib/glob.py</a></p>
+<p>匹配符：</p>
+<ul>
+<li>*  匹配0个或多个字符</li>
+<li>?  匹配单个字符</li>
+<li>[] 匹配指定范围内的字符，如：[0-9]匹配数字</li>
+</ul>
+          <!--noindex-->
           
-            <h2 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h2><h3 id="Centos7-安装"><a href="#Centos7-安装" class="headerlink" title="Centos7 安装"></a>Centos7 安装</h3><p>&lt;<a href="https://www.jianshu.com/p/2cdc3ea850b7" target="_blank" rel="noopener">https://www.jianshu.com/p/2cdc3ea850b7</a><br><a href="https://blog.csdn.net/u013168176/article/details/81144193" target="_blank" rel="noopener">https://blog.csdn.net/u013168176/article/details/81144193</a>&gt;</p>
-<h3 id="centos7-网卡启动异常处理"><a href="#centos7-网卡启动异常处理" class="headerlink" title="centos7 网卡启动异常处理"></a>centos7 网卡启动异常处理</h3><p><a href="https://blog.csdn.net/dongfei2033/article/details/81124465" target="_blank" rel="noopener">https://blog.csdn.net/dongfei2033/article/details/81124465</a></p>
-<h3 id="Vmware虚拟机网络配置-固定IP"><a href="#Vmware虚拟机网络配置-固定IP" class="headerlink" title="Vmware虚拟机网络配置(固定IP)"></a>Vmware虚拟机网络配置(固定IP)</h3><p><a href="https://www.jianshu.com/p/6fdbba039d79" target="_blank" rel="noopener">https://www.jianshu.com/p/6fdbba039d79</a><br><a href="https://blog.csdn.net/weixin_39609623/article/details/82146778" target="_blank" rel="noopener">https://blog.csdn.net/weixin_39609623/article/details/82146778</a></p>
-<h2 id="bigdata"><a href="#bigdata" class="headerlink" title="bigdata"></a>bigdata</h2><h3 id="Hadoop-Shell命令"><a href="#Hadoop-Shell命令" class="headerlink" title="Hadoop Shell命令"></a>Hadoop Shell命令</h3><p><a href="http://hadoop.apache.org/docs/r1.0.4/cn/hdfs_shell.html" target="_blank" rel="noopener">http://hadoop.apache.org/docs/r1.0.4/cn/hdfs_shell.html</a></p>
-<h3 id="Linux-离线安装pyspark"><a href="#Linux-离线安装pyspark" class="headerlink" title="Linux 离线安装pyspark"></a>Linux 离线安装pyspark</h3><p><a href="https://blog.csdn.net/ghj786110/article/details/82880577" target="_blank" rel="noopener">https://blog.csdn.net/ghj786110/article/details/82880577</a></p>
-<h3 id="Spark配置参数详解"><a href="#Spark配置参数详解" class="headerlink" title="Spark配置参数详解"></a>Spark配置参数详解</h3><p><a href="https://www.cnblogs.com/yangcx666/p/8723826.html" target="_blank" rel="noopener">https://www.cnblogs.com/yangcx666/p/8723826.html</a></p>
-<h3 id="Spark集群-Standalone-模式"><a href="#Spark集群-Standalone-模式" class="headerlink" title="Spark集群-Standalone 模式"></a>Spark集群-Standalone 模式</h3><p><a href="https://www.cnblogs.com/zyzdisciple/p/11599596.html" target="_blank" rel="noopener">https://www.cnblogs.com/zyzdisciple/p/11599596.html</a>l&gt;</p>
-<h3 id="pyspark-包介绍"><a href="#pyspark-包介绍" class="headerlink" title="pyspark 包介绍"></a>pyspark 包介绍</h3><p><a href="https://www.cnblogs.com/wenBlog/p/6323678.html" target="_blank" rel="noopener">https://www.cnblogs.com/wenBlog/p/6323678.html</a></p>
-<h3 id="Spark学习笔记–Spark在Windows下的环境搭建"><a href="#Spark学习笔记–Spark在Windows下的环境搭建" class="headerlink" title="Spark学习笔记–Spark在Windows下的环境搭建"></a>Spark学习笔记–Spark在Windows下的环境搭建</h3><p><a href="https://www.cnblogs.com/xuliangxing/p/7279662.html" target="_blank" rel="noopener">https://www.cnblogs.com/xuliangxing/p/7279662.html</a></p>
-<h3 id="Spark-amp-PySpark-使用手册"><a href="#Spark-amp-PySpark-使用手册" class="headerlink" title="Spark &amp; PySpark 使用手册"></a>Spark &amp; PySpark 使用手册</h3><p><a href="https://haofly.net/spark/" target="_blank" rel="noopener">https://haofly.net/spark/</a></p>
-<h3 id="Spark简介-Python版"><a href="#Spark简介-Python版" class="headerlink" title="Spark简介(Python版)"></a>Spark简介(Python版)</h3><p><a href="http://dblab.xmu.edu.cn/blog/1710-2/" target="_blank" rel="noopener">http://dblab.xmu.edu.cn/blog/1710-2/</a></p>
-<h2 id="python"><a href="#python" class="headerlink" title="python"></a>python</h2><h3 id="Python标准库-非常经典的各种模块介绍"><a href="#Python标准库-非常经典的各种模块介绍" class="headerlink" title="Python标准库(非常经典的各种模块介绍)"></a>Python标准库(非常经典的各种模块介绍)</h3><p><a href="https://blog.csdn.net/qq_41804164/article/details/81448207" target="_blank" rel="noopener">https://blog.csdn.net/qq_41804164/article/details/81448207</a></p>
-<h3 id="linux下安装python3-7-3"><a href="#linux下安装python3-7-3" class="headerlink" title="linux下安装python3.7.3"></a>linux下安装python3.7.3</h3><p><a href="https://blog.csdn.net/jiahao1186/article/details/89454992" target="_blank" rel="noopener">https://blog.csdn.net/jiahao1186/article/details/89454992</a><br><a href="https://blog.csdn.net/weixin_43969563/article/details/90700839" target="_blank" rel="noopener">https://blog.csdn.net/weixin_43969563/article/details/90700839</a></p>
-<h3 id="python3之模块io使用流的核心工具"><a href="#python3之模块io使用流的核心工具" class="headerlink" title="python3之模块io使用流的核心工具"></a>python3之模块io使用流的核心工具</h3><p><a href="https://www.cnblogs.com/zhangxinqi/p/9135038.html" target="_blank" rel="noopener">https://www.cnblogs.com/zhangxinqi/p/9135038.html</a></p>
-<h3 id="python-zipfile-模块"><a href="#python-zipfile-模块" class="headerlink" title="python zipfile 模块"></a>python zipfile 模块</h3><p><a href="https://www.cnblogs.com/ctztake/p/9141259.html" target="_blank" rel="noopener">https://www.cnblogs.com/ctztake/p/9141259.html</a></p>
-<h3 id="术语对照表"><a href="#术语对照表" class="headerlink" title="术语对照表"></a>术语对照表</h3><p><a href="https://docs.python.org/zh-cn/3.7/glossary.html#glossary" target="_blank" rel="noopener">https://docs.python.org/zh-cn/3.7/glossary.html#glossary</a></p>
-<h3 id="Python之Numpy详细教程"><a href="#Python之Numpy详细教程" class="headerlink" title="Python之Numpy详细教程"></a>Python之Numpy详细教程</h3><p><a href="http://www.uml.org.cn/python/201907091.asp" target="_blank" rel="noopener">http://www.uml.org.cn/python/201907091.asp</a></p>
-<h2 id="web"><a href="#web" class="headerlink" title="web"></a>web</h2><h3 id="知识点大杂烩"><a href="#知识点大杂烩" class="headerlink" title="知识点大杂烩"></a>知识点大杂烩</h3><p><a href="https://www.zhangxinxu.com/wordpress/" target="_blank" rel="noopener">https://www.zhangxinxu.com/wordpress/</a></p>
-<h3 id="MDN-Web-docs"><a href="#MDN-Web-docs" class="headerlink" title="MDN Web docs"></a>MDN Web docs</h3><p><a href="https://developer.mozilla.org/zh-CN/" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/</a></p>
-<h2 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h2><h3 id="Docker-官方镜像搜索地址"><a href="#Docker-官方镜像搜索地址" class="headerlink" title="Docker 官方镜像搜索地址"></a>Docker 官方镜像搜索地址</h3><p><a href="https://hub.docker.com/search/?type=image" target="_blank" rel="noopener">https://hub.docker.com/search/?type=image</a></p>
-<h3 id="Docker-run-命令"><a href="#Docker-run-命令" class="headerlink" title="Docker run 命令"></a>Docker run 命令</h3><p><a href="https://www.runoob.com/docker/docker-run-command.html" target="_blank" rel="noopener">https://www.runoob.com/docker/docker-run-command.html</a></p>
-<h3 id="Docker安装配置教程"><a href="#Docker安装配置教程" class="headerlink" title="Docker安装配置教程"></a>Docker安装配置教程</h3><p><a href="https://blog.csdn.net/laughing1997/article/details/84305615" target="_blank" rel="noopener">https://blog.csdn.net/laughing1997/article/details/84305615</a></p>
-<h3 id="史上最简单的Docker入门教程"><a href="#史上最简单的Docker入门教程" class="headerlink" title="史上最简单的Docker入门教程"></a>史上最简单的Docker入门教程</h3><p><a href="https://blog.csdn.net/itguangit/article/details/80222387" target="_blank" rel="noopener">https://blog.csdn.net/itguangit/article/details/80222387</a></p>
-<h3 id="Docker教程：Docker入门实践（精讲版）"><a href="#Docker教程：Docker入门实践（精讲版）" class="headerlink" title="Docker教程：Docker入门实践（精讲版）"></a>Docker教程：Docker入门实践（精讲版）</h3><p><a href="http://c.biancheng.net/docker/" target="_blank" rel="noopener">http://c.biancheng.net/docker/</a></p>
-<h3 id="如何给Docker配置官方国内加速镜像"><a href="#如何给Docker配置官方国内加速镜像" class="headerlink" title="如何给Docker配置官方国内加速镜像"></a>如何给Docker配置官方国内加速镜像</h3><p><a href="https://zhidao.baidu.com/question/1951427014116364148.html" target="_blank" rel="noopener">https://zhidao.baidu.com/question/1951427014116364148.html</a></p>
-<h3 id="docker-异常处理"><a href="#docker-异常处理" class="headerlink" title="docker 异常处理"></a>docker 异常处理</h3><p><a href="https://www.cnblogs.com/dakewei/p/10831125.html" target="_blank" rel="noopener">https://www.cnblogs.com/dakewei/p/10831125.html</a><br><a href="https://www.cnblogs.com/qq952693358/p/6406189.html" target="_blank" rel="noopener">https://www.cnblogs.com/qq952693358/p/6406189.html</a></p>
-<h3 id="docker拉去镜像timeout问题解决"><a href="#docker拉去镜像timeout问题解决" class="headerlink" title="docker拉去镜像timeout问题解决"></a>docker拉去镜像timeout问题解决</h3><p><a href="https://blog.csdn.net/weixin_40789566/article/details/79986861" target="_blank" rel="noopener">https://blog.csdn.net/weixin_40789566/article/details/79986861</a></p>
-<h3 id="详解使用DockerHub官方的mysql镜像生成容器"><a href="#详解使用DockerHub官方的mysql镜像生成容器" class="headerlink" title="详解使用DockerHub官方的mysql镜像生成容器"></a>详解使用DockerHub官方的mysql镜像生成容器</h3><p><a href="https://www.cnblogs.com/adolfmc/p/7109342.html" target="_blank" rel="noopener">https://www.cnblogs.com/adolfmc/p/7109342.html</a></p>
-<h3 id="CentOS7-启动docker-service失败"><a href="#CentOS7-启动docker-service失败" class="headerlink" title="CentOS7 启动docker.service失败"></a>CentOS7 启动docker.service失败</h3><p><a href="https://segmentfault.com/q/1010000002392472" target="_blank" rel="noopener">https://segmentfault.com/q/1010000002392472</a></p>
-<h3 id="Dockerfile-最佳实践及示例"><a href="#Dockerfile-最佳实践及示例" class="headerlink" title="Dockerfile 最佳实践及示例"></a>Dockerfile 最佳实践及示例</h3><h3 id="Docker-的部署方式"><a href="#Docker-的部署方式" class="headerlink" title="Docker 的部署方式"></a>Docker 的部署方式</h3><p><a href="http://dockone.io/article/8619" target="_blank" rel="noopener">http://dockone.io/article/8619</a></p>
-<h3 id="Docker-Kubernetes-YAML文件常用指令"><a href="#Docker-Kubernetes-YAML文件常用指令" class="headerlink" title="Docker Kubernetes YAML文件常用指令"></a>Docker Kubernetes YAML文件常用指令</h3><p><a href="https://www.cnblogs.com/xiangsikai/p/10002060.html" target="_blank" rel="noopener">https://www.cnblogs.com/xiangsikai/p/10002060.html</a></p>
-<h2 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><h3 id="Hexo博客中插入音乐"><a href="#Hexo博客中插入音乐" class="headerlink" title="Hexo博客中插入音乐"></a>Hexo博客中插入音乐</h3><p><a href="https://www.jianshu.com/p/6e41e3191963" target="_blank" rel="noopener">https://www.jianshu.com/p/6e41e3191963</a></p>
-<h3 id="Hexo-博客静态资源压缩优化"><a href="#Hexo-博客静态资源压缩优化" class="headerlink" title="Hexo 博客静态资源压缩优化"></a>Hexo 博客静态资源压缩优化</h3><p><a href="https://www.playpi.org/2018112101.html" target="_blank" rel="noopener">https://www.playpi.org/2018112101.html</a></p>
-<h3 id="Hexo博客使用gulp压缩静态资源"><a href="#Hexo博客使用gulp压缩静态资源" class="headerlink" title="Hexo博客使用gulp压缩静态资源"></a>Hexo博客使用gulp压缩静态资源</h3><p><a href="https://segmentfault.com/a/1190000019842178" target="_blank" rel="noopener">https://segmentfault.com/a/1190000019842178</a></p>
-<h3 id="gulp-快速入门"><a href="#gulp-快速入门" class="headerlink" title="gulp 快速入门"></a>gulp 快速入门</h3><p><a href="https://www.gulpjs.com.cn/docs/getting-started/quick-start/" target="_blank" rel="noopener">https://www.gulpjs.com.cn/docs/getting-started/quick-start/</a></p>
-<h2 id="ELK搭建"><a href="#ELK搭建" class="headerlink" title="ELK搭建"></a>ELK搭建</h2><h3 id="快速搭建ELK日志分析系统"><a href="#快速搭建ELK日志分析系统" class="headerlink" title="快速搭建ELK日志分析系统"></a>快速搭建ELK日志分析系统</h3><p><a href="https://blog.csdn.net/e_wsq/article/details/81303713" target="_blank" rel="noopener">https://blog.csdn.net/e_wsq/article/details/81303713</a>3&gt;<br><a href="https://www.elastic.co/guide/cn/index.html" target="_blank" rel="noopener">https://www.elastic.co/guide/cn/index.html</a></p>
-<h3 id="ELK原理与介绍"><a href="#ELK原理与介绍" class="headerlink" title="ELK原理与介绍"></a>ELK原理与介绍</h3><p><a href="https://www.cnblogs.com/aresxin/p/8035137.html" target="_blank" rel="noopener">https://www.cnblogs.com/aresxin/p/8035137.html</a></p>
-<h3 id="终于有人把Elasticsearch原理讲透了"><a href="#终于有人把Elasticsearch原理讲透了" class="headerlink" title="终于有人把Elasticsearch原理讲透了"></a>终于有人把Elasticsearch原理讲透了</h3><p><a href="http://developer.51cto.com/art/201904/594615.htm" target="_blank" rel="noopener">http://developer.51cto.com/art/201904/594615.htm</a></p>
-<h3 id="日志管理系统ELK6-2-3"><a href="#日志管理系统ELK6-2-3" class="headerlink" title="日志管理系统ELK6.2.3"></a>日志管理系统ELK6.2.3</h3><p><a href="https://www.cnblogs.com/wangmo/p/9505883.html" target="_blank" rel="noopener">https://www.cnblogs.com/wangmo/p/9505883.html</a></p>
-<h2 id="ubutun下载地址"><a href="#ubutun下载地址" class="headerlink" title="ubutun下载地址"></a>ubutun下载地址</h2><p>[中科大源]<a href="http://mirrors.ustc.edu.cn/ubuntu-releases/16.04/" target="_blank" rel="noopener">http://mirrors.ustc.edu.cn/ubuntu-releases/16.04/</a> 　<br>[阿里云开源镜像站]<a href="http://mirrors.aliyun.com/ubuntu-releases/16.04/" target="_blank" rel="noopener">http://mirrors.aliyun.com/ubuntu-releases/16.04/</a>/&gt; 　<br>[兰州大学开源镜像站]<a href="http://mirror.lzu.edu.cn/ubuntu-releases/16.04/" target="_blank" rel="noopener">http://mirror.lzu.edu.cn/ubuntu-releases/16.04/</a>/&gt; 　<br>[北京理工大学开源]<a href="http://mirror.bit.edu.cn/ubuntu-releases/16.04/" target="_blank" rel="noopener">http://mirror.bit.edu.cn/ubuntu-releases/16.04/</a> 　<br>[浙江大学]<a href="http://mirrors.zju.edu.cn/ubuntu-releases/16.04/" target="_blank" rel="noopener">http://mirrors.zju.edu.cn/ubuntu-releases/16.04/</a></p>
-<h2 id="Linux-Shell"><a href="#Linux-Shell" class="headerlink" title="Linux Shell"></a>Linux Shell</h2><h3 id="Shell脚本：Linux-Shell脚本学习指南（超详细）"><a href="#Shell脚本：Linux-Shell脚本学习指南（超详细）" class="headerlink" title="Shell脚本：Linux Shell脚本学习指南（超详细）"></a>Shell脚本：Linux Shell脚本学习指南（超详细）</h3><p><a href="http://c.biancheng.net/shell/" target="_blank" rel="noopener">http://c.biancheng.net/shell/</a></p>
-<h2 id="网站"><a href="#网站" class="headerlink" title="网站"></a>网站</h2><h3 id="红黑联盟"><a href="#红黑联盟" class="headerlink" title="红黑联盟"></a>红黑联盟</h3><p><a href="https://www.2cto.com/" target="_blank" rel="noopener">https://www.2cto.com/</a></p>
-<h3 id="骇客"><a href="#骇客" class="headerlink" title="骇客"></a>骇客</h3><p><a href="http://www.webhek.com/" target="_blank" rel="noopener">http://www.webhek.com/</a></p>
-<h3 id="codecombat"><a href="#codecombat" class="headerlink" title="codecombat"></a>codecombat</h3><p><a href="https://koudashijie.com/play" target="_blank" rel="noopener">https://koudashijie.com/play</a></p>
-<h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><h3 id="二叉树前序、中序、后序遍历相互求法"><a href="#二叉树前序、中序、后序遍历相互求法" class="headerlink" title="二叉树前序、中序、后序遍历相互求法"></a>二叉树前序、中序、后序遍历相互求法</h3><p><a href="https://blog.csdn.net/u011435776/article/details/80946479" target="_blank" rel="noopener">https://blog.csdn.net/u011435776/article/details/80946479</a></p>
-<h2 id="软件下载"><a href="#软件下载" class="headerlink" title="软件下载"></a>软件下载</h2><h3 id="spark安装包"><a href="#spark安装包" class="headerlink" title="spark安装包"></a>spark安装包</h3><p><a href="http://spark.apache.org/downloads.html" target="_blank" rel="noopener">http://spark.apache.org/downloads.html</a></p>
-<h3 id="minio文档"><a href="#minio文档" class="headerlink" title="minio文档"></a>minio文档</h3><p><a href="https://docs.min.io/cn/minio-docker-quickstart-guide.html" target="_blank" rel="noopener">https://docs.min.io/cn/minio-docker-quickstart-guide.html</a></p>
-<h3 id="Minio存储桶通知指南"><a href="#Minio存储桶通知指南" class="headerlink" title="Minio存储桶通知指南"></a>Minio存储桶通知指南</h3><p><a href="https://blog.csdn.net/dingjs520/article/details/79111008" target="_blank" rel="noopener">https://blog.csdn.net/dingjs520/article/details/79111008</a></p>
-<h3 id="Minio-环境搭建详述"><a href="#Minio-环境搭建详述" class="headerlink" title="Minio 环境搭建详述"></a>Minio 环境搭建详述</h3><p><a href="https://www.linuxidc.com/Linux/2019-11/161331.htm" target="_blank" rel="noopener">https://www.linuxidc.com/Linux/2019-11/161331.htm</a></p>
-<h3 id="Docker安装Minio存储服务器详解"><a href="#Docker安装Minio存储服务器详解" class="headerlink" title="Docker安装Minio存储服务器详解"></a>Docker安装Minio存储服务器详解</h3><p><a href="https://www.jianshu.com/p/52dbc679094a" target="_blank" rel="noopener">https://www.jianshu.com/p/52dbc679094a</a></p>
-<h2 id="GitHub"><a href="#GitHub" class="headerlink" title="GitHub"></a>GitHub</h2><p><a href="https://github.com/aixiu" target="_blank" rel="noopener">https://github.com/aixiu</a></p>
-<h2 id="协议"><a href="#协议" class="headerlink" title="协议"></a>协议</h2><h3 id="OSI-七层模型和TCP-IP模型及对应协议（详解）"><a href="#OSI-七层模型和TCP-IP模型及对应协议（详解）" class="headerlink" title="OSI 七层模型和TCP/IP模型及对应协议（详解）"></a>OSI 七层模型和TCP/IP模型及对应协议（详解）</h3><p><a href="https://blog.csdn.net/qq_41923622/article/details/85805003" target="_blank" rel="noopener">https://blog.csdn.net/qq_41923622/article/details/85805003</a></p>
-<h2 id="Data-Structure-Visualizations"><a href="#Data-Structure-Visualizations" class="headerlink" title="Data Structure Visualizations"></a>Data Structure Visualizations</h2><p><a href="https://www.cs.usfca.edu/~galles/visualization/Algorithms.html" target="_blank" rel="noopener">https://www.cs.usfca.edu/~galles/visualization/Algorithms.html</a></p>
-
+            <div class="post-button text-center">
+              <a class="btn" href="/python/module/python-glob-module.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
           
+          <!--/noindex-->
         
       
     </div>
@@ -1914,7 +1313,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/git/git-教程.html">
+    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/python/tips/python-查找最大或最小的-n-个元素.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Mr Wang">
@@ -1934,7 +1333,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/git/git-教程.html" class="post-title-link" itemprop="url">git 教程</a>
+                <a href="/python/tips/python-查找最大或最小的-n-个元素.html" class="post-title-link" itemprop="url">python 查找最大或最小的 N 个元素</a>
               
             
           </h1>
@@ -1959,24 +1358,731 @@
                 
               
 
-              <time title="创建时间：2019-07-20 00:00" itemprop="dateCreated datePublished" datetime="2019-07-20T00:00:00+08:00">2019-07-20</time>
+              <time title="创建时间：2019-08-03 00:00" itemprop="dateCreated datePublished" datetime="2019-08-03T00:00:00+08:00">2019-08-03</time>
+            </span>
+          
+
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/tips/" itemprop="url" rel="index"><span itemprop="name">tips</span></a></span>
+
+                
+                
+              
             </span>
           
 
           
             
+            
+          
 
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="查找最大或最小的-N-个元素"><a href="#查找最大或最小的-N-个元素" class="headerlink" title="查找最大或最小的 N 个元素"></a>查找最大或最小的 N 个元素</h2><ul>
+<li><p><strong>问题</strong></p>
+<p>获得一个列表(列表元素很多)中最大或者最小的 N 个元素列表？</p>
+</li>
+</ul>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/python/tips/python-查找最大或最小的-n-个元素.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/python/module/python-timeit-module.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr Wang">
+      <meta itemprop="description" content="行动了才会有故事，说出来才会有结果。">
+      <meta itemprop="image" content="/images/profile.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="勿忘，须舍">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/python/module/python-timeit-module.html" class="post-title-link" itemprop="url">python timeit module</a>
+              
             
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-08-01 00:00" itemprop="dateModified" datetime="2019-08-01T00:00:00+08:00">2019-08-01</time>
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
               </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-02 00:00" itemprop="dateCreated datePublished" datetime="2019-08-02T00:00:00+08:00">2019-08-02</time>
+            </span>
+          
+
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/module/" itemprop="url" rel="index"><span itemprop="name">module</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
             
+            
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>用于计算一小段 Python 代码耗时的模块。</p>
+<p><strong>源码：</strong> <a href="https://github.com/python/cpython/tree/3.7/Lib/timeit.py" target="_blank" rel="noopener">Lib/timeit.py</a></p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/python/module/python-timeit-module.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/python/tips/python-保留最后n个元素.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr Wang">
+      <meta itemprop="description" content="行动了才会有故事，说出来才会有结果。">
+      <meta itemprop="image" content="/images/profile.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="勿忘，须舍">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/python/tips/python-保留最后n个元素.html" class="post-title-link" itemprop="url">python 保留最后N个元素</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-02 00:00" itemprop="dateCreated datePublished" datetime="2019-08-02T00:00:00+08:00">2019-08-02</time>
+            </span>
+          
+
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/tips/" itemprop="url" rel="index"><span itemprop="name">tips</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="保留最后-N-个元素"><a href="#保留最后-N-个元素" class="headerlink" title="保留最后 N 个元素"></a>保留最后 N 个元素</h2><ul>
+<li><p><strong>问题</strong></p>
+<p>在迭代操作或者其他操作的时候，怎样只保留最后有限几个元素的历史记录？</p>
+</li>
+</ul>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/python/tips/python-保留最后n个元素.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/python/tips/python-解压序列赋值给多个变量.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr Wang">
+      <meta itemprop="description" content="行动了才会有故事，说出来才会有结果。">
+      <meta itemprop="image" content="/images/profile.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="勿忘，须舍">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/python/tips/python-解压序列赋值给多个变量.html" class="post-title-link" itemprop="url">python 解压序列赋值给多个变量</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-02 00:00" itemprop="dateCreated datePublished" datetime="2019-08-02T00:00:00+08:00">2019-08-02</time>
+            </span>
+          
+
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/python/tips/" itemprop="url" rel="index"><span itemprop="name">tips</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>现在有一个包含 N 个元素的元组或者是序列，怎样将它里面的值解压后同时赋值给 N 个变量？</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/python/tips/python-解压序列赋值给多个变量.html#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://forgetst.github.io/git/git推送本地分支到远端.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Mr Wang">
+      <meta itemprop="description" content="行动了才会有故事，说出来才会有结果。">
+      <meta itemprop="image" content="/images/profile.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="勿忘，须舍">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/git/git推送本地分支到远端.html" class="post-title-link" itemprop="url">git推送本地分支到远端</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-08-01 00:00" itemprop="dateCreated datePublished" datetime="2019-08-01T00:00:00+08:00">2019-08-01</time>
+            </span>
+          
+
           
 
           
@@ -2029,18 +2135,11 @@
 
       
         
-          <h2 id="git-简介"><a href="#git-简介" class="headerlink" title="git 简介"></a>git 简介</h2><p>git是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。</p>
-<p>Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。</p>
-<p>Git 与常用的版本控制工具 CVS, Subversion 等不同，它采用了分布式版本库的方式，不必服务器端软件支持。</p>
-          <!--noindex-->
           
-            <div class="post-button text-center">
-              <a class="btn" href="/git/git-教程.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git push origin :DstBranch</span><br><span class="line">git push origin localBranch:DstBranch</span><br><span class="line">git branch --set-upstream-to=origin/DstBranch localBranch</span><br><span class="line"></span><br><span class="line"># 清空远端分支</span><br><span class="line"># 以本地分支为基础推送并创建远端分支</span><br><span class="line"># 关联本地分支与远端分支</span><br></pre></td></tr></table></figure>
+
+
           
-          <!--/noindex-->
         
       
     </div>
@@ -2090,7 +2189,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/13/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span>
+    <a class="extend prev" rel="prev" href="/page/13/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/15/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -2135,7 +2234,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">139</span>
+          <span class="site-state-item-count">149</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -2262,7 +2361,21 @@
         
           
         
-        <span class="site-state-item-count">51</span>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">58</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -2363,7 +2476,13 @@
         
           
         
-        <span class="site-state-item-count">40</span>
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">43</span>
         <span class="site-state-item-name">标签</span>
         </a>
       </div>
