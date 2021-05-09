@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://forgetst.github.io/"/>
-  <updated>2021-03-05T16:00:00.000Z</updated>
+  <updated>2021-03-22T16:00:00.000Z</updated>
   <id>https://forgetst.github.io/</id>
   
   <author>
@@ -15,6 +15,82 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>解决broker挂掉时celery卡死的问题</title>
+    <link href="https://forgetst.github.io/celery/%E8%A7%A3%E5%86%B3broker%E6%8C%82%E6%8E%89%E6%97%B6celery%E5%8D%A1%E6%AD%BB%E7%9A%84%E9%97%AE%E9%A2%98.html"/>
+    <id>https://forgetst.github.io/celery/解决broker挂掉时celery卡死的问题.html</id>
+    <published>2021-03-22T16:00:00.000Z</published>
+    <updated>2021-03-22T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="celery" scheme="https://forgetst.github.io/categories/celery/"/>
+    
+    
+      <category term="python" scheme="https://forgetst.github.io/tags/python/"/>
+    
+      <category term="celery" scheme="https://forgetst.github.io/tags/celery/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>TCP三次握手、四次挥手过程及原理</title>
+    <link href="https://forgetst.github.io/tcp/tcp%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E3%80%81%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B%E8%BF%87%E7%A8%8B%E5%8F%8A%E5%8E%9F%E7%90%86.html"/>
+    <id>https://forgetst.github.io/tcp/tcp三次握手、四次挥手过程及原理.html</id>
+    <published>2021-03-21T16:00:00.000Z</published>
+    <updated>2021-03-21T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;TCP-协议简述&quot;&gt;&lt;a href=&quot;#TCP-协议简述&quot; class=&quot;headerlink&quot; title=&quot;TCP 协议简述&quot;&gt;&lt;/a&gt;TCP 协议简述&lt;/h2&gt;&lt;p&gt;TCP 提供面向有连接的通信传输，面向有连接是指在传送数据之前必须先建立连接，数据传送完成后要释放连接。&lt;br&gt;无论哪一方向另一方发送数据之前，都必须先在双方之间建立一条连接。在TCP/IP协议中，TCP协议提供可靠的连接服务，连接是通过三次握手进行初始化的。&lt;br&gt;同时由于TCP协议是一种面向连接的、可靠的、基于字节流的运输层通信协议，TCP是全双工模式，所以需要四次挥手关闭连接。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="tcp" scheme="https://forgetst.github.io/categories/tcp/"/>
+    
+    
+      <category term="tcp" scheme="https://forgetst.github.io/tags/tcp/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>mysql explain使用</title>
+    <link href="https://forgetst.github.io/mysql/mysql-explain%E4%BD%BF%E7%94%A8.html"/>
+    <id>https://forgetst.github.io/mysql/mysql-explain使用.html</id>
+    <published>2021-03-21T16:00:00.000Z</published>
+    <updated>2021-03-21T16:00:00.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;explain模拟优化器执行SQL语句，在5.6以及以后的版本中，除过select，其他比如insert，update和delete均可以使用explain查看执行计划，从而知道mysql是如何处理sql语句，分析查询语句或者表结构的性能瓶颈。作用:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;表的读取顺序&lt;/li&gt;
+&lt;li&gt;数据读取操作的操作类型&lt;/li&gt;
+&lt;li&gt;哪些索引可以使用&lt;/li&gt;
+&lt;li&gt;哪些索引被实际使用&lt;/li&gt;
+&lt;li&gt;表之间的引用&lt;/li&gt;
+&lt;li&gt;每张表有多少行被优化器查询&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="mysql" scheme="https://forgetst.github.io/categories/mysql/"/>
+    
+    
+      <category term="mysql" scheme="https://forgetst.github.io/tags/mysql/"/>
+    
+  </entry>
   
   <entry>
     <title>golang常用库：字段参数验证库-validator使用</title>
@@ -421,75 +497,6 @@
     
     
       <category term="python" scheme="https://forgetst.github.io/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>python 安装虚拟环境</title>
-    <link href="https://forgetst.github.io/python/python-%E5%AE%89%E8%A3%85%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83.html"/>
-    <id>https://forgetst.github.io/python/python-安装虚拟环境.html</id>
-    <published>2021-01-25T16:00:00.000Z</published>
-    <updated>2021-01-25T16:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;虚拟环境用于管理不同版本或不用项目的pyhton开发环境。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="python" scheme="https://forgetst.github.io/categories/python/"/>
-    
-    
-      <category term="python" scheme="https://forgetst.github.io/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>python描述器使用指南</title>
-    <link href="https://forgetst.github.io/python/python%E6%8F%8F%E8%BF%B0%E5%99%A8%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97.html"/>
-    <id>https://forgetst.github.io/python/python描述器使用指南.html</id>
-    <published>2021-01-19T16:00:00.000Z</published>
-    <updated>2021-01-19T16:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;定义和简介&quot;&gt;&lt;a href=&quot;#定义和简介&quot; class=&quot;headerlink&quot; title=&quot;定义和简介&quot;&gt;&lt;/a&gt;定义和简介&lt;/h2&gt;&lt;p&gt;一般地，一个描述器是一个包含 “绑定行为” 的对象，对其属性的访问被描述器协议中定义的方法覆盖。这些方法有：&lt;code&gt;__get__()&lt;/code&gt;，&lt;code&gt;__set__()&lt;/code&gt; 和 &lt;code&gt;__delete__()&lt;/code&gt;。如果某个对象中定义了这些方法中的任意一个，那么这个对象就可以被称为一个描述器。&lt;/p&gt;
-&lt;p&gt;属性访问的默认行为是从一个对象的字典中获取、设置或删除属性。例如，&lt;strong&gt;&lt;code&gt;a.x&lt;/code&gt; 的查找顺序会从 &lt;code&gt;a.__dict__[&amp;#39;x&amp;#39;]&lt;/code&gt; 开始，然后是 &lt;code&gt;type(a).__dict__[&amp;#39;x&amp;#39;]&lt;/code&gt;，接下来依次查找 &lt;code&gt;type(a)&lt;/code&gt; 的基类，不包括元类&lt;/strong&gt;。 如果找到的值是定义了某个描述器方法的对象，则 Python 可能会重载默认行为并转而发起调用描述器方法。这具体发生在优先级链的哪个环节则要根据所定义的描述器方法及其被调用的方式来决定。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="python" scheme="https://forgetst.github.io/categories/python/"/>
-    
-    
-      <category term="python" scheme="https://forgetst.github.io/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Django 序列化问题</title>
-    <link href="https://forgetst.github.io/python/django-%E5%BA%8F%E5%88%97%E5%8C%96%E9%97%AE%E9%A2%98.html"/>
-    <id>https://forgetst.github.io/python/django-序列化问题.html</id>
-    <published>2021-01-18T16:00:00.000Z</published>
-    <updated>2021-01-18T16:00:00.000Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
-    
-    </summary>
-    
-      <category term="python" scheme="https://forgetst.github.io/categories/python/"/>
-    
-    
-      <category term="pythoon" scheme="https://forgetst.github.io/tags/pythoon/"/>
-    
-      <category term="django" scheme="https://forgetst.github.io/tags/django/"/>
     
   </entry>
   
